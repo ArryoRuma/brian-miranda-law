@@ -45,7 +45,7 @@ export default function Home() {
         >
           <img
             className="brand-logo"
-            src="/miranda-law-gold.svg"
+            src="/miranda-law-gold.png"
             alt=""
             aria-hidden="true"
           />
