@@ -106,7 +106,7 @@ export default function ChecklistPage() {
               <ul>
                 {group.items.map(item => (
                   <li key={item}>
-                    <Check size={17} /> {item}
+                    <Check size={17} aria-hidden="true" /> {item}
                   </li>
                 ))}
               </ul>

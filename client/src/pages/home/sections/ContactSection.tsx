@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "wouter";
-import { CONTACT, getPhoneHref } from "@/site/siteConfig";
+import { PrimaryContactActions } from "@/components/site/ContactActions";
 import { SectionEyebrow } from "../SectionEyebrow";
 
 export function ContactSection() {
@@ -16,14 +16,16 @@ export function ContactSection() {
           </p>
         </div>
         <div className="contact-card">
-          <p className="contact-card-label">Begin here</p>
-          <a href={getPhoneHref()}>
-            {CONTACT.phoneDisplay} <ArrowUpRight size={17} />
-          </a>
+          <p className="contact-card-label">Contact Brian directly</p>
+          <PrimaryContactActions />
           <div className="contact-rule" />
           <p>
-            Call, text, or WhatsApp the legal team, or{" "}
-            <Link href="/contact">view every contact option</Link>.
+            Prefer WhatsApp or email?{" "}
+            <Link href="/contact">
+              View every contact option{" "}
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
+            .
           </p>
         </div>
       </div>

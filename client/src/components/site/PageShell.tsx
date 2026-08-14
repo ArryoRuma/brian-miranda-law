@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Breadcrumbs } from "./Breadcrumbs";
 import { PageMeta } from "./PageMeta";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
@@ -30,7 +31,10 @@ export function PageShell({
         noIndex={noIndex}
       />
       <SiteHeader />
-      <main>{children}</main>
+      <main id="main-content" tabIndex={-1}>
+        <Breadcrumbs path={path} />
+        {children}
+      </main>
       <SiteFooter />
     </div>
   );

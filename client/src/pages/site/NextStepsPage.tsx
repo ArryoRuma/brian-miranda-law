@@ -111,7 +111,7 @@ export default function NextStepsPage() {
             const Icon = ICONS[index];
             return (
               <li key={title}>
-                <Icon size={25} />
+                <Icon size={25} aria-hidden="true" />
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <h2>{title}</h2>
                 <p>{body}</p>
@@ -121,7 +121,7 @@ export default function NextStepsPage() {
         </ol>
         <div className="next-steps-actions">
           <Link className="button button-brass" href={`/start/${locale}`}>
-            {copy.cta} <ArrowUpRight size={17} />
+            {copy.cta} <ArrowUpRight size={17} aria-hidden="true" />
           </Link>
           <a href={getPhoneHref()}>{CONTACT.phoneDisplay}</a>
           <a href={getWhatsAppHref()} target="_blank" rel="noreferrer">

@@ -1,6 +1,6 @@
-import type { FormEvent } from "react";
-import { ArrowRight, Check, LockKeyhole } from "lucide-react";
-import { useLocation, useParams } from "wouter";
+import { Check, LockKeyhole } from "lucide-react";
+import { useParams } from "wouter";
+import { PrimaryContactActions } from "@/components/site/ContactActions";
 import { PageShell } from "@/components/site/PageShell";
 
 type Locale = "en" | "es" | "pt";
@@ -12,16 +12,16 @@ const COPY = {
     meta: "Organize your family, estate-planning goals, and consultation preferences before speaking with Miranda Law.",
     eyebrow: "Estate-planning questionnaire",
     heading: "Create a clear plan for the people you love.",
-    lead: "Answer a few questions about your family and planning goals, then review what happens during a free consultation with Miranda Law.",
+    lead: "Review the questions Miranda Law may discuss with you, then call or text when you are ready for a free consultation.",
     trust: [
       "Free initial consultation",
       "Serving North Jersey families",
       "English, Spanish, and Portuguese",
       "Clear, personalized guidance",
     ],
-    statusTitle: "Questionnaire scaffold",
+    statusTitle: "Questionnaire preview",
     statusBody:
-      "Secure form delivery is not connected yet. This page demonstrates the approved intake structure and does not transmit answers. Do not enter confidential information during this stage.",
+      "This page previews the intake conversation. It does not collect or transmit answers, so you can review the topics without entering personal information.",
     sections: {
       contact: "Start with your contact preferences",
       about: "About you",
@@ -82,7 +82,12 @@ const COPY = {
       "Update an existing plan",
       "Not sure yet",
     ],
-    preview: "Preview what happens next",
+    preview: "What we may ask",
+    contactTitle: "Ready to start the conversation?",
+    contactBody:
+      "Call or text Brian directly. Please do not include confidential or time-sensitive information until the firm confirms representation.",
+    callCta: "Call Brian",
+    textCta: "Text Brian",
   },
   es: {
     lang: "es",
@@ -90,16 +95,16 @@ const COPY = {
     meta: "Organice la información sobre su familia, sus objetivos y sus preferencias antes de hablar con Miranda Law.",
     eyebrow: "Cuestionario de planificación patrimonial",
     heading: "Cree un plan claro para las personas que ama.",
-    lead: "Responda algunas preguntas sobre su familia y sus objetivos, y luego conozca los próximos pasos para una consulta inicial gratuita con Miranda Law.",
+    lead: "Revise las preguntas que Miranda Law puede conversar con usted y llame o envíe un mensaje cuando esté listo para una consulta inicial gratuita.",
     trust: [
       "Consulta inicial gratuita",
       "Atendemos a familias de North Jersey",
       "Inglés, español y portugués",
       "Orientación clara y personalizada",
     ],
-    statusTitle: "Estructura preliminar del cuestionario",
+    statusTitle: "Vista previa del cuestionario",
     statusBody:
-      "El envío seguro todavía no está conectado. Esta página demuestra la estructura de admisión y no transmite respuestas. No ingrese información confidencial en esta etapa.",
+      "Esta página presenta los temas de la conversación inicial. No recopila ni transmite respuestas, por lo que puede revisarla sin ingresar información personal.",
     sections: {
       contact: "Comience con sus preferencias de contacto",
       about: "Sobre usted",
@@ -161,7 +166,12 @@ const COPY = {
       "Actualizar un plan existente",
       "Aún no estoy seguro/a",
     ],
-    preview: "Ver los próximos pasos",
+    preview: "Lo que podemos preguntar",
+    contactTitle: "¿Listo para comenzar la conversación?",
+    contactBody:
+      "Llame o envíe un mensaje a Brian. No incluya información confidencial o urgente hasta que la firma confirme la representación.",
+    callCta: "Llamar a Brian",
+    textCta: "Enviar mensaje",
   },
   pt: {
     lang: "pt",
@@ -169,16 +179,16 @@ const COPY = {
     meta: "Organize informações sobre sua família, seus objetivos e suas preferências antes de conversar com o Miranda Law.",
     eyebrow: "Questionário de planejamento patrimonial",
     heading: "Crie um plano claro para as pessoas que você ama.",
-    lead: "Responda a algumas perguntas sobre sua família e seus objetivos e veja os próximos passos para uma consulta inicial gratuita com o Miranda Law.",
+    lead: "Revise as perguntas que o Miranda Law pode conversar com você e ligue ou envie uma mensagem quando estiver pronto para uma consulta inicial gratuita.",
     trust: [
       "Consulta inicial gratuita",
       "Atendimento a famílias de North Jersey",
       "Inglês, espanhol e português",
       "Orientação clara e personalizada",
     ],
-    statusTitle: "Estrutura preliminar do questionário",
+    statusTitle: "Prévia do questionário",
     statusBody:
-      "O envio seguro ainda não está conectado. Esta página demonstra a estrutura de atendimento e não transmite respostas. Não insira informações confidenciais nesta etapa.",
+      "Esta página apresenta os assuntos da conversa inicial. Ela não coleta nem transmite respostas, então você pode revisar tudo sem inserir informações pessoais.",
     sections: {
       contact: "Comece com suas preferências de contato",
       about: "Sobre você",
@@ -239,7 +249,12 @@ const COPY = {
       "Atualizar um plano existente",
       "Ainda não tenho certeza",
     ],
-    preview: "Ver os próximos passos",
+    preview: "O que podemos perguntar",
+    contactTitle: "Pronto para começar a conversa?",
+    contactBody:
+      "Ligue ou envie uma mensagem para Brian. Não inclua informações confidenciais ou urgentes até que o escritório confirme a representação.",
+    callCta: "Ligar para Brian",
+    textCta: "Enviar mensagem",
   },
 } as const;
 
@@ -247,46 +262,52 @@ function normalizeLocale(value: string | undefined): Locale {
   return value === "es" || value === "pt" ? value : "en";
 }
 
-function SelectField({
-  label,
-  name,
-  options,
-  placeholder,
-}: {
-  label: string;
-  name: string;
-  options: readonly string[];
-  placeholder: string;
-}) {
-  return (
-    <label>
-      <span>{label}</span>
-      <select name={name} defaultValue="">
-        <option value="" disabled>
-          {placeholder}
-        </option>
-        {options.map(option => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
-    </label>
-  );
-}
-
 export default function QuestionnairePage() {
   const params = useParams<{ locale?: string }>();
   const locale = normalizeLocale(params.locale);
   const copy = COPY[locale];
-  const [, setLocation] = useLocation();
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setLocation(`/start/${locale}/what-happens-next`);
-  };
-
-  const yesNoOptions = [copy.options.yes, copy.options.no, copy.options.unsure];
+  const previewGroups = [
+    {
+      title: copy.sections.contact,
+      questions: [
+        copy.labels.name,
+        copy.labels.email,
+        copy.labels.phone,
+        copy.labels.contact,
+        copy.labels.language,
+      ],
+    },
+    {
+      title: copy.sections.about,
+      questions: [copy.labels.city, copy.labels.state, copy.labels.marital],
+    },
+    {
+      title: copy.sections.family,
+      questions: [copy.labels.children, copy.labels.dependents],
+    },
+    {
+      title: copy.sections.planning,
+      questions: [
+        copy.labels.prompted,
+        copy.labels.services,
+        ...copy.serviceOptions,
+      ],
+    },
+    {
+      title: copy.sections.documents,
+      questions: [
+        copy.labels.existing,
+        copy.labels.executor,
+        copy.labels.financial,
+        copy.labels.healthcare,
+        copy.labels.timing,
+      ],
+    },
+    {
+      title: copy.sections.notes,
+      questions: [copy.labels.notes, copy.labels.consent],
+    },
+  ];
 
   return (
     <PageShell
@@ -306,182 +327,57 @@ export default function QuestionnairePage() {
           <ul>
             {copy.trust.map(item => (
               <li key={item}>
-                <Check size={16} /> {item}
+                <Check size={16} aria-hidden="true" /> {item}
               </li>
             ))}
           </ul>
         </div>
         <div className="questionnaire-intro-card">
-          <LockKeyhole size={24} />
+          <LockKeyhole size={24} aria-hidden="true" />
           <h2>{copy.statusTitle}</h2>
           <p>{copy.statusBody}</p>
         </div>
       </section>
 
-      <form className="questionnaire-form" onSubmit={handleSubmit}>
-        <fieldset>
-          <legend>01 — {copy.sections.contact}</legend>
-          <div className="form-grid">
-            <label>
-              <span>{copy.labels.name}</span>
-              <input name="name" autoComplete="name" />
-            </label>
-            <label>
-              <span>{copy.labels.email}</span>
-              <input name="email" type="email" autoComplete="email" />
-            </label>
-            <label>
-              <span>{copy.labels.phone}</span>
-              <input name="phone" type="tel" autoComplete="tel" />
-            </label>
-            <SelectField
-              label={copy.labels.contact}
-              name="contact-method"
-              placeholder={copy.options.choose}
-              options={[
-                copy.options.call,
-                copy.options.text,
-                copy.options.whatsapp,
-              ]}
-            />
-            <SelectField
-              label={copy.labels.language}
-              name="language"
-              placeholder={copy.options.choose}
-              options={[
-                copy.options.english,
-                copy.options.spanish,
-                copy.options.portuguese,
-              ]}
-            />
-          </div>
-        </fieldset>
+      <section
+        className="questionnaire-preview"
+        aria-labelledby="preview-heading"
+      >
+        <div className="questionnaire-preview-heading">
+          <p className="eyebrow dark">
+            <span className="eyebrow-rule" /> {copy.preview}
+          </p>
+          <h2 id="preview-heading">{copy.statusTitle}</h2>
+        </div>
+        <ol className="questionnaire-preview-list">
+          {previewGroups.map((group, index) => (
+            <li key={group.title}>
+              <details open={index === 0}>
+                <summary>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong>{group.title}</strong>
+                </summary>
+                <ul>
+                  {group.questions.map(question => (
+                    <li key={question}>{question}</li>
+                  ))}
+                </ul>
+              </details>
+            </li>
+          ))}
+        </ol>
+      </section>
 
-        <fieldset>
-          <legend>02 — {copy.sections.about}</legend>
-          <div className="form-grid">
-            <label>
-              <span>{copy.labels.city}</span>
-              <input name="city" autoComplete="address-level2" />
-            </label>
-            <label>
-              <span>{copy.labels.state}</span>
-              <input
-                name="state"
-                defaultValue="NJ"
-                autoComplete="address-level1"
-              />
-            </label>
-            <SelectField
-              label={copy.labels.marital}
-              name="marital-status"
-              placeholder={copy.options.choose}
-              options={[
-                copy.options.single,
-                copy.options.married,
-                copy.options.partnered,
-                copy.options.divorced,
-                copy.options.widowed,
-              ]}
-            />
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>03 — {copy.sections.family}</legend>
-          <div className="form-grid">
-            <SelectField
-              label={copy.labels.children}
-              name="children"
-              placeholder={copy.options.choose}
-              options={yesNoOptions}
-            />
-            <SelectField
-              label={copy.labels.dependents}
-              name="dependents"
-              placeholder={copy.options.choose}
-              options={yesNoOptions}
-            />
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>04 — {copy.sections.planning}</legend>
-          <label className="form-full-width">
-            <span>{copy.labels.prompted}</span>
-            <textarea name="prompted" rows={4} />
-          </label>
-          <div className="form-checkbox-grid">
-            <span>{copy.labels.services}</span>
-            {copy.serviceOptions.map(service => (
-              <label key={service}>
-                <input type="checkbox" name="services" value={service} />
-                <span>{service}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>05 — {copy.sections.documents}</legend>
-          <div className="form-grid">
-            <SelectField
-              label={copy.labels.existing}
-              name="existing-documents"
-              placeholder={copy.options.choose}
-              options={yesNoOptions}
-            />
-            <SelectField
-              label={copy.labels.executor}
-              name="executor"
-              placeholder={copy.options.choose}
-              options={yesNoOptions}
-            />
-            <SelectField
-              label={copy.labels.financial}
-              name="financial-agent"
-              placeholder={copy.options.choose}
-              options={yesNoOptions}
-            />
-            <SelectField
-              label={copy.labels.healthcare}
-              name="healthcare-representative"
-              placeholder={copy.options.choose}
-              options={yesNoOptions}
-            />
-            <SelectField
-              label={copy.labels.timing}
-              name="timing"
-              placeholder={copy.options.choose}
-              options={[
-                copy.options.soon,
-                copy.options.month,
-                copy.options.quarter,
-                copy.options.exploring,
-              ]}
-            />
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>06 — {copy.sections.notes}</legend>
-          <label className="form-full-width">
-            <span>{copy.labels.notes}</span>
-            <textarea name="notes" rows={6} />
-          </label>
-          <label className="consent-label">
-            <input type="checkbox" name="consent" required />
-            <span>{copy.labels.consent}</span>
-          </label>
-        </fieldset>
-
-        <button
-          className="button button-brass questionnaire-submit"
-          type="submit"
-        >
-          {copy.preview} <ArrowRight size={18} />
-        </button>
-      </form>
+      <section className="questionnaire-preview-cta">
+        <div>
+          <h2>{copy.contactTitle}</h2>
+          <p>{copy.contactBody}</p>
+        </div>
+        <PrimaryContactActions
+          callLabel={copy.callCta}
+          textLabel={copy.textCta}
+        />
+      </section>
     </PageShell>
   );
 }

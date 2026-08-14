@@ -1,40 +1,22 @@
 import { Mail, MapPin, MessageCircle, Phone, Smartphone } from "lucide-react";
 import { InteriorHero } from "@/components/site/PageSections";
 import { PageShell } from "@/components/site/PageShell";
-import {
-  CONTACT,
-  getPhoneHref,
-  getTextHref,
-  getWhatsAppHref,
-} from "@/site/siteConfig";
+import { CONTACT_ACTIONS, CONTACT } from "@/site/siteConfig";
 import { CONTACT_PAGE } from "./pageContent";
 
-const CONTACT_METHODS = [
-  {
-    icon: Phone,
-    label: "Call",
-    value: CONTACT.phoneDisplay,
-    href: getPhoneHref(),
-  },
-  {
-    icon: Smartphone,
-    label: "Text",
-    value: "Send a text message",
-    href: getTextHref(),
-  },
-  {
-    icon: MessageCircle,
-    label: "WhatsApp",
-    value: "Message the legal team",
-    href: getWhatsAppHref(),
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: CONTACT.email,
-    href: `mailto:${CONTACT.email}`,
-  },
-] as const;
+const CONTACT_ICONS = {
+  call: Phone,
+  text: Smartphone,
+  whatsapp: MessageCircle,
+  email: Mail,
+} as const;
+
+const CONTACT_VALUES = {
+  call: CONTACT.phoneDisplay,
+  text: "Send a text message",
+  whatsapp: "Message on WhatsApp",
+  email: CONTACT.email,
+} as const;
 
 export default function ContactPage() {
   return (
@@ -62,18 +44,24 @@ export default function ContactPage() {
           </p>
         </div>
         <div className="contact-option-grid">
-          {CONTACT_METHODS.map(method => {
-            const Icon = method.icon;
+          {CONTACT_ACTIONS.map(action => {
+            const Icon = CONTACT_ICONS[action.id];
             return (
               <a
-                href={method.href}
-                key={method.label}
-                target={method.label === "WhatsApp" ? "_blank" : undefined}
-                rel={method.label === "WhatsApp" ? "noreferrer" : undefined}
+                className={
+                  action.priority === "primary"
+                    ? "contact-option is-primary"
+                    : "contact-option"
+                }
+                href={action.href}
+                key={action.id}
+                target={action.external ? "_blank" : undefined}
+                rel={action.external ? "noreferrer" : undefined}
+                aria-label={action.label}
               >
-                <Icon size={22} />
-                <span>{method.label}</span>
-                <strong>{method.value}</strong>
+                <Icon size={22} aria-hidden="true" />
+                <span>{action.shortLabel}</span>
+                <strong>{CONTACT_VALUES[action.id]}</strong>
               </a>
             );
           })}
@@ -98,7 +86,7 @@ export default function ContactPage() {
           target="_blank"
           rel="noreferrer"
         >
-          <MapPin size={24} />
+          <MapPin size={24} aria-hidden="true" />
           <span>
             {CONTACT.addressLines[0]}
             <br />

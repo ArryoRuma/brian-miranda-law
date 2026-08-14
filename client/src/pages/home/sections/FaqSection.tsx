@@ -28,7 +28,11 @@ function FaqAccordionItem({
         onClick={() => onToggle(index)}
       >
         <span>{faq.question}</span>
-        {isOpen ? <Minus size={18} /> : <ChevronDown size={18} />}
+        {isOpen ? (
+          <Minus size={18} aria-hidden="true" />
+        ) : (
+          <ChevronDown size={18} aria-hidden="true" />
+        )}
       </button>
       {isOpen ? <p id={answerId}>{faq.answer}</p> : null}
     </div>
@@ -55,11 +59,11 @@ export function FaqSection() {
           type="button"
           onClick={() => scrollToSection("contact")}
         >
-          Ask a question <ArrowUpRight size={16} />
+          Ask a question <ArrowUpRight size={16} aria-hidden="true" />
         </button>
       </div>
       <div className="faq-list">
-        {FAQ_ITEMS.map((faq, index) => (
+        {FAQ_ITEMS.slice(0, 3).map((faq, index) => (
           <FaqAccordionItem
             key={faq.question}
             faq={faq}

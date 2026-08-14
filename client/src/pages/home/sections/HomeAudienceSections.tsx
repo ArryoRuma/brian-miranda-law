@@ -1,5 +1,6 @@
 import { ArrowUpRight, Languages, Scale, Star, UserRound } from "lucide-react";
 import { Link } from "wouter";
+import { ComingSoon } from "@/components/site/ComingSoon";
 import { SectionEyebrow } from "../SectionEyebrow";
 
 export function HomeTrustStrip() {
@@ -32,14 +33,14 @@ export function HomeAudienceSections() {
             communication, and a plan grounded in their actual circumstances.
           </p>
           <Link className="text-link dark-link" href="/about">
-            Meet Brian <ArrowUpRight size={16} />
+            Meet Brian <ArrowUpRight size={16} aria-hidden="true" />
           </Link>
         </div>
       </section>
 
       <section className="home-language-section">
         <div>
-          <Languages size={32} />
+          <Languages size={32} aria-hidden="true" />
           <SectionEyebrow>Estate planning in your language</SectionEyebrow>
           <h2>Important decisions deserve language that feels clear.</h2>
           <p>
@@ -63,38 +64,34 @@ export function HomeAudienceSections() {
         </div>
       </section>
 
-      <section className="home-other-services-section">
-        <div>
-          <SectionEyebrow tone="dark">Other legal services</SectionEyebrow>
-          <h2>Legal guidance for the matters around the plan.</h2>
-        </div>
-        <div>
-          <Scale size={30} />
-          <p>
-            Miranda Law also assists with select real estate, corporate, civil
-            litigation and defense, municipal, immigration, and landlord-tenant
-            matters.
-          </p>
-          <Link className="text-link dark-link" href="/other-services">
-            View other services <ArrowUpRight size={16} />
-          </Link>
-        </div>
-      </section>
+      <div className="home-support-grid">
+        <section className="home-other-services-section">
+          <div>
+            <SectionEyebrow tone="dark">Other legal services</SectionEyebrow>
+            <h2>Guidance for the matters around the plan.</h2>
+          </div>
+          <div>
+            <Scale size={30} aria-hidden="true" />
+            <p>
+              Miranda Law also assists with select real estate, corporate, civil
+              litigation and defense, municipal, immigration, and
+              landlord-tenant matters.
+            </p>
+            <Link className="text-link dark-link" href="/other-services">
+              View other services <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
+        </section>
 
-      <section className="home-reviews-section">
-        <div>
-          <Star size={28} />
-          <p className="eyebrow">
-            <span className="eyebrow-rule" /> Client reviews
-          </p>
-          <h2>Approved client feedback will live here.</h2>
-        </div>
-        <p>
-          This section is ready for verified reviews addressing communication,
-          responsiveness, trust, and multilingual service. No testimonial copy
-          has been invented for the scaffold.
-        </p>
-      </section>
+        <section className="home-reviews-section">
+          <ComingSoon
+            eyebrow="Client reviews"
+            title="Verified client experiences are being prepared."
+            body="Approved feedback will be published after review. No testimonial language or ratings are presented before approval."
+            icon={<Star size={28} aria-hidden="true" />}
+          />
+        </section>
+      </div>
     </>
   );
 }

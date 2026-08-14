@@ -14,7 +14,7 @@ function ServiceCard({ service }: ServiceCardProps) {
     <article className="service-card">
       <div className="service-top">
         <span className="service-number">{number}</span>
-        <Icon size={25} strokeWidth={1.4} />
+        <Icon size={25} strokeWidth={1.4} aria-hidden="true" />
       </div>
       <h3>{title}</h3>
       <p>{description}</p>
@@ -23,7 +23,7 @@ function ServiceCard({ service }: ServiceCardProps) {
         aria-label={`Learn more about ${title}`}
         href={href}
       >
-        <ArrowUpRight size={18} />
+        <ArrowUpRight size={18} aria-hidden="true" />
       </Link>
     </article>
   );

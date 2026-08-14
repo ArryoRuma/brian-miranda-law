@@ -33,7 +33,7 @@ export function ApproachSection() {
           type="button"
           onClick={() => scrollToSection("process")}
         >
-          See how we work <ArrowUpRight size={16} />
+          See how we work <ArrowUpRight size={16} aria-hidden="true" />
         </button>
       </div>
     </section>

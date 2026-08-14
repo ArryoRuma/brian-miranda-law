@@ -1,4 +1,5 @@
 import { Play } from "lucide-react";
+import { ComingSoon } from "@/components/site/ComingSoon";
 import { FinalCta, InteriorHero } from "@/components/site/PageSections";
 import { PageShell } from "@/components/site/PageShell";
 
@@ -51,21 +52,18 @@ export default function VideoLibraryPage() {
         secondaryLabel="Read answers now"
       />
       <section className="video-library-section">
-        <div className="video-library-heading">
-          <p className="eyebrow dark">
-            <span className="eyebrow-rule" /> Planned topics
-          </p>
-          <h2>Questions worth explaining carefully.</h2>
-          <p>
-            Videos will be added after attorney review and recording. The topic
-            cards below establish the initial editorial library.
-          </p>
-        </div>
+        <ComingSoon
+          className="video-library-heading"
+          eyebrow="Planned video topics"
+          title="Questions worth explaining carefully."
+          body="Videos will be published after attorney review and recording. The topics below preview the initial educational library."
+          icon={<Play size={26} aria-hidden="true" />}
+        />
         <div className="video-topic-grid">
           {VIDEO_TOPICS.map((topic, index) => (
             <article key={topic.title}>
               <div className="video-placeholder" aria-hidden="true">
-                <Play size={24} />
+                <Play size={24} aria-hidden="true" />
                 <span>Video {String(index + 1).padStart(2, "0")}</span>
               </div>
               <h3>{topic.title}</h3>

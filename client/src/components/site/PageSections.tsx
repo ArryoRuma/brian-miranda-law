@@ -3,19 +3,13 @@ import {
   ArrowUpRight,
   Check,
   ChevronDown,
+  Mail,
   MessageCircle,
   Minus,
-  Phone,
-  Smartphone,
 } from "lucide-react";
 import { Link } from "wouter";
-import {
-  CONTACT,
-  CONSULTATION_HREF,
-  getPhoneHref,
-  getTextHref,
-  getWhatsAppHref,
-} from "@/site/siteConfig";
+import { CONTACT_ACTIONS } from "@/site/siteConfig";
+import { PrimaryContactActions } from "./ContactActions";
 
 export type PageCard = {
   title: string;
@@ -74,18 +68,23 @@ export function InteriorHero({
         </h1>
         <p className="interior-hero-lede">{lead}</p>
         <div className="hero-actions">
-          <Link className="button button-brass" href={CONSULTATION_HREF}>
-            Schedule a free consultation <ArrowUpRight size={17} />
-          </Link>
+          <PrimaryContactActions />
           {secondaryHref && secondaryLabel ? (
             <Link className="text-link" href={secondaryHref}>
-              {secondaryLabel} <ArrowUpRight size={15} />
+              {secondaryLabel} <ArrowUpRight size={15} aria-hidden="true" />
             </Link>
           ) : null}
         </div>
       </div>
       <div className="interior-hero-image">
-        <img src={image} alt={imageAlt} />
+        <img
+          src={image}
+          alt={imageAlt}
+          width="1920"
+          height="1280"
+          fetchPriority="high"
+          decoding="async"
+        />
       </div>
     </section>
   );
@@ -157,7 +156,8 @@ export function ContentSection({ section }: { section: PageSectionContent }) {
                 <p>{card.body}</p>
                 {card.href ? (
                   <SmartLink href={card.href}>
-                    {card.linkLabel ?? "Learn more"} <ArrowUpRight size={15} />
+                    {card.linkLabel ?? "Learn more"}{" "}
+                    <ArrowUpRight size={15} aria-hidden="true" />
                   </SmartLink>
                 ) : null}
               </article>
@@ -202,18 +202,23 @@ export function FinalCta({
         <p>{body}</p>
       </div>
       <div className="contact-methods">
-        <Link className="button button-brass" href={CONSULTATION_HREF}>
-          Schedule a free consultation <ArrowUpRight size={17} />
-        </Link>
-        <a href={getPhoneHref()}>
-          <Phone size={17} /> Call {CONTACT.phoneDisplay}
-        </a>
-        <a href={getTextHref()}>
-          <Smartphone size={17} /> Text the office
-        </a>
-        <a href={getWhatsAppHref()} target="_blank" rel="noreferrer">
-          <MessageCircle size={17} /> WhatsApp
-        </a>
+        <PrimaryContactActions />
+        <div className="secondary-contact-actions">
+          <a
+            href={CONTACT_ACTIONS[2].href}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={CONTACT_ACTIONS[2].label}
+          >
+            <MessageCircle size={17} aria-hidden="true" /> WhatsApp
+          </a>
+          <a
+            href={CONTACT_ACTIONS[3].href}
+            aria-label={CONTACT_ACTIONS[3].label}
+          >
+            <Mail size={17} aria-hidden="true" /> Email
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -228,10 +233,12 @@ export function FaqAccordionSection({
   items,
   title = "Questions are part of good planning.",
   eyebrow = "Frequently asked questions",
+  idPrefix = "interior-faq",
 }: {
   items: readonly FaqItem[];
   title?: string;
   eyebrow?: string;
+  idPrefix?: string;
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -250,7 +257,7 @@ export function FaqAccordionSection({
       <div className="faq-list">
         {items.map((item, index) => {
           const isOpen = openIndex === index;
-          const answerId = `interior-faq-${index}`;
+          const answerId = `${idPrefix}-${index}`;
 
           return (
             <div
@@ -266,7 +273,11 @@ export function FaqAccordionSection({
                 }
               >
                 <span>{item.question}</span>
-                {isOpen ? <Minus size={18} /> : <ChevronDown size={18} />}
+                {isOpen ? (
+                  <Minus size={18} aria-hidden="true" />
+                ) : (
+                  <ChevronDown size={18} aria-hidden="true" />
+                )}
               </button>
               {isOpen ? <p id={answerId}>{item.answer}</p> : null}
             </div>

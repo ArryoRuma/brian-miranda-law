@@ -16,6 +16,10 @@ export function SiteFooter() {
             className="footer-logo"
             src="/miranda-law-gold.png"
             alt="Miranda Law, Attorneys at Law"
+            width="2434"
+            height="2401"
+            loading="lazy"
+            decoding="async"
           />
         </Link>
         <p>

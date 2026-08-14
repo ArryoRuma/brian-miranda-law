@@ -24,6 +24,8 @@ export function ProcessSection() {
         <img
           src="/images/brian-law-detail_25336cb9.jpg.webp"
           alt="A linen-bound planning book resting on layered papers and deep green folders"
+          width="1280"
+          height="1920"
           loading="lazy"
           decoding="async"
         />

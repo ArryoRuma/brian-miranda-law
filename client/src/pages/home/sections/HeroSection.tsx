@@ -1,4 +1,5 @@
 import { ArrowUpRight, ShieldCheck } from "lucide-react";
+import { PrimaryContactActions } from "@/components/site/ContactActions";
 import { scrollToSection } from "../navigation";
 import { SectionEyebrow } from "../SectionEyebrow";
 
@@ -17,24 +18,18 @@ export function HeroSection() {
           that help protect what matters most.
         </p>
         <div className="hero-actions">
-          <button
-            className="button button-brass"
-            type="button"
-            onClick={() => scrollToSection("contact")}
-          >
-            Begin with a conversation <ArrowUpRight size={17} />
-          </button>
+          <PrimaryContactActions />
           <button
             className="text-link"
             type="button"
-            onClick={() => scrollToSection("approach")}
+            onClick={() => scrollToSection("process")}
           >
-            Our approach <span>↗</span>
+            How it works <ArrowUpRight size={16} aria-hidden="true" />
           </button>
         </div>
         <p className="hero-note">
-          <ShieldCheck size={15} /> Clear guidance for the people and future you
-          care about.
+          <ShieldCheck size={16} aria-hidden="true" /> Clear guidance for the
+          people and future you care about.
         </p>
       </div>
       <div className="hero-image-wrap">
@@ -42,6 +37,8 @@ export function HeroSection() {
           src="/images/brian-law-hero_7235d741.jpg.webp"
           alt="A warmly lit estate-planning desk with an open folder, fountain pen, brass lamp, and law books"
           className="hero-image"
+          width="1920"
+          height="1280"
           fetchPriority="high"
           decoding="async"
         />

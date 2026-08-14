@@ -14,6 +14,21 @@ export const CONTACT = {
     "https://www.google.com/maps/search/?api=1&query=172+Washington+Valley+Road+Suite+3+Warren+NJ+07059",
 } as const;
 
+export type NavigationItem = {
+  label: string;
+  href: string;
+  children?: readonly NavigationItem[];
+};
+
+export type ContactAction = {
+  id: "call" | "text" | "whatsapp" | "email";
+  label: string;
+  shortLabel: string;
+  href: string;
+  priority: "primary" | "secondary";
+  external?: boolean;
+};
+
 export const PRIMARY_NAVIGATION = [
   { label: "Estate Planning", href: "/estate-planning" },
   { label: "About", href: "/about" },
@@ -67,3 +82,43 @@ export function getTextHref() {
 export function getWhatsAppHref() {
   return `https://wa.me/${CONTACT.phoneHref.replace("+", "")}`;
 }
+
+export const CONTACT_ACTIONS: readonly ContactAction[] = [
+  {
+    id: "call",
+    label: `Call Brian at ${CONTACT.phoneDisplay}`,
+    shortLabel: "Call Brian",
+    href: getPhoneHref(),
+    priority: "primary",
+  },
+  {
+    id: "text",
+    label: `Text Brian at ${CONTACT.phoneDisplay}`,
+    shortLabel: "Text Brian",
+    href: getTextHref(),
+    priority: "primary",
+  },
+  {
+    id: "whatsapp",
+    label: "Message Brian on WhatsApp",
+    shortLabel: "WhatsApp",
+    href: getWhatsAppHref(),
+    priority: "secondary",
+    external: true,
+  },
+  {
+    id: "email",
+    label: `Email ${CONTACT.email}`,
+    shortLabel: "Email",
+    href: `mailto:${CONTACT.email}`,
+    priority: "secondary",
+  },
+] as const;
+
+export const SITE_NAVIGATION = [
+  {
+    ...PRIMARY_NAVIGATION[0],
+    children: ESTATE_PLANNING_NAVIGATION.slice(1),
+  },
+  ...PRIMARY_NAVIGATION.slice(1),
+] as const satisfies readonly NavigationItem[];

@@ -132,6 +132,7 @@ export default function FaqResourcePage() {
           eyebrow={group.title}
           title={group.title}
           items={group.items}
+          idPrefix={`faq-${group.title.toLowerCase().replaceAll(" ", "-")}`}
         />
       ))}
       <FinalCta />
