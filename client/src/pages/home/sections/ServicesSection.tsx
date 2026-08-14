@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "wouter";
 import { SERVICES, type Service } from "../content";
-import { scrollToSection } from "../navigation";
 import { SectionEyebrow } from "../SectionEyebrow";
 
 type ServiceCardProps = {
@@ -8,7 +8,7 @@ type ServiceCardProps = {
 };
 
 function ServiceCard({ service }: ServiceCardProps) {
-  const { icon: Icon, number, title, description } = service;
+  const { icon: Icon, number, title, description, href } = service;
 
   return (
     <article className="service-card">
@@ -18,14 +18,13 @@ function ServiceCard({ service }: ServiceCardProps) {
       </div>
       <h3>{title}</h3>
       <p>{description}</p>
-      <button
+      <Link
         className="card-arrow"
-        type="button"
-        onClick={() => scrollToSection("contact")}
         aria-label={`Learn more about ${title}`}
+        href={href}
       >
         <ArrowUpRight size={18} />
-      </button>
+      </Link>
     </article>
   );
 }

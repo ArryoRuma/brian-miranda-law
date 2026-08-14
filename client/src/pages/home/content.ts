@@ -1,4 +1,10 @@
-import { Compass, FileText, Users, type LucideIcon } from "lucide-react";
+import {
+  FileText,
+  HandCoins,
+  HeartPulse,
+  Landmark,
+  type LucideIcon,
+} from "lucide-react";
 
 export type PageSectionId =
   | "top"
@@ -7,16 +13,12 @@ export type PageSectionId =
   | "process"
   | "contact";
 
-export type NavigationItem = {
-  label: string;
-  sectionId: Exclude<PageSectionId, "top">;
-};
-
 export type Service = {
   icon: LucideIcon;
   number: string;
   title: string;
   description: string;
+  href: string;
 };
 
 export type ProcessStep = {
@@ -30,34 +32,38 @@ export type FaqItem = {
   answer: string;
 };
 
-export const NAVIGATION_ITEMS: readonly NavigationItem[] = [
-  { label: "Approach", sectionId: "approach" },
-  { label: "Services", sectionId: "services" },
-  { label: "Process", sectionId: "process" },
-  { label: "Contact", sectionId: "contact" },
-];
-
 export const SERVICES: readonly Service[] = [
   {
     icon: FileText,
     number: "01",
-    title: "Wills & trusts",
+    title: "Wills",
     description:
-      "Thoughtful documents that express your wishes and help your loved ones move forward with clarity.",
+      "Document your wishes, nominate an executor, and give the estate written direction.",
+    href: "/estate-planning/wills",
   },
   {
-    icon: Users,
+    icon: Landmark,
     number: "02",
-    title: "Family & legacy planning",
+    title: "Trusts",
     description:
-      "A plan that accounts for the people, relationships, and responsibilities that make your family unique.",
+      "Create written terms for how selected property should be held, managed, and distributed.",
+    href: "/estate-planning/trusts",
   },
   {
-    icon: Compass,
+    icon: HandCoins,
     number: "03",
-    title: "Guidance through change",
+    title: "Powers of Attorney",
     description:
-      "Review and refinement when life shifts, so your plan continues to reflect what matters now.",
+      "Choose a trusted agent to address defined financial and legal matters on your behalf.",
+    href: "/estate-planning/powers-of-attorney",
+  },
+  {
+    icon: HeartPulse,
+    number: "04",
+    title: "Health Care Directives",
+    description:
+      "Name a health care representative and communicate medical preferences for incapacity.",
+    href: "/estate-planning/health-care-directives",
   },
 ];
 
@@ -82,24 +88,35 @@ export const PROCESS_STEPS: readonly ProcessStep[] = [
   },
 ];
 
-const DEFAULT_FAQ_ANSWER =
-  "There is no single right moment. A first conversation is simply a way to understand what you have in place, what has changed, and what you may want to consider next.";
-
 export const FAQ_ITEMS: readonly FaqItem[] = [
   {
     question: "When should I begin estate planning?",
-    answer: DEFAULT_FAQ_ANSWER,
+    answer:
+      "There is no single right moment. Marriage, children, homeownership, retirement, health changes, and changing family responsibilities are common reasons to begin or review a plan.",
   },
   {
     question: "What should I bring to an initial conversation?",
-    answer: DEFAULT_FAQ_ANSWER,
+    answer:
+      "Bring any existing documents you can find and a general list of family members, property, accounts, insurance, business interests, and questions. You do not need final decisions or perfect numbers.",
   },
   {
     question: "How often should I review my plan?",
-    answer: DEFAULT_FAQ_ANSWER,
+    answer:
+      "A review can be useful after major family, health, property, or financial changes and when the people named in the documents are no longer the right choices.",
   },
   {
-    question: "Can you help my family understand the documents?",
-    answer: DEFAULT_FAQ_ANSWER,
+    question: "Do I need a plan if I am not wealthy?",
+    answer:
+      "Estate planning also addresses decision-makers, incapacity, children, personal property, and family guidance. Those issues matter at many asset levels.",
+  },
+  {
+    question: "How much does estate planning cost?",
+    answer:
+      "Fees depend on the documents and complexity involved. Miranda Law explains the recommended scope and fee before legal work begins.",
+  },
+  {
+    question: "Can Miranda Law assist me in Spanish or Portuguese?",
+    answer:
+      "Yes. The firm communicates with clients in English, Spanish, and Portuguese.",
   },
 ];
