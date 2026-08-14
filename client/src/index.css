@@ -47,8 +47,8 @@ body {
   background: var(--paper);
   color: var(--graphite);
   font-family: "Manrope", sans-serif;
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.7;
 }
 button,
 a {
@@ -170,14 +170,14 @@ a:focus-visible {
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: clamp(17px, 2vw, 30px);
 }
 .main-nav > a,
 .nav-item-with-menu > a {
   border: 0;
   background: none;
-  color: rgba(250, 247, 240, 0.72);
-  font-size: 11px;
+  color: rgba(250, 247, 240, 0.88);
+  font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 9px 0;
@@ -202,7 +202,7 @@ a:focus-visible {
   gap: 10px;
   text-transform: none;
   letter-spacing: 0.02em;
-  font-size: 12px;
+  font-size: 13px;
 }
 .nav-cta:hover {
   border-color: var(--brass) !important;
@@ -271,7 +271,7 @@ h2 em {
   font-style: italic;
 }
 .hero-lede {
-  color: rgba(250, 247, 240, 0.68);
+  color: rgba(250, 247, 240, 0.82);
   max-width: 375px;
   font-size: 16px;
   line-height: 1.7;
@@ -328,7 +328,7 @@ h2 em {
   color: var(--teal);
 }
 .hero-note {
-  color: rgba(250, 247, 240, 0.42);
+  color: rgba(250, 247, 240, 0.7);
   font-size: 11px;
   display: flex;
   align-items: center;
@@ -754,13 +754,22 @@ blockquote em {
 .nav-submenu {
   position: absolute;
   left: -22px;
-  top: calc(100% + 14px);
+  top: calc(100% + 8px);
   min-width: 245px;
-  padding: 14px;
+  padding: 16px;
   background: var(--paper);
   border-top: 2px solid var(--brass);
   box-shadow: 0 18px 45px rgba(26, 44, 55, 0.25);
   display: none;
+  z-index: 20;
+}
+.nav-submenu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -12px;
+  height: 12px;
 }
 .nav-item-with-menu:hover .nav-submenu,
 .nav-item-with-menu:focus-within .nav-submenu {
@@ -769,8 +778,9 @@ blockquote em {
 .nav-submenu a {
   color: var(--graphite);
   text-decoration: none;
-  font-size: 12px;
-  padding: 9px 10px;
+  font-size: 14px;
+  line-height: 1.45;
+  padding: 11px 12px;
 }
 .nav-submenu a:hover,
 .nav-submenu a:focus-visible {
@@ -784,7 +794,7 @@ blockquote em {
 .nav-languages a {
   color: rgba(251, 248, 239, 0.62);
   text-decoration: none;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.08em;
 }
 .nav-languages a + a {
@@ -1654,6 +1664,144 @@ blockquote em {
   gap: 25px;
   margin-top: 38px;
 }
+
+/* Readability pass: keep utility text comfortably legible without flattening the editorial hierarchy. */
+.eyebrow,
+.section-marker {
+  font-size: 12px;
+  line-height: 1.45;
+}
+.button-brass,
+.text-link {
+  font-size: 14px;
+}
+.hero-note,
+.image-caption,
+.hero-index {
+  font-size: 12px;
+}
+.intro-columns p,
+.section-aside,
+.service-card p,
+.process-step p,
+.faq-intro p:not(.eyebrow),
+.faq-item p,
+.contact-lede,
+.content-card p,
+.editorial-steps p,
+.home-about-section p:not(.eyebrow),
+.home-language-section p:not(.eyebrow),
+.home-other-services-section p:not(.eyebrow),
+.home-reviews-section > p,
+.contact-page-intro > p:not(.eyebrow),
+.office-section > div > p:last-child,
+.checklist-intro > p:not(.eyebrow),
+.video-library-heading > p:not(.eyebrow),
+.questionnaire-hero > div > p:not(.eyebrow),
+.next-steps-heading > p:last-child,
+.legal-page header > p:not(.eyebrow),
+.legal-page-content p,
+.legal-page-content li,
+.not-found-page > div > p:not(.eyebrow) {
+  font-size: 16px;
+  line-height: 1.75;
+}
+.content-section-body > p {
+  font-size: 17px;
+  line-height: 1.85;
+}
+.check-list li {
+  font-size: 16px;
+}
+.service-number,
+.content-card-number,
+.editorial-steps > li > span,
+.contact-card-label,
+.contact-option-grid span,
+.checklist-group > span,
+.language-card-grid span,
+.next-steps-page li > span,
+.legal-page header > span {
+  font-size: 12px;
+}
+.content-card a,
+.contact-methods > a:not(.button),
+.next-steps-actions > a:not(.button) {
+  font-size: 14px;
+}
+.content-note {
+  font-size: 14px !important;
+  line-height: 1.7;
+}
+.home-trust-strip span {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.questionnaire-hero li,
+.questionnaire-intro-card p,
+.questionnaire-form label,
+.form-full-width,
+.form-checkbox-grid > span {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.checklist-group li,
+.video-topic-grid p,
+.next-steps-page li p {
+  font-size: 15px;
+  line-height: 1.65;
+}
+.video-placeholder span,
+.coming-soon {
+  font-size: 11px;
+}
+.site-footer {
+  font-size: 12px;
+  color: rgba(250, 247, 240, 0.72);
+}
+.footer-brand-column p,
+.footer-link-column a,
+.footer-contact-column a {
+  font-size: 13px;
+}
+.site-footer-expanded h2 {
+  font-size: 12px;
+}
+.footer-legal-row {
+  font-size: 12px;
+  line-height: 1.6;
+}
+.footer-legal-row a {
+  color: rgba(251, 248, 239, 0.72);
+}
+.intro-columns p,
+.section-aside,
+.service-card p,
+.process-step p,
+.content-card p,
+.editorial-steps p,
+.home-about-section p:not(.eyebrow),
+.home-other-services-section p:not(.eyebrow),
+.contact-page-intro > p:not(.eyebrow),
+.checklist-intro > p:not(.eyebrow),
+.video-library-heading > p:not(.eyebrow),
+.video-topic-grid p,
+.legal-page-content p,
+.legal-page-content li {
+  color: rgba(44, 44, 44, 0.78);
+}
+.faq-intro p:not(.eyebrow),
+.faq-item p,
+.home-language-section p:not(.eyebrow),
+.home-reviews-section > p,
+.office-section > div > p:last-child,
+.questionnaire-hero > div > p:not(.eyebrow),
+.next-steps-heading > p:last-child,
+.next-steps-page li p,
+.legal-page header > p:not(.eyebrow),
+.not-found-page > div > p:not(.eyebrow) {
+  color: rgba(250, 247, 240, 0.8);
+}
 @media (max-width: 800px) {
   .desktop-rail {
     display: none;
@@ -1713,6 +1861,9 @@ blockquote em {
     border-left: 1px solid rgba(169, 141, 59, 0.5);
     box-shadow: none;
   }
+  .nav-submenu::before {
+    display: none;
+  }
   .nav-submenu a {
     color: rgba(251, 248, 239, 0.65);
     padding: 7px 10px;
@@ -1746,7 +1897,7 @@ blockquote em {
   .image-caption {
     bottom: 25px;
     right: 24px;
-    font-size: 9px;
+    font-size: 11px;
   }
   .intro-section,
   .process-section,
@@ -1972,7 +2123,7 @@ blockquote em {
     font-size: 38px;
   }
   .hero-lede {
-    font-size: 15px;
+    font-size: 16px;
   }
   .intro-columns {
     display: block;
