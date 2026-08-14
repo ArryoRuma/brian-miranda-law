@@ -1,24 +1,19 @@
-/* Miranda Law moodboard system: exact navy, warm white, gold, stone, and blue tokens with Lora and Tenor Sans. */
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Tenor+Sans&display=swap");
+/* Quiet Authority: graphite, dark teal, floral-white, sand, and brass create an editorial legal identity with restrained motion and paper-like depth. */
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
 :root {
-  --brand-navy: #1a2c37;
-  --brand-warm-white: #fbf8ef;
-  --brand-gold: #a98d3b;
-  --brand-stone: #e5e2d9;
-  --brand-blue: #477998;
-  --graphite: var(--brand-navy);
-  --graphite-2: #233a48;
-  --gunmetal: #314650;
-  --slate: #315f78;
-  --teal: var(--brand-blue);
-  --paper: var(--brand-warm-white);
-  --sand: var(--brand-stone);
-  --brass: var(--brand-gold);
-  --brown: #765d3b;
-  --brandy: #76432f;
+  --graphite: #2c2c2c;
+  --graphite-2: #363636;
+  --gunmetal: #3f3f3f;
+  --slate: #29454b;
+  --teal: #265d69;
+  --paper: #faf7f0;
+  --sand: #e6ddc3;
+  --brass: #a98d3a;
+  --brown: #9c5923;
+  --brandy: #8f250c;
   --radius: 0px;
   --background: var(--paper);
   --foreground: var(--graphite);
@@ -51,7 +46,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--graphite);
-  font-family: "Tenor Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 15px;
   line-height: 1.65;
 }
@@ -85,7 +80,7 @@ a:focus-visible {
 }
 .rail-mark {
   color: var(--brass);
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-size: 11px;
   border: 1px solid rgba(169, 141, 58, 0.7);
   width: 24px;
@@ -139,7 +134,7 @@ a:focus-visible {
   align-items: center;
   justify-content: center;
   position: relative;
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-size: 14px;
   letter-spacing: -5px;
   padding-right: 4px;
@@ -261,7 +256,7 @@ p {
 }
 h1,
 h2 {
-  font-family: "Lora", Georgia, serif;
+  font-family: "DM Serif Display", Georgia, serif;
   font-weight: 400;
   letter-spacing: -0.035em;
 }
@@ -481,7 +476,7 @@ h2 em {
   letter-spacing: 0.15em;
 }
 .service-card h3 {
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-size: 28px;
   font-weight: 400;
   margin-bottom: 10px;
@@ -540,7 +535,7 @@ h2 em {
   height: 58px;
   margin: 0 auto 34px;
   color: var(--brass);
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-size: 21px;
   line-height: 0.78;
   padding-top: 10px;
@@ -551,7 +546,7 @@ h2 em {
   letter-spacing: 0;
 }
 blockquote {
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-size: clamp(36px, 4vw, 58px);
   line-height: 1.08;
   margin: 0 auto 40px;
@@ -606,7 +601,7 @@ blockquote em {
   padding-top: 6px;
 }
 .process-step h3 {
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-size: 26px;
   font-weight: 400;
   margin: 0 0 4px;
@@ -651,7 +646,7 @@ blockquote em {
   gap: 20px;
   text-align: left;
   padding: 23px 0;
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-size: 23px;
 }
 .faq-item button svg {
@@ -701,7 +696,7 @@ blockquote em {
 }
 .contact-card a {
   color: var(--paper);
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-size: 23px;
   display: flex;
   align-items: center;
@@ -827,7 +822,7 @@ blockquote em {
   gap: 8px;
 }
 .site-footer-expanded h2 {
-  font-family: "Tenor Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   color: var(--brass);
   font-size: 10px;
   line-height: 1.2;
@@ -1012,7 +1007,7 @@ blockquote em {
   margin-bottom: 28px;
 }
 .content-card h3 {
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-weight: 400;
   font-size: 25px;
   line-height: 1.2;
@@ -1066,7 +1061,7 @@ blockquote em {
   padding-top: 7px;
 }
 .editorial-steps h3 {
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-weight: 400;
   font-size: 25px;
   margin: 0 0 6px;
@@ -1162,7 +1157,7 @@ blockquote em {
   position: absolute;
   bottom: 24px;
   left: 24px;
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-size: 44px;
   color: var(--brass);
 }
@@ -1211,7 +1206,7 @@ blockquote em {
   letter-spacing: 0.15em;
 }
 .language-card-grid strong {
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-size: 25px;
   font-weight: 400;
 }
@@ -1288,7 +1283,7 @@ blockquote em {
   text-transform: uppercase;
 }
 .contact-option-grid strong {
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-size: 20px;
   font-weight: 400;
   margin-top: 8px;
@@ -1349,7 +1344,7 @@ blockquote em {
   letter-spacing: 0.14em;
 }
 .checklist-group h3 {
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-weight: 400;
   font-size: 27px;
 }
@@ -1396,7 +1391,7 @@ blockquote em {
   text-transform: uppercase;
 }
 .video-topic-grid h3 {
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-weight: 400;
   font-size: 23px;
   line-height: 1.3;
@@ -1472,7 +1467,7 @@ blockquote em {
   margin: 0;
 }
 .questionnaire-form legend {
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-size: 27px;
   padding: 0 30px 0 0;
   color: var(--graphite);
@@ -1641,7 +1636,7 @@ blockquote em {
 .not-found-number {
   display: block;
   color: var(--brass);
-  font-family: "Lora", serif;
+  font-family: "DM Serif Display", serif;
   font-size: clamp(90px, 15vw, 190px);
   line-height: 0.8;
   margin-bottom: 45px;
