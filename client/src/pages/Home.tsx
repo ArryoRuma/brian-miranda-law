@@ -12,7 +12,7 @@ export default function Home() {
         description="Miranda Law provides clear guidance for wills, trusts, powers of attorney, and health care directives in English, Spanish, and Portuguese."
         path="/"
       />
-      <HomeHeader />
+      <HomeHeader /> 
       <HomeSections />
       <HomeFooter />
     </div>
