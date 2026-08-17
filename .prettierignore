@@ -1,5 +1,10 @@
 dist
 node_modules
 .git
+.nuxt
+.output
+.pnpm-store
+ideas.md
+pnpm-lock.yaml
 *.min.js
 *.min.css

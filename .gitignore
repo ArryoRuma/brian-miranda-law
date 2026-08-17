@@ -3,7 +3,7 @@
 .pnpm-store/
 
 # Build outputs
-dist/
+dist
 build/
 *.dist
 
@@ -88,6 +88,8 @@ jspm_packages/
 
 # Nuxt.js build / generate output
 .nuxt
+.output
+.data
 
 # Gatsby files
 .cache/
@@ -108,10 +110,4 @@ temp/
 # Webdev artifacts (checkpoint zips, migrations, etc.)
 .webdev/
 
-# Manus version file (auto-generated, not part of source)
-client/public/__manus__/version.json
 .project-config.json
-
-
-*.DS_Store
-.DS_Store
