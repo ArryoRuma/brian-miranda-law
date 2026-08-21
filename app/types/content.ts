@@ -49,5 +49,6 @@ export type HomeService = {
   number: string;
   title: string;
   description: string;
+  linkLabel: string;
   href: string;
 };

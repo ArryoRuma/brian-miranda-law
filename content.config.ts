@@ -226,6 +226,10 @@ export default defineContentConfig({
             title: text,
             accent: text,
             lead: text,
+            supportingLead: text,
+            ctaLabel: text,
+            contactPrompt: text,
+            contactLinkLabel: text,
             processLabel: text,
             note: text,
             image: path,
@@ -238,6 +242,13 @@ export default defineContentConfig({
           }),
           trustStripAriaLabel: text,
           trustStrip: z.array(text),
+          intro: z.object({
+            eyebrow: text,
+            title: text,
+            paragraphs: z.array(text),
+            ctaLabel: text,
+            href: path,
+          }),
           services: z.object({
             eyebrow: text,
             title: text,
@@ -248,7 +259,19 @@ export default defineContentConfig({
                 number: text,
                 title: text,
                 description: text,
+                linkLabel: text,
                 href: path,
+              })
+            ),
+          }),
+          why: z.object({
+            eyebrow: text,
+            title: text,
+            body: text,
+            items: z.array(
+              z.object({
+                title: text,
+                description: text,
               })
             ),
           }),
@@ -265,6 +288,8 @@ export default defineContentConfig({
                 description: text,
               })
             ),
+            ctaLabel: text,
+            href: path,
           }),
           about: z.object({
             mark: text,
@@ -278,12 +303,15 @@ export default defineContentConfig({
             eyebrow: text,
             title: text,
             body: text,
+            availability: text,
+            prompt: text,
             items: z.array(languageLinkSchema),
           }),
           otherServices: z.object({
             eyebrow: text,
             title: text,
             body: text,
+            items: z.array(text),
             linkLabel: text,
             href: path,
           }),
@@ -298,12 +326,14 @@ export default defineContentConfig({
             title: text,
             body: text,
             linkLabel: text,
+            href: path,
             items: z.array(faqSchema),
           }),
           contact: z.object({
             eyebrow: text,
             title: text,
             body: text,
+            ctaLabel: text,
             cardLabel: text,
             preferencePrompt: text,
             optionsLabel: text,

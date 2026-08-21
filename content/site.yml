@@ -172,80 +172,118 @@ site:
 # Homepage copy
 home:
   seo:
-    title: Estate Planning in North Jersey
-    description: Miranda Law provides clear guidance for wills, trusts, powers of attorney, and health care directives in English, Spanish, and Portuguese.
+    title: Estate Planning for New Jersey Families
+    description: Protect your family with clear guidance for wills, trusts, powers of attorney, and health care directives from a multilingual New Jersey attorney.
   hero:
-    eyebrow: Estate planning, thoughtfully handled
-    title: Estate Planning for
-    accent: New Jersey Families.
-    lead: Personalized guidance for wills, trusts, powers of attorney, and healthcare directives—in English, Spanish, and Portuguese.
+    eyebrow: Estate Planning for New Jersey Families
+    title: Protect What You’ve Built.
+    accent: Make Things Easier for the People You Love.
+    lead: Wills, trusts, powers of attorney, and healthcare directives without unnecessary confusion or complexity.
+    supportingLead: Get clear guidance from a New Jersey attorney who can help you put the right plan in place.
+    ctaLabel: Schedule a Free Consultation
+    contactPrompt: Prefer to talk now?
+    contactLinkLabel: Call, text, or WhatsApp us.
     processLabel: How it works
-    note: Clear guidance for the people and future you care about.
+    note: Available in English, Spanish & Portuguese.
     image: /images/brian-law-hero_7235d741.jpg.webp
     imageAlt: A warmly lit estate-planning desk with an open folder, fountain pen, brass lamp, and law books
     captionPrimary: Brian Miranda Law
-    captionSecondary: Private client practice
+    captionSecondary: New Jersey estate planning
     indexCurrent: "01"
     indexSeparator: /
     indexTotal: "04"
-  trustStripAriaLabel: Practice highlights
+  trustStripAriaLabel: Miranda Law practice highlights
   trustStrip:
-    - Serving North Jersey families
+    - Clear Guidance
+    - Straightforward Process
     - Free initial consultation
-    - English · Español · Português
-    - Call · Text · WhatsApp
+    - English
+    - Español
+    - Português
+  intro:
+    eyebrow: Estate planning
+    title: You Know You Should Have a Plan. You Just Haven’t Gotten Around to It.
+    paragraphs:
+      - Maybe you’ve been meaning to make a will.
+      - Maybe you recently bought a home, had children, got married, or started thinking more seriously about retirement.
+      - Or maybe you’re simply not sure which documents you actually need.
+      - You don’t have to figure it out yourself.
+      - Miranda Law helps New Jersey families create straightforward estate plans designed to protect the people they love and make their wishes clear.
+    ctaLabel: Start Your Estate Plan
+    href: /contact
   services:
-    eyebrow: Focused counsel
-    title: What we help you put in place.
-    aside: A strong plan is both practical and personal. Our services are designed to give each the attention it deserves.
+    eyebrow: Estate planning services
+    title: Start With the Documents That Protect You and Your Family
+    aside: You don’t need to become an estate-planning expert. We’ll help you understand what makes sense for your situation.
     items:
       - icon: file
         number: "01"
         title: Wills
-        description: Document your wishes, nominate an executor, and give the estate written direction.
+        description: Decide who receives your property, who handles your estate, and how you want your affairs managed.
+        linkLabel: Learn About Wills
         href: /estate-planning/wills
       - icon: landmark
         number: "02"
         title: Trusts
-        description: Create written terms for how selected property should be held, managed, and distributed.
+        description: Protect and manage assets with a plan designed around your family, property, and long-term goals.
+        linkLabel: Learn About Trusts
         href: /estate-planning/trusts
       - icon: hand
         number: "03"
         title: Powers of Attorney
-        description: Choose a trusted agent to address defined financial and legal matters on your behalf.
+        description: Choose someone you trust to handle important financial and legal matters if you’re unable to do so yourself.
+        linkLabel: Learn About Powers of Attorney
         href: /estate-planning/powers-of-attorney
       - icon: heart
         number: "04"
         title: Health Care Directives
-        description: Name a health care representative and communicate medical preferences for incapacity.
+        description: Make your healthcare wishes clear and choose someone you trust to make decisions if you cannot.
+        linkLabel: Learn About Health Care Directives
         href: /estate-planning/health-care-directives
+  why:
+    eyebrow: Why choose Miranda Law
+    title: Estate Planning Doesn’t Have to Feel Complicated.
+    body: The goal isn’t to hand you a stack of legal documents. It’s to help you understand your options, make the right decisions for your family, and leave with a plan you feel confident about.
+    items:
+      - title: Straightforward
+        description: We explain your options in plain language and help you determine what you actually need.
+      - title: Personal
+        description: Your plan is built around your family, assets, wishes, and circumstances.
+      - title: Accessible
+        description: Call, text, or WhatsApp our office when you need us.
+      - title: Multilingual
+        description: Get help in English, Spanish, or Portuguese.
   process:
-    eyebrow: A clear way forward
-    title: Start where you are.
-    accent: We will take it from there.
+    eyebrow: A clear process
+    title: Getting Your Estate Plan
+    accent: Started Is Simple
     image: /images/brian-law-detail_25336cb9.jpg.webp
     imageAlt: A linen-bound planning book resting on layered papers and deep green folders
     steps:
       - number: "01"
-        title: Listen
-        description: We begin with your priorities, questions, and the people you want to protect.
+        title: Schedule a Free Consultation
+        description: Tell us a little about yourself and what you’re looking to accomplish.
       - number: "02"
-        title: Shape
-        description: We translate those priorities into a plan that is clear, cohesive, and built for real life.
+        title: Build Your Plan
+        description: We’ll explain your options and prepare the documents appropriate for your situation.
       - number: "03"
-        title: Carry forward
-        description: You leave with documents you understand and a plan you can return to as life changes.
+        title: Protect What Matters
+        description: Finalize your documents and move forward knowing your wishes are clearly documented.
+    ctaLabel: Schedule Your Free Consultation
+    href: /contact
   about:
     mark: BM
     eyebrow: Meet Brian Miranda
-    title: A practical legal relationship starts with clear communication.
-    body: Brian M. Miranda, Esq. leads a North Jersey practice serving individuals and families who want direct explanations, responsive communication, and a plan grounded in their actual circumstances.
+    title: Meet Brian Miranda
+    body: "Brian Miranda helps individuals and families throughout New Jersey handle important legal decisions with clear, straightforward guidance. His approach to estate planning is simple: understand what matters to you, explain your options clearly, and help you put the proper documents in place."
     linkLabel: Meet Brian
     href: /about
   languages:
-    eyebrow: Estate planning in your language
-    title: Important decisions deserve language that feels clear.
-    body: Miranda Law communicates with clients in English, Spanish, and Portuguese—from the first inquiry through the planning process.
+    eyebrow: Multilingual assistance
+    title: Your Family’s Plans Shouldn’t Get Lost in Translation.
+    body: Important legal decisions are easier when you can discuss them in the language you’re most comfortable using.
+    availability: Miranda Law serves clients in English, Spanish, and Portuguese.
+    prompt: Choose your language to learn more about estate planning and schedule a consultation.
     items:
       - label: EN
         href: /start/en
@@ -258,34 +296,46 @@ home:
         language: Português
   otherServices:
     eyebrow: Other legal services
-    title: Guidance for the matters around the plan.
-    body: Miranda Law also assists with select real estate, corporate, civil litigation and defense, municipal, immigration, and landlord-tenant matters.
-    linkLabel: View other services
+    title: More Than Estate Planning
+    body: "Need help with something else? Miranda Law also assists clients with select matters involving:"
+    items:
+      - Real Estate
+      - Immigration
+      - Litigation
+    linkLabel: View All Legal Services
     href: /other-services
   reviews:
-    eyebrow: Client reviews
-    title: Verified client experiences are being prepared.
-    body: Approved feedback will be published after review. No testimonial language or ratings are presented before approval.
-    status: Coming soon
+    eyebrow: Testimonials & Reviews
+    title: Trusted by Clients Throughout New Jersey
+    body: Approved Google reviews and client testimonials will be published here after they have been verified and cleared for use.
+    status: Verified client reviews coming soon
   faq:
-    eyebrow: A few first questions
-    title: Clarity is a good place to begin.
-    body: Have a question that is not here? We are glad to start there, too.
-    linkLabel: Ask a question
+    eyebrow: Estate planning FAQs
+    title: Questions About Estate Planning?
+    body: Start with clear answers to a few of the questions New Jersey families ask most often.
+    linkLabel: View Estate Planning FAQs
+    href: /resources/estate-planning-faqs
     items:
-      - question: When should I begin estate planning?
-        answer: There is no single right moment. Marriage, children, homeownership, retirement, health changes, and changing family responsibilities are common reasons to begin or review a plan.
-      - question: What should I bring to an initial conversation?
-        answer: Bring any existing documents you can find and a general list of family members, property, accounts, insurance, business interests, and questions. You do not need final decisions or perfect numbers.
-      - question: How often should I review my plan?
-        answer: A review can be useful after major family, health, property, or financial changes and when the people named in the documents are no longer the right choices.
+      - question: Do I need an estate plan if I am not wealthy?
+        answer: Estate planning is not only about wealth. It can help you name decision-makers, document your wishes, prepare for incapacity, and make important matters clearer for the people you love.
+      - question: What documents are commonly included in an estate plan?
+        answer: Depending on your circumstances, an estate plan may include a will, trust, power of attorney, and healthcare directive. We’ll help you understand which documents make sense for your situation.
+      - question: How much does estate planning cost?
+        answer: The cost depends on the documents and complexity involved. After your free initial consultation, we’ll explain what your situation requires and the associated fees before moving forward.
+      - question: What happens during the initial consultation?
+        answer: We’ll learn about your family, priorities, property, existing documents, and questions, then explain the options that may fit your goals. You do not need to arrive with every decision already made.
+      - question: Can Miranda Law assist me in Spanish or Portuguese?
+        answer: Yes. Miranda Law serves clients in English, Spanish, and Portuguese so you can discuss important legal decisions in the language you’re most comfortable using.
+      - question: Does Miranda Law offer virtual consultations?
+        answer: Consultation formats may depend on your circumstances. Contact Miranda Law to ask whether a virtual consultation is available for your matter.
   contact:
-    eyebrow: The next step can be simple
-    title: Let’s make a thoughtful plan.
-    body: Tell us a little about what brings you here. We will be in touch to arrange a private introductory conversation.
-    cardLabel: Contact Brian directly
-    preferencePrompt: Prefer WhatsApp or email?
-    optionsLabel: View every contact option
+    eyebrow: Start your estate plan
+    title: The Best Time to Make a Plan Is Before Your Family Needs It.
+    body: You don’t need to know which documents you need before contacting us. That’s what the consultation is for. Tell us a little about your situation and we’ll help you understand the next step.
+    ctaLabel: Schedule a Free Consultation
+    cardLabel: Or call, text, or WhatsApp Miranda Law.
+    preferencePrompt: Available in
+    optionsLabel: English · Español · Português
 # Interior editorial pages
 pages:
   estatePlanning:

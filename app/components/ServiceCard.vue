@@ -37,6 +37,7 @@ const icon = computed(() => icons[props.service.icon]);
       "
       :to="service.href"
     >
+      <span class="card-link-label">{{ service.linkLabel }}</span>
       <ArrowUpRight :size="18" aria-hidden="true" />
     </NuxtLink>
   </article>
