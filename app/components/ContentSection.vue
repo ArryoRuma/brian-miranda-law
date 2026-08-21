@@ -3,6 +3,7 @@ import { ArrowUpRight, Check } from "@lucide/vue";
 import type { PageSectionContent } from "~/types/content";
 
 const props = defineProps<{ section: PageSectionContent }>();
+const siteCopy = await useSiteCopy();
 const tone = computed(() => props.section.tone ?? "paper");
 </script>
 
@@ -44,7 +45,7 @@ const tone = computed(() => props.section.tone ?? "paper");
           <h3>{{ card.title }}</h3>
           <p>{{ card.body }}</p>
           <NuxtLink v-if="card.href" :to="card.href">
-            {{ card.linkLabel ?? "Learn more" }}
+            {{ card.linkLabel ?? siteCopy.site.shared.learnMore }}
             <ArrowUpRight :size="15" aria-hidden="true" />
           </NuxtLink>
         </article>

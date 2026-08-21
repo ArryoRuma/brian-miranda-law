@@ -1,8 +1,13 @@
 <script setup lang="ts">
-import { LEGAL_PAGES, type LegalPageKey } from "~/data/legal";
-
+type LegalPageKey = "privacy" | "cookies" | "disclaimer" | "accessibility";
 const props = defineProps<{ page: LegalPageKey }>();
-const content = computed(() => LEGAL_PAGES[props.page]);
+const siteCopy = await useSiteCopy();
+const content = computed(() => {
+  const value = siteCopy.value.legal[props.page];
+  if (!value) throw createError(`${props.page} content is missing`);
+  return value;
+});
+const labels = computed(() => siteCopy.value.site.shared.legal);
 
 usePageSeo({
   title: content.value.title,
@@ -16,10 +21,10 @@ usePageSeo({
     <Breadcrumbs />
     <article class="legal-page">
       <header>
-        <SectionEyebrow>Website information</SectionEyebrow>
+        <SectionEyebrow>{{ labels.eyebrow }}</SectionEyebrow>
         <h1>{{ content.title }}</h1>
         <p>{{ content.intro }}</p>
-        <span>Last updated: {{ content.updated }}</span>
+        <span>{{ labels.updatedLabel }} {{ content.updated }}</span>
       </header>
       <div class="legal-page-content">
         <section v-for="section in content.sections" :key="section.title">

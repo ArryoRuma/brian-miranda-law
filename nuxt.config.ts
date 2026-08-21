@@ -1,5 +1,21 @@
+import { readFileSync } from "node:fs";
 import tailwindcss from "@tailwindcss/vite";
-import { PUBLIC_ROUTES } from "./app/data/site";
+import { parse } from "yaml";
+import { PUBLIC_ROUTES } from "./app/data/routes";
+
+const websiteCopy = parse(
+  readFileSync(new URL("./content/site.yml", import.meta.url), "utf8")
+) as {
+  site: {
+    name: string;
+    url: string;
+    logo: string;
+    defaultLocale: string;
+    themeColor: string;
+    description: string;
+    contact: { name: string };
+  };
+};
 
 const previewRoutes = [
   "/start/en",
@@ -13,8 +29,14 @@ const previewRoutes = [
 export default defineNuxtConfig({
   compatibilityDate: "2026-08-01",
   devtools: { enabled: false },
+  runtimeConfig: {
+    public: {
+      siteUrl: websiteCopy.site.url,
+    },
+  },
   css: ["~/assets/css/main.css"],
   modules: [
+    "@nuxt/content",
     "@nuxt/image",
     "@nuxtjs/i18n",
     "@nuxtjs/robots",
@@ -22,17 +44,16 @@ export default defineNuxtConfig({
     "nuxt-schema-org",
   ],
   site: {
-    url: "https://bmirandalaw.com",
-    name: "Miranda Law",
-    description:
-      "Clear estate-planning guidance for North Jersey families in English, Spanish, and Portuguese.",
-    defaultLocale: "en",
+    url: websiteCopy.site.url,
+    name: websiteCopy.site.name,
+    description: websiteCopy.site.description,
+    defaultLocale: websiteCopy.site.defaultLocale,
   },
   app: {
     head: {
       htmlAttrs: { lang: "en" },
       meta: [
-        { name: "theme-color", content: "#2c2c2c" },
+        { name: "theme-color", content: websiteCopy.site.themeColor },
         {
           name: "format-detection",
           content: "telephone=no, address=no, email=no",
@@ -55,7 +76,7 @@ export default defineNuxtConfig({
   i18n: {
     strategy: "no_prefix",
     defaultLocale: "en",
-    baseUrl: "https://bmirandalaw.com",
+    baseUrl: websiteCopy.site.url,
     detectBrowserLanguage: false,
     locales: [
       { code: "en", language: "en-US", name: "English" },
@@ -86,9 +107,9 @@ export default defineNuxtConfig({
   schemaOrg: {
     identity: {
       type: "Organization",
-      name: "The Law Offices of Brian M. Miranda, Esq., LLC",
-      url: "https://bmirandalaw.com",
-      logo: "https://bmirandalaw.com/miranda-law-gold.png",
+      name: websiteCopy.site.contact.name,
+      url: websiteCopy.site.url,
+      logo: `${websiteCopy.site.url}${websiteCopy.site.logo}`,
     },
   },
   routeRules: {

@@ -1,40 +1,30 @@
 <script setup lang="ts">
 import { Play } from "@lucide/vue";
-import { VIDEO_TOPICS } from "~/data/resources";
+const siteCopy = await useSiteCopy();
+const content = computed(() => siteCopy.value.resources.video);
 
 usePageSeo({
-  title: "Estate Planning Video Library",
-  description:
-    "Explore Miranda Law's planned video topics covering wills, trusts, powers of attorney, health care directives, and consultation preparation.",
-  path: "/resources/video-blog",
+  title: content.value.seo.title,
+  description: content.value.seo.description,
+  path: content.value.seo.path!,
 });
 </script>
 
 <template>
   <div>
     <Breadcrumbs />
-    <InteriorHero
-      eyebrow="Video library"
-      title="Estate planning explained"
-      accent="with clarity."
-      lead="Short videos are being prepared to answer common questions in a direct, useful format."
-      secondary-href="/resources/estate-planning-faqs"
-      secondary-label="Read the FAQs now"
-    />
+    <InteriorHero v-bind="content.hero" />
     <section class="video-library-section">
       <div class="video-library-heading coming-soon-panel">
-        <SectionEyebrow tone="dark">Coming soon</SectionEyebrow>
-        <h2>Reviewed videos are in production.</h2>
-        <p>
-          Topics are listed as a preview. No recording, client story, or legal
-          outcome is represented before final review and publication.
-        </p>
+        <SectionEyebrow tone="dark">{{ content.intro.eyebrow }}</SectionEyebrow>
+        <h2>{{ content.intro.title }}</h2>
+        <p>{{ content.intro.body }}</p>
       </div>
       <div class="video-topic-grid">
-        <article v-for="topic in VIDEO_TOPICS" :key="topic.title">
+        <article v-for="topic in content.topics" :key="topic.title">
           <div class="video-placeholder" aria-hidden="true">
             <Play :size="28" />
-            <span>Video coming soon</span>
+            <span>{{ content.placeholder }}</span>
           </div>
           <h3>{{ topic.title }}</h3>
           <p>{{ topic.summary }}</p>

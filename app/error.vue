@@ -2,10 +2,12 @@
 import type { NuxtError } from "#app";
 
 defineProps<{ error: NuxtError }>();
+const siteCopy = await useSiteCopy();
+const content = computed(() => siteCopy.value.error404);
 
 usePageSeo({
-  title: "Page Not Found",
-  description: "The requested Miranda Law page could not be found.",
+  title: content.value.title,
+  description: content.value.description,
   path: "/404",
   noIndex: true,
 });
@@ -17,10 +19,12 @@ usePageSeo({
     <main id="main-content" tabindex="-1">
       <section class="next-steps-page">
         <div class="next-steps-heading">
-          <SectionEyebrow>404</SectionEyebrow>
-          <h1>That page could not be found.</h1>
-          <p>The page may have moved, or the address may be incomplete.</p>
-          <NuxtLink class="button button-brass" to="/">Return home</NuxtLink>
+          <SectionEyebrow>{{ content.eyebrow }}</SectionEyebrow>
+          <h1>{{ content.heading }}</h1>
+          <p>{{ content.body }}</p>
+          <NuxtLink class="button button-brass" to="/">
+            {{ content.actionLabel }}
+          </NuxtLink>
         </div>
       </section>
     </main>

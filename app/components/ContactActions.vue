@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { MessageSquareText, Phone } from "@lucide/vue";
-import { CONTACT_ACTIONS } from "~/data/site";
+import { getPhoneHref, getTextHref, getWhatsAppHref } from "~/data/routes";
 
 withDefaults(
   defineProps<{
@@ -15,15 +15,32 @@ withDefaults(
   }
 );
 
-const callAction = CONTACT_ACTIONS[0];
-const textAction = CONTACT_ACTIONS[1];
+const siteCopy = await useSiteCopy();
+const site = computed(() => siteCopy.value.site);
+
+function actionHref(id: "call" | "text" | "whatsapp" | "email") {
+  const contact = site.value.contact;
+  if (id === "call") return getPhoneHref(contact.phoneHref);
+  if (id === "text") return getTextHref(contact.phoneHref);
+  if (id === "whatsapp") return getWhatsAppHref(contact.phoneHref);
+  return `mailto:${contact.email}`;
+}
+
+const callAction = computed(() => {
+  const action = site.value.contactActions.find(item => item.id === "call")!;
+  return { ...action, href: actionHref(action.id) };
+});
+const textAction = computed(() => {
+  const action = site.value.contactActions.find(item => item.id === "text")!;
+  return { ...action, href: actionHref(action.id) };
+});
 </script>
 
 <template>
   <div
     class="primary-contact-actions"
     :class="{ 'is-compact': compact }"
-    aria-label="Contact Brian Miranda"
+    :aria-label="site.shared.contactActionsAriaLabel"
   >
     <a
       class="contact-action contact-action-call"

@@ -6,9 +6,10 @@ import {
   HeartPulse,
   Landmark,
 } from "@lucide/vue";
-import type { Service } from "~/data/home";
+import type { HomeService } from "~/types/content";
 
-const props = defineProps<{ service: Service }>();
+const props = defineProps<{ service: HomeService }>();
+const siteCopy = await useSiteCopy();
 const icons = {
   file: FileText,
   landmark: Landmark,
@@ -28,7 +29,12 @@ const icon = computed(() => icons[props.service.icon]);
     <p>{{ service.description }}</p>
     <NuxtLink
       class="card-arrow"
-      :aria-label="`Learn more about ${service.title}`"
+      :aria-label="
+        siteCopy.site.shared.serviceLinkAriaLabel.replace(
+          '{service}',
+          service.title
+        )
+      "
       :to="service.href"
     >
       <ArrowUpRight :size="18" aria-hidden="true" />

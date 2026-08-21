@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { ChevronDown, Menu, X } from "@lucide/vue";
-import { LANGUAGE_LINKS, SITE_NAVIGATION } from "~/data/site";
 
 const route = useRoute();
+const siteCopy = await useSiteCopy();
+const navigation = computed(() => siteCopy.value.site.navigation.primary);
+const languageLinks = computed(() => siteCopy.value.site.navigation.languages);
+const copy = computed(() => siteCopy.value.site.header);
 const menuOpen = ref(false);
 const estateMenuOpen = ref(false);
 const menuButton = ref<HTMLButtonElement>();
 const header = ref<HTMLElement>();
 
-const estateItem = SITE_NAVIGATION[0];
+const estateItem = computed(() => navigation.value[0]!);
 
 function closeMobileMenu(restoreFocus = false) {
   menuOpen.value = false;
@@ -68,18 +71,18 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content">{{ copy.skipLink }}</a>
   <div class="desktop-rail" aria-hidden="true">
-    <span class="rail-mark">BM</span>
+    <span class="rail-mark">{{ copy.railMark }}</span>
     <span class="rail-line" />
-    <span class="rail-label">Brian Miranda Law</span>
+    <span class="rail-label">{{ copy.railLabel }}</span>
   </div>
   <header ref="header" class="site-header" @keydown="trapMenuFocus">
-    <NuxtLink class="brand-lockup" to="/" aria-label="Miranda Law home">
+    <NuxtLink class="brand-lockup" to="/" :aria-label="copy.homeAriaLabel">
       <NuxtImg
         class="brand-logo"
         src="/miranda-law-gold.png"
-        alt="Miranda Law, Attorneys at Law"
+        :alt="copy.logoAlt"
         width="2434"
         height="2401"
         densities="1x"
@@ -90,7 +93,7 @@ onBeforeUnmount(() => {
       ref="menuButton"
       class="menu-button"
       type="button"
-      :aria-label="menuOpen ? 'Close menu' : 'Open menu'"
+      :aria-label="menuOpen ? copy.closeMenuAriaLabel : copy.openMenuAriaLabel"
       aria-controls="main-navigation"
       :aria-expanded="menuOpen"
       @click="menuOpen ? closeMobileMenu(true) : (menuOpen = true)"
@@ -103,7 +106,7 @@ onBeforeUnmount(() => {
       id="main-navigation"
       class="main-nav"
       :class="{ 'is-open': menuOpen }"
-      aria-label="Main navigation"
+      :aria-label="copy.navigationAriaLabel"
     >
       <div
         class="nav-item-with-menu"
@@ -129,7 +132,7 @@ onBeforeUnmount(() => {
           <button
             class="nav-submenu-toggle"
             type="button"
-            aria-label="Toggle Estate Planning pages"
+            :aria-label="copy.estateMenuAriaLabel"
             :aria-expanded="estateMenuOpen"
             aria-controls="estate-planning-submenu"
             @click="estateMenuOpen = !estateMenuOpen"
@@ -154,7 +157,7 @@ onBeforeUnmount(() => {
       </div>
 
       <NuxtLink
-        v-for="item in SITE_NAVIGATION.slice(1)"
+        v-for="item in navigation.slice(1)"
         :key="item.href"
         :class="{ 'is-active': route.path === item.href }"
         :to="item.href"
@@ -163,12 +166,14 @@ onBeforeUnmount(() => {
         {{ item.label }}
       </NuxtLink>
 
-      <div class="nav-languages" aria-label="Questionnaire previews">
+      <div class="nav-languages" :aria-label="copy.questionnairesAriaLabel">
         <NuxtLink
-          v-for="item in LANGUAGE_LINKS"
+          v-for="item in languageLinks"
           :key="item.href"
           :to="item.href"
-          :aria-label="`Open the ${item.language} questionnaire preview`"
+          :aria-label="
+            copy.questionnaireLinkAriaLabel.replace('{language}', item.language)
+          "
           :aria-current="route.path === item.href ? 'page' : undefined"
         >
           <span class="language-short" aria-hidden="true">{{
@@ -185,12 +190,12 @@ onBeforeUnmount(() => {
       v-if="menuOpen"
       class="nav-backdrop"
       type="button"
-      aria-label="Close navigation menu"
+      :aria-label="copy.backdropAriaLabel"
       tabindex="-1"
       @click="closeMobileMenu(true)"
     />
   </header>
-  <aside class="mobile-contact-bar" aria-label="Quick contact options">
+  <aside class="mobile-contact-bar" :aria-label="copy.quickContactAriaLabel">
     <ContactActions compact />
   </aside>
 </template>

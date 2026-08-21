@@ -16,3 +16,38 @@ export type PageSectionContent = {
   note?: string;
   tone?: "paper" | "sand" | "dark" | "blue";
 };
+
+export type FaqContent = {
+  question: string;
+  answer: string;
+};
+
+export type SitePageContent = {
+  path: string;
+  title: string;
+  metaDescription: string;
+  hero: {
+    eyebrow: string;
+    title: string;
+    accent?: string;
+    lead: string;
+    image?: string;
+    imageAlt?: string;
+    secondaryHref?: string;
+    secondaryLabel?: string;
+  };
+  sections: readonly PageSectionContent[];
+  faqs?: readonly FaqContent[];
+  finalCta?: {
+    title: string;
+    body: string;
+  };
+};
+
+export type HomeService = {
+  icon: "file" | "landmark" | "hand" | "heart";
+  number: string;
+  title: string;
+  description: string;
+  href: string;
+};

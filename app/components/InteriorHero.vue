@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ArrowUpRight } from "@lucide/vue";
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     eyebrow: string;
     title: string;
@@ -15,10 +15,13 @@ withDefaults(
   {
     accent: undefined,
     image: "/images/brian-law-hero_7235d741.jpg.webp",
-    imageAlt: "Estate-planning documents arranged on a warm desk",
     secondaryHref: undefined,
     secondaryLabel: undefined,
   }
+);
+const siteCopy = await useSiteCopy();
+const resolvedImageAlt = computed(
+  () => props.imageAlt ?? siteCopy.value.site.shared.interiorHeroDefaultImageAlt
 );
 </script>
 
@@ -47,7 +50,7 @@ withDefaults(
     <div class="interior-hero-image">
       <NuxtImg
         :src="image"
-        :alt="imageAlt"
+        :alt="resolvedImageAlt"
         width="1920"
         height="1280"
         sizes="xs:100vw md:50vw"

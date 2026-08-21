@@ -1,9 +1,10 @@
-export default defineEventHandler(event => {
+import { queryCollection as queryServerCollection } from "@nuxt/content/server";
+
+export default defineEventHandler(async event => {
+  const siteCopy = await queryServerCollection(event, "site").first();
+  if (!siteCopy) throw createError("Website content is missing");
+
   setResponseStatus(event, 501);
 
-  return {
-    status: "not-configured",
-    message:
-      "Secure form handling is not configured. Contact Miranda Law by phone, text, WhatsApp, or email.",
-  };
+  return siteCopy.api.contact;
 });

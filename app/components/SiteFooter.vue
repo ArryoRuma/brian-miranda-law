@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import {
-  CONTACT,
-  ESTATE_PLANNING_NAVIGATION,
-  LANGUAGE_LINKS,
-  RESOURCE_NAVIGATION,
-  getPhoneHref,
-} from "~/data/site";
+import { getPhoneHref } from "~/data/routes";
+
+const siteCopy = await useSiteCopy();
+const site = computed(() => siteCopy.value.site);
+const copy = computed(() => site.value.footer);
+const contact = computed(() => site.value.contact);
+const currentYear = new Date().getFullYear();
 </script>
 
 <template>
@@ -15,23 +15,20 @@ import {
         <NuxtImg
           class="footer-logo"
           src="/miranda-law-gold.png"
-          alt="Miranda Law, Attorneys at Law"
+          :alt="site.header.logoAlt"
           width="2434"
           height="2401"
           loading="lazy"
           densities="1x"
         />
       </NuxtLink>
-      <p>
-        Clear estate-planning guidance for North Jersey families, available in
-        English, Spanish, and Portuguese.
-      </p>
+      <p>{{ copy.description }}</p>
     </div>
 
     <div class="footer-link-column">
-      <h2>Estate planning</h2>
+      <h2>{{ copy.estatePlanningHeading }}</h2>
       <NuxtLink
-        v-for="item in ESTATE_PLANNING_NAVIGATION"
+        v-for="item in site.navigation.estatePlanning"
         :key="item.href"
         :to="item.href"
       >
@@ -40,29 +37,29 @@ import {
     </div>
 
     <div class="footer-link-column">
-      <h2>Resources</h2>
+      <h2>{{ copy.resourcesHeading }}</h2>
       <NuxtLink
-        v-for="item in RESOURCE_NAVIGATION"
+        v-for="item in site.navigation.resources"
         :key="item.href"
         :to="item.href"
       >
         {{ item.label }}
       </NuxtLink>
-      <NuxtLink to="/about">About Brian</NuxtLink>
-      <NuxtLink to="/other-services">Other legal services</NuxtLink>
+      <NuxtLink to="/about">{{ copy.aboutLabel }}</NuxtLink>
+      <NuxtLink to="/other-services">{{ copy.otherServicesLabel }}</NuxtLink>
     </div>
 
     <div class="footer-contact-column">
-      <h2>Start a conversation</h2>
-      <a :href="getPhoneHref()">{{ CONTACT.phoneDisplay }}</a>
-      <a :href="`mailto:${CONTACT.email}`">{{ CONTACT.email }}</a>
-      <a :href="CONTACT.mapUrl" target="_blank" rel="noreferrer">
-        {{ CONTACT.addressLines[0] }}<br />
-        {{ CONTACT.addressLines[1] }}
+      <h2>{{ copy.contactHeading }}</h2>
+      <a :href="getPhoneHref(contact.phoneHref)">{{ contact.phoneDisplay }}</a>
+      <a :href="`mailto:${contact.email}`">{{ contact.email }}</a>
+      <a :href="contact.mapUrl" target="_blank" rel="noreferrer">
+        {{ contact.addressLines[0] }}<br />
+        {{ contact.addressLines[1] }}
       </a>
       <div class="footer-language-links">
         <NuxtLink
-          v-for="item in LANGUAGE_LINKS"
+          v-for="item in site.navigation.languages"
           :key="item.href"
           :to="item.href"
         >
@@ -72,15 +69,12 @@ import {
     </div>
 
     <div class="footer-legal-row">
-      <span>© 2026 {{ CONTACT.name }}</span>
-      <NuxtLink to="/privacy">Privacy</NuxtLink>
-      <NuxtLink to="/cookies">Cookies</NuxtLink>
-      <NuxtLink to="/disclaimer">Website disclaimer</NuxtLink>
-      <NuxtLink to="/accessibility">Accessibility</NuxtLink>
-      <span
-        >Attorney advertising. Prior results do not guarantee a similar
-        outcome.</span
-      >
+      <span>© {{ currentYear }} {{ contact.name }}</span>
+      <NuxtLink to="/privacy">{{ copy.privacyLabel }}</NuxtLink>
+      <NuxtLink to="/cookies">{{ copy.cookiesLabel }}</NuxtLink>
+      <NuxtLink to="/disclaimer">{{ copy.disclaimerLabel }}</NuxtLink>
+      <NuxtLink to="/accessibility">{{ copy.accessibilityLabel }}</NuxtLink>
+      <span>{{ copy.attorneyAdvertising }}</span>
     </div>
   </footer>
 </template>

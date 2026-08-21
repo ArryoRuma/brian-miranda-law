@@ -1,11 +1,14 @@
 <script setup lang="ts">
+const siteCopy = await useSiteCopy();
+const site = computed(() => siteCopy.value.site);
+
 useHead({
   titleTemplate: title =>
-    title ? `${title} | Miranda Law` : "Miranda Law | Estate Planning",
+    title ? `${title} | ${site.value.titleSuffix}` : site.value.defaultTitle,
 });
 
 useSeoMeta({
-  ogSiteName: "Miranda Law",
+  ogSiteName: site.value.name,
   ogType: "website",
   twitterCard: "summary_large_image",
 });

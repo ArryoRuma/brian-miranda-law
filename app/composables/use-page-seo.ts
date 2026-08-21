@@ -1,5 +1,3 @@
-import { SITE_URL } from "~/data/site";
-
 type PageSeoOptions = {
   title: string;
   description: string;
@@ -10,8 +8,10 @@ type PageSeoOptions = {
 };
 
 export function usePageSeo(options: PageSeoOptions) {
-  const canonical = `${SITE_URL}${options.path === "/" ? "/" : options.path}`;
-  const image = `${SITE_URL}${options.image ?? "/images/brian-law-hero_7235d741.jpg.webp"}`;
+  const config = useRuntimeConfig();
+  const siteUrl = config.public.siteUrl;
+  const canonical = `${siteUrl}${options.path === "/" ? "/" : options.path}`;
+  const image = `${siteUrl}${options.image ?? "/images/brian-law-hero_7235d741.jpg.webp"}`;
   const locale =
     options.locale === "es"
       ? "es_US"

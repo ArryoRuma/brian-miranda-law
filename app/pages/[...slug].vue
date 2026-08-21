@@ -1,15 +1,8 @@
 <script setup lang="ts">
-import {
-  ABOUT_PAGE,
-  ESTATE_PLANNING_PAGE,
-  OTHER_SERVICES_PAGE,
-  RESOURCES_PAGE,
-  SERVICE_PAGES,
-  type SitePageContent,
-} from "~/data/page-content";
-import type { LegalPageKey } from "~/data/legal";
+import type { SitePageContent } from "~/types/content";
 
 type Locale = "en" | "es" | "pt";
+type LegalPageKey = "privacy" | "cookies" | "disclaimer" | "accessibility";
 type PageKind =
   | { type: "editorial"; content: SitePageContent }
   | { type: "contact" }
@@ -21,16 +14,11 @@ type PageKind =
   | { type: "next"; locale: Locale };
 
 const route = useRoute();
+const siteCopy = await useSiteCopy();
 
-const editorialPages: Record<string, SitePageContent> = {
-  "/estate-planning": ESTATE_PLANNING_PAGE,
-  "/about": ABOUT_PAGE,
-  "/resources": RESOURCES_PAGE,
-  "/other-services": OTHER_SERVICES_PAGE,
-  ...Object.fromEntries(
-    Object.values(SERVICE_PAGES).map(page => [page.path, page])
-  ),
-};
+const editorialPages = Object.fromEntries(
+  Object.values(siteCopy.value.pages).map(page => [page.path, page])
+) as Record<string, SitePageContent>;
 
 function resolvePage(path: string): PageKind | undefined {
   if (editorialPages[path])
@@ -58,7 +46,7 @@ const page = resolvePage(route.path);
 if (!page) {
   throw createError({
     statusCode: 404,
-    statusMessage: "Page not found",
+    statusMessage: siteCopy.value.error404.heading,
   });
 }
 </script>

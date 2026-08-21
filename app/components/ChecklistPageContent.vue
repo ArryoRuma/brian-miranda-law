@@ -1,39 +1,28 @@
 <script setup lang="ts">
 import { Check } from "@lucide/vue";
-import { CHECKLIST_GROUPS } from "~/data/resources";
+const siteCopy = await useSiteCopy();
+const content = computed(() => siteCopy.value.resources.checklist);
 
 usePageSeo({
-  title: "Estate Planning Checklist",
-  description:
-    "Prepare for an estate-planning consultation with a practical checklist covering family, documents, property, decision-makers, and questions.",
-  path: "/resources/estate-planning-checklist",
+  title: content.value.seo.title,
+  description: content.value.seo.description,
+  path: content.value.seo.path!,
 });
 </script>
 
 <template>
   <div>
     <Breadcrumbs />
-    <InteriorHero
-      eyebrow="Estate planning checklist"
-      title="Gather what you can."
-      accent="Bring the questions you still have."
-      lead="You do not need every account number or every decision before a consultation. This checklist helps you collect the information that can make the conversation more productive."
-      secondary-href="/resources/estate-planning-faqs"
-      secondary-label="Read the FAQs"
-    />
+    <InteriorHero v-bind="content.hero" />
     <section class="checklist-section">
       <div class="checklist-intro">
-        <SectionEyebrow tone="dark">Preparation guide</SectionEyebrow>
-        <h2>Use this as a working list—not a test.</h2>
-        <p>
-          Check what is easy to gather. Make a note beside anything you cannot
-          find or do not understand. Those gaps are useful topics for the
-          consultation.
-        </p>
+        <SectionEyebrow tone="dark">{{ content.intro.eyebrow }}</SectionEyebrow>
+        <h2>{{ content.intro.title }}</h2>
+        <p>{{ content.intro.body }}</p>
       </div>
       <div class="checklist-groups">
         <section
-          v-for="(group, index) in CHECKLIST_GROUPS"
+          v-for="(group, index) in content.groups"
           :key="group.title"
           class="checklist-group"
         >
@@ -48,8 +37,8 @@ usePageSeo({
       </div>
     </section>
     <CallToAction
-      title="You do not need to finish the checklist before calling."
-      body="A free initial consultation can help you decide what information matters and what can wait until later."
+      :title="content.finalCta.title"
+      :body="content.finalCta.body"
     />
   </div>
 </template>

@@ -1,26 +1,25 @@
 <script setup lang="ts">
-withDefaults(
-  defineProps<{ title?: string; body?: string; eyebrow?: string }>(),
-  {
-    title: "A clearer plan can begin with one conversation.",
-    body: "Tell us what brings you here. Miranda Law can help you understand the next questions to consider and whether our services fit your needs.",
-    eyebrow: "Start with clarity",
-  }
-);
+const props = defineProps<{
+  title?: string;
+  body?: string;
+  eyebrow?: string;
+}>();
+const siteCopy = await useSiteCopy();
+const defaults = computed(() => siteCopy.value.site.shared.finalCta);
 </script>
 
 <template>
   <section class="final-cta">
     <div>
-      <SectionEyebrow>{{ eyebrow }}</SectionEyebrow>
-      <h2>{{ title }}</h2>
-      <p>{{ body }}</p>
+      <SectionEyebrow>{{ props.eyebrow ?? defaults.eyebrow }}</SectionEyebrow>
+      <h2>{{ props.title ?? defaults.title }}</h2>
+      <p>{{ props.body ?? defaults.body }}</p>
     </div>
     <div class="contact-methods">
       <ContactActions />
-      <NuxtLink class="text-link" to="/contact"
-        >View every contact option</NuxtLink
-      >
+      <NuxtLink class="text-link" to="/contact">
+        {{ siteCopy.site.shared.viewContactOptions }}
+      </NuxtLink>
     </div>
   </section>
 </template>

@@ -1,19 +1,17 @@
 <script setup lang="ts">
-import { FAQ_GROUPS } from "~/data/resources";
-
-const description =
-  "Plain-language answers to common estate-planning questions about wills, trusts, incapacity documents, and working with Miranda Law.";
+const siteCopy = await useSiteCopy();
+const content = computed(() => siteCopy.value.resources.faq);
 
 usePageSeo({
-  title: "Estate Planning FAQs",
-  description,
-  path: "/resources/estate-planning-faqs",
+  title: content.value.seo.title,
+  description: content.value.seo.description,
+  path: content.value.seo.path!,
 });
 
 useSchemaOrg([
   {
     "@type": "FAQPage",
-    mainEntity: FAQ_GROUPS.flatMap(group =>
+    mainEntity: content.value.groups.flatMap(group =>
       group.items.map(item => ({
         "@type": "Question",
         name: item.question,
@@ -27,23 +25,16 @@ useSchemaOrg([
 <template>
   <div>
     <Breadcrumbs />
-    <InteriorHero
-      eyebrow="Estate planning FAQs"
-      title="Clear answers create"
-      accent="better questions."
-      lead="Use these general answers to organize what you want to discuss. Your own plan should be based on your family, property, responsibilities, and goals."
-      secondary-href="/resources/estate-planning-checklist"
-      secondary-label="Open the planning checklist"
-    />
+    <InteriorHero v-bind="content.hero" />
     <section
-      v-for="group in FAQ_GROUPS"
+      v-for="group in content.groups"
       :key="group.title"
       class="faq-section interior-faq-section"
     >
       <div class="faq-intro">
         <SectionEyebrow>{{ group.title }}</SectionEyebrow>
         <h2>{{ group.title }}</h2>
-        <p>General information to help you prepare for a conversation.</p>
+        <p>{{ content.groupIntro }}</p>
       </div>
       <FaqAccordion
         :items="group.items"

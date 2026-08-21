@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import type { SitePageContent } from "~/data/page-content";
+import type { SitePageContent } from "~/types/content";
 
 const props = defineProps<{ content: SitePageContent }>();
+const siteCopy = await useSiteCopy();
+const faqCopy = computed(() => siteCopy.value.site.shared.editorialFaq);
 
 usePageSeo({
   title: props.content.title,
@@ -33,12 +35,9 @@ if (props.content.faqs?.length) {
   />
   <section v-if="content.faqs" class="faq-section interior-faq-section">
     <div class="faq-intro">
-      <SectionEyebrow>Frequently asked questions</SectionEyebrow>
-      <h2>Questions are part of good planning.</h2>
-      <p>
-        These answers provide general information. Your circumstances may call
-        for a different approach.
-      </p>
+      <SectionEyebrow>{{ faqCopy.eyebrow }}</SectionEyebrow>
+      <h2>{{ faqCopy.title }}</h2>
+      <p>{{ faqCopy.body }}</p>
     </div>
     <FaqAccordion :items="content.faqs" :id-prefix="`faq-${content.path}`" />
   </section>
