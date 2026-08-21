@@ -2,26 +2,48 @@
 @import "tailwindcss";
 
 :root {
-  --graphite: #2c2c2c;
-  --graphite-2: #363636;
-  --gunmetal: #3f3f3f;
-  --slate: #29454b;
-  --teal: #265d69;
-  --paper: #faf7f0;
-  --sand: #e6ddc3;
-  --brass: #a98d3a;
-  --brown: #9c5923;
-  --brandy: #8f250c;
+  /* Semantic palette: neutrals lead, gold connects, teal interrupts. */
+  --color-brand-primary: #a98d3a;
+  --color-brand-primary-hover: #b89b46;
+  --color-surface-light: #faf7f0;
+  --color-surface-warm: #e6ddc3;
+  --color-surface-dark: #2c2c2c;
+  --color-surface-dark-alt: #363636;
+  --color-surface-dark-muted: #3f3f3f;
+  --color-text-dark: #2c2c2c;
+  --color-text-muted: #666563;
+  --color-text-on-dark: #faf7f0;
+  --color-text-on-dark-muted: #d1cec9;
+  --color-brand-accent: #265d69;
+  --color-brand-accent-dark: #29454b;
+  --color-tertiary-warm: #9c5923;
+  --color-tertiary-alert: #8f250c;
+  --color-surface-raised: #fffdf8;
+  --color-border-default: rgb(44 44 44 / 15%);
+  --color-border-brand: rgb(169 141 58 / 52%);
+  --color-focus-ring: var(--color-brand-primary);
+
+  /* Compatibility aliases for the existing component styles. */
+  --graphite: var(--color-surface-dark);
+  --graphite-2: var(--color-surface-dark-alt);
+  --gunmetal: var(--color-surface-dark-muted);
+  --slate: var(--color-brand-accent-dark);
+  --teal: var(--color-brand-accent);
+  --paper: var(--color-surface-light);
+  --sand: var(--color-surface-warm);
+  --brass: var(--color-brand-primary);
+  --brown: var(--color-tertiary-warm);
+  --brandy: var(--color-tertiary-alert);
   --radius: 0px;
   --background: var(--paper);
   --foreground: var(--graphite);
   --card: var(--paper);
   --card-foreground: var(--graphite);
-  --border: rgba(44, 44, 44, 0.15);
-  --input: rgba(44, 44, 44, 0.15);
-  --ring: var(--brass);
-  --primary: var(--teal);
-  --primary-foreground: var(--paper);
+  --border: var(--color-border-default);
+  --input: var(--color-border-default);
+  --ring: var(--color-focus-ring);
+  --primary: var(--color-brand-primary);
+  --primary-foreground: var(--color-text-dark);
 }
 @theme inline {
   --color-background: var(--background);
@@ -2217,12 +2239,12 @@ blockquote em {
 
 /* UX and accessibility foundation */
 :root {
-  --text-readable: var(--graphite);
-  --text-muted: #666563;
-  --text-on-dark: var(--paper);
-  --text-on-dark-muted: #d1cec9;
-  --surface-raised: #fffdf8;
-  --focus-ring: var(--brass);
+  --text-readable: var(--color-text-dark);
+  --text-muted: var(--color-text-muted);
+  --text-on-dark: var(--color-text-on-dark);
+  --text-on-dark-muted: var(--color-text-on-dark-muted);
+  --surface-raised: var(--color-surface-raised);
+  --focus-ring: var(--color-focus-ring);
   --tap-target: 44px;
   --content-measure: 70ch;
   --header-height: 84px;
@@ -3906,5 +3928,433 @@ main[tabindex="-1"]:focus {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Homepage 60 / 30 / 10 color hierarchy */
+.home-page .button-primary {
+  background: var(--color-brand-primary);
+  color: var(--color-text-dark);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-page .button-primary:hover {
+  background: var(--color-brand-primary-hover);
+  color: var(--color-text-dark);
+}
+
+.home-page .button-primary:focus-visible {
+  outline: 2px solid var(--color-surface-light);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--color-focus-ring);
+}
+
+.nav-contact-actions .contact-action-call,
+.mobile-contact-bar .contact-action-call {
+  background: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+  color: var(--color-text-dark);
+}
+
+.nav-contact-actions .contact-action-call:hover,
+.mobile-contact-bar .contact-action-call:hover {
+  background: var(--color-brand-primary-hover);
+  border-color: var(--color-brand-primary-hover);
+  color: var(--color-text-dark);
+}
+
+.home-page .eyebrow.dark {
+  color: var(--color-text-dark);
+}
+
+.home-page .hero-direct-contact a {
+  color: var(--color-brand-primary-hover);
+}
+
+.home-page .process-copy h2 em {
+  color: var(--color-brand-primary);
+}
+
+.home-page .home-intro-body,
+.home-page .services-list,
+.home-page .process-steps {
+  border-top-color: var(--color-border-brand);
+}
+
+.home-page .service-card,
+.home-page .process-step {
+  border-color: var(--color-border-brand);
+}
+
+.home-page .service-top,
+.home-page .service-number,
+.home-page .process-step > span {
+  color: var(--color-brand-primary);
+}
+
+.home-page .services-section .card-arrow {
+  color: var(--color-text-dark);
+  text-decoration-color: var(--color-brand-primary);
+}
+
+.home-page .services-section .card-arrow svg {
+  color: var(--color-brand-primary);
+}
+
+.home-page .services-section .card-arrow:hover {
+  color: var(--color-text-dark);
+  text-decoration-color: var(--color-brand-primary-hover);
+}
+
+.home-page .dark-link {
+  color: var(--color-text-dark);
+  border-bottom-color: var(--color-border-brand);
+}
+
+.home-page .dark-link svg {
+  color: var(--color-brand-primary);
+}
+
+.home-page .dark-link:hover {
+  color: var(--color-text-dark);
+  border-color: var(--color-brand-primary);
+}
+
+.home-page .home-about-mark {
+  color: var(--color-brand-primary);
+  border-color: var(--color-border-brand);
+}
+
+.home-page .home-language-section > div > svg,
+.home-page .home-other-services-section svg,
+.home-page .home-reviews-section svg {
+  color: var(--color-brand-primary);
+}
+
+.home-page .language-card-grid {
+  border-top-color: var(--color-border-brand);
+}
+
+.home-page .language-card-grid a {
+  border-bottom-color: var(--color-border-brand);
+}
+
+.home-page .language-card-grid span,
+.home-page .home-testimonials-section .coming-soon-status {
+  color: var(--color-brand-primary-hover);
+}
+
+.home-page .home-other-services-section > div:last-child,
+.home-page .other-services-list,
+.home-page .other-services-list li,
+.home-page .reviews-placeholder-card,
+.home-page .home-contact-section .contact-card {
+  border-color: var(--color-border-brand);
+}
+
+.home-page .home-faq-section .faq-item button > span:last-child {
+  color: var(--color-brand-primary);
+}
+
+.home-page .home-contact-section .contact-rule {
+  background: var(--color-border-brand);
+}
+
+/* Homepage final hierarchy and readability polish */
+.home-page .hero-copy h1 i {
+  color: var(--color-brand-primary);
+}
+
+.home-page .button-primary {
+  min-height: 54px;
+  padding: 15px 21px;
+  line-height: 1.35;
+}
+
+.home-page .hero-actions .button-primary,
+.home-page .home-contact-section .button-primary {
+  min-height: 60px;
+  padding: 16px 23px;
+  font-size: 16px;
+}
+
+.home-page .eyebrow {
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.home-page .services-section .service-top {
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.home-page .services-section .service-top svg {
+  width: 34px;
+  height: 34px;
+  flex: none;
+}
+
+.home-page .services-section .service-card h3 {
+  margin-bottom: 14px;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.home-page .services-section .service-card p {
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.home-page .services-section .card-arrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: 15px;
+  line-height: 1.4;
+  text-decoration-thickness: 1px;
+}
+
+.home-page .services-section .service-card:hover .card-arrow {
+  text-decoration-color: var(--color-brand-primary-hover);
+  text-decoration-thickness: 2px;
+}
+
+.home-page .services-section .service-card:focus-within {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 6px;
+}
+
+.home-page .home-why-heading {
+  margin-bottom: 64px;
+}
+
+.home-page .home-why-card svg {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 34px;
+}
+
+.home-page .home-why-card h3 {
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.home-page .home-why-card p {
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.home-page .process-step h3 {
+  font-size: 27px;
+}
+
+.home-page .home-about-mark > svg {
+  width: 48px;
+  height: 48px;
+}
+
+.home-page .home-about-mark span {
+  font-size: 56px;
+}
+
+.home-page .home-about-section h2 {
+  font-size: clamp(46px, 4.4vw, 62px);
+  line-height: 1.08;
+}
+
+.home-page .home-about-section p:not(.eyebrow) {
+  max-width: 66ch;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.home-page .language-card-grid a {
+  min-height: 82px;
+  padding: 22px 4px;
+  grid-template-columns: minmax(44px, 56px) minmax(0, 1fr) auto;
+  gap: 20px;
+  transition:
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.home-page .language-card-grid strong {
+  font-size: 28px;
+  line-height: 1.2;
+  transition: color 0.18s ease;
+}
+
+.home-page .language-link-arrow {
+  color: var(--color-brand-primary);
+  transition:
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.home-page .language-card-grid a:hover,
+.home-page .language-card-grid a:focus-visible {
+  border-bottom-color: var(--color-brand-primary-hover);
+}
+
+.home-page .language-card-grid a:hover strong,
+.home-page .language-card-grid a:focus-visible strong,
+.home-page .language-card-grid a:hover .language-link-arrow,
+.home-page .language-card-grid a:focus-visible .language-link-arrow {
+  color: var(--color-brand-primary-hover);
+}
+
+.home-page .language-card-grid a:hover .language-link-arrow,
+.home-page .language-card-grid a:focus-visible .language-link-arrow {
+  transform: translate(3px, -3px);
+}
+
+.home-page .language-card-grid a:focus-visible {
+  outline: 2px solid var(--color-surface-light);
+  outline-offset: 4px;
+}
+
+.home-page .home-reviews-section > div:first-child > svg {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 32px;
+}
+
+.home-page .reviews-placeholder-card {
+  padding: clamp(36px, 4vw, 46px);
+}
+
+.home-page .reviews-placeholder-card p {
+  max-width: 34ch;
+  margin-bottom: 28px;
+  font-size: 21px;
+  line-height: 1.6;
+}
+
+.home-page .home-testimonials-section .coming-soon-status {
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.home-page .home-faq-section .faq-intro {
+  max-width: 430px;
+  padding-right: clamp(0px, 4vw, 48px);
+}
+
+.home-page .home-faq-section .faq-intro p:not(.eyebrow) {
+  max-width: 36ch;
+  font-size: 18px;
+  line-height: 1.72;
+}
+
+.home-page .home-faq-section .faq-intro .dark-link {
+  margin-top: 8px;
+}
+
+.home-page .home-contact-section h2 {
+  max-width: 900px;
+  font-size: clamp(48px, 5.2vw, 74px);
+  line-height: 1.06;
+}
+
+.home-page .home-contact-section .contact-lede {
+  max-width: 62ch;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.home-page .home-contact-section .contact-card-label {
+  max-width: 38ch;
+  color: var(--color-surface-light);
+  font-size: 13px;
+  line-height: 1.55;
+  letter-spacing: 0.11em;
+}
+
+.home-page .home-contact-section .contact-consultation-cta {
+  font-size: 16px !important;
+}
+
+@media (min-width: 721px) and (max-width: 800px) {
+  .home-page .home-about-mark {
+    width: min(100%, 320px);
+    min-height: 220px;
+    margin-bottom: 40px;
+    display: grid;
+  }
+}
+
+@media (max-width: 720px) {
+  .home-page .eyebrow {
+    font-size: 12px;
+  }
+
+  .home-page .hero-actions .button-primary,
+  .home-page .home-contact-section .button-primary {
+    min-height: 58px;
+    padding: 15px 20px;
+    font-size: 15px;
+  }
+
+  .home-page .services-section .service-top {
+    margin-bottom: 24px;
+  }
+
+  .home-page .services-section .service-top svg,
+  .home-page .home-why-card svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .home-page .services-section .service-card h3 {
+    font-size: 29px;
+  }
+
+  .home-page .home-why-heading {
+    margin-bottom: 42px;
+  }
+
+  .home-page .home-why-card svg {
+    margin-bottom: 22px;
+  }
+
+  .home-page .home-why-card h3 {
+    font-size: 28px;
+  }
+
+  .home-page .home-about-mark > svg {
+    width: 44px;
+    height: 44px;
+  }
+
+  .home-page .home-about-mark span {
+    font-size: 52px;
+  }
+
+  .home-page .language-card-grid a {
+    min-height: 76px;
+    padding: 20px 0;
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    gap: 16px;
+  }
+
+  .home-page .language-card-grid strong {
+    font-size: 27px;
+  }
+
+  .home-page .reviews-placeholder-card {
+    padding: 30px;
+  }
+
+  .home-page .reviews-placeholder-card p {
+    font-size: 19px;
+  }
+
+  .home-page .home-faq-section .faq-intro {
+    padding-right: 0;
+  }
+
+  .home-page .home-contact-section h2 {
+    font-size: clamp(44px, 11vw, 56px);
   }
 }

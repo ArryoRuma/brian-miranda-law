@@ -23,7 +23,7 @@ const icon = computed(() => icons[props.service.icon]);
   <article class="service-card">
     <div class="service-top">
       <span class="service-number">{{ service.number }}</span>
-      <component :is="icon" :size="25" :stroke-width="1.4" aria-hidden="true" />
+      <component :is="icon" :size="34" :stroke-width="1.5" aria-hidden="true" />
     </div>
     <h3>{{ service.title }}</h3>
     <p>{{ service.description }}</p>

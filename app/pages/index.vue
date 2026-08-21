@@ -66,7 +66,7 @@ useSchemaOrg([
 </script>
 
 <template>
-  <div>
+  <div class="home-page">
     <section id="top" class="hero-section">
       <div class="hero-copy">
         <SectionEyebrow>{{ content.hero.eyebrow }}</SectionEyebrow>
@@ -78,7 +78,7 @@ useSchemaOrg([
         <p class="hero-lede">{{ content.hero.lead }}</p>
         <p class="hero-supporting-lede">{{ content.hero.supportingLead }}</p>
         <div class="hero-actions">
-          <NuxtLink class="button button-brass" to="/contact">
+          <NuxtLink class="button button-primary" to="/contact">
             {{ content.hero.ctaLabel }}
             <ArrowUpRight :size="16" aria-hidden="true" />
           </NuxtLink>
@@ -144,7 +144,7 @@ useSchemaOrg([
         <p v-for="paragraph in content.intro.paragraphs" :key="paragraph">
           {{ paragraph }}
         </p>
-        <NuxtLink class="button button-dark" :to="content.intro.href">
+        <NuxtLink class="button button-primary" :to="content.intro.href">
           {{ content.intro.ctaLabel }}
           <ArrowUpRight :size="17" aria-hidden="true" />
         </NuxtLink>
@@ -184,7 +184,7 @@ useSchemaOrg([
         >
           <component
             :is="whyIcons[index]"
-            :size="25"
+            :size="34"
             :stroke-width="1.5"
             aria-hidden="true"
           />
@@ -223,7 +223,7 @@ useSchemaOrg([
           />
         </div>
         <NuxtLink
-          class="button button-dark process-cta"
+          class="button button-primary process-cta"
           :to="content.process.href"
         >
           {{ content.process.ctaLabel }}
@@ -234,7 +234,7 @@ useSchemaOrg([
 
     <section class="home-about-section">
       <div class="home-about-mark" aria-hidden="true">
-        <UserRound :size="35" />
+        <UserRound :size="48" />
         <span>{{ content.about.mark }}</span>
       </div>
       <div>
@@ -251,7 +251,7 @@ useSchemaOrg([
     <div class="home-support-grid home-assistance-grid">
       <section class="home-language-section">
         <div>
-          <Languages :size="32" aria-hidden="true" />
+          <Languages :size="36" aria-hidden="true" />
           <SectionEyebrow>{{ content.languages.eyebrow }}</SectionEyebrow>
           <h2>{{ content.languages.title }}</h2>
           <p>{{ content.languages.body }}</p>
@@ -299,7 +299,7 @@ useSchemaOrg([
 
     <section class="home-reviews-section home-testimonials-section">
       <div>
-        <Star :size="28" aria-hidden="true" />
+        <Star :size="36" aria-hidden="true" />
         <SectionEyebrow>{{ content.reviews.eyebrow }}</SectionEyebrow>
         <h2>{{ content.reviews.title }}</h2>
       </div>
@@ -332,7 +332,7 @@ useSchemaOrg([
         <div class="contact-card">
           <p class="contact-card-label">{{ content.contact.cardLabel }}</p>
           <NuxtLink
-            class="button button-brass contact-consultation-cta"
+            class="button button-primary contact-consultation-cta"
             to="/contact"
           >
             {{ content.contact.ctaLabel }}
