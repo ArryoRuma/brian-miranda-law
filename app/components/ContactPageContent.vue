@@ -2,7 +2,7 @@
 import { Mail, MapPin, MessageCircle, Phone, Smartphone } from "@lucide/vue";
 import { getPhoneHref, getTextHref, getWhatsAppHref } from "~/data/routes";
 
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const site = computed(() => siteCopy.value.site);
 const content = computed(() => siteCopy.value.contactPage);
 const page = computed(() => {

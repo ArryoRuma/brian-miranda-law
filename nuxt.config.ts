@@ -1,29 +1,17 @@
-import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
-import { parse } from "yaml";
-import { PUBLIC_ROUTES } from "./app/data/routes";
+import { loadRepositoryContent } from "./lib/content/load-content";
+import { getPreviewRoutes, getStaticPageRoutes } from "./lib/content/schema";
 
-const websiteCopy = parse(
-  readFileSync(new URL("./content/site.yml", import.meta.url), "utf8")
-) as {
-  site: {
-    name: string;
-    url: string;
-    logo: string;
-    defaultLocale: string;
-    themeColor: string;
-    description: string;
-    contact: { name: string };
-  };
-};
-
-const previewRoutes = [
-  "/start/en",
-  "/start/es",
-  "/start/pt",
-  "/start/en/what-happens-next",
-  "/start/es/what-happens-next",
-  "/start/pt/what-happens-next",
+const rootDirectory = fileURLToPath(new URL(".", import.meta.url));
+const { siteCopy: websiteCopy, blogPosts } =
+  loadRepositoryContent(rootDirectory);
+const previewRoutes = getPreviewRoutes();
+const publicRoutes = [
+  ...getStaticPageRoutes(websiteCopy),
+  ...(blogPosts.length
+    ? [websiteCopy.blog.path, ...blogPosts.map(post => `/blog/${post.slug}`)]
+    : []),
 ];
 
 export default defineNuxtConfig({
@@ -36,9 +24,9 @@ export default defineNuxtConfig({
   },
   css: ["~/assets/css/main.css"],
   modules: [
-    "@nuxt/content",
+    "./modules/site-content",
     "@nuxt/image",
-    "@nuxtjs/i18n",
+    "@nuxt/eslint",
     "@nuxtjs/robots",
     "@nuxtjs/sitemap",
     "nuxt-schema-org",
@@ -73,18 +61,6 @@ export default defineNuxtConfig({
       ],
     },
   },
-  i18n: {
-    strategy: "no_prefix",
-    defaultLocale: "en",
-    baseUrl: websiteCopy.site.url,
-    detectBrowserLanguage: false,
-    locales: [
-      { code: "en", language: "en-US", name: "English" },
-      { code: "es", language: "es-US", name: "Español" },
-      { code: "pt", language: "pt-BR", name: "Português" },
-    ],
-    vueI18n: "../i18n.config.ts",
-  },
   image: {
     format: ["avif", "webp"],
     quality: 82,
@@ -101,7 +77,11 @@ export default defineNuxtConfig({
     disallow: ["/start/"],
   },
   sitemap: {
-    exclude: ["/start/**", "/api/**", "/404"],
+    exclude: [
+      "/start/**",
+      "/404",
+      ...(blogPosts.length ? [] : ["/blog", "/blog/**"]),
+    ],
     zeroRuntime: true,
   },
   schemaOrg: {
@@ -114,18 +94,18 @@ export default defineNuxtConfig({
   },
   routeRules: {
     ...Object.fromEntries(
-      PUBLIC_ROUTES.map(route => [route, { prerender: true }])
+      publicRoutes.map(route => [route, { prerender: true }])
     ),
     "/start/**": { prerender: true, robots: false, sitemap: false },
-    "/api/**": { robots: false, sitemap: false },
   },
   nitro: {
     compressPublicAssets: true,
     prerender: {
       crawlLinks: true,
       failOnError: true,
+      ignore: blogPosts.length ? [] : ["/blog", "/blog/**"],
       routes: [
-        ...PUBLIC_ROUTES,
+        ...publicRoutes,
         ...previewRoutes,
         "/robots.txt",
         "/sitemap.xml",

@@ -1,9 +1,21 @@
 <script setup lang="ts">
 import { ChevronDown, Menu, X } from "@lucide/vue";
+import { blogPosts } from "#site-content";
 
 const route = useRoute();
-const siteCopy = await useSiteCopy();
-const navigation = computed(() => siteCopy.value.site.navigation.primary);
+const siteCopy = useSiteCopy();
+const navigation = computed(() => [
+  ...siteCopy.value.site.navigation.primary,
+  ...(blogPosts.length
+    ? [
+        {
+          id: "blog",
+          label: siteCopy.value.blog.label,
+          href: siteCopy.value.blog.path,
+        },
+      ]
+    : []),
+]);
 const languageLinks = computed(() => siteCopy.value.site.navigation.languages);
 const copy = computed(() => siteCopy.value.site.header);
 const menuOpen = ref(false);
@@ -11,7 +23,14 @@ const estateMenuOpen = ref(false);
 const menuButton = ref<HTMLButtonElement>();
 const header = ref<HTMLElement>();
 
-const estateItem = computed(() => navigation.value[0]!);
+const estateItem = computed(() => {
+  const item = navigation.value.find(item => item.id === "estate-planning");
+  if (!item) throw createError("Estate-planning navigation is missing");
+  return item;
+});
+const secondaryNavigation = computed(() =>
+  navigation.value.filter(item => item.id !== "estate-planning")
+);
 
 function closeMobileMenu(restoreFocus = false) {
   menuOpen.value = false;
@@ -157,7 +176,7 @@ onBeforeUnmount(() => {
       </div>
 
       <NuxtLink
-        v-for="item in navigation.slice(1)"
+        v-for="item in secondaryNavigation"
         :key="item.href"
         :class="{ 'is-active': route.path === item.href }"
         :to="item.href"

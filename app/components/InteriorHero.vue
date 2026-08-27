@@ -19,7 +19,7 @@ const props = withDefaults(
     secondaryLabel: undefined,
   }
 );
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const resolvedImageAlt = computed(
   () => props.imageAlt ?? siteCopy.value.site.shared.interiorHeroDefaultImageAlt
 );

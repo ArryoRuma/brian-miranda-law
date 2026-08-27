@@ -1,11 +1,18 @@
 <script setup lang="ts">
 import { getPhoneHref } from "~/data/routes";
+import { blogPosts } from "#site-content";
 
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const site = computed(() => siteCopy.value.site);
 const copy = computed(() => site.value.footer);
 const contact = computed(() => site.value.contact);
 const currentYear = new Date().getFullYear();
+const resourceLinks = computed(() => [
+  ...site.value.navigation.resources,
+  ...(blogPosts.length
+    ? [{ label: siteCopy.value.blog.label, href: siteCopy.value.blog.path }]
+    : []),
+]);
 </script>
 
 <template>
@@ -38,11 +45,7 @@ const currentYear = new Date().getFullYear();
 
     <div class="footer-link-column">
       <h2>{{ copy.resourcesHeading }}</h2>
-      <NuxtLink
-        v-for="item in site.navigation.resources"
-        :key="item.href"
-        :to="item.href"
-      >
+      <NuxtLink v-for="item in resourceLinks" :key="item.href" :to="item.href">
         {{ item.label }}
       </NuxtLink>
       <NuxtLink to="/about">{{ copy.aboutLabel }}</NuxtLink>

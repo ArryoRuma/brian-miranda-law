@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const site = computed(() => siteCopy.value.site);
 
 useHead({

@@ -14,15 +14,13 @@ type PageKind =
   | { type: "next"; locale: Locale };
 
 const route = useRoute();
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 
 const editorialPages = Object.fromEntries(
   Object.values(siteCopy.value.pages).map(page => [page.path, page])
 ) as Record<string, SitePageContent>;
 
 function resolvePage(path: string): PageKind | undefined {
-  if (editorialPages[path])
-    return { type: "editorial", content: editorialPages[path] };
   if (path === "/contact") return { type: "contact" };
   if (path === "/resources/estate-planning-faqs") return { type: "faq" };
   if (path === "/resources/estate-planning-checklist")
@@ -40,6 +38,9 @@ function resolvePage(path: string): PageKind | undefined {
 
   const nextMatch = path.match(/^\/start\/(en|es|pt)\/what-happens-next$/);
   if (nextMatch) return { type: "next", locale: nextMatch[1] as Locale };
+
+  if (editorialPages[path])
+    return { type: "editorial", content: editorialPages[path] };
 }
 
 const page = resolvePage(route.path);

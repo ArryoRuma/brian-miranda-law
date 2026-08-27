@@ -1,7 +1,7 @@
 <script setup lang="ts">
 type LegalPageKey = "privacy" | "cookies" | "disclaimer" | "accessibility";
 const props = defineProps<{ page: LegalPageKey }>();
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const content = computed(() => {
   const value = siteCopy.value.legal[props.page];
   if (!value) throw createError(`${props.page} content is missing`);

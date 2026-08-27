@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const content = computed(() => siteCopy.value.resources.faq);
 
 usePageSeo({

@@ -1,0 +1,16 @@
+---
+title: Replace with the reviewed article title
+description: Replace with a unique search and social description.
+slug: replace-with-the-article-slug
+author: Replace with the approved byline
+heroImage: /images/replace-with-approved-image.webp
+heroImageAlt: Replace with an accurate description of the approved image
+tags:
+  - Estate planning
+status: draft
+reviewed: false
+# Add publishedAt: YYYY-MM-DD only when publication is approved.
+# updatedAt: YYYY-MM-DD
+---
+
+Write the reviewed article here. Raw HTML is intentionally disabled.

@@ -2,7 +2,7 @@
 import type { SitePageContent } from "~/types/content";
 
 const props = defineProps<{ content: SitePageContent }>();
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const faqCopy = computed(() => siteCopy.value.site.shared.editorialFaq);
 
 usePageSeo({

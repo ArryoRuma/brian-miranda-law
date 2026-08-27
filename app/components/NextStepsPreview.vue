@@ -9,10 +9,14 @@ import { getPhoneHref, getWhatsAppHref } from "~/data/routes";
 
 type Locale = "en" | "es" | "pt";
 const props = defineProps<{ locale: Locale }>();
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const content = computed(() => siteCopy.value.nextSteps.locales[props.locale]);
 const contact = computed(() => siteCopy.value.site.contact);
-const icons = [ClipboardCheck, CalendarCheck, MessageCircle];
+const icons = {
+  documents: ClipboardCheck,
+  schedule: CalendarCheck,
+  communicate: MessageCircle,
+};
 
 usePageSeo({
   title: content.value.title,
@@ -31,8 +35,8 @@ usePageSeo({
       <p>{{ content.lead }}</p>
     </div>
     <ol>
-      <li v-for="(step, index) in content.steps" :key="step.title">
-        <component :is="icons[index]" :size="25" aria-hidden="true" />
+      <li v-for="(step, index) in content.steps" :key="step.id">
+        <component :is="icons[step.id]" :size="25" aria-hidden="true" />
         <span>{{ String(index + 1).padStart(2, "0") }}</span>
         <h2>{{ step.title }}</h2>
         <p>{{ step.body }}</p>

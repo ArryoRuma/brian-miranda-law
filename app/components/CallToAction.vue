@@ -4,7 +4,7 @@ const props = defineProps<{
   body?: string;
   eyebrow?: string;
 }>();
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const defaults = computed(() => siteCopy.value.site.shared.finalCta);
 </script>
 

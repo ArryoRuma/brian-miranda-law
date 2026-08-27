@@ -2,7 +2,7 @@
 import type { NuxtError } from "#app";
 
 defineProps<{ error: NuxtError }>();
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const content = computed(() => siteCopy.value.error404);
 
 usePageSeo({

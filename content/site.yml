@@ -1,5 +1,5 @@
 # Miranda Law website copy
-# Edit wording here; content.config.ts validates this structure.
+# Edit wording here; lib/content/schema.ts validates this structure.
 
 # Sitewide identity, navigation, contact details, and shared UI copy
 site:
@@ -18,8 +18,6 @@ site:
     email: bmiranda@bmirandalaw.com
     phoneDisplay: 908-424-1011
     phoneHref: "+19084241011"
-    alternatePhoneDisplay: 908-800-1856
-    alternatePhoneHref: "+19088001856"
     addressLines:
       - 172 Washington Valley Road, Suite 3
       - Warren, NJ 07059
@@ -38,7 +36,8 @@ site:
     attorneyJobTitle: Attorney
   navigation:
     primary:
-      - label: Estate Planning
+      - id: estate-planning
+        label: Estate Planning
         href: /estate-planning
         children:
           - label: Wills
@@ -49,13 +48,17 @@ site:
             href: /estate-planning/powers-of-attorney
           - label: Health Care Directives
             href: /estate-planning/health-care-directives
-      - label: About
+      - id: about
+        label: About
         href: /about
-      - label: Resources
+      - id: resources
+        label: Resources
         href: /resources
-      - label: Other Services
+      - id: other-services
+        label: Other Services
         href: /other-services
-      - label: Contact
+      - id: contact
+        label: Contact
         href: /contact
     estatePlanning:
       - label: Estate Planning
@@ -120,6 +123,7 @@ site:
       /resources/estate-planning-faqs: Estate Planning FAQs
       /resources/estate-planning-checklist: Estate Planning Checklist
       /resources/video-blog: Video Library
+      /blog: Blog
       /other-services: Other Legal Services
       /contact: Contact
       /privacy: Privacy
@@ -174,6 +178,7 @@ home:
   seo:
     title: Estate Planning for New Jersey Families
     description: Protect your family with clear guidance for wills, trusts, powers of attorney, and health care directives from a multilingual New Jersey attorney.
+    path: /
   hero:
     eyebrow: Estate Planning for New Jersey Families
     title: Protect What You’ve Built.
@@ -182,8 +187,6 @@ home:
     supportingLead: Get clear guidance from a New Jersey attorney who can help you put the right plan in place.
     ctaLabel: Schedule a Free Consultation
     contactPrompt: Prefer to talk now?
-    contactLinkLabel: Call, text, or WhatsApp us.
-    processLabel: How it works
     note: Available in English, Spanish & Portuguese.
     image: /images/brian-law-hero_7235d741.jpg.webp
     imageAlt: A warmly lit estate-planning desk with an open folder, fountain pen, brass lamp, and law books
@@ -245,13 +248,17 @@ home:
     title: Estate Planning Doesn’t Have to Feel Complicated.
     body: The goal isn’t to hand you a stack of legal documents. It’s to help you understand your options, make the right decisions for your family, and leave with a plan you feel confident about.
     items:
-      - title: Straightforward
+      - icon: shield
+        title: Straightforward
         description: We explain your options in plain language and help you determine what you actually need.
-      - title: Personal
+      - icon: person
+        title: Personal
         description: Your plan is built around your family, assets, wishes, and circumstances.
-      - title: Accessible
+      - icon: message
+        title: Accessible
         description: Call, text, or WhatsApp our office when you need us.
-      - title: Multilingual
+      - icon: languages
+        title: Multilingual
         description: Get help in English, Spanish, or Portuguese.
   process:
     eyebrow: A clear process
@@ -1104,6 +1111,25 @@ resources:
         summary: How management, continuity, and distribution goals can shape the conversation.
       - title: Who should I name to act for me?
         summary: Practical considerations when choosing financial and health care decision-makers.
+# Written articles are Markdown files under content/blog. The blog stays hidden
+# until at least one article passes the publication gate.
+blog:
+  path: /blog
+  label: Blog
+  seo:
+    title: Estate Planning Blog
+    description: Read clear estate-planning articles from Miranda Law about wills, trusts, decision-makers, and preparing for a consultation.
+    path: /blog
+  hero:
+    eyebrow: Miranda Law blog
+    title: Estate planning guidance
+    accent: in plain language.
+    lead: Practical articles to help New Jersey families understand common planning questions and prepare for a conversation with an attorney.
+  articleLabel: Article
+  publishedLabel: Published
+  updatedLabel: Updated
+  backLabel: Back to all articles
+  topicsLabel: Topics
 # Contact-page sections that sit below the shared page hero
 contactPage:
   intro:
@@ -1298,11 +1324,14 @@ nextSteps:
       heading: The next step is a conversation, not a commitment.
       lead: The questionnaire structure helps organize the consultation. Secure online intake is not connected yet; call or text the legal team to begin.
       steps:
-        - title: Review the initial questions
+        - id: documents
+          title: Review the initial questions
           body: Use the preview to organize family, planning, and contact information.
-        - title: Schedule your free consultation
+        - id: schedule
+          title: Schedule your free consultation
           body: Choose a time to discuss your questions and the general scope of assistance.
-        - title: Review possible options
+        - id: communicate
+          title: Review possible options
           body: Brian explains what documents or next steps may fit your circumstances.
       cta: Return to the questionnaire
     es:
@@ -1311,11 +1340,14 @@ nextSteps:
       heading: El próximo paso es una conversación, no un compromiso.
       lead: La vista previa ayuda a organizar la consulta. El sistema seguro todavía no está conectado; llame o envíe un mensaje para comenzar.
       steps:
-        - title: Revise las preguntas iniciales
+        - id: documents
+          title: Revise las preguntas iniciales
           body: Organice información familiar, de planificación y de contacto.
-        - title: Programe su consulta gratuita
+        - id: schedule
+          title: Programe su consulta gratuita
           body: Elija un momento para conversar sobre sus preguntas.
-        - title: Revise las opciones posibles
+        - id: communicate
+          title: Revise las opciones posibles
           body: Brian explica qué documentos o próximos pasos pueden corresponder.
       cta: Volver al cuestionario
     pt:
@@ -1324,15 +1356,18 @@ nextSteps:
       heading: O próximo passo é uma conversa, não um compromisso.
       lead: A prévia ajuda a organizar a consulta. O sistema seguro ainda não está conectado; ligue ou envie uma mensagem para começar.
       steps:
-        - title: Revise as perguntas iniciais
+        - id: documents
+          title: Revise as perguntas iniciais
           body: Organize informações familiares, de planejamento e de contato.
-        - title: Agende sua consulta gratuita
+        - id: schedule
+          title: Agende sua consulta gratuita
           body: Escolha um horário para conversar sobre suas dúvidas.
-        - title: Analise as opções possíveis
+        - id: communicate
+          title: Analise as opções possíveis
           body: Brian explica quais documentos ou próximos passos podem ser adequados.
       cta: Voltar ao questionário
   whatsAppLabel: WhatsApp
-# Public error-page and API response copy
+# Public error-page copy
 error404:
   title: Page Not Found
   description: The requested Miranda Law page could not be found.
@@ -1340,7 +1375,3 @@ error404:
   heading: That page could not be found.
   body: The page may have moved, or the address may be incomplete.
   actionLabel: Return home
-api:
-  contact:
-    status: not-configured
-    message: Secure form handling is not configured. Contact Miranda Law by phone, text, WhatsApp, or email.

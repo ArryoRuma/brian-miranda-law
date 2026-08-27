@@ -9,7 +9,7 @@ import {
 import type { HomeService } from "~/types/content";
 
 const props = defineProps<{ service: HomeService }>();
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const icons = {
   file: FileText,
   landmark: Landmark,

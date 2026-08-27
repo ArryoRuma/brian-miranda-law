@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Play } from "@lucide/vue";
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const content = computed(() => siteCopy.value.resources.video);
 
 usePageSeo({

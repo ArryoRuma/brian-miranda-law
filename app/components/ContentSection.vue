@@ -3,7 +3,7 @@ import { ArrowUpRight, Check } from "@lucide/vue";
 import type { PageSectionContent } from "~/types/content";
 
 const props = defineProps<{ section: PageSectionContent }>();
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const tone = computed(() => props.section.tone ?? "paper");
 </script>
 

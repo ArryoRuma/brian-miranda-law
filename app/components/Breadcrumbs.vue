@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ChevronRight } from "@lucide/vue";
 
+const props = defineProps<{ currentLabel?: string }>();
 const route = useRoute();
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const copy = computed(() => siteCopy.value.site.breadcrumbs);
 
 const crumbs = computed(() => {
@@ -11,9 +12,12 @@ const crumbs = computed(() => {
 
   const result = [{ label: copy.value.home, href: "/" }];
   let currentPath = "";
-  for (const segment of path.split("/").filter(Boolean)) {
+  const segments = path.split("/").filter(Boolean);
+  for (const [index, segment] of segments.entries()) {
     currentPath += `/${segment}`;
-    const label = copy.value.labels[currentPath];
+    const label =
+      copy.value.labels[currentPath] ??
+      (index === segments.length - 1 ? props.currentLabel : undefined);
     if (label) {
       result.push({ label, href: currentPath });
     }

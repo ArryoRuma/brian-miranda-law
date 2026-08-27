@@ -15,7 +15,7 @@ withDefaults(
   }
 );
 
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const site = computed(() => siteCopy.value.site);
 
 function actionHref(id: "call" | "text" | "whatsapp" | "email") {

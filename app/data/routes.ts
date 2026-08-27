@@ -1,24 +1,11 @@
-export const PUBLIC_ROUTES = [
-  "/",
-  "/estate-planning",
-  "/estate-planning/wills",
-  "/estate-planning/trusts",
-  "/estate-planning/powers-of-attorney",
-  "/estate-planning/health-care-directives",
-  "/about",
-  "/resources",
-  "/resources/estate-planning-faqs",
-  "/resources/estate-planning-checklist",
-  "/resources/video-blog",
-  "/other-services",
-  "/contact",
-  "/privacy",
-  "/cookies",
-  "/disclaimer",
-  "/accessibility",
-] as const;
+export const normalizePhoneDigits = (phone: string) => phone.replace(/\D/g, "");
 
-export const getPhoneHref = (phone: string) => `tel:${phone}`;
-export const getTextHref = (phone: string) => `sms:${phone}`;
+const getInternationalPhone = (phone: string) =>
+  `+${normalizePhoneDigits(phone)}`;
+
+export const getPhoneHref = (phone: string) =>
+  `tel:${getInternationalPhone(phone)}`;
+export const getTextHref = (phone: string) =>
+  `sms:${getInternationalPhone(phone)}`;
 export const getWhatsAppHref = (phone: string) =>
-  `https://wa.me/${phone.replace("+", "")}`;
+  `https://wa.me/${normalizePhoneDigits(phone)}`;

@@ -10,7 +10,7 @@ import {
 } from "@lucide/vue";
 import { getPhoneHref, getTextHref, getWhatsAppHref } from "~/data/routes";
 
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const content = computed(() => siteCopy.value.home);
 const site = computed(() => siteCopy.value.site);
 const contact = computed(() => site.value.contact);
@@ -18,12 +18,17 @@ const structuredData = computed(() => site.value.structuredData);
 const phoneHref = computed(() => getPhoneHref(contact.value.phoneHref));
 const textHref = computed(() => getTextHref(contact.value.phoneHref));
 const whatsAppHref = computed(() => getWhatsAppHref(contact.value.phoneHref));
-const whyIcons = [ShieldCheck, UserRound, MessageCircle, Languages];
+const whyIcons = {
+  shield: ShieldCheck,
+  person: UserRound,
+  message: MessageCircle,
+  languages: Languages,
+};
 
 usePageSeo({
   title: content.value.seo.title,
   description: content.value.seo.description,
-  path: "/",
+  path: content.value.seo.path,
 });
 
 useSchemaOrg([
@@ -178,12 +183,12 @@ useSchemaOrg([
       </div>
       <div class="home-why-grid">
         <article
-          v-for="(item, index) in content.why.items"
+          v-for="item in content.why.items"
           :key="item.title"
           class="home-why-card"
         >
           <component
-            :is="whyIcons[index]"
+            :is="whyIcons[item.icon]"
             :size="34"
             :stroke-width="1.5"
             aria-hidden="true"

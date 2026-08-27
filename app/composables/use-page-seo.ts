@@ -5,6 +5,9 @@ type PageSeoOptions = {
   image?: string;
   locale?: "en" | "es" | "pt";
   noIndex?: boolean;
+  type?: "website" | "article";
+  publishedAt?: string;
+  updatedAt?: string;
 };
 
 export function usePageSeo(options: PageSeoOptions) {
@@ -28,9 +31,12 @@ export function usePageSeo(options: PageSeoOptions) {
     ogUrl: canonical,
     ogImage: image,
     ogLocale: locale,
+    ogType: options.type ?? "website",
     twitterTitle: options.title,
     twitterDescription: options.description,
     twitterImage: image,
+    articlePublishedTime: options.publishedAt,
+    articleModifiedTime: options.updatedAt,
   });
 
   useHead({

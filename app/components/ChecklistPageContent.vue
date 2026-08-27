@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Check } from "@lucide/vue";
-const siteCopy = await useSiteCopy();
+const siteCopy = useSiteCopy();
 const content = computed(() => siteCopy.value.resources.checklist);
 
 usePageSeo({
