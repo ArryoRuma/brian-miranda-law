@@ -59,17 +59,44 @@ const heroSchema = z.object({
   secondaryLabel: text.optional(),
 });
 
-const sectionSchema = z.object({
+const sectionBaseShape = {
   id: text.optional(),
   eyebrow: text.optional(),
   title: text,
-  body: z.array(text).optional(),
-  bullets: z.array(text).optional(),
-  cards: z.array(cardSchema).optional(),
-  steps: z.array(cardSchema).optional(),
   note: text.optional(),
   tone: z.enum(["paper", "sand", "dark", "blue"]).optional(),
-});
+};
+
+const sectionSchema = z.discriminatedUnion("type", [
+  z
+    .object({
+      ...sectionBaseShape,
+      type: z.literal("narrative"),
+      body: z.array(text).min(1),
+    })
+    .strict(),
+  z
+    .object({
+      ...sectionBaseShape,
+      type: z.literal("checklist"),
+      bullets: z.array(text).min(1),
+    })
+    .strict(),
+  z
+    .object({
+      ...sectionBaseShape,
+      type: z.literal("cards"),
+      cards: z.array(cardSchema).min(1),
+    })
+    .strict(),
+  z
+    .object({
+      ...sectionBaseShape,
+      type: z.literal("steps"),
+      steps: z.array(cardSchema).min(1),
+    })
+    .strict(),
+]);
 
 const pageSchema = z.object({
   path,
@@ -544,8 +571,7 @@ export const siteContentSchema = rawSiteContentSchema.superRefine(
       JSON.stringify([
         { label: estateItem.label, href: estateItem.href },
         ...estateItem.children,
-      ]) !==
-        JSON.stringify(content.site.navigation.estatePlanning)
+      ]) !== JSON.stringify(content.site.navigation.estatePlanning)
     ) {
       addIssue(
         context,
@@ -661,5 +687,8 @@ export type SiteContent = z.infer<typeof siteContentSchema>;
 export type SitePageContent = SiteContent["pages"][string];
 export type HomeService = SiteContent["home"]["services"]["items"][number];
 export type PageSectionContent = SitePageContent["sections"][number];
-export type PageCard = NonNullable<PageSectionContent["cards"]>[number];
+export type PageCard = Extract<
+  PageSectionContent,
+  { type: "cards" }
+>["cards"][number];
 export type FaqContent = NonNullable<SitePageContent["faqs"]>[number];

@@ -120,6 +120,7 @@ Generated `.nuxt`, `.output`, and cache files are ignored. Never edit them direc
 
 ```text
 .
+├── .agents/skills/                     # Repository-scoped design and section-building skills
 ├── app/
 │   ├── app.vue                         # Global title and social defaults
 │   ├── assets/css/main.css             # Tokens and all site/page styles
@@ -264,20 +265,14 @@ internalName:
     secondaryHref: /related-page # optional
     secondaryLabel: Related page # optional
   sections:
-    - id: optional-anchor
+    - type: narrative # required: narrative, checklist, cards, or steps
+      id: optional-anchor
       eyebrow: Optional context label
       title: Section heading
       tone: paper # optional: paper, sand, dark, or blue
       body:
         - First paragraph.
         - Second paragraph.
-      bullets:
-        - Optional checklist item
-      cards:
-        - title: Optional card title
-          body: Optional card body.
-          href: /optional-related-page
-          linkLabel: Optional link label
   faqs:
     - question: Optional question?
       answer: Reviewed answer.
@@ -286,7 +281,14 @@ internalName:
     body: Optional closing text.
 ```
 
-A section may use `body`, `bullets`, `cards`, `steps`, and `note` in the combinations supported by `ContentSection.vue`. Reuse an existing pattern before changing the schema.
+Each section is one strict, discriminated shape:
+
+- `narrative` requires a nonempty `body` array.
+- `checklist` requires a nonempty `bullets` array.
+- `cards` requires a nonempty `cards` array; cards may include an internal `href` and `linkLabel`.
+- `steps` requires a nonempty ordered `steps` array.
+
+All four shapes share `id`, `eyebrow`, `title`, `tone`, and `note`. `PageSectionRenderer.vue` exhaustively dispatches them to focused components. Mixed or irrelevant payload fields fail validation.
 
 ### Stable IDs instead of array positions
 
@@ -390,6 +392,8 @@ defineProps<{
 ```
 
 Add styling to `app/assets/css/main.css`, run the full checks, and test the component at narrow and wide widths.
+
+For site-specific visual work, invoke `$design-miranda-law-pages`. For a new or changed generic page-section contract, invoke `$build-miranda-law-sections`. Both versioned skills live under `.agents/skills`.
 
 ### Add a standard editorial page
 

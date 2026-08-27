@@ -28,7 +28,7 @@ if (props.content.faqs?.length) {
 <template>
   <Breadcrumbs />
   <InteriorHero v-bind="content.hero" />
-  <ContentSection
+  <PageSectionRenderer
     v-for="(section, index) in content.sections"
     :key="section.id ?? `${content.path}-${index}`"
     :section="section"

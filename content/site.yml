@@ -185,7 +185,7 @@ home:
     accent: Make Things Easier for the People You Love.
     lead: Wills, trusts, powers of attorney, and healthcare directives without unnecessary confusion or complexity.
     supportingLead: Get clear guidance from a New Jersey attorney who can help you put the right plan in place.
-    ctaLabel: Schedule a Free Consultation
+    ctaLabel: Schedule a Free Initial Consultation
     contactPrompt: Prefer to talk now?
     note: Available in English, Spanish & Portuguese.
     image: /images/brian-law-hero_7235d741.jpg.webp
@@ -268,7 +268,7 @@ home:
     imageAlt: A linen-bound planning book resting on layered papers and deep green folders
     steps:
       - number: "01"
-        title: Schedule a Free Consultation
+        title: Schedule a Free Initial Consultation
         description: Tell us a little about yourself and what you’re looking to accomplish.
       - number: "02"
         title: Build Your Plan
@@ -276,7 +276,7 @@ home:
       - number: "03"
         title: Protect What Matters
         description: Finalize your documents and move forward knowing your wishes are clearly documented.
-    ctaLabel: Schedule Your Free Consultation
+    ctaLabel: Schedule Your Free Initial Consultation
     href: /contact
   about:
     mark: BM
@@ -290,7 +290,7 @@ home:
     title: Your Family’s Plans Shouldn’t Get Lost in Translation.
     body: Important legal decisions are easier when you can discuss them in the language you’re most comfortable using.
     availability: Miranda Law serves clients in English, Spanish, and Portuguese.
-    prompt: Choose your language to learn more about estate planning and schedule a consultation.
+    prompt: Choose your language to learn more about estate planning and schedule a free initial consultation.
     items:
       - label: EN
         href: /start/en
@@ -339,7 +339,7 @@ home:
     eyebrow: Start your estate plan
     title: The Best Time to Make a Plan Is Before Your Family Needs It.
     body: You don’t need to know which documents you need before contacting us. That’s what the consultation is for. Tell us a little about your situation and we’ll help you understand the next step.
-    ctaLabel: Schedule a Free Consultation
+    ctaLabel: Schedule a Free Initial Consultation
     cardLabel: Free initial consultation
     preferencePrompt: Available in
     optionsLabel: English · Español · Português
@@ -357,12 +357,14 @@ pages:
       secondaryHref: /resources/estate-planning-checklist
       secondaryLabel: Use the planning checklist
     sections:
-      - eyebrow: Why planning matters
+      - type: narrative
+        eyebrow: Why planning matters
         title: Estate planning is about people as much as property.
         body:
           - An estate plan can give the people you trust useful direction if you die or become unable to make decisions. It can also reduce the number of urgent choices your family must make during an already difficult time.
           - The right documents depend on your family, assets, responsibilities, and goals. The work begins by understanding those facts—not by reaching for a one-size-fits-all package.
-      - eyebrow: What a plan can do
+      - type: checklist
+        eyebrow: What a plan can do
         title: Put your decisions in writing.
         tone: sand
         bullets:
@@ -372,7 +374,8 @@ pages:
           - Name a health care representative and communicate medical preferences.
           - Create practical guidance for children, dependents, caregivers, and loved ones.
           - Coordinate existing documents after marriage, divorce, a birth, a death, retirement, or a major financial change.
-      - id: services
+      - type: cards
+        id: services
         eyebrow: Core documents
         title: The pieces of a coordinated estate plan.
         cards:
@@ -388,7 +391,8 @@ pages:
           - title: Health Care Directives
             body: Choose a health care representative and communicate treatment preferences for a time when you cannot decide for yourself.
             href: /estate-planning/health-care-directives
-      - eyebrow: How it works together
+      - type: cards
+        eyebrow: How it works together
         title: Different questions call for different documents.
         tone: blue
         cards:
@@ -398,7 +402,8 @@ pages:
             body: A power of attorney can identify who may act for you and define the authority that person receives.
           - title: Medical incapacity
             body: A health care directive can identify your representative and preserve guidance about treatment decisions.
-      - eyebrow: Who planning is for
+      - type: checklist
+        eyebrow: Who planning is for
         title: You do not need to be wealthy to need a plan.
         bullets:
           - Parents and guardians of minor children
@@ -408,12 +413,13 @@ pages:
           - People preparing for retirement
           - Adults helping parents or caring for other relatives
           - Anyone whose family, health, assets, or responsibilities have recently changed
-      - id: process
+      - type: steps
+        id: process
         eyebrow: The Miranda Law process
         title: A practical route from questions to signed documents.
         tone: sand
         steps:
-          - title: Schedule a free consultation
+          - title: Schedule a Free Initial Consultation
             body: Start with a conversation about your family, existing documents, concerns, and goals.
           - title: Review the planning options
             body: Brian explains the available approaches in plain language and identifies the questions that matter most.
@@ -421,7 +427,8 @@ pages:
             body: The firm drafts the agreed documents and walks through what they mean before anything is finalized.
           - title: Sign and carry the plan forward
             body: Complete the required formalities, understand where documents should be kept, and know when a future review may be useful.
-      - eyebrow: Why Miranda Law
+      - type: checklist
+        eyebrow: Why Miranda Law
         title: Clear guidance, responsive communication, and room for questions.
         tone: dark
         bullets:
@@ -429,7 +436,7 @@ pages:
           - Service in English, Spanish, and Portuguese.
           - Phone, text, and WhatsApp communication with the office.
           - A North Jersey practice serving Monmouth County and communities north of it.
-          - An initial consultation at no charge.
+          - A free initial consultation.
     faqs:
       - question: What documents are commonly included in an estate plan?
         answer: Many plans include a will, a financial power of attorney, and one or more health care directives. A trust may be appropriate depending on the assets, family circumstances, and goals involved.
@@ -457,12 +464,14 @@ pages:
       secondaryHref: /estate-planning
       secondaryLabel: Explore estate planning
     sections:
-      - eyebrow: The practice
+      - type: narrative
+        eyebrow: The practice
         title: A steady point of contact for important legal decisions.
         body:
           - Miranda Law works with individuals and families who want straightforward explanations and a plan they can understand. The estate-planning process is designed to turn broad concerns—about family, property, health, and the future—into a practical set of decisions.
           - The firm also assists with select real estate, corporate, civil litigation and defense, municipal, immigration, and landlord-tenant matters.
-      - eyebrow: What clients can expect
+      - type: cards
+        eyebrow: What clients can expect
         title: Clear answers without unnecessary distance.
         tone: sand
         cards:
@@ -474,12 +483,14 @@ pages:
             body: The legal team handles intake and scheduling through phone, text, and WhatsApp.
           - title: Multilingual service
             body: English, Spanish, and Portuguese communication is available throughout the client experience.
-      - eyebrow: Serving North Jersey
+      - type: narrative
+        eyebrow: Serving North Jersey
         title: Local counsel for multilingual families.
         body:
           - Miranda Law primarily serves North Jersey, including Monmouth County and communities north of it. The Warren office gives clients a local place to begin, while the firm's phone, text, and WhatsApp options help make communication easier.
           - Approximately half of the firm's clients are Spanish- or Portuguese-speaking. Multilingual service is not an add-on; it is part of how the practice works every day.
-      - eyebrow: Approach to estate planning
+      - type: steps
+        eyebrow: Approach to estate planning
         title: Listen first. Explain the options. Build the plan carefully.
         tone: blue
         steps:
@@ -506,7 +517,8 @@ pages:
       secondaryHref: /resources/estate-planning-faqs
       secondaryLabel: Read common questions
     sections:
-      - eyebrow: Prepare at your pace
+      - type: cards
+        eyebrow: Prepare at your pace
         title: Three ways to make the first conversation easier.
         cards:
           - title: Estate Planning FAQs
@@ -521,7 +533,8 @@ pages:
             body: Short explanations of estate-planning concepts and the questions families commonly bring to the office.
             href: /resources/video-blog
             linkLabel: Visit the video library
-      - eyebrow: A useful reminder
+      - type: narrative
+        eyebrow: A useful reminder
         title: General information is a starting point, not a personal legal plan.
         tone: sand
         body:
@@ -538,7 +551,8 @@ pages:
       secondaryHref: /contact
       secondaryLabel: Ask about your matter
     sections:
-      - eyebrow: Areas of assistance
+      - type: cards
+        eyebrow: Areas of assistance
         title: Tell us what brings you here.
         cards:
           - title: Real Estate
@@ -554,7 +568,8 @@ pages:
           - title: Landlord & Tenant
             body: Guidance for select landlord-tenant questions and disputes involving rights, documents, and next steps.
         note: The availability of representation depends on the facts, timing, jurisdiction, and any conflicts. Contact the office so the legal team can determine whether the matter is one Miranda Law can consider.
-      - eyebrow: A coordinated perspective
+      - type: narrative
+        eyebrow: A coordinated perspective
         title: Legal matters rarely stay in one neat category.
         tone: blue
         body:
@@ -568,7 +583,7 @@ pages:
       eyebrow: Contact Miranda Law
       title: Take the first step
       accent: toward a clearer plan.
-      lead: Tell the legal team what brings you here. Initial consultations are available at no charge, and the office can communicate by phone, text, WhatsApp, or email.
+      lead: Tell the legal team what brings you here. A free initial consultation is available, and the office can communicate by phone, text, WhatsApp, or email.
       image: /images/brian-law-detail_25336cb9.jpg.webp
       imageAlt: Organized planning documents and a linen-bound book
     sections: []
@@ -584,12 +599,14 @@ pages:
       secondaryHref: /estate-planning
       secondaryLabel: See the complete estate plan
     sections:
-      - eyebrow: What is a will?
+      - type: narrative
+        eyebrow: What is a will?
         title: A legal document for decisions that take effect after death.
         body:
           - A will records instructions for property governed by the will and nominates an executor to administer the estate. Parents may also use a will to nominate a guardian for minor children, subject to court review.
           - A will does not control every asset. Beneficiary designations, jointly owned property, trust assets, and other arrangements may operate separately, which is why coordination matters.
-      - eyebrow: Why you may need one
+      - type: checklist
+        eyebrow: Why you may need one
         title: Give your family written direction.
         tone: sand
         bullets:
@@ -599,7 +616,8 @@ pages:
           - You want to make selected gifts to people or organizations.
           - Your family structure or wishes differ from the default rules that may otherwise apply.
           - You already have a will, but the people, property, or instructions are out of date.
-      - eyebrow: What you can decide
+      - type: cards
+        eyebrow: What you can decide
         title: The people, gifts, and instructions at the center of the estate.
         cards:
           - title: Executor
@@ -610,7 +628,8 @@ pages:
             body: Record selected gifts of property or amounts, while coordinating those instructions with the overall plan.
           - title: Guardian nomination
             body: Parents can state whom they want considered to care for minor children if a guardian becomes necessary.
-      - eyebrow: Who should consider a will
+      - type: checklist
+        eyebrow: Who should consider a will
         title: A foundational document for many adults.
         bullets:
           - Parents and guardians
@@ -619,13 +638,15 @@ pages:
           - People with stepchildren or blended families
           - Business owners
           - Anyone who wants to choose an executor rather than leave administration entirely to default procedures
-      - eyebrow: What happens without one
+      - type: narrative
+        eyebrow: What happens without one
         title: New Jersey's default rules may decide what your document did not.
         tone: blue
         body:
           - When a person dies without a valid will, New Jersey's intestacy rules govern the distribution of probate property. A court process may also be needed to appoint an administrator rather than confirm an executor named in a will.
           - Those default rules cannot account for every personal relationship or informal promise. A properly prepared will gives the legal process written instructions to work from.
-      - eyebrow: Common misconceptions
+      - type: cards
+        eyebrow: Common misconceptions
         title: A will is important, but it is not the whole plan.
         cards:
           - title: “A will avoids probate.”
@@ -634,15 +655,17 @@ pages:
             body: Conversations are valuable, but they do not replace a properly executed legal document.
           - title: “A will covers incapacity.”
             body: Financial powers of attorney and health care directives address decisions during life if you cannot act for yourself.
-      - eyebrow: How it fits
+      - type: narrative
+        eyebrow: How it fits
         title: Coordinate the will with the rest of the estate plan.
         body:
           - A will works alongside beneficiary designations, ownership arrangements, trusts, powers of attorney, and health care directives. Reviewing those pieces together can reveal gaps or conflicting instructions before they become someone else's problem.
-      - eyebrow: The Miranda Law process
+      - type: steps
+        eyebrow: The Miranda Law process
         title: From a first conversation to a finished document.
         tone: sand
         steps:
-          - title: Schedule a consultation
+          - title: Schedule a Free Initial Consultation
             body: Discuss your current documents, family, property, concerns, and goals.
           - title: Review the options
             body: Understand the purpose, limits, and decisions involved before choosing a direction.
@@ -650,7 +673,8 @@ pages:
             body: The firm drafts the document and reviews its terms with you in plain language.
           - title: Sign and finalize
             body: Complete the required formalities and understand how the document fits with the rest of the plan.
-      - eyebrow: Why work with Miranda Law
+      - type: checklist
+        eyebrow: Why work with Miranda Law
         title: Personal guidance with accessible communication.
         tone: dark
         bullets:
@@ -682,12 +706,14 @@ pages:
       secondaryHref: /estate-planning
       secondaryLabel: See the complete estate plan
     sections:
-      - eyebrow: What is a trust?
+      - type: narrative
+        eyebrow: What is a trust?
         title: A legal relationship built around property, instructions, and responsibility.
         body:
           - A trust generally involves a trustee who holds or manages property under written terms for one or more beneficiaries. The person creating the trust decides its purpose and the rules that apply, within the limits of the law.
           - There are many kinds of trusts. The right structure—and whether a trust is useful at all—depends on the goals and assets involved.
-      - eyebrow: Why you may need one
+      - type: checklist
+        eyebrow: Why you may need one
         title: Add control where a simple transfer may not be enough.
         tone: sand
         bullets:
@@ -697,7 +723,8 @@ pages:
           - You have a blended family or responsibilities that require careful coordination.
           - You want a plan for selected property that continues beyond your lifetime.
           - You have an existing trust that has not been reviewed or properly coordinated with current assets.
-      - eyebrow: What you can decide
+      - type: cards
+        eyebrow: What you can decide
         title: Define who manages, who benefits, and how the terms work.
         cards:
           - title: Trustee
@@ -708,7 +735,8 @@ pages:
             body: Determine which assets should be transferred to or coordinated with the trust.
           - title: Timing and purpose
             body: Set a framework for when property may be used, distributed, or retained for future needs.
-      - eyebrow: Who should consider a trust
+      - type: checklist
+        eyebrow: Who should consider a trust
         title: Useful in the right plan—not automatically necessary in every plan.
         bullets:
           - Parents planning for minor children
@@ -717,13 +745,15 @@ pages:
           - Blended families
           - Business owners
           - People who want a successor structure for managing selected assets during incapacity
-      - eyebrow: What happens without one
+      - type: narrative
+        eyebrow: What happens without one
         title: The result depends on the rest of the plan.
         tone: blue
         body:
           - A trust is not required for every estate. Without one, property may still pass through a will, beneficiary designation, joint ownership, or other legal arrangement.
           - The practical question is whether those alternatives provide enough control, continuity, and coordination for your circumstances.
-      - eyebrow: Common misconceptions
+      - type: cards
+        eyebrow: Common misconceptions
         title: A signed trust is only the beginning.
         cards:
           - title: “Every family needs a trust.”
@@ -732,15 +762,17 @@ pages:
             body: A trust generally must be funded or coordinated with the relevant assets to do the work it was designed to do.
           - title: “A trust replaces every other document.”
             body: Wills, powers of attorney, health care directives, and beneficiary designations may still be essential.
-      - eyebrow: How it fits
+      - type: narrative
+        eyebrow: How it fits
         title: Connect the trust to the will, titles, and beneficiary designations.
         body:
           - Trust planning is as much about coordination as drafting. The document, selected assets, ownership records, beneficiary designations, and the rest of the estate plan should point in the same direction.
-      - eyebrow: The Miranda Law process
+      - type: steps
+        eyebrow: The Miranda Law process
         title: From a first conversation to a finished document.
         tone: sand
         steps:
-          - title: Schedule a consultation
+          - title: Schedule a Free Initial Consultation
             body: Discuss your current documents, family, property, concerns, and goals.
           - title: Review the options
             body: Understand the purpose, limits, and decisions involved before choosing a direction.
@@ -748,7 +780,8 @@ pages:
             body: The firm drafts the document and reviews its terms with you in plain language.
           - title: Sign and finalize
             body: Complete the required formalities and understand how the document fits with the rest of the plan.
-      - eyebrow: Why work with Miranda Law
+      - type: checklist
+        eyebrow: Why work with Miranda Law
         title: Personal guidance with accessible communication.
         tone: dark
         bullets:
@@ -780,12 +813,14 @@ pages:
       secondaryHref: /estate-planning
       secondaryLabel: See the complete estate plan
     sections:
-      - eyebrow: What is a power of attorney?
+      - type: narrative
+        eyebrow: What is a power of attorney?
         title: Written authority for a person you choose.
         body:
           - A power of attorney names an agent to act for you within the authority described in the document. Depending on its terms, that authority may cover financial accounts, property, taxes, contracts, benefits, business interests, or other legal and practical matters.
           - The document should be tailored to the authority you actually want to give and coordinated with institutions or arrangements that may have their own requirements.
-      - eyebrow: Why you may need one
+      - type: checklist
+        eyebrow: Why you may need one
         title: Prepare for a time when signatures and decisions cannot wait.
         tone: sand
         bullets:
@@ -795,7 +830,8 @@ pages:
           - You travel or may need help handling a limited transaction.
           - You want a backup agent if the first person cannot serve.
           - Your current document is old, too narrow, or names someone who is no longer appropriate.
-      - eyebrow: What you can decide
+      - type: cards
+        eyebrow: What you can decide
         title: Who acts, what they may do, and how the authority is limited.
         cards:
           - title: Primary agent
@@ -806,7 +842,8 @@ pages:
             body: Describe the financial, legal, property, business, or other matters the agent may handle.
           - title: Timing and limits
             body: Address when authority begins, whether it continues during incapacity, and any instructions or limits that should apply.
-      - eyebrow: Who should consider one
+      - type: checklist
+        eyebrow: Who should consider one
         title: Incapacity planning belongs in many adult estate plans.
         bullets:
           - Adults with financial accounts or recurring obligations
@@ -815,13 +852,15 @@ pages:
           - Caregivers and adults supporting family members
           - People with planned travel, medical procedures, or periods of limited availability
           - Anyone who wants to choose an agent before a court process may become necessary
-      - eyebrow: What happens without one
+      - type: narrative
+        eyebrow: What happens without one
         title: Family members do not always receive automatic financial authority.
         tone: blue
         body:
           - If you become unable to manage financial or legal matters and no effective authority is in place, relatives may face delays, institutional barriers, or a court proceeding to obtain authority.
           - A power of attorney cannot prevent every difficulty, but it can provide a documented starting point and identify the person you chose.
-      - eyebrow: Common misconceptions
+      - type: cards
+        eyebrow: Common misconceptions
         title: Authority should be deliberate, not vague.
         cards:
           - title: “My spouse or child can automatically handle everything.”
@@ -830,15 +869,17 @@ pages:
             body: A power of attorney generally concerns authority during life; a will addresses instructions after death.
           - title: “The broadest document is always best.”
             body: The appropriate authority depends on your goals, risks, and trust in the people being named.
-      - eyebrow: How it fits
+      - type: narrative
+        eyebrow: How it fits
         title: Pair financial authority with health care planning.
         body:
           - A financial power of attorney handles a different set of decisions from a health care directive. Keeping both documents current can create a more complete incapacity plan.
-      - eyebrow: The Miranda Law process
+      - type: steps
+        eyebrow: The Miranda Law process
         title: From a first conversation to a finished document.
         tone: sand
         steps:
-          - title: Schedule a consultation
+          - title: Schedule a Free Initial Consultation
             body: Discuss your current documents, family, property, concerns, and goals.
           - title: Review the options
             body: Understand the purpose, limits, and decisions involved before choosing a direction.
@@ -846,7 +887,8 @@ pages:
             body: The firm drafts the document and reviews its terms with you in plain language.
           - title: Sign and finalize
             body: Complete the required formalities and understand how the document fits with the rest of the plan.
-      - eyebrow: Why work with Miranda Law
+      - type: checklist
+        eyebrow: Why work with Miranda Law
         title: Personal guidance with accessible communication.
         tone: dark
         bullets:
@@ -878,12 +920,14 @@ pages:
       secondaryHref: /estate-planning
       secondaryLabel: See the complete estate plan
     sections:
-      - eyebrow: What is a health care directive?
+      - type: narrative
+        eyebrow: What is a health care directive?
         title: A written plan for medical decision-making during incapacity.
         body:
           - New Jersey recognizes a proxy directive, which names a health care representative, and an instruction directive, often called a living will, which communicates treatment preferences.
           - The representative's authority is intended for a time when you cannot make your own health care decisions. While you remain able to decide, your own decisions control.
-      - eyebrow: Why you may need one
+      - type: checklist
+        eyebrow: Why you may need one
         title: Make the conversation easier before a crisis.
         tone: sand
         bullets:
@@ -893,7 +937,8 @@ pages:
           - You want family members and medical providers to have written guidance.
           - You have an older directive that names the wrong person or no longer reflects your wishes.
           - You are preparing for surgery, managing a health condition, or completing a broader estate plan.
-      - eyebrow: What you can decide
+      - type: cards
+        eyebrow: What you can decide
         title: Choose a representative and communicate what matters to you.
         cards:
           - title: Health care representative
@@ -904,7 +949,8 @@ pages:
             body: Provide guidance about treatments, life-sustaining measures, and the values that should shape decisions.
           - title: People who receive copies
             body: Plan how representatives, family members, physicians, and health care facilities can access the directive when needed.
-      - eyebrow: Who should consider one
+      - type: checklist
+        eyebrow: Who should consider one
         title: Advance directives are not only for older adults.
         bullets:
           - Any adult who wants to choose a health care representative
@@ -913,13 +959,15 @@ pages:
           - People whose relatives disagree about medical decisions
           - Adults whose closest trusted person may not otherwise be the obvious decision-maker
           - Anyone completing or updating an estate plan
-      - eyebrow: What happens without one
+      - type: narrative
+        eyebrow: What happens without one
         title: Loved ones may be left without your written choice or instructions.
         tone: blue
         body:
           - Without a directive, medical providers and family members may have to determine who should participate in decisions and what you would have wanted without the benefit of your written guidance.
           - A directive cannot anticipate every medical circumstance, but it can identify the person you trust and give that person a clearer understanding of your values.
-      - eyebrow: Common misconceptions
+      - type: cards
+        eyebrow: Common misconceptions
         title: The document protects your voice; it does not replace it.
         cards:
           - title: “My representative decides while I still can.”
@@ -928,15 +976,17 @@ pages:
             body: A proxy directive can address health care decision-making more broadly during incapacity.
           - title: “Completing the form ends the conversation.”
             body: Discussing your values with the representative and sharing accessible copies are important parts of the plan.
-      - eyebrow: How it fits
+      - type: narrative
+        eyebrow: How it fits
         title: Coordinate medical and financial decision-makers.
         body:
           - A health care representative addresses medical decisions, while an agent under a financial power of attorney may handle bills, insurance, accounts, and other practical matters. Both roles may be needed during the same period.
-      - eyebrow: The Miranda Law process
+      - type: steps
+        eyebrow: The Miranda Law process
         title: From a first conversation to a finished document.
         tone: sand
         steps:
-          - title: Schedule a consultation
+          - title: Schedule a Free Initial Consultation
             body: Discuss your current documents, family, property, concerns, and goals.
           - title: Review the options
             body: Understand the purpose, limits, and decisions involved before choosing a direction.
@@ -944,7 +994,8 @@ pages:
             body: The firm drafts the document and reviews its terms with you in plain language.
           - title: Sign and finalize
             body: Complete the required formalities and understand how the document fits with the rest of the plan.
-      - eyebrow: Why work with Miranda Law
+      - type: checklist
+        eyebrow: Why work with Miranda Law
         title: Personal guidance with accessible communication.
         tone: dark
         bullets:
@@ -989,7 +1040,7 @@ resources:
           - question: What should I bring to the first consultation?
             answer: Bring any existing estate-planning documents you can locate and a general list of family members, property, accounts, insurance, business interests, and questions. You do not need perfect numbers or final decisions.
           - question: Is the initial consultation free?
-            answer: Yes. Miranda Law provides an initial consultation at no charge and discusses the recommended scope and fee before legal work begins.
+            answer: Yes. Miranda Law provides a free initial consultation and discusses the recommended scope and fee before legal work begins.
       - title: Wills and trusts
         items:
           - question: What happens if I die without a will in New Jersey?
@@ -1328,7 +1379,7 @@ nextSteps:
           title: Review the initial questions
           body: Use the preview to organize family, planning, and contact information.
         - id: schedule
-          title: Schedule your free consultation
+          title: Schedule your free initial consultation
           body: Choose a time to discuss your questions and the general scope of assistance.
         - id: communicate
           title: Review possible options

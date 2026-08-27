@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { loadRepositoryContent } from "../../lib/content/load-content";
 import {
@@ -68,5 +69,63 @@ describe("site content schema", () => {
     const content = structuredClone(repository.siteCopy);
     content.home.why.items.pop();
     expect(siteContentSchema.safeParse(content).success).toBe(false);
+  });
+
+  it("uses an explicit type for every editorial section", () => {
+    const sectionTypes = Object.values(repository.siteCopy.pages)
+      .flatMap(page => page.sections)
+      .reduce<Record<string, number>>((counts, section) => {
+        counts[section.type] = (counts[section.type] ?? 0) + 1;
+        return counts;
+      }, {});
+
+    expect(sectionTypes).toEqual({
+      narrative: 17,
+      checklist: 15,
+      cards: 13,
+      steps: 6,
+    });
+  });
+
+  it("rejects a section discriminator with the wrong payload", () => {
+    const content = structuredClone(repository.siteCopy);
+    content.pages.about.sections[0].type = "checklist";
+    expect(siteContentSchema.safeParse(content).success).toBe(false);
+  });
+
+  it("rejects mixed section payload fields", () => {
+    const content = structuredClone(repository.siteCopy);
+    Object.assign(content.pages.about.sections[0], {
+      bullets: ["This field does not belong on a narrative section."],
+    });
+    expect(siteContentSchema.safeParse(content).success).toBe(false);
+  });
+
+  it("rejects a section with its required payload removed", () => {
+    const content = structuredClone(repository.siteCopy);
+    const section = content.pages.about.sections[0];
+    if (section.type !== "narrative") {
+      throw new Error("About-page narrative fixture is missing");
+    }
+    delete (section as { body?: string[] }).body;
+    expect(siteContentSchema.safeParse(content).success).toBe(false);
+  });
+
+  it("locks the approved free initial consultation wording", () => {
+    const source = readFileSync("content/site.yml", "utf8");
+
+    expect(source).toContain("Schedule a Free Initial Consultation");
+    expect(source).toContain("Schedule Your Free Initial Consultation");
+    expect(source).toContain("A free initial consultation is available");
+    expect(source).not.toMatch(/schedule (?:a|your) free consultation/i);
+    expect(source).not.toMatch(
+      /initial consultations? (?:are |is )?available at no charge/i
+    );
+    expect(source).not.toContain(
+      "provides an initial consultation at no charge"
+    );
+
+    expect(source).toContain("Consulta inicial gratuita");
+    expect(source).toContain("consulta inicial gratuita");
   });
 });

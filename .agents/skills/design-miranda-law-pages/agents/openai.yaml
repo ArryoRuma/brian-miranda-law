@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Miranda Law Pages"
+  short_description: "Design on-brand Miranda Law pages"
+  default_prompt: "Use $design-miranda-law-pages to design or extend a Miranda Law page from approved site content."

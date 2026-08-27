@@ -47,6 +47,19 @@ describe("generated static site", () => {
     expect(contactHtml).toContain("Message on WhatsApp");
   });
 
+  it("renders the approved consultation offer wording", () => {
+    const homeHtml = readFileSync(routeFile("/"), "utf8");
+    const contactHtml = readFileSync(routeFile("/contact"), "utf8");
+
+    expect(homeHtml).toContain("Schedule a Free Initial Consultation");
+    expect(homeHtml).toContain("Schedule Your Free Initial Consultation");
+    expect(contactHtml).toContain("A free initial consultation is available");
+    expect(homeHtml).not.toMatch(/schedule (?:a|your) free consultation/i);
+    expect(contactHtml).not.toMatch(
+      /initial consultations? (?:are |is )?available at no charge/i
+    );
+  });
+
   it("keeps the sitemap and agents manifest aligned", () => {
     const sitemap = readFileSync(join(outputDirectory, "sitemap.xml"), "utf8");
     const agents = JSON.parse(

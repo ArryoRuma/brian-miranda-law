@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Miranda Law Sections"
+  short_description: "Build validated Miranda Law sections"
+  default_prompt: "Use $build-miranda-law-sections to add or revise a schema-backed Miranda Law page section."
