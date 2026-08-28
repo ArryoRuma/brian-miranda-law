@@ -1,0 +1,4 @@
+interface:
+  display_name: "StoryBrand Copy Editor"
+  short_description: "Clarify customer-centered marketing copy"
+  default_prompt: "Use $storybrand-copy-editor to review and improve this website copy against the repository's BRAND.md guidance."
