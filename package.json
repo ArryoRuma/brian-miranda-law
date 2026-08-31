@@ -16,6 +16,7 @@
     "test:static": "vitest run tests/static",
     "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm format:check",
     "verify": "pnpm check && pnpm generate && pnpm test:static",
+    "verify:release": "pnpm verify && node scripts/verify-translation-review.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },

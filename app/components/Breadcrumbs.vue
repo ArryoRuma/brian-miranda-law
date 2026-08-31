@@ -1,16 +1,18 @@
 <script setup lang="ts">
 import { ChevronRight } from "@lucide/vue";
+import { stripLocalePrefix } from "~~/lib/content/localization";
 
 const props = defineProps<{ currentLabel?: string }>();
 const route = useRoute();
+const { homePath, localizePath } = useSiteLocale();
 const siteCopy = useSiteCopy();
 const copy = computed(() => siteCopy.value.site.breadcrumbs);
 
 const crumbs = computed(() => {
-  const path = route.path;
+  const path = stripLocalePrefix(route.path);
   if (path === "/") return [];
 
-  const result = [{ label: copy.value.home, href: "/" }];
+  const result = [{ label: copy.value.home, href: homePath.value }];
   let currentPath = "";
   const segments = path.split("/").filter(Boolean);
   for (const [index, segment] of segments.entries()) {
@@ -19,7 +21,7 @@ const crumbs = computed(() => {
       copy.value.labels[currentPath] ??
       (index === segments.length - 1 ? props.currentLabel : undefined);
     if (label) {
-      result.push({ label, href: currentPath });
+      result.push({ label, href: localizePath(currentPath) });
     }
   }
   return result;

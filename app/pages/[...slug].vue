@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { SitePageContent } from "~/types/content";
+import { stripLocalePrefix, type Locale } from "~~/lib/content/localization";
 
-type Locale = "en" | "es" | "pt";
 type LegalPageKey = "privacy" | "cookies" | "disclaimer" | "accessibility";
 type PageKind =
   | { type: "editorial"; content: SitePageContent }
@@ -21,13 +21,15 @@ const editorialPages = Object.fromEntries(
 ) as Record<string, SitePageContent>;
 
 function resolvePage(path: string): PageKind | undefined {
-  if (path === "/contact") return { type: "contact" };
-  if (path === "/resources/estate-planning-faqs") return { type: "faq" };
-  if (path === "/resources/estate-planning-checklist")
+  const basePath = stripLocalePrefix(path);
+  if (basePath === "/contact") return { type: "contact" };
+  if (basePath === "/resources/estate-planning-faqs")
+    return { type: "faq" };
+  if (basePath === "/resources/estate-planning-checklist")
     return { type: "checklist" };
-  if (path === "/resources/video-blog") return { type: "video" };
+  if (basePath === "/resources/video-blog") return { type: "video" };
 
-  const legal = path.slice(1) as LegalPageKey;
+  const legal = basePath.slice(1) as LegalPageKey;
   if (["privacy", "cookies", "disclaimer", "accessibility"].includes(legal)) {
     return { type: "legal", page: legal };
   }

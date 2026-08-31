@@ -3,6 +3,7 @@ import { ChevronDown, Menu, X } from "@lucide/vue";
 import { blogPosts } from "#site-content";
 
 const route = useRoute();
+const { homePath, locale } = useSiteLocale();
 const siteCopy = useSiteCopy();
 const navigation = computed(() => [
   ...siteCopy.value.site.navigation.primary,
@@ -97,7 +98,7 @@ onBeforeUnmount(() => {
     <span class="rail-label">{{ copy.railLabel }}</span>
   </div>
   <header ref="header" class="site-header" @keydown="trapMenuFocus">
-    <NuxtLink class="brand-lockup" to="/" :aria-label="copy.homeAriaLabel">
+    <NuxtLink class="brand-lockup" :to="homePath" :aria-label="copy.homeAriaLabel">
       <NuxtImg
         class="brand-logo"
         src="/miranda-law-gold.png"
@@ -193,7 +194,9 @@ onBeforeUnmount(() => {
           :aria-label="
             copy.questionnaireLinkAriaLabel.replace('{language}', item.language)
           "
-          :aria-current="route.path === item.href ? 'page' : undefined"
+          :aria-current="
+            locale === item.label.toLowerCase() ? 'page' : undefined
+          "
         >
           <span class="language-short" aria-hidden="true">{{
             item.label

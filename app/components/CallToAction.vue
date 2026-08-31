@@ -5,6 +5,7 @@ const props = defineProps<{
   eyebrow?: string;
 }>();
 const siteCopy = useSiteCopy();
+const { localizePath } = useSiteLocale();
 const defaults = computed(() => siteCopy.value.site.shared.finalCta);
 </script>
 
@@ -17,7 +18,7 @@ const defaults = computed(() => siteCopy.value.site.shared.finalCta);
     </div>
     <div class="contact-methods">
       <ContactActions />
-      <NuxtLink class="text-link" to="/contact">
+      <NuxtLink class="text-link" :to="localizePath('/contact')">
         {{ siteCopy.site.shared.viewContactOptions }}
       </NuxtLink>
     </div>

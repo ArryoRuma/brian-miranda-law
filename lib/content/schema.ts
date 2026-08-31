@@ -1,4 +1,11 @@
 import { z } from "zod";
+import {
+  collectTranslatableStrings,
+  getLocalizedPublicRoutes,
+  localizePath,
+  locales,
+  type Locale,
+} from "./localization";
 
 const text = z.string().trim().min(1);
 const path = text.regex(
@@ -174,6 +181,16 @@ const nextStepsLocaleSchema = z.object({
 const localeRecord = <T extends z.ZodTypeAny>(schema: T) =>
   z.object({ en: schema, es: schema, pt: schema });
 
+const translationReviewStatusSchema = z.enum(["approved", "draft"]);
+
+const translationReviewSchema = z.object({
+  status: translationReviewStatusSchema,
+  variant: text,
+  fluentReviewRequired: z.boolean(),
+  legalReviewRequired: z.boolean(),
+  pages: z.record(path, translationReviewStatusSchema),
+});
+
 const contactSchema = z
   .object({
     name: text,
@@ -295,6 +312,11 @@ const rawSiteContentSchema = z.object({
       supportingLead: text,
       ctaLabel: text,
       contactPrompt: text,
+      callLabel: text,
+      textLabel: text,
+      whatsAppLabel: text,
+      contactSeparator: text,
+      contactFinalSeparator: text,
       note: text,
       image: assetPath,
       imageAlt: text,
@@ -375,6 +397,8 @@ const rawSiteContentSchema = z.object({
       availability: text,
       prompt: text,
       items: z.array(languageLinkSchema),
+      questionnaireLabel: text,
+      questionnaireHref: path,
     }),
     otherServices: z.object({
       eyebrow: text,
@@ -472,6 +496,13 @@ const rawSiteContentSchema = z.object({
     body: text,
     actionLabel: text,
   }),
+  localization: z.object({
+    review: localeRecord(translationReviewSchema),
+    translations: z.object({
+      es: z.record(z.string(), text),
+      pt: z.record(z.string(), text),
+    }),
+  }),
 });
 
 function addIssue(
@@ -500,12 +531,25 @@ export const getPreviewRoutes = () =>
     `/start/${locale}/what-happens-next`,
   ]);
 
+export const getPublicRoutes = (
+  content: z.infer<typeof rawSiteContentSchema>
+) => {
+  const englishRoutes = getStaticPageRoutes(content);
+  return locales.flatMap(locale =>
+    getLocalizedPublicRoutes(englishRoutes, locale)
+  );
+};
+
 export const siteContentSchema = rawSiteContentSchema.superRefine(
   (content, context) => {
     const staticRoutes = getStaticPageRoutes(content);
+    const publicRoutes = getPublicRoutes(content);
+    const localizedBlogRoutes = locales.map(locale =>
+      localizePath(content.blog.path, locale)
+    );
     const allRoutes = [
-      ...staticRoutes,
-      content.blog.path,
+      ...publicRoutes,
+      ...localizedBlogRoutes,
       ...getPreviewRoutes(),
     ];
     if (new Set(allRoutes).size !== allRoutes.length) {
@@ -583,7 +627,7 @@ export const siteContentSchema = rawSiteContentSchema.superRefine(
     const languageHrefs = content.site.navigation.languages.map(
       item => item.href
     );
-    const requiredLanguageHrefs = ["/start/en", "/start/es", "/start/pt"];
+    const requiredLanguageHrefs = ["/", "/es", "/pt"];
     if (
       languageHrefs.length !== requiredLanguageHrefs.length ||
       requiredLanguageHrefs.some(href => !languageHrefs.includes(href))
@@ -591,8 +635,84 @@ export const siteContentSchema = rawSiteContentSchema.superRefine(
       addIssue(
         context,
         ["site", "navigation", "languages"],
-        "Language navigation must link to the three questionnaire previews"
+        "Language navigation must link to the three localized homepages"
       );
+    }
+
+    const homeLanguageHrefs = content.home.languages.items.map(
+      item => item.href
+    );
+    if (JSON.stringify(homeLanguageHrefs) !== JSON.stringify(requiredLanguageHrefs)) {
+      addIssue(
+        context,
+        ["home", "languages", "items"],
+        "Homepage language navigation must link to the localized homepages"
+      );
+    }
+
+    const translatableStrings = collectTranslatableStrings(content);
+    for (const locale of ["es", "pt"] as const) {
+      const translations = content.localization.translations[locale];
+      const requiredSources = new Set(translatableStrings.keys());
+      const suppliedSources = new Set(Object.keys(translations));
+
+      for (const source of requiredSources) {
+        if (!suppliedSources.has(source)) {
+          addIssue(
+            context,
+            ["localization", "translations", locale, source],
+            `Missing ${locale} translation for: ${source}`
+          );
+        }
+      }
+
+      for (const source of suppliedSources) {
+        if (!requiredSources.has(source)) {
+          addIssue(
+            context,
+            ["localization", "translations", locale, source],
+            `Translation source is no longer used: ${source}`
+          );
+        }
+      }
+    }
+
+    const expectedVariants: Record<Locale, string> = {
+      en: "en-US",
+      es: "es-US",
+      pt: "pt-BR",
+    };
+    for (const locale of locales) {
+      if (content.localization.review[locale].variant !== expectedVariants[locale]) {
+        addIssue(
+          context,
+          ["localization", "review", locale, "variant"],
+          `Expected ${expectedVariants[locale]} translation variant`
+        );
+      }
+
+      const review = content.localization.review[locale];
+      const reviewedRoutes = Object.keys(review.pages);
+      if (
+        reviewedRoutes.length !== staticRoutes.length ||
+        staticRoutes.some(route => !reviewedRoutes.includes(route))
+      ) {
+        addIssue(
+          context,
+          ["localization", "review", locale, "pages"],
+          "Translation review must track every public page"
+        );
+      }
+      const allPagesApproved = Object.values(review.pages).every(
+        status => status === "approved"
+      );
+      if ((review.status === "approved") !== allPagesApproved) {
+        addIssue(
+          context,
+          ["localization", "review", locale, "status"],
+          "Overall translation status must match the page review statuses"
+        );
+      }
     }
 
     const contactActionIds = content.site.contactActions.map(
@@ -625,9 +745,9 @@ export const siteContentSchema = rawSiteContentSchema.superRefine(
     }
 
     const knownRoutes = new Set([
-      ...staticRoutes,
+      ...publicRoutes,
       ...getPreviewRoutes(),
-      content.blog.path,
+      ...localizedBlogRoutes,
     ]);
 
     const inspectLinks = (

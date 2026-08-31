@@ -1,5 +1,7 @@
-import { siteCopy } from "#site-content";
+import { siteCopyByLocale } from "#site-content";
+import { getRouteLocale } from "~~/lib/content/localization";
 
 export function useSiteCopy() {
-  return computed(() => siteCopy);
+  const route = useRoute();
+  return computed(() => siteCopyByLocale[getRouteLocale(route.path)]);
 }

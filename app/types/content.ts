@@ -6,3 +6,4 @@ export type {
   SiteContent,
   SitePageContent,
 } from "~~/lib/content/schema";
+export type { Locale } from "~~/lib/content/localization";

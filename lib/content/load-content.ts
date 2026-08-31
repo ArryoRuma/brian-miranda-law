@@ -5,6 +5,11 @@ import MarkdownIt from "markdown-it";
 import { parse } from "yaml";
 import { z } from "zod";
 import { siteContentSchema, type SiteContent } from "./schema";
+import {
+  createLocalizedContent,
+  locales,
+  type Locale,
+} from "./localization";
 
 const text = z.string().trim().min(1);
 const slug = text.regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
@@ -142,6 +147,7 @@ export function loadBlogPosts(blogDirectory: string): PublishedBlogPost[] {
 
 export function loadRepositoryContent(rootDirectory: string): {
   siteCopy: SiteContent;
+  siteCopyByLocale: Record<Locale, SiteContent>;
   blogPosts: PublishedBlogPost[];
 } {
   const sitePath = join(rootDirectory, "content", "site.yml");
@@ -149,6 +155,16 @@ export function loadRepositoryContent(rootDirectory: string): {
     parse(readFileSync(sitePath, "utf8"))
   );
   const blogPosts = loadBlogPosts(join(rootDirectory, "content", "blog"));
+  const siteCopyByLocale = Object.fromEntries(
+    locales.map(locale => [
+      locale,
+      createLocalizedContent(
+        siteCopy,
+        locale,
+        locale === "en" ? {} : siteCopy.localization.translations[locale]
+      ),
+    ])
+  ) as Record<Locale, SiteContent>;
 
   const assetPaths = [
     siteCopy.site.logo,
@@ -166,5 +182,5 @@ export function loadRepositoryContent(rootDirectory: string): {
     }
   }
 
-  return { siteCopy, blogPosts };
+  return { siteCopy, siteCopyByLocale, blogPosts };
 }

@@ -14,6 +14,7 @@ export default defineNuxtModule({
         const content = loadRepositoryContent(nuxt.options.rootDir);
         return [
           `export const siteCopy = ${JSON.stringify(content.siteCopy)};`,
+          `export const siteCopyByLocale = ${JSON.stringify(content.siteCopyByLocale)};`,
           `export const blogPosts = ${JSON.stringify(content.blogPosts)};`,
         ].join("\n");
       },

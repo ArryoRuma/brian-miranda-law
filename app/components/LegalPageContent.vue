@@ -1,6 +1,7 @@
 <script setup lang="ts">
 type LegalPageKey = "privacy" | "cookies" | "disclaimer" | "accessibility";
 const props = defineProps<{ page: LegalPageKey }>();
+const { localizePath } = useSiteLocale();
 const siteCopy = useSiteCopy();
 const content = computed(() => {
   const value = siteCopy.value.legal[props.page];
@@ -12,7 +13,7 @@ const labels = computed(() => siteCopy.value.site.shared.legal);
 usePageSeo({
   title: content.value.title,
   description: content.value.description,
-  path: `/${props.page}`,
+  path: localizePath(`/${props.page}`),
 });
 </script>
 

@@ -3,6 +3,7 @@ import { getPhoneHref } from "~/data/routes";
 import { blogPosts } from "#site-content";
 
 const siteCopy = useSiteCopy();
+const { homePath, locale, localizePath } = useSiteLocale();
 const site = computed(() => siteCopy.value.site);
 const copy = computed(() => site.value.footer);
 const contact = computed(() => site.value.contact);
@@ -18,7 +19,7 @@ const resourceLinks = computed(() => [
 <template>
   <footer class="site-footer site-footer-expanded">
     <div class="footer-brand-column">
-      <NuxtLink class="footer-logo-link" to="/">
+      <NuxtLink class="footer-logo-link" :to="homePath">
         <NuxtImg
           class="footer-logo"
           src="/miranda-law-gold.png"
@@ -48,8 +49,8 @@ const resourceLinks = computed(() => [
       <NuxtLink v-for="item in resourceLinks" :key="item.href" :to="item.href">
         {{ item.label }}
       </NuxtLink>
-      <NuxtLink to="/about">{{ copy.aboutLabel }}</NuxtLink>
-      <NuxtLink to="/other-services">{{ copy.otherServicesLabel }}</NuxtLink>
+      <NuxtLink :to="localizePath('/about')">{{ copy.aboutLabel }}</NuxtLink>
+      <NuxtLink :to="localizePath('/other-services')">{{ copy.otherServicesLabel }}</NuxtLink>
     </div>
 
     <div class="footer-contact-column">
@@ -65,6 +66,9 @@ const resourceLinks = computed(() => [
           v-for="item in site.navigation.languages"
           :key="item.href"
           :to="item.href"
+          :aria-current="
+            locale === item.label.toLowerCase() ? 'page' : undefined
+          "
         >
           {{ item.language }}
         </NuxtLink>
@@ -73,10 +77,10 @@ const resourceLinks = computed(() => [
 
     <div class="footer-legal-row">
       <span>© {{ currentYear }} {{ contact.name }}</span>
-      <NuxtLink to="/privacy">{{ copy.privacyLabel }}</NuxtLink>
-      <NuxtLink to="/cookies">{{ copy.cookiesLabel }}</NuxtLink>
-      <NuxtLink to="/disclaimer">{{ copy.disclaimerLabel }}</NuxtLink>
-      <NuxtLink to="/accessibility">{{ copy.accessibilityLabel }}</NuxtLink>
+      <NuxtLink :to="localizePath('/privacy')">{{ copy.privacyLabel }}</NuxtLink>
+      <NuxtLink :to="localizePath('/cookies')">{{ copy.cookiesLabel }}</NuxtLink>
+      <NuxtLink :to="localizePath('/disclaimer')">{{ copy.disclaimerLabel }}</NuxtLink>
+      <NuxtLink :to="localizePath('/accessibility')">{{ copy.accessibilityLabel }}</NuxtLink>
       <span>{{ copy.attorneyAdvertising }}</span>
     </div>
   </footer>

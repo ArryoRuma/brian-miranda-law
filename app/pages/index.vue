@@ -10,7 +10,10 @@ import {
 } from "@lucide/vue";
 import { getPhoneHref, getTextHref, getWhatsAppHref } from "~/data/routes";
 
+definePageMeta({ alias: ["/es", "/pt"] });
+
 const siteCopy = useSiteCopy();
+const { locale, localizePath } = useSiteLocale();
 const content = computed(() => siteCopy.value.home);
 const site = computed(() => siteCopy.value.site);
 const contact = computed(() => site.value.contact);
@@ -83,16 +86,17 @@ useSchemaOrg([
         <p class="hero-lede">{{ content.hero.lead }}</p>
         <p class="hero-supporting-lede">{{ content.hero.supportingLead }}</p>
         <div class="hero-actions">
-          <NuxtLink class="button button-primary" to="/contact">
+          <NuxtLink class="button button-primary" :to="localizePath('/contact')">
             {{ content.hero.ctaLabel }}
             <ArrowUpRight :size="16" aria-hidden="true" />
           </NuxtLink>
         </div>
         <p class="hero-direct-contact">
           <span>{{ content.hero.contactPrompt }}</span>
-          <a :href="phoneHref">Call</a>, <a :href="textHref">text</a>, or
+          <a :href="phoneHref">{{ content.hero.callLabel }}</a>{{ `${content.hero.contactSeparator} ` }}
+          <a :href="textHref">{{ content.hero.textLabel }}</a>{{ ` ${content.hero.contactFinalSeparator} ` }}
           <a :href="whatsAppHref" target="_blank" rel="noreferrer">
-            WhatsApp us</a
+            {{ content.hero.whatsAppLabel }}</a
           >.
         </p>
         <p class="hero-note">
@@ -272,8 +276,16 @@ useSchemaOrg([
             :code="language.label"
             :language="language.language"
             :href="language.href"
+            :active="locale === language.label.toLowerCase()"
           />
         </div>
+        <NuxtLink
+          class="text-link"
+          :to="content.languages.questionnaireHref"
+        >
+          {{ content.languages.questionnaireLabel }}
+          <ArrowUpRight :size="16" aria-hidden="true" />
+        </NuxtLink>
       </section>
 
       <section class="home-other-services-section">
@@ -338,13 +350,13 @@ useSchemaOrg([
           <p class="contact-card-label">{{ content.contact.cardLabel }}</p>
           <NuxtLink
             class="button button-primary contact-consultation-cta"
-            to="/contact"
+            :to="localizePath('/contact')"
           >
             {{ content.contact.ctaLabel }}
             <ArrowUpRight :size="17" aria-hidden="true" />
           </NuxtLink>
           <div class="contact-rule" />
-          <ContactActions call-label="Call" text-label="Text" />
+          <ContactActions />
           <a
             class="contact-whatsapp-link"
             :href="whatsAppHref"

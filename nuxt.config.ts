@@ -1,14 +1,14 @@
 import { fileURLToPath } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
 import { loadRepositoryContent } from "./lib/content/load-content";
-import { getPreviewRoutes, getStaticPageRoutes } from "./lib/content/schema";
+import { getPreviewRoutes, getPublicRoutes } from "./lib/content/schema";
 
 const rootDirectory = fileURLToPath(new URL(".", import.meta.url));
 const { siteCopy: websiteCopy, blogPosts } =
   loadRepositoryContent(rootDirectory);
 const previewRoutes = getPreviewRoutes();
 const publicRoutes = [
-  ...getStaticPageRoutes(websiteCopy),
+  ...getPublicRoutes(websiteCopy),
   ...(blogPosts.length
     ? [websiteCopy.blog.path, ...blogPosts.map(post => `/blog/${post.slug}`)]
     : []),

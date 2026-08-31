@@ -3,12 +3,13 @@ import type { NuxtError } from "#app";
 
 defineProps<{ error: NuxtError }>();
 const siteCopy = useSiteCopy();
+const { homePath, localizePath } = useSiteLocale();
 const content = computed(() => siteCopy.value.error404);
 
 usePageSeo({
   title: content.value.title,
   description: content.value.description,
-  path: "/404",
+  path: localizePath("/404"),
   noIndex: true,
 });
 </script>
@@ -22,7 +23,7 @@ usePageSeo({
           <SectionEyebrow>{{ content.eyebrow }}</SectionEyebrow>
           <h1>{{ content.heading }}</h1>
           <p>{{ content.body }}</p>
-          <NuxtLink class="button button-brass" to="/">
+          <NuxtLink class="button button-brass" :to="homePath">
             {{ content.actionLabel }}
           </NuxtLink>
         </div>
