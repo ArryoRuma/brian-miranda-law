@@ -37,7 +37,7 @@ The application has no production server, database, form handler, or required en
 ### Requirements
 
 - Node.js 24 LTS. Both `.node-version` and `.nvmrc` select major version 24; `package.json` declares only that major version supported through `engines.node`.
-- pnpm 10.4.1. The exact pnpm release and integrity hash are pinned by `packageManager` in `package.json`.
+- pnpm 11.24.0. The exact pnpm release and integrity hash are pinned by `packageManager` in `package.json`.
 
 With a Node version manager and Corepack:
 
@@ -638,7 +638,7 @@ This repository has its own `pnpm-workspace.yaml` so an ancestor workspace canno
 
 ### Native package or engine warnings appear
 
-Confirm `node --version` reports major version 24 and `pnpm --version` reports 10.4.1. The pnpm build allowlist is deliberately limited to the native build dependencies still required by Nuxt, Tailwind, image processing, and the file watcher.
+Confirm `node --version` reports major version 24 and `pnpm --version` reports 11.24.0. The pnpm build allowlist is deliberately limited to the native build dependencies still required by Nuxt, Tailwind, image processing, and the file watcher.
 
 ### Generated output still contains SQLite
 
