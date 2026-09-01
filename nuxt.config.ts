@@ -32,6 +32,7 @@ export default defineNuxtConfig({
     "@nuxtjs/robots",
     "@nuxtjs/sitemap",
     "nuxt-schema-org",
+    "@nuxt/devtools",
   ],
   site: {
     url: websiteCopy.site.url,

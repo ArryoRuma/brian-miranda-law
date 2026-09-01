@@ -4,3 +4,20 @@ allowBuilds:
   better-sqlite3: true
   esbuild: true
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - '@devframes/hub-ui@0.9.8'
+  - '@devframes/hub@0.9.8'
+  - '@devframes/json-render-ui@0.9.8'
+  - '@devframes/json-render@0.9.8'
+  - '@devframes/plugin-code-server@0.9.8'
+  - '@devframes/plugin-data-inspector@0.9.8'
+  - '@devframes/plugin-inspect@0.9.8'
+  - '@devframes/plugin-messages@0.9.8'
+  - '@devframes/plugin-terminals@0.9.8'
+  - '@devframes/service-open@0.9.8'
+  - '@devframes/vite@0.9.8'
+  - '@nuxt/devtools-kit@4.0.0-alpha.16'
+  - '@nuxt/devtools@4.0.0-alpha.16'
+  - '@vitejs/devtools-kit@0.6.3'
+  - '@vitejs/devtools@0.6.3'
+  - devframe@0.9.8
