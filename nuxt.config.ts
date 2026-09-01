@@ -33,6 +33,7 @@ export default defineNuxtConfig({
     "@nuxtjs/sitemap",
     "nuxt-schema-org",
     "@nuxt/devtools",
+    "nuxt-seo-utils",
   ],
   site: {
     url: websiteCopy.site.url,

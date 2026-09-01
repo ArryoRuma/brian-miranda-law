@@ -4,6 +4,7 @@ allowBuilds:
   better-sqlite3: true
   esbuild: true
   unrs-resolver: true
+  vue-demi: true
 minimumReleaseAgeExclude:
   - '@devframes/hub-ui@0.9.8'
   - '@devframes/hub@0.9.8'
@@ -21,3 +22,4 @@ minimumReleaseAgeExclude:
   - '@vitejs/devtools-kit@0.6.3'
   - '@vitejs/devtools@0.6.3'
   - devframe@0.9.8
+  - nuxt-seo-utils@8.5.0
