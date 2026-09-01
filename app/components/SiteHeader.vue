@@ -98,7 +98,11 @@ onBeforeUnmount(() => {
     <span class="rail-label">{{ copy.railLabel }}</span>
   </div>
   <header ref="header" class="site-header" @keydown="trapMenuFocus">
-    <NuxtLink class="brand-lockup" :to="homePath" :aria-label="copy.homeAriaLabel">
+    <NuxtLink
+      class="brand-lockup"
+      :to="homePath"
+      :aria-label="copy.homeAriaLabel"
+    >
       <NuxtImg
         class="brand-logo"
         src="/miranda-law-gold.png"

@@ -1,0 +1,55 @@
+about:
+  path: /about
+  title: About Brian Miranda
+  metaDescription: Meet Brian M. Miranda, Esq. and learn about Miranda Law's clear, responsive, multilingual approach to serving North Jersey families.
+  hero:
+    eyebrow: Meet Brian Miranda
+    title: Legal guidance should feel
+    accent: clear, personal, and useful.
+    lead: Brian M. Miranda, Esq. leads a North Jersey practice built around direct communication, practical next steps, and long-term client relationships.
+    image: /images/brian-law-detail_25336cb9.jpg.webp
+    imageAlt: A linen-bound planning book with organized legal documents
+    secondaryHref: /estate-planning
+    secondaryLabel: Explore estate planning
+  sections:
+    - type: narrative
+      eyebrow: The practice
+      title: A steady point of contact for important legal decisions.
+      body:
+        - Miranda Law works with individuals and families who want straightforward explanations and a plan they can understand. The estate-planning process is designed to turn broad concerns—about family, property, health, and the future—into a practical set of decisions.
+        - The firm also assists with select real estate, corporate, civil litigation and defense, municipal, immigration, and landlord-tenant matters.
+    - type: cards
+      eyebrow: What clients can expect
+      title: Clear answers without unnecessary distance.
+      tone: sand
+      cards:
+        - title: Plain-language explanations
+          body: Understand the purpose of each option, the decisions it requires, and how it relates to the rest of the plan.
+        - title: Personal recommendations
+          body: The conversation begins with your actual family, assets, responsibilities, and priorities.
+        - title: Responsive communication
+          body: The legal team handles intake and scheduling through phone, text, and WhatsApp.
+        - title: Multilingual service
+          body: English, Spanish, and Portuguese communication is available throughout the client experience.
+    - type: narrative
+      eyebrow: Serving North Jersey
+      title: Local counsel for multilingual families.
+      body:
+        - Miranda Law primarily serves North Jersey, including Monmouth County and communities north of it. The Warren office gives clients a local place to begin, while the firm's phone, text, and WhatsApp options help make communication easier.
+        - Approximately half of the firm's clients are Spanish- or Portuguese-speaking. Multilingual service is not an add-on; it is part of how the practice works every day.
+    - type: steps
+      eyebrow: Approach to estate planning
+      title: Listen first. Explain the options. Build the plan carefully.
+      tone: blue
+      steps:
+        - title: Understand
+          body: Discuss the people, property, responsibilities, and changes that bring you to the conversation.
+        - title: Explain
+          body: Review possible documents and tradeoffs in language that makes the choices easier to follow.
+        - title: Prepare
+          body: Draft and review the agreed plan with enough room to ask questions before signing.
+        - title: Carry forward
+          body: Leave knowing what was signed, where it belongs, and what kinds of future changes may call for another review.
+  finalCta:
+    title: Bring the questions you have now.
+    body: You do not need to solve every decision before calling. A free initial consultation is a place to understand what may come next.

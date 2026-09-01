@@ -50,7 +50,9 @@ const resourceLinks = computed(() => [
         {{ item.label }}
       </NuxtLink>
       <NuxtLink :to="localizePath('/about')">{{ copy.aboutLabel }}</NuxtLink>
-      <NuxtLink :to="localizePath('/other-services')">{{ copy.otherServicesLabel }}</NuxtLink>
+      <NuxtLink :to="localizePath('/other-services')">{{
+        copy.otherServicesLabel
+      }}</NuxtLink>
     </div>
 
     <div class="footer-contact-column">
@@ -77,10 +79,18 @@ const resourceLinks = computed(() => [
 
     <div class="footer-legal-row">
       <span>© {{ currentYear }} {{ contact.name }}</span>
-      <NuxtLink :to="localizePath('/privacy')">{{ copy.privacyLabel }}</NuxtLink>
-      <NuxtLink :to="localizePath('/cookies')">{{ copy.cookiesLabel }}</NuxtLink>
-      <NuxtLink :to="localizePath('/disclaimer')">{{ copy.disclaimerLabel }}</NuxtLink>
-      <NuxtLink :to="localizePath('/accessibility')">{{ copy.accessibilityLabel }}</NuxtLink>
+      <NuxtLink :to="localizePath('/privacy')">{{
+        copy.privacyLabel
+      }}</NuxtLink>
+      <NuxtLink :to="localizePath('/cookies')">{{
+        copy.cookiesLabel
+      }}</NuxtLink>
+      <NuxtLink :to="localizePath('/disclaimer')">{{
+        copy.disclaimerLabel
+      }}</NuxtLink>
+      <NuxtLink :to="localizePath('/accessibility')">{{
+        copy.accessibilityLabel
+      }}</NuxtLink>
       <span>{{ copy.attorneyAdvertising }}</span>
     </div>
   </footer>

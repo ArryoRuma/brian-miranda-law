@@ -1,0 +1,107 @@
+trusts:
+  path: /estate-planning/trusts
+  title: Trusts Attorney in North Jersey
+  metaDescription: Understand how trusts can hold and manage assets under written terms and speak with Miranda Law about whether a trust fits your estate plan.
+  hero:
+    eyebrow: Trusts
+    title: Create structure for
+    accent: how selected assets are managed.
+    lead: A trust can place selected property under written terms for the benefit of the people or purposes you choose. Whether one belongs in your plan depends on what you own, what you want to accomplish, and how the trust will be maintained.
+    secondaryHref: /estate-planning
+    secondaryLabel: See the complete estate plan
+  sections:
+    - type: narrative
+      eyebrow: What is a trust?
+      title: A legal relationship built around property, instructions, and responsibility.
+      body:
+        - A trust generally involves a trustee who holds or manages property under written terms for one or more beneficiaries. The person creating the trust decides its purpose and the rules that apply, within the limits of the law.
+        - There are many kinds of trusts. The right structure—and whether a trust is useful at all—depends on the goals and assets involved.
+    - type: checklist
+      eyebrow: Why you may need one
+      title: Add control where a simple transfer may not be enough.
+      tone: sand
+      bullets:
+        - You want property managed for a child or another beneficiary over time.
+        - You want a successor trustee to manage trust property if you cannot.
+        - You want to set conditions or timing for distributions.
+        - You have a blended family or responsibilities that require careful coordination.
+        - You want a plan for selected property that continues beyond your lifetime.
+        - You have an existing trust that has not been reviewed or properly coordinated with current assets.
+    - type: cards
+      eyebrow: What you can decide
+      title: Define who manages, who benefits, and how the terms work.
+      cards:
+        - title: Trustee
+          body: Choose the person or institution responsible for following the trust terms and name appropriate successors.
+        - title: Beneficiaries
+          body: Identify who may benefit and under what circumstances distributions may be made.
+        - title: Property
+          body: Determine which assets should be transferred to or coordinated with the trust.
+        - title: Timing and purpose
+          body: Set a framework for when property may be used, distributed, or retained for future needs.
+    - type: checklist
+      eyebrow: Who should consider a trust
+      title: Useful in the right plan—not automatically necessary in every plan.
+      bullets:
+        - Parents planning for minor children
+        - Families supporting a beneficiary who may need ongoing management
+        - Homeowners and people with property in more than one jurisdiction
+        - Blended families
+        - Business owners
+        - People who want a successor structure for managing selected assets during incapacity
+    - type: narrative
+      eyebrow: What happens without one
+      title: The result depends on the rest of the plan.
+      tone: blue
+      body:
+        - A trust is not required for every estate. Without one, property may still pass through a will, beneficiary designation, joint ownership, or other legal arrangement.
+        - The practical question is whether those alternatives provide enough control, continuity, and coordination for your circumstances.
+    - type: cards
+      eyebrow: Common misconceptions
+      title: A signed trust is only the beginning.
+      cards:
+        - title: “Every family needs a trust.”
+          body: Some goals can be handled effectively through other documents and ownership arrangements.
+        - title: “A trust works automatically once signed.”
+          body: A trust generally must be funded or coordinated with the relevant assets to do the work it was designed to do.
+        - title: “A trust replaces every other document.”
+          body: Wills, powers of attorney, health care directives, and beneficiary designations may still be essential.
+    - type: narrative
+      eyebrow: How it fits
+      title: Connect the trust to the will, titles, and beneficiary designations.
+      body:
+        - Trust planning is as much about coordination as drafting. The document, selected assets, ownership records, beneficiary designations, and the rest of the estate plan should point in the same direction.
+    - type: steps
+      eyebrow: The Miranda Law process
+      title: From a first conversation to a finished document.
+      tone: sand
+      steps:
+        - title: Schedule a Free Initial Consultation
+          body: Discuss your current documents, family, property, concerns, and goals.
+        - title: Review the options
+          body: Understand the purpose, limits, and decisions involved before choosing a direction.
+        - title: Prepare and review
+          body: The firm drafts the document and reviews its terms with you in plain language.
+        - title: Sign and finalize
+          body: Complete the required formalities and understand how the document fits with the rest of the plan.
+    - type: checklist
+      eyebrow: Why work with Miranda Law
+      title: Personal guidance with accessible communication.
+      tone: dark
+      bullets:
+        - Clear explanations centered on the decisions you need to make.
+        - Recommendations based on your family, assets, and goals.
+        - Service in English, Spanish, and Portuguese.
+        - Phone, text, and WhatsApp communication with the office.
+        - A free initial consultation to understand the possible scope.
+  faqs:
+    - question: What is the difference between a will and a trust?
+      answer: A will gives instructions for property governed by the will after death. A trust can hold and manage selected property under written terms during life, after death, or both.
+    - question: Does a trust avoid probate?
+      answer: Property properly held in a trust may be administered under the trust terms rather than through probate, but assets left outside the trust may follow a different path.
+    - question: Can I change a trust?
+      answer: That depends on the type of trust and its terms. Revocable and irrevocable trusts operate differently, so the document must be reviewed.
+    - question: Who should serve as trustee?
+      answer: The choice depends on the responsibility involved, the people affected, the complexity of the property, and the candidate's judgment and availability.
+    - question: What does it mean to fund a trust?
+      answer: Funding generally means transferring or coordinating selected assets so the trust can govern them. The necessary steps depend on the asset.

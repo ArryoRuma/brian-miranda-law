@@ -642,7 +642,10 @@ export const siteContentSchema = rawSiteContentSchema.superRefine(
     const homeLanguageHrefs = content.home.languages.items.map(
       item => item.href
     );
-    if (JSON.stringify(homeLanguageHrefs) !== JSON.stringify(requiredLanguageHrefs)) {
+    if (
+      JSON.stringify(homeLanguageHrefs) !==
+      JSON.stringify(requiredLanguageHrefs)
+    ) {
       addIssue(
         context,
         ["home", "languages", "items"],
@@ -683,7 +686,9 @@ export const siteContentSchema = rawSiteContentSchema.superRefine(
       pt: "pt-BR",
     };
     for (const locale of locales) {
-      if (content.localization.review[locale].variant !== expectedVariants[locale]) {
+      if (
+        content.localization.review[locale].variant !== expectedVariants[locale]
+      ) {
         addIssue(
           context,
           ["localization", "review", locale, "variant"],

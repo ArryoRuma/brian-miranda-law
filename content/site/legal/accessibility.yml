@@ -1,0 +1,16 @@
+accessibility:
+  title: Accessibility Statement
+  description: Read Miranda Law's website accessibility statement and find contact information for assistance accessing website content.
+  updated: August 14, 2026
+  intro: Miranda Law is working to provide a website that is usable by people with a wide range of abilities, devices, browsers, and assistive technologies.
+  sections:
+    - title: Our approach
+      paragraphs:
+        - The website is designed with semantic headings, keyboard-accessible controls, visible focus states, descriptive links, responsive layouts, and text alternatives for meaningful images. Accessibility will be included in ongoing content and quality reviews.
+    - title: Need assistance?
+      paragraphs:
+        - If you have difficulty accessing content or completing a task, contact the office at 908-424-1011 or bmiranda@bmirandalaw.com. Please describe the page, feature, and assistance you need.
+    - title: Feedback
+      paragraphs:
+        - Accessibility is an ongoing process. Feedback about barriers helps the firm prioritize improvements as the website and its intake tools evolve.
+# Non-submitting questionnaire preview copy

@@ -1,0 +1,108 @@
+health-care-directives:
+  path: /estate-planning/health-care-directives
+  title: Health Care Directives in North Jersey
+  metaDescription: Learn how New Jersey health care directives can name a representative and communicate treatment preferences if you cannot decide for yourself.
+  hero:
+    eyebrow: Health Care Directives
+    title: Give the people you trust
+    accent: clearer medical guidance.
+    lead: A health care directive can name a representative to make health care decisions if you become unable to decide and can record preferences that help guide difficult conversations.
+    secondaryHref: /estate-planning
+    secondaryLabel: See the complete estate plan
+  sections:
+    - type: narrative
+      eyebrow: What is a health care directive?
+      title: A written plan for medical decision-making during incapacity.
+      body:
+        - New Jersey recognizes a proxy directive, which names a health care representative, and an instruction directive, often called a living will, which communicates treatment preferences.
+        - The representative's authority is intended for a time when you cannot make your own health care decisions. While you remain able to decide, your own decisions control.
+    - type: checklist
+      eyebrow: Why you may need one
+      title: Make the conversation easier before a crisis.
+      tone: sand
+      bullets:
+        - You want to choose who should speak with physicians and make decisions if you cannot.
+        - You want to name an alternate representative.
+        - You have treatment preferences or values you want your representative to understand.
+        - You want family members and medical providers to have written guidance.
+        - You have an older directive that names the wrong person or no longer reflects your wishes.
+        - You are preparing for surgery, managing a health condition, or completing a broader estate plan.
+    - type: cards
+      eyebrow: What you can decide
+      title: Choose a representative and communicate what matters to you.
+      cards:
+        - title: Health care representative
+          body: Name the person authorized to make health care decisions if you are unable to do so.
+        - title: Alternate representative
+          body: Choose a backup if the first person is unable, unwilling, or unavailable to serve.
+        - title: Treatment preferences
+          body: Provide guidance about treatments, life-sustaining measures, and the values that should shape decisions.
+        - title: People who receive copies
+          body: Plan how representatives, family members, physicians, and health care facilities can access the directive when needed.
+    - type: checklist
+      eyebrow: Who should consider one
+      title: Advance directives are not only for older adults.
+      bullets:
+        - Any adult who wants to choose a health care representative
+        - People preparing for surgery or managing an illness
+        - Parents, caregivers, and adults with family responsibilities
+        - People whose relatives disagree about medical decisions
+        - Adults whose closest trusted person may not otherwise be the obvious decision-maker
+        - Anyone completing or updating an estate plan
+    - type: narrative
+      eyebrow: What happens without one
+      title: Loved ones may be left without your written choice or instructions.
+      tone: blue
+      body:
+        - Without a directive, medical providers and family members may have to determine who should participate in decisions and what you would have wanted without the benefit of your written guidance.
+        - A directive cannot anticipate every medical circumstance, but it can identify the person you trust and give that person a clearer understanding of your values.
+    - type: cards
+      eyebrow: Common misconceptions
+      title: The document protects your voice; it does not replace it.
+      cards:
+        - title: “My representative decides while I still can.”
+          body: Your representative acts only when you are unable to make your own health care decisions under the applicable standard.
+        - title: “A directive is only about end-of-life care.”
+          body: A proxy directive can address health care decision-making more broadly during incapacity.
+        - title: “Completing the form ends the conversation.”
+          body: Discussing your values with the representative and sharing accessible copies are important parts of the plan.
+    - type: narrative
+      eyebrow: How it fits
+      title: Coordinate medical and financial decision-makers.
+      body:
+        - A health care representative addresses medical decisions, while an agent under a financial power of attorney may handle bills, insurance, accounts, and other practical matters. Both roles may be needed during the same period.
+    - type: steps
+      eyebrow: The Miranda Law process
+      title: From a first conversation to a finished document.
+      tone: sand
+      steps:
+        - title: Schedule a Free Initial Consultation
+          body: Discuss your current documents, family, property, concerns, and goals.
+        - title: Review the options
+          body: Understand the purpose, limits, and decisions involved before choosing a direction.
+        - title: Prepare and review
+          body: The firm drafts the document and reviews its terms with you in plain language.
+        - title: Sign and finalize
+          body: Complete the required formalities and understand how the document fits with the rest of the plan.
+    - type: checklist
+      eyebrow: Why work with Miranda Law
+      title: Personal guidance with accessible communication.
+      tone: dark
+      bullets:
+        - Clear explanations centered on the decisions you need to make.
+        - Recommendations based on your family, assets, and goals.
+        - Service in English, Spanish, and Portuguese.
+        - Phone, text, and WhatsApp communication with the office.
+        - A free initial consultation to understand the possible scope.
+  faqs:
+    - question: What is the difference between a proxy directive and a living will?
+      answer: A proxy directive names a health care representative. An instruction directive, often called a living will, records treatment preferences. A person may use one or both.
+    - question: When can my representative make decisions?
+      answer: The representative acts when you have been determined unable to make your own health care decisions under the applicable process. If you regain capacity, your own decisions control again.
+    - question: Who should receive a copy?
+      answer: Consider providing copies to the primary and alternate representatives, appropriate family members, physicians, and health care facilities involved in your care.
+    - question: Can I change my directive?
+      answer: A person with capacity can generally update or revoke a directive. New copies should be shared so older instructions are not used by mistake.
+    - question: Is a POLST the same as an advance directive?
+      answer: No. A POLST is a medical order used in particular serious-illness circumstances. It can complement, but does not automatically replace, an advance directive.
+# Resource hub pages

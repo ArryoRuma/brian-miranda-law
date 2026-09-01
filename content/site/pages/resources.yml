@@ -1,0 +1,34 @@
+resources:
+  path: /resources
+  title: Estate Planning Resources
+  metaDescription: Use Miranda Law's estate-planning FAQs, preparation checklist, and video resources to organize questions before a consultation.
+  hero:
+    eyebrow: Estate planning resources
+    title: Start informed.
+    accent: You do not have to start certain.
+    lead: These resources are designed to help you organize the people, property, documents, and questions you may want to discuss with an attorney.
+    secondaryHref: /resources/estate-planning-faqs
+    secondaryLabel: Read common questions
+  sections:
+    - type: cards
+      eyebrow: Prepare at your pace
+      title: Three ways to make the first conversation easier.
+      cards:
+        - title: Estate Planning FAQs
+          body: Plain-language answers to common questions about documents, timing, cost, and the first consultation.
+          href: /resources/estate-planning-faqs
+          linkLabel: Browse the FAQs
+        - title: Estate Planning Checklist
+          body: A practical list of information and decisions to gather. Complete what you can and leave the rest for the conversation.
+          href: /resources/estate-planning-checklist
+          linkLabel: Open the checklist
+        - title: Video Library
+          body: Short explanations of estate-planning concepts and the questions families commonly bring to the office.
+          href: /resources/video-blog
+          linkLabel: Visit the video library
+    - type: narrative
+      eyebrow: A useful reminder
+      title: General information is a starting point, not a personal legal plan.
+      tone: sand
+      body:
+        - Online resources can help you identify questions, but they cannot account for every family, asset, document, or legal issue. A consultation is where general information becomes a conversation about your circumstances.

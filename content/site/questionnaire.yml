@@ -1,0 +1,87 @@
+questionnaire:
+  common:
+    previewEyebrow: What we may ask
+    confidentiality: Please do not include confidential or time-sensitive information until the firm confirms representation.
+  locales:
+    en:
+      title: Estate Planning Questionnaire
+      meta: Organize information about your family, goals, and preferences before speaking with Miranda Law.
+      eyebrow: Estate planning questionnaire
+      heading: Create a clear plan for the people you love.
+      lead: Review the topics Miranda Law may discuss with you, then call or text when you are ready for a free initial consultation.
+      trust:
+        - Free initial consultation
+        - Serving North Jersey families
+        - English, Spanish, and Portuguese
+        - Clear, personal guidance
+      statusTitle: Questionnaire preview
+      statusBody: This page previews the initial conversation. It does not collect or transmit answers, so you can review it without entering personal information.
+      groups:
+        - title: Contact preferences
+          body: Name, email, mobile number, preferred contact method, and language
+        - title: About you
+          body: City, state, marital status, and the people who depend on you
+        - title: Your family
+          body: Children, dependents, guardians, and important relationships
+        - title: Planning needs
+          body: What prompted planning and which services you want to discuss
+        - title: Current documents
+          body: Existing documents and possible decision-makers
+        - title: Questions
+          body: Timing, priorities, and context for the consultation
+      cta: Ready to start the conversation?
+    es:
+      title: Cuestionario de Planificación Patrimonial
+      meta: Organice información sobre su familia, sus objetivos y sus preferencias antes de hablar con Miranda Law.
+      eyebrow: Cuestionario de planificación patrimonial
+      heading: Cree un plan claro para las personas que ama.
+      lead: Revise los temas que Miranda Law puede conversar con usted y llame o envíe un mensaje cuando esté listo para una consulta inicial gratuita.
+      trust:
+        - Consulta inicial gratuita
+        - Atendemos a familias de North Jersey
+        - Inglés, español y portugués
+        - Orientación clara y personalizada
+      statusTitle: Vista previa del cuestionario
+      statusBody: Esta página presenta los temas de la conversación inicial. No recopila ni transmite respuestas, por lo que puede revisarla sin ingresar información personal.
+      groups:
+        - title: Preferencias de contacto
+          body: Nombre, correo, móvil, forma de contacto e idioma
+        - title: Sobre usted
+          body: Ciudad, estado y estado civil
+        - title: Su familia
+          body: Hijos, dependientes y relaciones importantes
+        - title: Necesidades de planificación
+          body: Qué motivó la planificación y servicios de interés
+        - title: Documentos actuales
+          body: Documentos existentes y posibles representantes
+        - title: Preguntas
+          body: Plazos, prioridades y contexto para la consulta
+      cta: ¿Listo para comenzar la conversación?
+    pt:
+      title: Questionário de Planejamento Patrimonial
+      meta: Organize informações sobre sua família, seus objetivos e suas preferências antes de conversar com o Miranda Law.
+      eyebrow: Questionário de planejamento patrimonial
+      heading: Crie um plano claro para as pessoas que você ama.
+      lead: Revise os assuntos que o Miranda Law pode conversar com você e ligue ou envie uma mensagem quando estiver pronto para uma consulta inicial gratuita.
+      trust:
+        - Consulta inicial gratuita
+        - Atendimento a famílias de North Jersey
+        - Inglês, espanhol e português
+        - Orientação clara e personalizada
+      statusTitle: Prévia do questionário
+      statusBody: Esta página apresenta os assuntos da conversa inicial. Ela não coleta nem transmite respostas, então você pode revisar tudo sem inserir informações pessoais.
+      groups:
+        - title: Preferências de contato
+          body: Nome, e-mail, celular, forma de contato e idioma
+        - title: Sobre você
+          body: Cidade, estado e estado civil
+        - title: Sua família
+          body: Filhos, dependentes e relações importantes
+        - title: Necessidades de planejamento
+          body: O motivo do planejamento e serviços de interesse
+        - title: Documentos atuais
+          body: Documentos existentes e possíveis representantes
+        - title: Perguntas
+          body: Prazo, prioridades e contexto para a consulta
+      cta: Pronto para começar a conversa?
+# Questionnaire follow-up preview copy

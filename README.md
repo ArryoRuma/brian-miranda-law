@@ -51,25 +51,26 @@ pnpm dev
 
 The development server normally runs at <http://localhost:3000>. It listens on all local interfaces so another device on the same network can be used for responsive testing.
 
-No `.env` file is required. The canonical URL, public identity, contact details, navigation, and interface copy come from `content/site.yml`.
+No `.env` file is required. The canonical URL, public identity, contact details, navigation, and interface copy come from the YAML files under `content/site/`.
 
 ## Commands
 
-| Command             | Purpose                                                         |
-| ------------------- | --------------------------------------------------------------- |
-| `pnpm dev`          | Start Nuxt development mode on `0.0.0.0`                        |
-| `pnpm prepare`      | Regenerate Nuxt types and the internal content module           |
-| `pnpm lint`         | Run ESLint without rewriting files                              |
-| `pnpm typecheck`    | Run strict Nuxt/Vue/TypeScript checking                         |
-| `pnpm test`         | Run fast schema, blog-gate, and URL-helper tests                |
-| `pnpm format`       | Rewrite supported files with Prettier                           |
-| `pnpm format:check` | Check formatting without writing                                |
-| `pnpm check`        | Run lint, typecheck, unit tests, and formatting checks          |
-| `pnpm generate`     | Generate the deployable static site in `.output/public`         |
-| `pnpm build`        | Alias for the static generation command                         |
-| `pnpm test:static`  | Verify a previously generated `.output/public` directory        |
-| `pnpm verify`       | Run every check, regenerate the site, and inspect static output |
-| `pnpm preview`      | Preview the latest generated output locally                     |
+| Command               | Purpose                                                          |
+| --------------------- | ---------------------------------------------------------------- |
+| `pnpm dev`            | Start Nuxt development mode on `0.0.0.0`                         |
+| `pnpm prepare`        | Regenerate Nuxt types and the internal content module            |
+| `pnpm lint`           | Run ESLint without rewriting files                               |
+| `pnpm typecheck`      | Run strict Nuxt/Vue/TypeScript checking                          |
+| `pnpm test`           | Run fast schema, blog-gate, and URL-helper tests                 |
+| `pnpm format`         | Rewrite supported files with Prettier                            |
+| `pnpm format:check`   | Check formatting without writing                                 |
+| `pnpm check`          | Run lint, typecheck, unit tests, and formatting checks           |
+| `pnpm generate`       | Generate the deployable static site in `.output/public`          |
+| `pnpm build`          | Alias for the static generation command                          |
+| `pnpm test:static`    | Verify a previously generated `.output/public` directory         |
+| `pnpm verify`         | Run every check, regenerate the site, and inspect static output  |
+| `pnpm verify:release` | Run `verify` and require every translation review to be approved |
+| `pnpm preview`        | Preview the latest generated output locally                      |
 
 Use `pnpm verify` before handing off or deploying a change.
 
@@ -78,9 +79,9 @@ Use `pnpm verify` before handing off or deploying a change.
 The repository deliberately separates editable content from presentation:
 
 ```text
-content/site.yml                  content/blog/*.md
-        │                                │
-        └──────────────┬─────────────────┘
+content/site/**/*.yml             content/blog/*.md
+         │                                │
+         └──────────────┬─────────────────┘
                        ▼
             lib/content/load-content.ts
                        │
@@ -110,7 +111,7 @@ routes and site config       generates .nuxt/site-content.mjs
 
 This design has three useful consequences:
 
-- Editors retain a single YAML source for website copy and Markdown files for articles.
+- Editors retain one organized YAML source directory for website copy and Markdown files for articles.
 - Types are inferred from the validation schema instead of being maintained by hand.
 - Static visitors receive no SQLite database, WASM worker, content API, or Markdown parser.
 
@@ -138,7 +139,11 @@ Generated `.nuxt`, `.output`, and cache files are ignored. Never edit them direc
 │   │   └── blog/                       # Conditional blog index and article page
 │   └── types/                          # Generated-module declaration and re-exports
 ├── content/
-│   ├── site.yml                        # Site identity, UI copy, and page records
+│   ├── site/                           # Site identity, UI copy, and page records
+│   │   ├── pages/                      # One generic editorial record per file
+│   │   ├── resources/                  # FAQ, checklist, and video records
+│   │   ├── legal/                      # One policy record per file
+│   │   └── localization/               # Review metadata and locale dictionaries
 │   └── blog/post-template.md.example   # Non-published article template
 ├── lib/content/
 │   ├── load-content.ts                 # File loading, Markdown, gate, asset checks
@@ -229,7 +234,7 @@ When an approved post exists, the build automatically adds `/blog`, each approve
 
 ## The YAML content source
 
-`content/site.yml` is the editing source for every non-article word displayed by the site. Components should not introduce duplicate marketing copy when a reusable YAML field is appropriate.
+`content/site/` is the editing source for every non-article word displayed by the site. Each rendered page has a focused YAML file, while site-wide content and locale dictionaries remain shared. The loader assembles every fragment into one object before schema validation. Components should not introduce duplicate marketing copy when a reusable YAML field is appropriate.
 
 ### Top-level keys
 
@@ -321,7 +326,7 @@ The schema is intentionally fail-closed: an invalid edit stops development prepa
 
 ### Edit existing copy
 
-1. Find the visible wording in `content/site.yml`.
+1. Find the visible wording under `content/site/`. Generic, resource, and legal page files are grouped in their matching subdirectories; shared navigation, contact, breadcrumb, and footer copy is in `shared.yml`.
 2. Edit the existing value without changing its indentation or key unless the schema also changes.
 3. Run:
 
@@ -399,7 +404,7 @@ For site-specific visual work, invoke `$design-miranda-law-pages`. For a new or 
 
 Use this path when the page fits the shared hero, content-section, FAQ, and closing-CTA design.
 
-1. Add a unique record under `pages` in `content/site.yml` using the generic page shape.
+1. Add one new YAML file under `content/site/pages/` containing a single uniquely named record using the generic page shape.
 2. Use a normalized unique `path`.
 3. Add the route label under `site.breadcrumbs.labels`.
 4. Add navigation entries only where users should discover the page.
@@ -510,6 +515,8 @@ nextSteps.locales.{en,es,pt}
 
 The locale is taken from the URL and passed to `usePageSeo()`, which sets the document language and locale-aware metadata. Keep all three locale shapes aligned. Stable next-step IDs must remain `documents`, `schedule`, and `communicate` in that order.
 
+Site-wide Spanish and Portuguese translations live in `content/site/localization/es.yml` and `content/site/localization/pt.yml`. They remain dictionaries keyed by the exact English source string so reused wording has one translation. Page-level approval state lives in `content/site/localization/review.yml`; run `pnpm verify:release` before a localized production release.
+
 These are non-submitting previews. Adding a secure intake system is a separate legal, privacy, hosting, validation, spam-prevention, and data-retention project.
 
 ## Styling
@@ -601,7 +608,7 @@ Read the error's `path` from left to right. For example:
 site → navigation → primary → 0 → href
 ```
 
-That points to the first primary navigation item's `href` in `content/site.yml`. Correct the source rather than weakening the schema unless the content contract is intentionally changing.
+That points to the first primary navigation item's `href` in `content/site/shared.yml`. For page-specific paths, continue through the matching record under `content/site/pages/`, `resources/`, or `legal/`. Correct the source rather than weakening the schema unless the content contract is intentionally changing.
 
 ### A new page is missing
 

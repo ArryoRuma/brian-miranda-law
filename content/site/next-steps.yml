@@ -1,0 +1,52 @@
+nextSteps:
+  locales:
+    en:
+      title: What Happens Next
+      eyebrow: What happens next
+      heading: The next step is a conversation, not a commitment.
+      lead: The questionnaire structure helps organize the consultation. Secure online intake is not connected yet; call or text the legal team to begin.
+      steps:
+        - id: documents
+          title: Review the initial questions
+          body: Use the preview to organize family, planning, and contact information.
+        - id: schedule
+          title: Schedule your free initial consultation
+          body: Choose a time to discuss your questions and the general scope of assistance.
+        - id: communicate
+          title: Review possible options
+          body: Brian explains what documents or next steps may fit your circumstances.
+      cta: Return to the questionnaire
+    es:
+      title: Próximos Pasos
+      eyebrow: Qué sucede después
+      heading: El próximo paso es una conversación, no un compromiso.
+      lead: La vista previa ayuda a organizar la consulta. El sistema seguro todavía no está conectado; llame o envíe un mensaje para comenzar.
+      steps:
+        - id: documents
+          title: Revise las preguntas iniciales
+          body: Organice información familiar, de planificación y de contacto.
+        - id: schedule
+          title: Programe su consulta gratuita
+          body: Elija un momento para conversar sobre sus preguntas.
+        - id: communicate
+          title: Revise las opciones posibles
+          body: Brian explica qué documentos o próximos pasos pueden corresponder.
+      cta: Volver al cuestionario
+    pt:
+      title: Próximos Passos
+      eyebrow: O que acontece depois
+      heading: O próximo passo é uma conversa, não um compromisso.
+      lead: A prévia ajuda a organizar a consulta. O sistema seguro ainda não está conectado; ligue ou envie uma mensagem para começar.
+      steps:
+        - id: documents
+          title: Revise as perguntas iniciais
+          body: Organize informações familiares, de planejamento e de contato.
+        - id: schedule
+          title: Agende sua consulta gratuita
+          body: Escolha um horário para conversar sobre suas dúvidas.
+        - id: communicate
+          title: Analise as opções possíveis
+          body: Brian explica quais documentos ou próximos passos podem ser adequados.
+      cta: Voltar ao questionário
+  whatsAppLabel: WhatsApp
+# Public error-page copy

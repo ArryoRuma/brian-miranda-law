@@ -1,0 +1,36 @@
+otherServices:
+  path: /other-services
+  title: Other Legal Services
+  metaDescription: Miranda Law assists North Jersey clients with select real estate, corporate, litigation, municipal, immigration, and landlord-tenant matters.
+  hero:
+    eyebrow: Other legal services
+    title: Practical counsel for
+    accent: the matters around the plan.
+    lead: In addition to estate planning, Miranda Law assists clients with select legal matters affecting property, business, immigration, and everyday disputes.
+    secondaryHref: /contact
+    secondaryLabel: Ask about your matter
+  sections:
+    - type: cards
+      eyebrow: Areas of assistance
+      title: Tell us what brings you here.
+      cards:
+        - title: Real Estate
+          body: Guidance for select residential and related property matters, from questions and documents through the next practical step.
+        - title: Corporate Matters
+          body: Counsel for select business questions and transactions where clear documentation and risk awareness matter.
+        - title: Civil Litigation & Defense
+          body: Representation in select civil disputes, with an early focus on the facts, available options, and proportionate next steps.
+        - title: Municipal Matters
+          body: Assistance with select matters handled through New Jersey municipal courts and local processes.
+        - title: Immigration
+          body: Support with select immigration matters for individuals and families, available in English, Spanish, and Portuguese.
+        - title: Landlord & Tenant
+          body: Guidance for select landlord-tenant questions and disputes involving rights, documents, and next steps.
+      note: The availability of representation depends on the facts, timing, jurisdiction, and any conflicts. Contact the office so the legal team can determine whether the matter is one Miranda Law can consider.
+    - type: narrative
+      eyebrow: A coordinated perspective
+      title: Legal matters rarely stay in one neat category.
+      tone: blue
+      body:
+        - A real estate transaction can affect an estate plan. A business interest may need to be considered alongside family goals. An immigration or litigation matter can change what requires attention first.
+        - Miranda Law begins by understanding the immediate issue and its connection to the rest of the client's legal picture.

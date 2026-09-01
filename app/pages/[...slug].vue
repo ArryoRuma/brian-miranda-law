@@ -23,8 +23,7 @@ const editorialPages = Object.fromEntries(
 function resolvePage(path: string): PageKind | undefined {
   const basePath = stripLocalePrefix(path);
   if (basePath === "/contact") return { type: "contact" };
-  if (basePath === "/resources/estate-planning-faqs")
-    return { type: "faq" };
+  if (basePath === "/resources/estate-planning-faqs") return { type: "faq" };
   if (basePath === "/resources/estate-planning-checklist")
     return { type: "checklist" };
   if (basePath === "/resources/video-blog") return { type: "video" };

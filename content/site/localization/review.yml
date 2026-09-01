@@ -1,0 +1,69 @@
+en:
+  status: approved
+  variant: en-US
+  fluentReviewRequired: false
+  legalReviewRequired: false
+  pages:
+    "/": approved
+    "/estate-planning": approved
+    "/about": approved
+    "/resources": approved
+    "/other-services": approved
+    "/contact": approved
+    "/estate-planning/wills": approved
+    "/estate-planning/trusts": approved
+    "/estate-planning/powers-of-attorney": approved
+    "/estate-planning/health-care-directives": approved
+    "/resources/estate-planning-faqs": approved
+    "/resources/estate-planning-checklist": approved
+    "/resources/video-blog": approved
+    "/privacy": approved
+    "/cookies": approved
+    "/disclaimer": approved
+    "/accessibility": approved
+es:
+  status: approved
+  variant: es-US
+  fluentReviewRequired: true
+  legalReviewRequired: true
+  pages:
+    "/": approved
+    "/estate-planning": approved
+    "/about": approved
+    "/resources": approved
+    "/other-services": approved
+    "/contact": approved
+    "/estate-planning/wills": approved
+    "/estate-planning/trusts": approved
+    "/estate-planning/powers-of-attorney": approved
+    "/estate-planning/health-care-directives": approved
+    "/resources/estate-planning-faqs": approved
+    "/resources/estate-planning-checklist": approved
+    "/resources/video-blog": approved
+    "/privacy": approved
+    "/cookies": approved
+    "/disclaimer": approved
+    "/accessibility": approved
+pt:
+  status: draft
+  variant: pt-BR
+  fluentReviewRequired: true
+  legalReviewRequired: true
+  pages:
+    "/": draft
+    "/estate-planning": draft
+    "/about": draft
+    "/resources": draft
+    "/other-services": draft
+    "/contact": draft
+    "/estate-planning/wills": draft
+    "/estate-planning/trusts": draft
+    "/estate-planning/powers-of-attorney": draft
+    "/estate-planning/health-care-directives": draft
+    "/resources/estate-planning-faqs": draft
+    "/resources/estate-planning-checklist": draft
+    "/resources/video-blog": draft
+    "/privacy": draft
+    "/cookies": draft
+    "/disclaimer": draft
+    "/accessibility": draft

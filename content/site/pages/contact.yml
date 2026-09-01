@@ -1,0 +1,12 @@
+contact:
+  path: /contact
+  title: Contact Miranda Law
+  metaDescription: Schedule a free initial consultation with Miranda Law in Warren, New Jersey by phone, text, WhatsApp, or email.
+  hero:
+    eyebrow: Contact Miranda Law
+    title: Take the first step
+    accent: toward a clearer plan.
+    lead: Tell the legal team what brings you here. A free initial consultation is available, and the office can communicate by phone, text, WhatsApp, or email.
+    image: /images/brian-law-detail_25336cb9.jpg.webp
+    imageAlt: Organized planning documents and a linen-bound book
+  sections: []

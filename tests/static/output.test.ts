@@ -2,14 +2,11 @@ import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { loadRepositoryContent } from "../../lib/content/load-content";
-import {
-  getPreviewRoutes,
-  getStaticPageRoutes,
-} from "../../lib/content/schema";
+import { getPreviewRoutes, getPublicRoutes } from "../../lib/content/schema";
 
 const outputDirectory = join(process.cwd(), ".output", "public");
 const repository = loadRepositoryContent(process.cwd());
-const publicRoutes = getStaticPageRoutes(repository.siteCopy);
+const publicRoutes = getPublicRoutes(repository.siteCopy);
 const previewRoutes = getPreviewRoutes();
 
 const routeFile = (route: string) =>

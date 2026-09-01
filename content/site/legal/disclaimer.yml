@@ -1,0 +1,21 @@
+disclaimer:
+  title: Website Disclaimer
+  description: Read the Miranda Law website disclaimer concerning general information, attorney-client relationships, communications, and results.
+  updated: August 14, 2026
+  intro: This website provides general information about Miranda Law and selected legal topics. It is not a substitute for advice from an attorney who has reviewed your circumstances.
+  sections:
+    - title: No legal advice
+      paragraphs:
+        - Website content is educational and may not reflect every legal development, exception, deadline, or fact that could affect a matter. Do not act or refrain from acting solely because of information on this website.
+    - title: No attorney-client relationship
+      paragraphs:
+        - Viewing the website, using a questionnaire, sending a message, or speaking with the office does not by itself create an attorney-client relationship. Representation begins only after Miranda Law confirms acceptance and the required agreement is completed.
+    - title: Communications and deadlines
+      paragraphs:
+        - Do not send confidential information until the firm confirms that it is appropriate to do so. Do not rely on an unconfirmed website, email, text, or voicemail communication to protect a filing date, court date, response period, or other deadline.
+    - title: Jurisdiction and availability
+      paragraphs:
+        - The availability of legal services depends on jurisdiction, the facts, timing, conflicts, and the firm's acceptance of the matter. Website content is not intended to advertise services where doing so would violate applicable professional rules.
+    - title: No guarantee of results
+      paragraphs:
+        - Descriptions of services, examples, or past matters do not guarantee a particular outcome. Legal results depend on the facts, law, evidence, decision-makers, and other circumstances of each matter.

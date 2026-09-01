@@ -1,0 +1,10 @@
+error404:
+  title: Page Not Found
+  description: The requested Miranda Law page could not be found.
+  eyebrow: "404"
+  heading: That page could not be found.
+  body: The page may have moved, or the address may be incomplete.
+  actionLabel: Return home
+
+# Draft site-wide translations. English remains the approved source above.
+# Spanish and Portuguese require fluent and legal review before deployment.

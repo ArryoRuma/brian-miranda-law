@@ -1,0 +1,105 @@
+estatePlanning:
+  path: /estate-planning
+  title: Estate Planning in North Jersey
+  metaDescription: Understand wills, trusts, powers of attorney, and health care directives with clear, multilingual estate-planning guidance from Miranda Law.
+  hero:
+    eyebrow: Estate planning for North Jersey families
+    title: Make the important decisions
+    accent: before someone else has to.
+    lead: A thoughtful estate plan brings your wishes, decision-makers, and essential documents into one clear framework. Miranda Law helps families build that framework in English, Spanish, and Portuguese.
+    secondaryHref: /resources/estate-planning-checklist
+    secondaryLabel: Use the planning checklist
+  sections:
+    - type: narrative
+      eyebrow: Why planning matters
+      title: Estate planning is about people as much as property.
+      body:
+        - An estate plan can give the people you trust useful direction if you die or become unable to make decisions. It can also reduce the number of urgent choices your family must make during an already difficult time.
+        - The right documents depend on your family, assets, responsibilities, and goals. The work begins by understanding those facts—not by reaching for a one-size-fits-all package.
+    - type: checklist
+      eyebrow: What a plan can do
+      title: Put your decisions in writing.
+      tone: sand
+      bullets:
+        - Explain how you want property handled after your death.
+        - Nominate the people you want to manage your estate and carry out your instructions.
+        - Choose someone to address financial and legal matters if you cannot act for yourself.
+        - Name a health care representative and communicate medical preferences.
+        - Create practical guidance for children, dependents, caregivers, and loved ones.
+        - Coordinate existing documents after marriage, divorce, a birth, a death, retirement, or a major financial change.
+    - type: cards
+      id: services
+      eyebrow: Core documents
+      title: The pieces of a coordinated estate plan.
+      cards:
+        - title: Wills
+          body: State how property should be distributed, nominate an executor, and document other important wishes.
+          href: /estate-planning/wills
+        - title: Trusts
+          body: Create a structure for holding, managing, and transferring selected assets under written terms.
+          href: /estate-planning/trusts
+        - title: Powers of Attorney
+          body: Authorize a trusted person to handle defined financial or legal matters on your behalf.
+          href: /estate-planning/powers-of-attorney
+        - title: Health Care Directives
+          body: Choose a health care representative and communicate treatment preferences for a time when you cannot decide for yourself.
+          href: /estate-planning/health-care-directives
+    - type: cards
+      eyebrow: How it works together
+      title: Different questions call for different documents.
+      tone: blue
+      cards:
+        - title: Your wishes and property
+          body: A will—and, when appropriate, a trust—can address how selected assets should be managed and transferred.
+        - title: Financial incapacity
+          body: A power of attorney can identify who may act for you and define the authority that person receives.
+        - title: Medical incapacity
+          body: A health care directive can identify your representative and preserve guidance about treatment decisions.
+    - type: checklist
+      eyebrow: Who planning is for
+      title: You do not need to be wealthy to need a plan.
+      bullets:
+        - Parents and guardians of minor children
+        - Homeowners and people with financial accounts or personal property
+        - Married and unmarried couples
+        - Business owners and independent professionals
+        - People preparing for retirement
+        - Adults helping parents or caring for other relatives
+        - Anyone whose family, health, assets, or responsibilities have recently changed
+    - type: steps
+      id: process
+      eyebrow: The Miranda Law process
+      title: A practical route from questions to signed documents.
+      tone: sand
+      steps:
+        - title: Schedule a Free Initial Consultation
+          body: Start with a conversation about your family, existing documents, concerns, and goals.
+        - title: Review the planning options
+          body: Brian explains the available approaches in plain language and identifies the questions that matter most.
+        - title: Prepare and review
+          body: The firm drafts the agreed documents and walks through what they mean before anything is finalized.
+        - title: Sign and carry the plan forward
+          body: Complete the required formalities, understand where documents should be kept, and know when a future review may be useful.
+    - type: checklist
+      eyebrow: Why Miranda Law
+      title: Clear guidance, responsive communication, and room for questions.
+      tone: dark
+      bullets:
+        - Personalized recommendations based on your circumstances and goals.
+        - Service in English, Spanish, and Portuguese.
+        - Phone, text, and WhatsApp communication with the office.
+        - A North Jersey practice serving Monmouth County and communities north of it.
+        - A free initial consultation.
+  faqs:
+    - question: What documents are commonly included in an estate plan?
+      answer: Many plans include a will, a financial power of attorney, and one or more health care directives. A trust may be appropriate depending on the assets, family circumstances, and goals involved.
+    - question: Do I need an estate plan if I am not wealthy?
+      answer: Estate planning also addresses decision-making, incapacity, children, personal property, and the people who may be asked to act for you. Those questions can matter at many income and asset levels.
+    - question: How often should I review my plan?
+      answer: A review can be useful after a marriage, divorce, birth, death, move, retirement, significant financial change, or change in the people you named. Periodic reviews can also confirm that the plan still reflects your wishes.
+    - question: What happens during the first consultation?
+      answer: The conversation focuses on your family, assets, existing documents, concerns, and goals. You do not need to arrive with every decision already made.
+    - question: How much does estate planning cost?
+      answer: Fees depend on the documents and complexity involved. Miranda Law discusses the recommended scope and fee before legal work begins.
+    - question: Can Miranda Law assist me in Spanish or Portuguese?
+      answer: Yes. Miranda Law communicates with clients in English, Spanish, and Portuguese.

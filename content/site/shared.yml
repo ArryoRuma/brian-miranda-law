@@ -1,0 +1,172 @@
+site:
+  name: Miranda Law
+  url: https://bmirandalaw.com
+  logo: /miranda-law-gold.png
+  defaultLocale: en
+  themeColor: "#2c2c2c"
+  defaultTitle: Miranda Law | Estate Planning
+  titleSuffix: Miranda Law
+  description: Clear estate-planning guidance for North Jersey families in English, Spanish, and Portuguese.
+  contact:
+    name: The Law Offices of Brian M. Miranda, Esq., LLC
+    shortName: Miranda Law
+    attorney: Brian M. Miranda, Esq.
+    email: bmiranda@bmirandalaw.com
+    phoneDisplay: 908-424-1011
+    phoneHref: "+19084241011"
+    addressLines:
+      - 172 Washington Valley Road, Suite 3
+      - Warren, NJ 07059
+    mapUrl: https://www.google.com/maps/search/?api=1&query=172+Washington+Valley+Road+Suite+3+Warren+NJ+07059
+  structuredData:
+    streetAddress: 172 Washington Valley Road, Suite 3
+    addressLocality: Warren
+    addressRegion: NJ
+    postalCode: "07059"
+    addressCountry: US
+    areaServed: North Jersey
+    knowsLanguage:
+      - en
+      - es
+      - pt
+    attorneyJobTitle: Attorney
+  navigation:
+    primary:
+      - id: estate-planning
+        label: Estate Planning
+        href: /estate-planning
+        children:
+          - label: Wills
+            href: /estate-planning/wills
+          - label: Trusts
+            href: /estate-planning/trusts
+          - label: Powers of Attorney
+            href: /estate-planning/powers-of-attorney
+          - label: Health Care Directives
+            href: /estate-planning/health-care-directives
+      - id: about
+        label: About
+        href: /about
+      - id: resources
+        label: Resources
+        href: /resources
+      - id: other-services
+        label: Other Services
+        href: /other-services
+      - id: contact
+        label: Contact
+        href: /contact
+    estatePlanning:
+      - label: Estate Planning
+        href: /estate-planning
+      - label: Wills
+        href: /estate-planning/wills
+      - label: Trusts
+        href: /estate-planning/trusts
+      - label: Powers of Attorney
+        href: /estate-planning/powers-of-attorney
+      - label: Health Care Directives
+        href: /estate-planning/health-care-directives
+    resources:
+      - label: Estate Planning FAQs
+        href: /resources/estate-planning-faqs
+      - label: Estate Planning Checklist
+        href: /resources/estate-planning-checklist
+      - label: Video Library
+        href: /resources/video-blog
+    languages:
+      - label: EN
+        href: /
+        language: English
+      - label: ES
+        href: /es
+        language: Español
+      - label: PT
+        href: /pt
+        language: Português
+  contactActions:
+    - id: call
+      label: Call Brian at 908-424-1011
+      shortLabel: Call Brian
+      priority: primary
+      external: false
+    - id: text
+      label: Text Brian at 908-424-1011
+      shortLabel: Text Brian
+      priority: primary
+      external: false
+    - id: whatsapp
+      label: Message Brian on WhatsApp
+      shortLabel: WhatsApp
+      priority: secondary
+      external: true
+    - id: email
+      label: Email bmiranda@bmirandalaw.com
+      shortLabel: Email
+      priority: secondary
+      external: false
+  breadcrumbs:
+    home: Home
+    ariaLabel: Breadcrumb
+    labels:
+      /estate-planning: Estate Planning
+      /estate-planning/wills: Wills
+      /estate-planning/trusts: Trusts
+      /estate-planning/powers-of-attorney: Powers of Attorney
+      /estate-planning/health-care-directives: Health Care Directives
+      /about: About Brian
+      /resources: Resources
+      /resources/estate-planning-faqs: Estate Planning FAQs
+      /resources/estate-planning-checklist: Estate Planning Checklist
+      /resources/video-blog: Video Library
+      /blog: Blog
+      /other-services: Other Legal Services
+      /contact: Contact
+      /privacy: Privacy
+      /cookies: Cookies
+      /disclaimer: Website Disclaimer
+      /accessibility: Accessibility
+  header:
+    skipLink: Skip to main content
+    railMark: BM
+    railLabel: Brian Miranda Law
+    homeAriaLabel: Miranda Law home
+    logoAlt: Miranda Law, Attorneys at Law
+    openMenuAriaLabel: Open menu
+    closeMenuAriaLabel: Close menu
+    navigationAriaLabel: Main navigation
+    estateMenuAriaLabel: Toggle Estate Planning pages
+    questionnairesAriaLabel: Website languages
+    questionnaireLinkAriaLabel: View the website in {language}
+    backdropAriaLabel: Close navigation menu
+    quickContactAriaLabel: Quick contact options
+  footer:
+    description: Clear estate-planning guidance for North Jersey families, available in English, Spanish, and Portuguese.
+    estatePlanningHeading: Estate planning
+    resourcesHeading: Resources
+    aboutLabel: About Brian
+    otherServicesLabel: Other legal services
+    contactHeading: Start a conversation
+    privacyLabel: Privacy
+    cookiesLabel: Cookies
+    disclaimerLabel: Website disclaimer
+    accessibilityLabel: Accessibility
+    attorneyAdvertising: Attorney advertising. Prior results do not guarantee a similar outcome.
+  shared:
+    contactActionsAriaLabel: Contact Brian Miranda
+    serviceLinkAriaLabel: Learn more about {service}
+    viewContactOptions: View every contact option
+    learnMore: Learn more
+    interiorHeroDefaultImageAlt: Estate-planning documents arranged on a warm desk
+    editorialFaq:
+      eyebrow: Frequently asked questions
+      title: Questions are part of good planning.
+      body: These answers provide general information. Your circumstances may call for a different approach.
+    finalCta:
+      eyebrow: Start with clarity
+      title: A clearer plan can begin with one conversation.
+      body: Tell us what brings you here. Miranda Law can help you understand the next questions to consider and whether our services fit your needs.
+    legal:
+      eyebrow: Website information
+      updatedLabel: "Last updated:"
+# Homepage copy

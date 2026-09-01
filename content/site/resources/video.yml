@@ -1,0 +1,28 @@
+video:
+  seo:
+    title: Estate Planning Video Library
+    description: Explore Miranda Law's planned video topics covering wills, trusts, powers of attorney, health care directives, and consultation preparation.
+    path: /resources/video-blog
+  hero:
+    eyebrow: Video library
+    title: Estate planning explained
+    accent: with clarity.
+    lead: Short videos are being prepared to answer common questions in a direct, useful format.
+    secondaryHref: /resources/estate-planning-faqs
+    secondaryLabel: Read the FAQs now
+  intro:
+    eyebrow: Coming soon
+    title: Reviewed videos are in production.
+    body: Topics are listed as a preview. No recording, client story, or legal outcome is represented before final review and publication.
+  placeholder: Video coming soon
+  topics:
+    - title: Do I need an estate plan if I am not wealthy?
+      summary: Why decision-makers, incapacity, children, and personal property matter at many asset levels.
+    - title: What does a will actually control?
+      summary: A plain-language look at probate property, executors, guardians, and written wishes.
+    - title: When might a trust be useful?
+      summary: How management, continuity, and distribution goals can shape the conversation.
+    - title: Who should I name to act for me?
+      summary: Practical considerations when choosing financial and health care decision-makers.
+# Written articles are Markdown files under content/blog. The blog stays hidden
+# until at least one article passes the publication gate.

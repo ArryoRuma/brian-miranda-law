@@ -1,0 +1,107 @@
+powers-of-attorney:
+  path: /estate-planning/powers-of-attorney
+  title: Powers of Attorney in North Jersey
+  metaDescription: Learn how a financial power of attorney can authorize a trusted person to handle defined matters and speak with Miranda Law about your plan.
+  hero:
+    eyebrow: Powers of Attorney
+    title: Choose who may act
+    accent: when you cannot act for yourself.
+    lead: A power of attorney can authorize a trusted person to handle defined financial, legal, or practical matters on your behalf. Careful drafting helps make the authority clear before it is urgently needed.
+    secondaryHref: /estate-planning
+    secondaryLabel: See the complete estate plan
+  sections:
+    - type: narrative
+      eyebrow: What is a power of attorney?
+      title: Written authority for a person you choose.
+      body:
+        - A power of attorney names an agent to act for you within the authority described in the document. Depending on its terms, that authority may cover financial accounts, property, taxes, contracts, benefits, business interests, or other legal and practical matters.
+        - The document should be tailored to the authority you actually want to give and coordinated with institutions or arrangements that may have their own requirements.
+    - type: checklist
+      eyebrow: Why you may need one
+      title: Prepare for a time when signatures and decisions cannot wait.
+      tone: sand
+      bullets:
+        - You want someone to manage bills or financial accounts during incapacity.
+        - You own real estate or a business interest that may require ongoing action.
+        - You want an agent to address taxes, benefits, insurance, or legal documents.
+        - You travel or may need help handling a limited transaction.
+        - You want a backup agent if the first person cannot serve.
+        - Your current document is old, too narrow, or names someone who is no longer appropriate.
+    - type: cards
+      eyebrow: What you can decide
+      title: Who acts, what they may do, and how the authority is limited.
+      cards:
+        - title: Primary agent
+          body: Choose a person you trust to follow the document and act with care.
+        - title: Successor agent
+          body: Name a backup in case the first agent cannot or will not act.
+        - title: Scope of authority
+          body: Describe the financial, legal, property, business, or other matters the agent may handle.
+        - title: Timing and limits
+          body: Address when authority begins, whether it continues during incapacity, and any instructions or limits that should apply.
+    - type: checklist
+      eyebrow: Who should consider one
+      title: Incapacity planning belongs in many adult estate plans.
+      bullets:
+        - Adults with financial accounts or recurring obligations
+        - Homeowners and business owners
+        - People approaching retirement
+        - Caregivers and adults supporting family members
+        - People with planned travel, medical procedures, or periods of limited availability
+        - Anyone who wants to choose an agent before a court process may become necessary
+    - type: narrative
+      eyebrow: What happens without one
+      title: Family members do not always receive automatic financial authority.
+      tone: blue
+      body:
+        - If you become unable to manage financial or legal matters and no effective authority is in place, relatives may face delays, institutional barriers, or a court proceeding to obtain authority.
+        - A power of attorney cannot prevent every difficulty, but it can provide a documented starting point and identify the person you chose.
+    - type: cards
+      eyebrow: Common misconceptions
+      title: Authority should be deliberate, not vague.
+      cards:
+        - title: “My spouse or child can automatically handle everything.”
+          body: Relationships alone may not give another person authority over individually held accounts or legal matters.
+        - title: “A power of attorney replaces a will.”
+          body: A power of attorney generally concerns authority during life; a will addresses instructions after death.
+        - title: “The broadest document is always best.”
+          body: The appropriate authority depends on your goals, risks, and trust in the people being named.
+    - type: narrative
+      eyebrow: How it fits
+      title: Pair financial authority with health care planning.
+      body:
+        - A financial power of attorney handles a different set of decisions from a health care directive. Keeping both documents current can create a more complete incapacity plan.
+    - type: steps
+      eyebrow: The Miranda Law process
+      title: From a first conversation to a finished document.
+      tone: sand
+      steps:
+        - title: Schedule a Free Initial Consultation
+          body: Discuss your current documents, family, property, concerns, and goals.
+        - title: Review the options
+          body: Understand the purpose, limits, and decisions involved before choosing a direction.
+        - title: Prepare and review
+          body: The firm drafts the document and reviews its terms with you in plain language.
+        - title: Sign and finalize
+          body: Complete the required formalities and understand how the document fits with the rest of the plan.
+    - type: checklist
+      eyebrow: Why work with Miranda Law
+      title: Personal guidance with accessible communication.
+      tone: dark
+      bullets:
+        - Clear explanations centered on the decisions you need to make.
+        - Recommendations based on your family, assets, and goals.
+        - Service in English, Spanish, and Portuguese.
+        - Phone, text, and WhatsApp communication with the office.
+        - A free initial consultation to understand the possible scope.
+  faqs:
+    - question: When does a power of attorney take effect?
+      answer: That depends on the document's terms and applicable law. The timing should be discussed and written clearly.
+    - question: Does the authority continue if I become incapacitated?
+      answer: A durable power of attorney is designed to continue during incapacity, but the actual document must be reviewed for its terms and validity.
+    - question: Can I name more than one agent?
+      answer: A document may name co-agents or successors, but multiple agents can create practical questions about signatures, coordination, and disagreements.
+    - question: Can I revoke a power of attorney?
+      answer: A person with capacity can generally revoke authority, but effective revocation also requires practical notice to the agent and relevant institutions.
+    - question: Is a power of attorney the same as a health care proxy?
+      answer: No. Financial powers of attorney and health care directives address different decisions and are usually documented separately.

@@ -1,8 +1,9 @@
 import { readFileSync } from "node:fs";
 import { parse } from "yaml";
 
-const content = parse(readFileSync("content/site.yml", "utf8"));
-const reviews = content.localization?.review;
+const reviews = parse(
+  readFileSync("content/site/localization/review.yml", "utf8")
+);
 
 if (!reviews) {
   throw new Error("Translation review metadata is missing");

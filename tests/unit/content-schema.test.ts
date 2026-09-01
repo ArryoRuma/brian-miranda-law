@@ -1,6 +1,11 @@
-import { readFileSync } from "node:fs";
+import { cpSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { loadRepositoryContent } from "../../lib/content/load-content";
+import {
+  loadRepositoryContent,
+  loadSiteContent,
+} from "../../lib/content/load-content";
 import {
   getPreviewRoutes,
   getStaticPageRoutes,
@@ -9,10 +14,36 @@ import {
 
 const repository = loadRepositoryContent(process.cwd());
 
+function withContentFixture(run: (rootDirectory: string) => void) {
+  const rootDirectory = mkdtempSync(join(tmpdir(), "miranda-site-content-"));
+  mkdirSync(join(rootDirectory, "content"));
+  cpSync("content/site", join(rootDirectory, "content", "site"), {
+    recursive: true,
+  });
+  try {
+    run(rootDirectory);
+  } finally {
+    rmSync(rootDirectory, { recursive: true, force: true });
+  }
+}
+
 describe("site content schema", () => {
   it("validates the repository YAML and derives every route", () => {
     expect(repository.siteCopy.site.name).toBe("Miranda Law");
     expect(getStaticPageRoutes(repository.siteCopy)).toHaveLength(17);
+    expect(Object.keys(repository.siteCopy.pages).sort()).toEqual([
+      "about",
+      "contact",
+      "estatePlanning",
+      "health-care-directives",
+      "otherServices",
+      "powers-of-attorney",
+      "resources",
+      "trusts",
+      "wills",
+    ]);
+    expect(repository.siteCopy.localization.review.es.status).toBe("approved");
+    expect(repository.siteCopy.localization.review.pt.status).toBe("draft");
     expect(getPreviewRoutes()).toEqual([
       "/start/en",
       "/start/en/what-happens-next",
@@ -21,6 +52,48 @@ describe("site content schema", () => {
       "/start/pt",
       "/start/pt/what-happens-next",
     ]);
+  });
+
+  it("rejects a missing required content fragment", () => {
+    withContentFixture(rootDirectory => {
+      rmSync(join(rootDirectory, "content/site/shared.yml"));
+      expect(() => loadSiteContent(rootDirectory)).toThrow(
+        "Required content file is missing: content/site/shared.yml"
+      );
+    });
+  });
+
+  it("rejects a content fragment with more than one record", () => {
+    withContentFixture(rootDirectory => {
+      writeFileSync(
+        join(rootDirectory, "content/site/pages/about.yml"),
+        "about: {}\nextra: {}\n"
+      );
+      expect(() => loadSiteContent(rootDirectory)).toThrow(
+        "content/site/pages/about.yml must contain exactly one content record"
+      );
+    });
+  });
+
+  it("reports malformed YAML with its fragment path", () => {
+    withContentFixture(rootDirectory => {
+      writeFileSync(join(rootDirectory, "content/site/home.yml"), "home: [\n");
+      expect(() => loadSiteContent(rootDirectory)).toThrow(
+        /^Invalid YAML in content\/site\/home\.yml:/
+      );
+    });
+  });
+
+  it("rejects duplicate records across page fragments", () => {
+    withContentFixture(rootDirectory => {
+      cpSync(
+        join(rootDirectory, "content/site/pages/about.yml"),
+        join(rootDirectory, "content/site/pages/about-copy.yml")
+      );
+      expect(() => loadSiteContent(rootDirectory)).toThrow(
+        /Duplicate content record "about".*content\/site\/pages\/about-copy\.yml.*content\/site\/pages\/about\.yml/
+      );
+    });
   });
 
   it("rejects malformed contact data", () => {
@@ -112,7 +185,7 @@ describe("site content schema", () => {
   });
 
   it("locks the approved free initial consultation wording", () => {
-    const source = readFileSync("content/site.yml", "utf8");
+    const source = JSON.stringify(repository.siteCopy);
 
     expect(source).toContain("Schedule a Free Initial Consultation");
     expect(source).toContain("Schedule Your Free Initial Consultation");

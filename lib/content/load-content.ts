@@ -1,15 +1,11 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
-import { basename, join } from "node:path";
+import { basename, join, relative } from "node:path";
 import matter from "gray-matter";
 import MarkdownIt from "markdown-it";
 import { parse } from "yaml";
 import { z } from "zod";
 import { siteContentSchema, type SiteContent } from "./schema";
-import {
-  createLocalizedContent,
-  locales,
-  type Locale,
-} from "./localization";
+import { createLocalizedContent, locales, type Locale } from "./localization";
 
 const text = z.string().trim().min(1);
 const slug = text.regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
@@ -85,6 +81,104 @@ const markdown = new MarkdownIt({
   typographer: true,
 });
 
+type ContentRecord = Record<string, unknown>;
+
+function isContentRecord(value: unknown): value is ContentRecord {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function readYamlRecord(
+  rootDirectory: string,
+  filePath: string
+): ContentRecord {
+  const displayPath = relative(rootDirectory, filePath);
+  if (!existsSync(filePath)) {
+    throw new Error(`Required content file is missing: ${displayPath}`);
+  }
+
+  let parsed: unknown;
+  try {
+    parsed = parse(readFileSync(filePath, "utf8"));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(`Invalid YAML in ${displayPath}: ${message}`, {
+      cause: error,
+    });
+  }
+
+  if (!isContentRecord(parsed)) {
+    throw new Error(`Content file must contain a YAML object: ${displayPath}`);
+  }
+  return parsed;
+}
+
+function readWrappedContent(
+  rootDirectory: string,
+  contentDirectory: string,
+  fileName: string,
+  expectedKey: string
+) {
+  const filePath = join(contentDirectory, fileName);
+  const record = readYamlRecord(rootDirectory, filePath);
+  const keys = Object.keys(record);
+  if (keys.length !== 1 || keys[0] !== expectedKey) {
+    throw new Error(
+      `${relative(rootDirectory, filePath)} must contain exactly the top-level key "${expectedKey}"`
+    );
+  }
+  return record[expectedKey];
+}
+
+function readRecordDirectory(
+  rootDirectory: string,
+  contentDirectory: string,
+  directoryName: string
+) {
+  const directoryPath = join(contentDirectory, directoryName);
+  if (!existsSync(directoryPath)) {
+    throw new Error(
+      `Required content directory is missing: ${relative(rootDirectory, directoryPath)}`
+    );
+  }
+
+  const fileNames = readdirSync(directoryPath)
+    .filter(fileName => fileName.endsWith(".yml"))
+    .sort((left, right) => left.localeCompare(right));
+  if (!fileNames.length) {
+    throw new Error(
+      `Content directory has no YAML fragments: ${relative(rootDirectory, directoryPath)}`
+    );
+  }
+
+  const records: ContentRecord = {};
+  const recordSources = new Map<string, string>();
+  for (const fileName of fileNames) {
+    const filePath = join(directoryPath, fileName);
+    const record = readYamlRecord(rootDirectory, filePath);
+    const keys = Object.keys(record);
+    if (keys.length !== 1) {
+      throw new Error(
+        `${relative(rootDirectory, filePath)} must contain exactly one content record`
+      );
+    }
+
+    const [key] = keys;
+    if (!key) {
+      throw new Error(
+        `${relative(rootDirectory, filePath)} must contain exactly one content record`
+      );
+    }
+    if (recordSources.has(key)) {
+      throw new Error(
+        `Duplicate content record "${key}" in ${recordSources.get(key)} and ${relative(rootDirectory, filePath)}`
+      );
+    }
+    records[key] = record[key];
+    recordSources.set(key, relative(rootDirectory, filePath));
+  }
+  return records;
+}
+
 function parseBlogPostContent(source: string) {
   const parsed = matter(source, { engines: { yaml: parse } });
   const metadata = blogFrontMatterSchema.parse(parsed.data);
@@ -145,15 +239,85 @@ export function loadBlogPosts(blogDirectory: string): PublishedBlogPost[] {
     .sort((left, right) => right.publishedAt.localeCompare(left.publishedAt));
 }
 
+export function loadSiteContent(rootDirectory: string): SiteContent {
+  const contentDirectory = join(rootDirectory, "content", "site");
+  const content = {
+    site: readWrappedContent(
+      rootDirectory,
+      contentDirectory,
+      "shared.yml",
+      "site"
+    ),
+    home: readWrappedContent(
+      rootDirectory,
+      contentDirectory,
+      "home.yml",
+      "home"
+    ),
+    pages: readRecordDirectory(rootDirectory, contentDirectory, "pages"),
+    resources: readRecordDirectory(
+      rootDirectory,
+      contentDirectory,
+      "resources"
+    ),
+    blog: readWrappedContent(
+      rootDirectory,
+      contentDirectory,
+      "blog.yml",
+      "blog"
+    ),
+    contactPage: readWrappedContent(
+      rootDirectory,
+      contentDirectory,
+      "contact-page.yml",
+      "contactPage"
+    ),
+    legal: readRecordDirectory(rootDirectory, contentDirectory, "legal"),
+    questionnaire: readWrappedContent(
+      rootDirectory,
+      contentDirectory,
+      "questionnaire.yml",
+      "questionnaire"
+    ),
+    nextSteps: readWrappedContent(
+      rootDirectory,
+      contentDirectory,
+      "next-steps.yml",
+      "nextSteps"
+    ),
+    error404: readWrappedContent(
+      rootDirectory,
+      contentDirectory,
+      "error-404.yml",
+      "error404"
+    ),
+    localization: {
+      review: readYamlRecord(
+        rootDirectory,
+        join(contentDirectory, "localization", "review.yml")
+      ),
+      translations: {
+        es: readYamlRecord(
+          rootDirectory,
+          join(contentDirectory, "localization", "es.yml")
+        ),
+        pt: readYamlRecord(
+          rootDirectory,
+          join(contentDirectory, "localization", "pt.yml")
+        ),
+      },
+    },
+  };
+
+  return siteContentSchema.parse(content);
+}
+
 export function loadRepositoryContent(rootDirectory: string): {
   siteCopy: SiteContent;
   siteCopyByLocale: Record<Locale, SiteContent>;
   blogPosts: PublishedBlogPost[];
 } {
-  const sitePath = join(rootDirectory, "content", "site.yml");
-  const siteCopy = siteContentSchema.parse(
-    parse(readFileSync(sitePath, "utf8"))
-  );
+  const siteCopy = loadSiteContent(rootDirectory);
   const blogPosts = loadBlogPosts(join(rootDirectory, "content", "blog"));
   const siteCopyByLocale = Object.fromEntries(
     locales.map(locale => [

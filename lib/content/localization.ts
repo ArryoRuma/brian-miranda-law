@@ -139,7 +139,9 @@ export function collectTranslatableStrings(value: unknown) {
     }
 
     if (!item || typeof item !== "object") return;
-    Object.entries(item).forEach(([key, child]) => visit(child, [...path, key]));
+    Object.entries(item).forEach(([key, child]) =>
+      visit(child, [...path, key])
+    );
   }
 
   visit(value);

@@ -537,30 +537,39 @@ Gold should function primarily as an intentional brand accent rather than overwh
 Before publishing customer-facing copy, ask:
 
 ### Clarity
+
 Would someone with no legal background understand this?
 
 ### Relevance
+
 Does the customer immediately understand why this matters to them?
 
 ### Customer Focus
+
 Are we talking about the client's life more than ourselves?
 
 ### Benefit
+
 Have we explained why the legal service matters rather than merely what it is?
 
 ### Authority
+
 Does Miranda Law sound knowledgeable and trustworthy?
 
 ### Humanity
+
 Does it still sound like a real person?
 
 ### StoryBrand
+
 Is the customer the hero and Miranda Law the guide?
 
 ### Action
+
 Is the next step obvious?
 
 ### Brand
+
 Does this balance legal authority with warmth and family?
 
 If the answer to any of these is no, improve the copy before publishing.

@@ -1,0 +1,16 @@
+contactPage:
+  intro:
+    eyebrow: Free initial consultation
+    title: Choose the easiest way to reach the office.
+    body: The legal team handles initial intake and scheduling. A first conversation helps the firm understand the general nature of your matter and determine an appropriate next step.
+    note: Contacting the firm does not create an attorney-client relationship. Please do not send confidential or time-sensitive information until the firm confirms representation.
+  optionValues:
+    call: 908-424-1011
+    text: Send a text message
+    whatsapp: Message on WhatsApp
+    email: bmiranda@bmirandalaw.com
+  office:
+    eyebrow: Warren office
+    title: Meet by appointment in North Jersey.
+    body: Miranda Law primarily serves clients in Monmouth County and communities north of it. Contact the office to arrange a consultation.
+# Legal and policy pages

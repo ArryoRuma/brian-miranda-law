@@ -86,15 +86,20 @@ useSchemaOrg([
         <p class="hero-lede">{{ content.hero.lead }}</p>
         <p class="hero-supporting-lede">{{ content.hero.supportingLead }}</p>
         <div class="hero-actions">
-          <NuxtLink class="button button-primary" :to="localizePath('/contact')">
+          <NuxtLink
+            class="button button-primary"
+            :to="localizePath('/contact')"
+          >
             {{ content.hero.ctaLabel }}
             <ArrowUpRight :size="16" aria-hidden="true" />
           </NuxtLink>
         </div>
         <p class="hero-direct-contact">
           <span>{{ content.hero.contactPrompt }}</span>
-          <a :href="phoneHref">{{ content.hero.callLabel }}</a>{{ `${content.hero.contactSeparator} ` }}
-          <a :href="textHref">{{ content.hero.textLabel }}</a>{{ ` ${content.hero.contactFinalSeparator} ` }}
+          <a :href="phoneHref">{{ content.hero.callLabel }}</a
+          >{{ `${content.hero.contactSeparator} ` }}
+          <a :href="textHref">{{ content.hero.textLabel }}</a
+          >{{ ` ${content.hero.contactFinalSeparator} ` }}
           <a :href="whatsAppHref" target="_blank" rel="noreferrer">
             {{ content.hero.whatsAppLabel }}</a
           >.
@@ -279,10 +284,7 @@ useSchemaOrg([
             :active="locale === language.label.toLowerCase()"
           />
         </div>
-        <NuxtLink
-          class="text-link"
-          :to="content.languages.questionnaireHref"
-        >
+        <NuxtLink class="text-link" :to="content.languages.questionnaireHref">
           {{ content.languages.questionnaireLabel }}
           <ArrowUpRight :size="16" aria-hidden="true" />
         </NuxtLink>

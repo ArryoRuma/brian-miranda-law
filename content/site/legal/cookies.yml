@@ -1,0 +1,18 @@
+cookies:
+  title: Cookie Notice
+  description: Learn how Miranda Law's website may use essential storage and limited analytics technologies.
+  updated: August 14, 2026
+  intro: Cookies and similar browser technologies can help a website function, remember preferences, measure performance, and protect against misuse.
+  sections:
+    - title: Essential technologies
+      paragraphs:
+        - Essential technologies may be used when necessary to deliver pages, maintain security, remember a user choice, or support a requested feature. Blocking them may affect how parts of the website work.
+    - title: Analytics
+      paragraphs:
+        - The website may use privacy-conscious analytics to understand aggregate traffic and page usage. The final analytics configuration and retention settings should be confirmed before launch.
+    - title: Managing browser storage
+      paragraphs:
+        - Most browsers allow you to delete or block cookies and other stored website data. Those controls are available in the privacy or site-settings area of your browser.
+    - title: Updates
+      paragraphs:
+        - This notice may be updated when the website's hosting, analytics, intake, or scheduling services change. The updated date above identifies the current version.

@@ -48,7 +48,7 @@ export function usePageSeo(options: PageSeoOptions) {
       { rel: "canonical", href: canonical },
       ...(!options.noIndex
         ? locales.map(alternateLocale => ({
-            rel: "alternate",
+            rel: "alternate" as const,
             hreflang: localeMetadata[alternateLocale].hreflang,
             href: `${siteUrl}${localizePath(
               stripLocalePrefix(options.path),
@@ -59,7 +59,7 @@ export function usePageSeo(options: PageSeoOptions) {
       ...(!options.noIndex
         ? [
             {
-              rel: "alternate",
+              rel: "alternate" as const,
               hreflang: "x-default",
               href: `${siteUrl}${stripLocalePrefix(options.path)}`,
             },

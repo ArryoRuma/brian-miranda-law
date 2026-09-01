@@ -1,0 +1,18 @@
+blog:
+  path: /blog
+  label: Blog
+  seo:
+    title: Estate Planning Blog
+    description: Read clear estate-planning articles from Miranda Law about wills, trusts, decision-makers, and preparing for a consultation.
+    path: /blog
+  hero:
+    eyebrow: Miranda Law blog
+    title: Estate planning guidance
+    accent: in plain language.
+    lead: Practical articles to help New Jersey families understand common planning questions and prepare for a conversation with an attorney.
+  articleLabel: Article
+  publishedLabel: Published
+  updatedLabel: Updated
+  backLabel: Back to all articles
+  topicsLabel: Topics
+# Contact-page sections that sit below the shared page hero
