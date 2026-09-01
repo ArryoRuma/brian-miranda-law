@@ -7,6 +7,7 @@ type CardsSection = Extract<PageSectionContent, { type: "cards" }>;
 defineProps<{ section: CardsSection }>();
 
 const siteCopy = useSiteCopy();
+const { localizePath } = useSiteLocale();
 </script>
 
 <template>
@@ -29,7 +30,11 @@ const siteCopy = useSiteCopy();
         </span>
         <h3>{{ card.title }}</h3>
         <p>{{ card.body }}</p>
-        <NuxtLink v-if="card.href" :to="card.href" class="content-card-link">
+        <NuxtLink
+          v-if="card.href"
+          :to="localizePath(card.href)"
+          class="content-card-link"
+        >
           {{ card.linkLabel ?? siteCopy.site.shared.learnMore }}
           <ArrowUpRight :size="16" aria-hidden="true" />
         </NuxtLink>

@@ -1,0 +1,30 @@
+intro.eyebrow:
+  source: Free initial consultation
+  value: Consulta inicial gratuita
+intro.title:
+  source: Choose the easiest way to reach the office.
+  value: Escolha a maneira mais fácil de entrar em contato com o escritório.
+intro.body:
+  source: The legal team handles initial intake and scheduling. A first conversation helps the firm understand the general nature of your matter and determine an appropriate next step.
+  value: A equipe jurídica é responsável pelo atendimento inicial e agendamento. Uma primeira conversa ajuda o escritório a entender a natureza geral do seu caso e a determinar o próximo passo apropriado.
+intro.note:
+  source: Contacting the firm does not create an attorney-client relationship. Please do not send confidential or time-sensitive information until the firm confirms representation.
+  value: Entrar em contato com o escritório não cria uma relação advogado-cliente. Por favor, não envie informações confidenciais ou urgentes até que o escritório confirme a representação.
+optionValues.call:
+  source: 908-424-1011
+  value: 908-424-1011
+optionValues.text:
+  source: Send a text message
+  value: Enviar uma mensagem de texto
+optionValues.whatsapp:
+  source: Message on WhatsApp
+  value: Mensagem no WhatsApp
+office.eyebrow:
+  source: Warren office
+  value: Escritório em Warren
+office.title:
+  source: Meet by appointment in North Jersey.
+  value: Reuniões mediante agendamento em North Jersey.
+office.body:
+  source: Miranda Law primarily serves clients in Monmouth County and communities north of it. Contact the office to arrange a consultation.
+  value: A Miranda Law atende principalmente clientes em Monmouth County e comunidades ao norte desta. Entre em contato com o escritório para agendar uma consulta.

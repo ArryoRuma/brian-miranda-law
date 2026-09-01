@@ -1,0 +1,345 @@
+seo.title:
+  source: Estate Planning for New Jersey Families
+  value: Planejamento Patrimonial para Famílias de New Jersey
+seo.description:
+  source: Protect your family with clear guidance for wills, trusts, powers of attorney, and health care directives from a multilingual New Jersey attorney.
+  value: Proteja sua família com orientações claras para testamentos, trust (fideicomisso), procurações e diretivas de cuidados de saúde, por um advogado multilingue de New Jersey.
+hero.eyebrow:
+  source: Estate Planning for New Jersey Families
+  value: Planejamento Patrimonial para Famílias de New Jersey
+hero.title:
+  source: Protect What You’ve Built.
+  value: Proteja o que você construiu.
+hero.accent:
+  source: Make Things Easier for the People You Love.
+  value: Facilite as coisas para as pessoas que você ama.
+hero.lead:
+  source: Wills, trusts, powers of attorney, and healthcare directives without unnecessary confusion or complexity.
+  value: Testamentos, trust (fideicomisso), procurações e diretivas de cuidados de saúde sem confusão ou complexidade desnecessária.
+hero.supportingLead:
+  source: Get clear guidance from a New Jersey attorney who can help you put the right plan in place.
+  value: Obtenha orientações claras de um advogado de New Jersey que possa ajudá-lo a implementar o plano correto.
+hero.ctaLabel:
+  source: Schedule a Free Initial Consultation
+  value: Agende uma Consulta Inicial Gratuita
+hero.contactPrompt:
+  source: Prefer to talk now?
+  value: Prefere falar agora?
+hero.callLabel:
+  source: Call
+  value: Ligar
+hero.textLabel:
+  source: text
+  value: texto
+hero.whatsAppLabel:
+  source: WhatsApp us
+  value: Fale conosco pelo WhatsApp
+hero.contactSeparator:
+  source: ","
+  value: ","
+hero.contactFinalSeparator:
+  source: or
+  value: ou
+hero.note:
+  source: Available in English, Spanish & Portuguese.
+  value: Disponível em inglês, espanhol e português.
+hero.imageAlt:
+  source: A warmly lit estate-planning desk with an open folder, fountain pen, brass lamp, and law books
+  value: Uma mesa de planejamento patrimonial com iluminação suave, contendo uma pasta aberta, caneta-tinteiro, luminária de latão e livros de direito
+hero.captionPrimary:
+  source: Brian Miranda Law
+  value: Brian Miranda Law
+hero.captionSecondary:
+  source: New Jersey estate planning
+  value: Planejamento patrimonial em New Jersey
+trustStripAriaLabel:
+  source: Miranda Law practice highlights
+  value: Destaques da prática da Miranda Law
+trustStrip.0:
+  source: Clear Guidance
+  value: Orientação Clara
+trustStrip.1:
+  source: Straightforward Process
+  value: Processo Simplificado
+trustStrip.2:
+  source: Free initial consultation
+  value: Consulta inicial gratuita
+trustStrip.3:
+  source: English
+  value: English
+trustStrip.4:
+  source: Español
+  value: Español
+trustStrip.5:
+  source: Português
+  value: Português
+intro.eyebrow:
+  source: Estate planning
+  value: Planejamento patrimonial
+intro.title:
+  source: You Know You Should Have a Plan. You Just Haven’t Gotten Around to It.
+  value: Você sabe que precisa de um plano. Você apenas ainda não teve oportunidade de fazê-lo.
+intro.paragraphs.0:
+  source: Maybe you’ve been meaning to make a will.
+  value: Talvez você estivesse pretendendo fazer um testamento.
+intro.paragraphs.1:
+  source: Maybe you recently bought a home, had children, got married, or started thinking more seriously about retirement.
+  value: Talvez você tenha comprado uma casa recentemente, tido filhos, se casado ou começado a pensar mais seriamente sobre a aposentadoria.
+intro.paragraphs.2:
+  source: Or maybe you’re simply not sure which documents you actually need.
+  value: Ou talvez você simplesmente não tenha certeza de quais documentos realmente são necessários.
+intro.paragraphs.3:
+  source: You don’t have to figure it out yourself.
+  value: Você não precisa descobrir tudo sozinho.
+intro.paragraphs.4:
+  source: Miranda Law helps New Jersey families create straightforward estate plans designed to protect the people they love and make their wishes clear.
+  value: A Miranda Law ajuda as famílias de New Jersey a criar planos de planejamento patrimonial simplificados, projetados para proteger as pessoas que você ama e tornar seus desejos claros.
+intro.ctaLabel:
+  source: Start Your Estate Plan
+  value: Inicie Seu Planejamento Patrimonial
+services.eyebrow:
+  source: Estate planning services
+  value: Serviços de planejamento patrimonial
+services.title:
+  source: Start With the Documents That Protect You and Your Family
+  value: Comece com os Documentos que Protegem Você e sua Família
+services.aside:
+  source: You don’t need to become an estate-planning expert. We’ll help you understand what makes sense for your situation.
+  value: Você não precisa se tornar um especialista em planejamento patrimonial. Nós ajudaremos você a entender o que faz sentido para a sua situação.
+services.items.0.title:
+  source: Wills
+  value: Testamentos
+services.items.0.description:
+  source: Decide who receives your property, who handles your estate, and how you want your affairs managed.
+  value: Decida quem receberá seus bens, quem administrará seu espólio e como você deseja que seus assuntos sejam geridos.
+services.items.0.linkLabel:
+  source: Learn About Wills
+  value: Saiba Mais Sobre Testamentos
+services.items.1.title:
+  source: Trusts
+  value: Trust (Fideicomisso)
+services.items.1.description:
+  source: Protect and manage assets with a plan designed around your family, property, and long-term goals.
+  value: Proteja e gerencie seus bens com um plano elaborado com foco em sua família, propriedades e objetivos de longo prazo.
+services.items.1.linkLabel:
+  source: Learn About Trusts
+  value: Saiba Mais Sobre Trusts (Fideicomissos)
+services.items.2.title:
+  source: Powers of Attorney
+  value: Procurações
+services.items.2.description:
+  source: Choose someone you trust to handle important financial and legal matters if you’re unable to do so yourself.
+  value: Escolha alguém em quem você confie para cuidar de assuntos financeiros e jurídicos importantes caso você não possa fazê-lo pessoalmente.
+services.items.2.linkLabel:
+  source: Learn About Powers of Attorney
+  value: Saiba Mais Sobre Procurações
+services.items.3.title:
+  source: Health Care Directives
+  value: Diretivas de Cuidados de Saúde
+services.items.3.description:
+  source: Make your healthcare wishes clear and choose someone you trust to make decisions if you cannot.
+  value: Deixe claros seus desejos de cuidados de saúde e escolha alguém de sua confiança para tomar decisões caso você não possa fazê-lo.
+services.items.3.linkLabel:
+  source: Learn About Health Care Directives
+  value: Saiba Mais Sobre Diretivas de Cuidados de Saúde
+why.eyebrow:
+  source: Why choose Miranda Law
+  value: Por que escolher a Miranda Law
+why.title:
+  source: Estate Planning Doesn’t Have to Feel Complicated.
+  value: O Planejamento Patrimonial não precisa ser complicado.
+why.body:
+  source: The goal isn’t to hand you a stack of legal documents. It’s to help you understand your options, make the right decisions for your family, and leave with a plan you feel confident about.
+  value: Nosso objetivo não é entregar um monte de documentos jurídicos. É ajudar você a compreender suas opções, tomar as decisões corretas para sua família e sair com um plano em que você se sinta confiante.
+why.items.0.title:
+  source: Straightforward
+  value: Direto ao Ponto
+why.items.0.description:
+  source: We explain your options in plain language and help you determine what you actually need.
+  value: Explicamos suas opções em linguagem clara e ajudamos você a determinar o que é realmente necessário.
+why.items.1.title:
+  source: Personal
+  value: Pessoalizado
+why.items.1.description:
+  source: Your plan is built around your family, assets, wishes, and circumstances.
+  value: Seu plano é construído com base em sua família, bens, desejos e circunstâncias.
+why.items.2.title:
+  source: Accessible
+  value: Acessível
+why.items.2.description:
+  source: Call, text, or WhatsApp our office when you need us.
+  value: Ligue, envie um SMS ou WhatsApp para o nosso escritório quando precisar de nós.
+why.items.3.title:
+  source: Multilingual
+  value: Multilíngue
+why.items.3.description:
+  source: Get help in English, Spanish, or Portuguese.
+  value: Receba atendimento em Inglês, Espanhol ou Português.
+process.eyebrow:
+  source: A clear process
+  value: Um processo claro
+process.title:
+  source: Getting Your Estate Plan
+  value: Obtendo seu Planejamento Patrimonial
+process.accent:
+  source: Started Is Simple
+  value: Começar é Simples
+process.imageAlt:
+  source: A linen-bound planning book resting on layered papers and deep green folders
+  value: Um livro de planejamento encadernado em linho repousando sobre papéis sobrepostos e pastas verde-escuro
+process.steps.0.title:
+  source: Schedule a Free Initial Consultation
+  value: Agende uma Consulta Inicial Gratuita
+process.steps.0.description:
+  source: Tell us a little about yourself and what you’re looking to accomplish.
+  value: Conte-nos um pouco sobre você e o que pretende alcançar.
+process.steps.1.title:
+  source: Build Your Plan
+  value: Construa seu Plano
+process.steps.1.description:
+  source: We’ll explain your options and prepare the documents appropriate for your situation.
+  value: Explicaremos suas opções e prepararemos os documentos apropriados para a sua situação.
+process.steps.2.title:
+  source: Protect What Matters
+  value: Proteja o que Importa
+process.steps.2.description:
+  source: Finalize your documents and move forward knowing your wishes are clearly documented.
+  value: Finalize seus documentos e siga em frente com a tranquilidade de saber que seus desejos estão claramente documentados.
+process.ctaLabel:
+  source: Schedule Your Free Initial Consultation
+  value: Agende Sua Consulta Inicial Gratuita
+about.mark:
+  source: BM
+  value: BM
+about.eyebrow:
+  source: Meet Brian Miranda
+  value: Conheça Brian Miranda
+about.title:
+  source: Meet Brian Miranda
+  value: Conheça Brian Miranda
+about.body:
+  source: "Brian Miranda helps individuals and families throughout New Jersey handle important legal decisions with clear, straightforward guidance. His approach to estate planning is simple: understand what matters to you, explain your options clearly, and help you put the proper documents in place."
+  value: "Brian Miranda ajuda indivíduos e famílias em todo o New Jersey a lidar com decisões jurídicas importantes com orientação clara e direta. Sua abordagem ao planejamento patrimonial é simples: entender o que é importante para você, explicar suas opções de forma clara e ajudá-lo a estabelecer os documentos adequados."
+about.linkLabel:
+  source: Meet Brian
+  value: Conheça Brian
+languages.eyebrow:
+  source: Multilingual assistance
+  value: Assistência multilíngue
+languages.title:
+  source: Your Family’s Plans Shouldn’t Get Lost in Translation.
+  value: Os planos da sua família não devem se perder na tradução.
+languages.body:
+  source: Important legal decisions are easier when you can discuss them in the language you’re most comfortable using.
+  value: Decisões jurídicas importantes são mais fáceis quando você pode discuti-las no idioma com o qual se sente mais confortável.
+languages.availability:
+  source: Miranda Law serves clients in English, Spanish, and Portuguese.
+  value: A Miranda Law atende clientes em inglês, espanhol e português.
+languages.prompt:
+  source: Choose your language to learn more about estate planning and schedule a free initial consultation.
+  value: Escolha seu idioma para saber mais sobre planejamento patrimonial e agendar uma consulta inicial gratuita.
+languages.questionnaireLabel:
+  source: Preview the estate planning questionnaire
+  value: Visualize o questionário de planejamento patrimonial
+otherServices.eyebrow:
+  source: Other legal services
+  value: Outros serviços jurídicos
+otherServices.title:
+  source: More Than Estate Planning
+  value: Mais do que Planejamento Patrimonial
+otherServices.body:
+  source: "Need help with something else? Miranda Law also assists clients with select matters involving:"
+  value: "Precisa de ajuda com algo mais? A Miranda Law também auxilia clientes em questões selecionadas envolvendo:"
+otherServices.items.0:
+  source: Real Estate
+  value: Setor Imobiliário
+otherServices.items.1:
+  source: Immigration
+  value: Imigração
+otherServices.items.2:
+  source: Litigation
+  value: Contencioso
+otherServices.linkLabel:
+  source: View All Legal Services
+  value: Ver Todos os Serviços Jurídicos
+reviews.eyebrow:
+  source: Testimonials & Reviews
+  value: Depoimentos e Avaliações
+reviews.title:
+  source: Trusted by Clients Throughout New Jersey
+  value: Confiado por Clientes em Todo o New Jersey
+reviews.body:
+  source: Approved Google reviews and client testimonials will be published here after they have been verified and cleared for use.
+  value: Avaliações aprovadas do Google e depoimentos de clientes serão publicados aqui após serem verificados e autorizados para uso.
+reviews.status:
+  source: Verified client reviews coming soon
+  value: Avaliações de clientes verificadas em breve
+faq.eyebrow:
+  source: Estate planning FAQs
+  value: Perguntas Frequentes sobre Planejamento Patrimonial
+faq.title:
+  source: Questions About Estate Planning?
+  value: Dúvidas Sobre Planejamento Patrimonial?
+faq.body:
+  source: Start with clear answers to a few of the questions New Jersey families ask most often.
+  value: Comece com respostas claras para algumas das perguntas que as famílias de New Jersey mais fazem.
+faq.linkLabel:
+  source: View Estate Planning FAQs
+  value: Ver Perguntas Fiduciárias de Planejamento Patrimonial
+faq.items.0.question:
+  source: Do I need an estate plan if I am not wealthy?
+  value: Eu preciso de um plano patrimonial se não for rico?
+faq.items.0.answer:
+  source: Estate planning is not only about wealth. It can help you name decision-makers, document your wishes, prepare for incapacity, and make important matters clearer for the people you love.
+  value: O planejamento patrimonial não trata apenas de riqueza. Ele pode ajudá-lo a nomear tomadores de decisão, documentar seus desejos, preparar-se para uma incapacidade e tornar questões importantes mais claras para as pessoas que você ama.
+faq.items.1.question:
+  source: What documents are commonly included in an estate plan?
+  value: Quais documentos são comumente incluídos em um plano patrimonial?
+faq.items.1.answer:
+  source: Depending on your circumstances, an estate plan may include a will, trust, power of attorney, and healthcare directive. We’ll help you understand which documents make sense for your situation.
+  value: Dependendo das suas circunstâncias, um plano patrimonial pode incluir um testamento, trust (fideicomisso), procuração e diretiva de cuidados de saúde. Nós ajudaremos você a entender quais documentos fazem sentido para a sua situação.
+faq.items.2.question:
+  source: How much does estate planning cost?
+  value: Quanto custa o planejamento patrimonial?
+faq.items.2.answer:
+  source: The cost depends on the documents and complexity involved. After your free initial consultation, we’ll explain what your situation requires and the associated fees before moving forward.
+  value: O custo depende dos documentos e da complexidade envolvida. Após sua consulta inicial gratuita, explicaremos o que sua situação exige e as taxas associadas antes de prosseguirmos.
+faq.items.3.question:
+  source: What happens during the initial consultation?
+  value: O que acontece durante a consulta inicial?
+faq.items.3.answer:
+  source: We’ll learn about your family, priorities, property, existing documents, and questions, then explain the options that may fit your goals. You do not need to arrive with every decision already made.
+  value: Conheceremos sua família, prioridades, propriedades, documentos existentes e dúvidas, para então explicar as opções que podem se adequar aos seus objetivos. Você não precisa chegar com todas as decisões já tomadas.
+faq.items.4.question:
+  source: Can Miranda Law assist me in Spanish or Portuguese?
+  value: A Miranda Law pode me atender em espanhol ou português?
+faq.items.4.answer:
+  source: Yes. Miranda Law serves clients in English, Spanish, and Portuguese so you can discuss important legal decisions in the language you’re most comfortable using.
+  value: Sim. A Miranda Law atende clientes em inglês, espanhol e português, para que você possa discutir decisões jurídicas importantes no idioma com o qual se sente mais confortável.
+faq.items.5.question:
+  source: Does Miranda Law offer virtual consultations?
+  value: A Miranda Law oferece consultas virtuais?
+faq.items.5.answer:
+  source: Consultation formats may depend on your circumstances. Contact Miranda Law to ask whether a virtual consultation is available for your matter.
+  value: Os formatos de consulta podem depender das suas circunstâncias. Entre em contato com a Miranda Law para verificar se uma consulta virtual está disponível para o seu caso.
+contact.eyebrow:
+  source: Start your estate plan
+  value: Inicie seu planejamento patrimonial
+contact.title:
+  source: The Best Time to Make a Plan Is Before Your Family Needs It.
+  value: O melhor momento para fazer um plano é antes que sua família precise dele.
+contact.body:
+  source: You don’t need to know which documents you need before contacting us. That’s what the consultation is for. Tell us a little about your situation and we’ll help you understand the next step.
+  value: Você não precisa saber quais documentos são necessários antes de nos contatar. É para isso que serve a consulta. Conte-nos um pouco sobre sua situação e nós o ajudaremos a entender o próximo passo.
+contact.ctaLabel:
+  source: Schedule a Free Initial Consultation
+  value: Agende uma Consulta Inicial Gratuita
+contact.cardLabel:
+  source: Free initial consultation
+  value: Consulta inicial gratuita
+contact.preferencePrompt:
+  source: Available in
+  value: Disponível em
+contact.optionsLabel:
+  source: English · Español · Português
+  value: English · Español · Português

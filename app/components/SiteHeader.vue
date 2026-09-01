@@ -3,7 +3,7 @@ import { ChevronDown, Menu, X } from "@lucide/vue";
 import { blogPosts } from "#site-content";
 
 const route = useRoute();
-const { homePath, locale } = useSiteLocale();
+const { homePath, languageLinks, locale, localizePath } = useSiteLocale();
 const siteCopy = useSiteCopy();
 const navigation = computed(() => [
   ...siteCopy.value.site.navigation.primary,
@@ -17,7 +17,6 @@ const navigation = computed(() => [
       ]
     : []),
 ]);
-const languageLinks = computed(() => siteCopy.value.site.navigation.languages);
 const copy = computed(() => siteCopy.value.site.header);
 const menuOpen = ref(false);
 const estateMenuOpen = ref(false);
@@ -147,9 +146,13 @@ onBeforeUnmount(() => {
       >
         <div class="nav-parent-row">
           <NuxtLink
-            :class="{ 'is-active': route.path.startsWith(estateItem.href) }"
-            :to="estateItem.href"
-            :aria-current="route.path === estateItem.href ? 'page' : undefined"
+            :class="{
+              'is-active': route.path.startsWith(localizePath(estateItem.href)),
+            }"
+            :to="localizePath(estateItem.href)"
+            :aria-current="
+              route.path === localizePath(estateItem.href) ? 'page' : undefined
+            "
           >
             {{ estateItem.label }}
           </NuxtLink>
@@ -172,8 +175,10 @@ onBeforeUnmount(() => {
           <NuxtLink
             v-for="item in estateItem.children"
             :key="item.href"
-            :to="item.href"
-            :aria-current="route.path === item.href ? 'page' : undefined"
+            :to="localizePath(item.href)"
+            :aria-current="
+              route.path === localizePath(item.href) ? 'page' : undefined
+            "
           >
             {{ item.label }}
           </NuxtLink>
@@ -183,9 +188,11 @@ onBeforeUnmount(() => {
       <NuxtLink
         v-for="item in secondaryNavigation"
         :key="item.href"
-        :class="{ 'is-active': route.path === item.href }"
-        :to="item.href"
-        :aria-current="route.path === item.href ? 'page' : undefined"
+        :class="{ 'is-active': route.path === localizePath(item.href) }"
+        :to="localizePath(item.href)"
+        :aria-current="
+          route.path === localizePath(item.href) ? 'page' : undefined
+        "
       >
         {{ item.label }}
       </NuxtLink>
@@ -198,9 +205,7 @@ onBeforeUnmount(() => {
           :aria-label="
             copy.questionnaireLinkAriaLabel.replace('{language}', item.language)
           "
-          :aria-current="
-            locale === item.label.toLowerCase() ? 'page' : undefined
-          "
+          :aria-current="locale === item.code ? 'page' : undefined"
         >
           <span class="language-short" aria-hidden="true">{{
             item.label

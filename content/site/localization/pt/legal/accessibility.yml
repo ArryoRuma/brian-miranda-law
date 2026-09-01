@@ -1,0 +1,30 @@
+title:
+  source: Accessibility Statement
+  value: Declaração de Acessibilidade
+description:
+  source: Read Miranda Law's website accessibility statement and find contact information for assistance accessing website content.
+  value: Leia a declaração de acessibilidade do website da Miranda Law e encontre informações de contato para assistência no acesso ao conteúdo do site.
+updated:
+  source: August 14, 2026
+  value: 14 de agosto de 2026
+intro:
+  source: Miranda Law is working to provide a website that is usable by people with a wide range of abilities, devices, browsers, and assistive technologies.
+  value: A Miranda Law está trabalhando para fornecer um website que seja utilizável por pessoas com uma ampla gama de habilidades, dispositivos, navegadores e tecnologias assistivas.
+sections.0.title:
+  source: Our approach
+  value: Nossa abordagem
+sections.0.paragraphs.0:
+  source: The website is designed with semantic headings, keyboard-accessible controls, visible focus states, descriptive links, responsive layouts, and text alternatives for meaningful images. Accessibility will be included in ongoing content and quality reviews.
+  value: O website foi desenvolvido com cabeçalhos semânticos, controles acessíveis via teclado, estados de foco visíveis, links descritivos, layouts responsivos e alternativas de texto para imagens significativas. A acessibilidade será incluída nas revisões contínuas de conteúdo e qualidade.
+sections.1.title:
+  source: Need assistance?
+  value: Precisa de assistência?
+sections.1.paragraphs.0:
+  source: If you have difficulty accessing content or completing a task, contact the office at 908-424-1011 or bmiranda@bmirandalaw.com. Please describe the page, feature, and assistance you need.
+  value: Se você tiver dificuldade em acessar o conteúdo ou concluir uma tarefa, entre em contato com o escritório pelo telefone 908-424-1011 ou pelo e-mail bmiranda@bmirandalaw.com. Por favor, descreva a página, o recurso e a assistência de que necessita.
+sections.2.title:
+  source: Feedback
+  value: Feedback
+sections.2.paragraphs.0:
+  source: Accessibility is an ongoing process. Feedback about barriers helps the firm prioritize improvements as the website and its intake tools evolve.
+  value: A acessibilidade é um processo contínuo. O feedback sobre barreiras ajuda o escritório a priorizar melhorias à medida que o website e suas ferramentas de triagem evoluem.

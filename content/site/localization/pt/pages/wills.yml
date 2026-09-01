@@ -1,0 +1,237 @@
+title:
+  source: Wills Attorney in North Jersey
+  value: Advogado de Testamentos no North Jersey
+metaDescription:
+  source: Learn what a New Jersey will can address and speak with Miranda Law about documenting your wishes, executor, and estate plan.
+  value: Saiba o que um testamento em New Jersey pode abranger e fale com a Miranda Law sobre a documentação de seus desejos, executor e planejamento patrimonial.
+hero.eyebrow:
+  source: Wills
+  value: Testamentos
+hero.title:
+  source: Put your wishes
+  value: Coloque seus desejos
+hero.accent:
+  source: into a plan others can follow.
+  value: em um plano que outros possam seguir.
+hero.lead:
+  source: A will can state how property should be distributed, nominate the person who will administer your estate, and record other important decisions for the people you leave behind.
+  value: Um testamento pode declarar como os bens devem ser distribuídos, nomear a pessoa que administrará seu espólio e registrar outras decisões importantes para as pessoas que você deixará.
+hero.secondaryLabel:
+  source: See the complete estate plan
+  value: Veja o planejamento patrimonial completo
+sections.0.eyebrow:
+  source: What is a will?
+  value: O que é um testamento?
+sections.0.title:
+  source: A legal document for decisions that take effect after death.
+  value: Um documento jurídico para decisões que entram em vigor após o falecimento.
+sections.0.body.0:
+  source: A will records instructions for property governed by the will and nominates an executor to administer the estate. Parents may also use a will to nominate a guardian for minor children, subject to court review.
+  value: Um testamento registra instruções para os bens regidos pelo testamento e nomeia um executor para administrar o espólio. Os pais também podem usar um testamento para nomear um tutor para filhos menores, sujeito à revisão judicial.
+sections.0.body.1:
+  source: A will does not control every asset. Beneficiary designations, jointly owned property, trust assets, and other arrangements may operate separately, which is why coordination matters.
+  value: Um testamento não controla todos os ativos. Designações de beneficiários, propriedades de propriedade conjunta, ativos em trust (fideicomisso) e outros arranjos podem operar separadamente, e é por isso que a coordenação é importante.
+sections.1.eyebrow:
+  source: Why you may need one
+  value: Por que você pode precisar de um
+sections.1.title:
+  source: Give your family written direction.
+  value: Ofereça uma orientação por escrito à sua família.
+sections.1.bullets.0:
+  source: You want to identify who should receive property governed by the will.
+  value: Você deseja identificar quem deve receber os bens regidos pelo testamento.
+sections.1.bullets.1:
+  source: You want to nominate an executor and a backup.
+  value: Você deseja nomear um executor e um substituto.
+sections.1.bullets.2:
+  source: You have minor children and want to record a guardian nomination.
+  value: Você possui filhos menores de idade e deseja registrar a nomeação de um tutor.
+sections.1.bullets.3:
+  source: You want to make selected gifts to people or organizations.
+  value: Você deseja realizar legados específicos para pessoas ou organizações.
+sections.1.bullets.4:
+  source: Your family structure or wishes differ from the default rules that may otherwise apply.
+  value: A estrutura ou os desejos de sua família diferem das regras padrão que poderiam ser aplicadas de outra forma.
+sections.1.bullets.5:
+  source: You already have a will, but the people, property, or instructions are out of date.
+  value: Você já possui um testamento, mas as pessoas, os bens ou as instruções estão desatualizados.
+sections.2.eyebrow:
+  source: What you can decide
+  value: O que você pode decidir
+sections.2.title:
+  source: The people, gifts, and instructions at the center of the estate.
+  value: As pessoas, os legados e as instruções no centro do planejamento patrimonial.
+sections.2.cards.0.title:
+  source: Executor
+  value: Executor
+sections.2.cards.0.body:
+  source: Nominate the person who should handle the estate and name an alternate if the first choice cannot serve.
+  value: Nomeie a pessoa que deve administrar o espólio e indique um substituto caso a primeira escolha não possa assumir o cargo.
+sections.2.cards.1.title:
+  source: Beneficiaries
+  value: Beneficiários
+sections.2.cards.1.body:
+  source: Identify who should receive property governed by the will and how the remaining estate should be divided.
+  value: Identifique quem deve receber os bens regidos pelo testamento e como o restante do espólio deve ser dividido.
+sections.2.cards.2.title:
+  source: Specific gifts
+  value: Legados específicos
+sections.2.cards.2.body:
+  source: Record selected gifts of property or amounts, while coordinating those instructions with the overall plan.
+  value: Registre legados selecionados de bens ou valores, coordenando essas instruções com o plano geral.
+sections.2.cards.3.title:
+  source: Guardian nomination
+  value: Nomeação de tutor
+sections.2.cards.3.body:
+  source: Parents can state whom they want considered to care for minor children if a guardian becomes necessary.
+  value: Os pais podem declarar quem desejam que seja considerado para cuidar de filhos menores, caso a nomeação de um tutor se torne necessária.
+sections.3.eyebrow:
+  source: Who should consider a will
+  value: Quem deve considerar um testamento
+sections.3.title:
+  source: A foundational document for many adults.
+  value: Um documento fundamental para muitos adultos.
+sections.3.bullets.0:
+  source: Parents and guardians
+  value: Pais e tutores
+sections.3.bullets.1:
+  source: Homeowners and people with personal property
+  value: Proprietários de imóveis e pessoas com bens pessoais
+sections.3.bullets.2:
+  source: Married and unmarried partners
+  value: Parceiros casados e não casados
+sections.3.bullets.3:
+  source: People with stepchildren or blended families
+  value: Pessoas com enteados ou famílias reconstituídas
+sections.3.bullets.4:
+  source: Business owners
+  value: Proprietários de empresas
+sections.3.bullets.5:
+  source: Anyone who wants to choose an executor rather than leave administration entirely to default procedures
+  value: Qualquer pessoa que deseje escolher um executor em vez de deixar a administração inteiramente a cargo dos procedimentos padrão
+sections.4.eyebrow:
+  source: What happens without one
+  value: O que acontece sem um
+sections.4.title:
+  source: New Jersey's default rules may decide what your document did not.
+  value: As regras padrão de New Jersey podem decidir o que o seu documento não previu.
+sections.4.body.0:
+  source: When a person dies without a valid will, New Jersey's intestacy rules govern the distribution of probate property. A court process may also be needed to appoint an administrator rather than confirm an executor named in a will.
+  value: Quando uma pessoa falece sem um testamento válido, as regras de sucessão legítima de New Jersey regem a distribuição dos bens sujeitos ao inventário. Um processo judicial também pode ser necessário para nomear um administrador, em vez de confirmar um executor nomeado em um testamento.
+sections.4.body.1:
+  source: Those default rules cannot account for every personal relationship or informal promise. A properly prepared will gives the legal process written instructions to work from.
+  value: Essas regras padrão não podem considerar todos os relacionamentos pessoais ou promessas informais. Um testamento devidamente preparado fornece instruções escritas para orientar o processo legal.
+sections.5.eyebrow:
+  source: Common misconceptions
+  value: Equívocos comuns
+sections.5.title:
+  source: A will is important, but it is not the whole plan.
+  value: Um testamento é importante, mas não é o plano completo.
+sections.5.cards.0.title:
+  source: “A will avoids probate.”
+  value: “Um testamento evita o inventário.”
+sections.5.cards.0.body:
+  source: A will generally provides instructions for probate rather than eliminating the process by itself.
+  value: Um testamento geralmente fornece instruções para o inventário, em vez de eliminar o processo por si só.
+sections.5.cards.1.title:
+  source: “My family already knows what I want.”
+  value: “Minha família já sabe o que eu quero.”
+sections.5.cards.1.body:
+  source: Conversations are valuable, but they do not replace a properly executed legal document.
+  value: Conversas são valiosas, mas não substituem um documento legal devidamente executado.
+sections.5.cards.2.title:
+  source: “A will covers incapacity.”
+  value: “Um testamento cobre incapacidade.”
+sections.5.cards.2.body:
+  source: Financial powers of attorney and health care directives address decisions during life if you cannot act for yourself.
+  value: Procurações financeiras e diretivas de cuidados de saúde tratam de decisões durante a vida, caso você não possa agir por si mesmo.
+sections.6.eyebrow:
+  source: How it fits
+  value: Como tudo se integra
+sections.6.title:
+  source: Coordinate the will with the rest of the estate plan.
+  value: Coordene o testamento com o restante do planejamento patrimonial.
+sections.6.body.0:
+  source: A will works alongside beneficiary designations, ownership arrangements, trusts, powers of attorney, and health care directives. Reviewing those pieces together can reveal gaps or conflicting instructions before they become someone else's problem.
+  value: Um testamento funciona em conjunto com designações de beneficiários, arranjos de propriedade, trust (fideicomisso), procurações e diretivas de cuidados de saúde. Revisar esses elementos em conjunto pode revelar lacunas ou instruções conflitantes antes que se tornem um problema para outra pessoa.
+sections.7.eyebrow:
+  source: The Miranda Law process
+  value: O processo da Miranda Law
+sections.7.title:
+  source: From a first conversation to a finished document.
+  value: Da primeira conversa ao documento finalizado.
+sections.7.steps.0.title:
+  source: Schedule a Free Initial Consultation
+  value: Agende uma Consulta Inicial Gratuita
+sections.7.steps.0.body:
+  source: Discuss your current documents, family, property, concerns, and goals.
+  value: Discutiremos seus documentos atuais, família, propriedades, preocupações e objetivos.
+sections.7.steps.1.title:
+  source: Review the options
+  value: Analise as opções
+sections.7.steps.1.body:
+  source: Understand the purpose, limits, and decisions involved before choosing a direction.
+  value: Compreenda o propósito, os limites e as decisões envolvidas antes de escolher um caminho.
+sections.7.steps.2.title:
+  source: Prepare and review
+  value: Prepare e revise
+sections.7.steps.2.body:
+  source: The firm drafts the document and reviews its terms with you in plain language.
+  value: O escritório redige o documento e revisa seus termos com você em linguagem clara e acessível.
+sections.7.steps.3.title:
+  source: Sign and finalize
+  value: Assine e finalize
+sections.7.steps.3.body:
+  source: Complete the required formalities and understand how the document fits with the rest of the plan.
+  value: Conclua as formalidades necessárias e compreenda como o documento se integra ao restante do planejamento patrimonial.
+sections.8.eyebrow:
+  source: Why work with Miranda Law
+  value: Por que trabalhar com a Miranda Law
+sections.8.title:
+  source: Personal guidance with accessible communication.
+  value: Orientação personalizada com comunicação acessível.
+sections.8.bullets.0:
+  source: Clear explanations centered on the decisions you need to make.
+  value: Explicações claras focadas nas decisões que você precisa tomar.
+sections.8.bullets.1:
+  source: Recommendations based on your family, assets, and goals.
+  value: Recomendações baseadas em sua família, patrimônio e objetivos.
+sections.8.bullets.2:
+  source: Service in English, Spanish, and Portuguese.
+  value: Atendimento em inglês, espanhol e português.
+sections.8.bullets.3:
+  source: Phone, text, and WhatsApp communication with the office.
+  value: Comunicação via telefone, SMS e WhatsApp com o escritório.
+sections.8.bullets.4:
+  source: A free initial consultation to understand the possible scope.
+  value: Uma consulta inicial gratuita para entender o possível escopo.
+faqs.0.question:
+  source: Can I write my own will?
+  value: Eu posso escrever meu próprio testamento?
+faqs.0.answer:
+  source: A will must satisfy legal requirements to be valid. Legal guidance can also help coordinate the document with beneficiary designations, jointly owned property, and the rest of the estate plan.
+  value: Um testamento deve satisfazer os requisitos legais para ser válido. A orientação jurídica também pode ajudar a coordenar o documento com designações de beneficiários, bens de propriedade conjunta e o restante do planejamento patrimonial.
+faqs.1.question:
+  source: Does a will control every asset I own?
+  value: O testamento controla todos os bens que possuo?
+faqs.1.answer:
+  source: Not necessarily. Assets with beneficiary designations, jointly owned property, and trust assets may pass under separate arrangements.
+  value: Não necessariamente. Bens com designações de beneficiários, propriedades em regime de copropriedade e ativos em um trust (fideicomisso) podem ser transferidos por meio de arranjos distintos.
+faqs.2.question:
+  source: Can I name a guardian for my children?
+  value: Posso nomear um tutor para meus filhos?
+faqs.2.answer:
+  source: A parent can use a will to nominate a guardian for minor children. A court makes the final appointment based on the applicable law and circumstances.
+  value: Um pai ou mãe pode usar um testamento para nomear um tutor para filhos menores. O tribunal fará a nomeação final com base na lei aplicável e nas circunstâncias.
+faqs.3.question:
+  source: When should I update my will?
+  value: Quando devo atualizar meu testamento?
+faqs.3.answer:
+  source: A review can be useful after marriage, divorce, a birth, a death, a move, a major change in property, or a change in the people you named.
+  value: Uma revisão pode ser útil após casamento, divórcio, nascimento, falecimento, mudança de residência, uma alteração importante no patrimônio ou uma mudança nas pessoas que você nomeou.
+faqs.4.question:
+  source: Where should I keep the signed will?
+  value: Onde devo guardar o testamento assinado?
+faqs.4.answer:
+  source: Keep it somewhere secure but accessible to the people who may need it. The firm can discuss practical storage and whether any registry or other arrangement is appropriate.
+  value: Guarde-o em um local seguro, mas acessível às pessoas que possam precisar dele. O escritório pode discutir métodos práticos de armazenamento e se algum registro ou outro arranjo é apropriado.

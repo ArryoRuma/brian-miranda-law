@@ -1,0 +1,261 @@
+name:
+  source: Miranda Law
+  value: Miranda Law
+defaultTitle:
+  source: Miranda Law | Estate Planning
+  value: Miranda Law | Planificación patrimonial
+titleSuffix:
+  source: Miranda Law
+  value: Miranda Law
+description:
+  source: Clear estate-planning guidance for North Jersey families in English, Spanish, and Portuguese.
+  value: Orientación clara en planificación patrimonial para familias del norte de New Jersey en inglés, español y portugués.
+structuredData.areaServed:
+  source: North Jersey
+  value: North Jersey
+structuredData.attorneyJobTitle:
+  source: Attorney
+  value: Abogado
+navigation.primary.0.label:
+  source: Estate Planning
+  value: Planificación patrimonial
+navigation.primary.0.children.0.label:
+  source: Wills
+  value: Testamentos
+navigation.primary.0.children.1.label:
+  source: Trusts
+  value: Fideicomisos
+navigation.primary.0.children.2.label:
+  source: Powers of Attorney
+  value: Poderes notariales
+navigation.primary.0.children.3.label:
+  source: Health Care Directives
+  value: Directivas de atención médica
+navigation.primary.1.label:
+  source: About
+  value: Acerca de
+navigation.primary.2.label:
+  source: Resources
+  value: Recursos
+navigation.primary.3.label:
+  source: Other Services
+  value: Otros servicios
+navigation.primary.4.label:
+  source: Contact
+  value: Contacto
+navigation.estatePlanning.0.label:
+  source: Estate Planning
+  value: Planificación patrimonial
+navigation.estatePlanning.1.label:
+  source: Wills
+  value: Testamentos
+navigation.estatePlanning.2.label:
+  source: Trusts
+  value: Fideicomisos
+navigation.estatePlanning.3.label:
+  source: Powers of Attorney
+  value: Poderes notariales
+navigation.estatePlanning.4.label:
+  source: Health Care Directives
+  value: Directivas de atención médica
+navigation.resources.0.label:
+  source: Estate Planning FAQs
+  value: Preguntas frecuentes sobre planificación patrimonial
+navigation.resources.1.label:
+  source: Estate Planning Checklist
+  value: Lista de verificación de planificación patrimonial
+navigation.resources.2.label:
+  source: Video Library
+  value: Biblioteca de videos
+contactActions.0.label:
+  source: Call Brian at 908-424-1011
+  value: Llame a Brian al 908-424-1011
+contactActions.0.shortLabel:
+  source: Call Brian
+  value: Llame a Brian
+contactActions.1.label:
+  source: Text Brian at 908-424-1011
+  value: Envíe un mensaje de texto a Brian al 908-424-1011
+contactActions.1.shortLabel:
+  source: Text Brian
+  value: Mensaje a Brian
+contactActions.2.label:
+  source: Message Brian on WhatsApp
+  value: Envíe un mensaje a Brian por WhatsApp
+contactActions.2.shortLabel:
+  source: WhatsApp
+  value: WhatsApp
+contactActions.3.label:
+  source: Email bmiranda@bmirandalaw.com
+  value: Envíe un correo electrónico a bmiranda@bmirandalaw.com
+contactActions.3.shortLabel:
+  source: Email
+  value: Correo electrónico
+breadcrumbs.home:
+  source: Home
+  value: Inicio
+breadcrumbs.ariaLabel:
+  source: Breadcrumb
+  value: Ruta de navegación
+breadcrumbs.labels./estate-planning:
+  source: Estate Planning
+  value: Planificación patrimonial
+breadcrumbs.labels./estate-planning/wills:
+  source: Wills
+  value: Testamentos
+breadcrumbs.labels./estate-planning/trusts:
+  source: Trusts
+  value: Fideicomisos
+breadcrumbs.labels./estate-planning/powers-of-attorney:
+  source: Powers of Attorney
+  value: Poderes notariales
+breadcrumbs.labels./estate-planning/health-care-directives:
+  source: Health Care Directives
+  value: Directivas de atención médica
+breadcrumbs.labels./about:
+  source: About Brian
+  value: Acerca de Brian
+breadcrumbs.labels./resources:
+  source: Resources
+  value: Recursos
+breadcrumbs.labels./resources/estate-planning-faqs:
+  source: Estate Planning FAQs
+  value: Preguntas frecuentes sobre planificación patrimonial
+breadcrumbs.labels./resources/estate-planning-checklist:
+  source: Estate Planning Checklist
+  value: Lista de verificación de planificación patrimonial
+breadcrumbs.labels./resources/video-blog:
+  source: Video Library
+  value: Biblioteca de videos
+breadcrumbs.labels./blog:
+  source: Blog
+  value: Blog
+breadcrumbs.labels./other-services:
+  source: Other Legal Services
+  value: Otros servicios legales
+breadcrumbs.labels./contact:
+  source: Contact
+  value: Contacto
+breadcrumbs.labels./privacy:
+  source: Privacy
+  value: Privacidad
+breadcrumbs.labels./cookies:
+  source: Cookies
+  value: Cookies
+breadcrumbs.labels./disclaimer:
+  source: Website Disclaimer
+  value: Descargo de responsabilidad del sitio web
+breadcrumbs.labels./accessibility:
+  source: Accessibility
+  value: Accesibilidad
+header.skipLink:
+  source: Skip to main content
+  value: Saltar al contenido principal
+header.railMark:
+  source: BM
+  value: BM
+header.railLabel:
+  source: Brian Miranda Law
+  value: Brian Miranda Law
+header.homeAriaLabel:
+  source: Miranda Law home
+  value: Inicio de Miranda Law
+header.logoAlt:
+  source: Miranda Law, Attorneys at Law
+  value: Miranda Law, Abogados
+header.openMenuAriaLabel:
+  source: Open menu
+  value: Abrir menú
+header.closeMenuAriaLabel:
+  source: Close menu
+  value: Cerrar menú
+header.navigationAriaLabel:
+  source: Main navigation
+  value: Navegación principal
+header.estateMenuAriaLabel:
+  source: Toggle Estate Planning pages
+  value: Alternar páginas de planificación patrimonial
+header.questionnairesAriaLabel:
+  source: Website languages
+  value: Idiomas del sitio web
+header.questionnaireLinkAriaLabel:
+  source: View the website in {language}
+  value: Ver el sitio web en {language}
+header.backdropAriaLabel:
+  source: Close navigation menu
+  value: Cerrar menú de navegación
+header.quickContactAriaLabel:
+  source: Quick contact options
+  value: Opciones de contacto rápido
+footer.description:
+  source: Clear estate-planning guidance for North Jersey families, available in English, Spanish, and Portuguese.
+  value: Orientación clara en planificación patrimonial para familias del norte de New Jersey, disponible en inglés, español y portugués.
+footer.estatePlanningHeading:
+  source: Estate planning
+  value: Planificación patrimonial
+footer.resourcesHeading:
+  source: Resources
+  value: Recursos
+footer.aboutLabel:
+  source: About Brian
+  value: Acerca de Brian
+footer.otherServicesLabel:
+  source: Other legal services
+  value: Otros servicios legales
+footer.contactHeading:
+  source: Start a conversation
+  value: Inicie una conversación
+footer.privacyLabel:
+  source: Privacy
+  value: Privacidad
+footer.cookiesLabel:
+  source: Cookies
+  value: Cookies
+footer.disclaimerLabel:
+  source: Website disclaimer
+  value: Descargo de responsabilidad del sitio web
+footer.accessibilityLabel:
+  source: Accessibility
+  value: Accesibilidad
+footer.attorneyAdvertising:
+  source: Attorney advertising. Prior results do not guarantee a similar outcome.
+  value: Publicidad de abogados. Los resultados previos no garantizan un resultado similar.
+shared.contactActionsAriaLabel:
+  source: Contact Brian Miranda
+  value: Contactar a Brian Miranda
+shared.serviceLinkAriaLabel:
+  source: Learn more about {service}
+  value: Más información sobre {service}
+shared.viewContactOptions:
+  source: View every contact option
+  value: Ver todas las opciones de contacto
+shared.learnMore:
+  source: Learn more
+  value: Más información
+shared.interiorHeroDefaultImageAlt:
+  source: Estate-planning documents arranged on a warm desk
+  value: Documentos de planificación patrimonial dispuestos sobre un escritorio cálido
+shared.editorialFaq.eyebrow:
+  source: Frequently asked questions
+  value: Preguntas frecuentes
+shared.editorialFaq.title:
+  source: Questions are part of good planning.
+  value: Las preguntas son parte de una buena planificación.
+shared.editorialFaq.body:
+  source: These answers provide general information. Your circumstances may call for a different approach.
+  value: Estas respuestas proporcionan información general. Sus circunstancias pueden requerir un enfoque diferente.
+shared.finalCta.eyebrow:
+  source: Start with clarity
+  value: Comience con claridad
+shared.finalCta.title:
+  source: A clearer plan can begin with one conversation.
+  value: Un plan más claro puede comenzar con una sola conversación.
+shared.finalCta.body:
+  source: Tell us what brings you here. Miranda Law can help you understand the next questions to consider and whether our services fit your needs.
+  value: Cuéntenos qué le trae aquí. Miranda Law puede ayudarle a comprender las siguientes preguntas a considerar y si nuestros servicios se ajustan a sus necesidades.
+shared.legal.eyebrow:
+  source: Website information
+  value: Información del sitio web
+shared.legal.updatedLabel:
+  source: "Last updated:"
+  value: "Última actualización:"

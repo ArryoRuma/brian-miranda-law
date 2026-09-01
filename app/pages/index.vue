@@ -10,10 +10,8 @@ import {
 } from "@lucide/vue";
 import { getPhoneHref, getTextHref, getWhatsAppHref } from "~/data/routes";
 
-definePageMeta({ alias: ["/es", "/pt"] });
-
 const siteCopy = useSiteCopy();
-const { locale, localizePath } = useSiteLocale();
+const { languageLinks, locale, localizePath } = useSiteLocale();
 const content = computed(() => siteCopy.value.home);
 const site = computed(() => siteCopy.value.site);
 const contact = computed(() => site.value.contact);
@@ -158,7 +156,10 @@ useSchemaOrg([
         <p v-for="paragraph in content.intro.paragraphs" :key="paragraph">
           {{ paragraph }}
         </p>
-        <NuxtLink class="button button-primary" :to="content.intro.href">
+        <NuxtLink
+          class="button button-primary"
+          :to="localizePath(content.intro.href)"
+        >
           {{ content.intro.ctaLabel }}
           <ArrowUpRight :size="17" aria-hidden="true" />
         </NuxtLink>
@@ -238,7 +239,7 @@ useSchemaOrg([
         </div>
         <NuxtLink
           class="button button-primary process-cta"
-          :to="content.process.href"
+          :to="localizePath(content.process.href)"
         >
           {{ content.process.ctaLabel }}
           <ArrowUpRight :size="17" aria-hidden="true" />
@@ -255,7 +256,10 @@ useSchemaOrg([
         <SectionEyebrow tone="dark">{{ content.about.eyebrow }}</SectionEyebrow>
         <h2>{{ content.about.title }}</h2>
         <p>{{ content.about.body }}</p>
-        <NuxtLink class="text-link dark-link" :to="content.about.href">
+        <NuxtLink
+          class="text-link dark-link"
+          :to="localizePath(content.about.href)"
+        >
           {{ content.about.linkLabel }}
           <ArrowUpRight :size="16" aria-hidden="true" />
         </NuxtLink>
@@ -276,15 +280,15 @@ useSchemaOrg([
         </div>
         <div class="language-card-grid">
           <LanguageLink
-            v-for="language in content.languages.items"
+            v-for="language in languageLinks"
             :key="language.href"
             :code="language.label"
             :language="language.language"
             :href="language.href"
-            :active="locale === language.label.toLowerCase()"
+            :active="locale === language.code"
           />
         </div>
-        <NuxtLink class="text-link" :to="content.languages.questionnaireHref">
+        <NuxtLink class="text-link" :to="`/start/${locale}`">
           {{ content.languages.questionnaireLabel }}
           <ArrowUpRight :size="16" aria-hidden="true" />
         </NuxtLink>
@@ -307,7 +311,7 @@ useSchemaOrg([
           </ul>
           <NuxtLink
             class="text-link dark-link"
-            :to="content.otherServices.href"
+            :to="localizePath(content.otherServices.href)"
           >
             {{ content.otherServices.linkLabel }}
             <ArrowUpRight :size="16" aria-hidden="true" />
@@ -333,7 +337,10 @@ useSchemaOrg([
         <SectionEyebrow tone="dark">{{ content.faq.eyebrow }}</SectionEyebrow>
         <h2>{{ content.faq.title }}</h2>
         <p>{{ content.faq.body }}</p>
-        <NuxtLink class="text-link dark-link" :to="content.faq.href">
+        <NuxtLink
+          class="text-link dark-link"
+          :to="localizePath(content.faq.href)"
+        >
           {{ content.faq.linkLabel }}
           <ArrowUpRight :size="16" aria-hidden="true" />
         </NuxtLink>

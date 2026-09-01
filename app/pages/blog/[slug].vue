@@ -1,4 +1,6 @@
 <script setup lang="ts">
+definePageMeta({ i18n: { locales: ["en"] } });
+
 const route = useRoute();
 const siteCopy = useSiteCopy();
 const content = computed(() => siteCopy.value.blog);

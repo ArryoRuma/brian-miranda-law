@@ -1,0 +1,36 @@
+title:
+  source: Cookie Notice
+  value: Aviso de cookies
+description:
+  source: Learn how Miranda Law's website may use essential storage and limited analytics technologies.
+  value: Conozca cómo el sitio web de Miranda Law puede utilizar tecnologías de almacenamiento esenciales y de análisis limitado.
+updated:
+  source: August 14, 2026
+  value: 14 de agosto de 2026
+intro:
+  source: Cookies and similar browser technologies can help a website function, remember preferences, measure performance, and protect against misuse.
+  value: Las cookies y tecnologías similares del navegador pueden ayudar a que un sitio web funcione, recuerde preferencias, mida el rendimiento y proteja contra el uso indebido.
+sections.0.title:
+  source: Essential technologies
+  value: Tecnologías esenciales
+sections.0.paragraphs.0:
+  source: Essential technologies may be used when necessary to deliver pages, maintain security, remember a user choice, or support a requested feature. Blocking them may affect how parts of the website work.
+  value: Las tecnologías esenciales pueden utilizarse cuando sea necesario para entregar las páginas, mantener la seguridad, recordar una elección del usuario o permitir una función solicitada. Bloquearlas puede afectar el funcionamiento de algunas partes del sitio web.
+sections.1.title:
+  source: Analytics
+  value: Análisis
+sections.1.paragraphs.0:
+  source: The website may use privacy-conscious analytics to understand aggregate traffic and page usage. The final analytics configuration and retention settings should be confirmed before launch.
+  value: El sitio web puede utilizar análisis respetuos con la privacidad para comprender el tráfico agregado y el uso de las páginas. La configuración final de los análisis y los ajustes de retención deben confirmarse antes del lanzamiento.
+sections.2.title:
+  source: Managing browser storage
+  value: Gestión del almacenamiento del navegador
+sections.2.paragraphs.0:
+  source: Most browsers allow you to delete or block cookies and other stored website data. Those controls are available in the privacy or site-settings area of your browser.
+  value: La mayoría de los navegadores permiten eliminar o bloquear cookies y otros datos almacenados del sitio web. Dichos controles están disponibles en el área de privacidad o de configuración del sitio de su navegador.
+sections.3.title:
+  source: Updates
+  value: Actualizaciones
+sections.3.paragraphs.0:
+  source: This notice may be updated when the website's hosting, analytics, intake, or scheduling services change. The updated date above identifies the current version.
+  value: Este aviso puede actualizarse cuando cambien los servicios de alojamiento, análisis, recepción de casos o programación del sitio web. La fecha de actualización arriba indicada identifica la versión actual.

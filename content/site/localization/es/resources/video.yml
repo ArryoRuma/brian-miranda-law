@@ -1,0 +1,57 @@
+seo.title:
+  source: Estate Planning Video Library
+  value: Biblioteca de videos sobre planificación patrimonial
+seo.description:
+  source: Explore Miranda Law's planned video topics covering wills, trusts, powers of attorney, health care directives, and consultation preparation.
+  value: Explore los temas de video planificados de Miranda Law, que cubren testamentos, fideicomisos, poderes notariales, directivas de atención médica y la preparación para su consulta.
+hero.eyebrow:
+  source: Video library
+  value: Biblioteca de videos
+hero.title:
+  source: Estate planning explained
+  value: La planificación patrimonial explicada
+hero.accent:
+  source: with clarity.
+  value: con claridad.
+hero.lead:
+  source: Short videos are being prepared to answer common questions in a direct, useful format.
+  value: Se están preparando videos cortos para responder preguntas comunes en un formato directo y útil.
+hero.secondaryLabel:
+  source: Read the FAQs now
+  value: Lea las preguntas frecuentes ahora
+intro.eyebrow:
+  source: Coming soon
+  value: Próximamente
+intro.title:
+  source: Reviewed videos are in production.
+  value: Los videos revisados se encuentran en producción.
+intro.body:
+  source: Topics are listed as a preview. No recording, client story, or legal outcome is represented before final review and publication.
+  value: Los temas se enumeran como una vista previa. No se representa ninguna grabación, historia de cliente ni resultado legal antes de la revisión y publicación final.
+placeholder:
+  source: Video coming soon
+  value: Video próximamente
+topics.0.title:
+  source: Do I need an estate plan if I am not wealthy?
+  value: ¿Necesito un plan patrimonial si no tengo grandes bienes?
+topics.0.summary:
+  source: Why decision-makers, incapacity, children, and personal property matter at many asset levels.
+  value: Por qué los responsables de la toma de decisiones, la incapacidad, los hijos y los bienes personales son importantes en muchos niveles de activos.
+topics.1.title:
+  source: What does a will actually control?
+  value: ¿Qué controla realmente un testamento?
+topics.1.summary:
+  source: A plain-language look at probate property, executors, guardians, and written wishes.
+  value: Una mirada en lenguaje sencillo sobre los bienes sujetos a sucesión, albaceas, tutores y deseos por escrito.
+topics.2.title:
+  source: When might a trust be useful?
+  value: ¿Cuándo podría ser útil un fideicomiso?
+topics.2.summary:
+  source: How management, continuity, and distribution goals can shape the conversation.
+  value: Cómo los objetivos de administración, continuidad y distribución pueden orientar la conversación.
+topics.3.title:
+  source: Who should I name to act for me?
+  value: ¿A quién debería nombrar para que actúe en mi nombre?
+topics.3.summary:
+  source: Practical considerations when choosing financial and health care decision-makers.
+  value: Consideraciones prácticas al elegir a los responsables de las decisiones financieras y de atención médica.

@@ -9,7 +9,7 @@ import { getPhoneHref, getWhatsAppHref } from "~/data/routes";
 
 type Locale = "en" | "es" | "pt";
 const props = defineProps<{ locale: Locale }>();
-const siteCopy = useSiteCopy();
+const siteCopy = useSiteCopy(toRef(props, "locale"));
 const content = computed(() => siteCopy.value.nextSteps.locales[props.locale]);
 const contact = computed(() => siteCopy.value.site.contact);
 const icons = {

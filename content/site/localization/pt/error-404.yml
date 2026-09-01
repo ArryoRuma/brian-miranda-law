@@ -1,0 +1,18 @@
+title:
+  source: Page Not Found
+  value: Página Não Encontrada
+description:
+  source: The requested Miranda Law page could not be found.
+  value: A página da Miranda Law solicitada não pôde ser encontrada.
+eyebrow:
+  source: "404"
+  value: "404"
+heading:
+  source: That page could not be found.
+  value: Esta página não pôde ser encontrada.
+body:
+  source: The page may have moved, or the address may be incomplete.
+  value: A página pode ter sido movida ou o endereço pode estar incompleto.
+actionLabel:
+  source: Return home
+  value: Voltar à página inicial

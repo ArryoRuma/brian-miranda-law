@@ -3,7 +3,7 @@ import { Check, LockKeyhole } from "@lucide/vue";
 
 type Locale = "en" | "es" | "pt";
 const props = defineProps<{ locale: Locale }>();
-const siteCopy = useSiteCopy();
+const siteCopy = useSiteCopy(toRef(props, "locale"));
 const content = computed(
   () => siteCopy.value.questionnaire.locales[props.locale]
 );

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ArrowUpRight } from "@lucide/vue";
 
+definePageMeta({ i18n: { locales: ["en"] } });
+
 const siteCopy = useSiteCopy();
 const content = computed(() => siteCopy.value.blog);
 const posts = useBlogPosts();

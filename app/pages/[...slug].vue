@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { SitePageContent } from "~/types/content";
-import { stripLocalePrefix, type Locale } from "~~/lib/content/localization";
+import { normalizeContentRoutePath } from "~~/lib/content/localization";
 
 type LegalPageKey = "privacy" | "cookies" | "disclaimer" | "accessibility";
 type PageKind =
@@ -9,19 +9,23 @@ type PageKind =
   | { type: "faq" }
   | { type: "checklist" }
   | { type: "video" }
-  | { type: "legal"; page: LegalPageKey }
-  | { type: "preview"; locale: Locale }
-  | { type: "next"; locale: Locale };
+  | { type: "legal"; page: LegalPageKey };
 
 const route = useRoute();
+const { localizePath } = useSiteLocale();
 const siteCopy = useSiteCopy();
 
 const editorialPages = Object.fromEntries(
-  Object.values(siteCopy.value.pages).map(page => [page.path, page])
+  Object.values(siteCopy.value.pages).map(page => [
+    localizePath(page.path),
+    page,
+  ])
 ) as Record<string, SitePageContent>;
 
-function resolvePage(path: string): PageKind | undefined {
-  const basePath = stripLocalePrefix(path);
+function resolvePage(
+  basePath: string,
+  localizedPath: string
+): PageKind | undefined {
   if (basePath === "/contact") return { type: "contact" };
   if (basePath === "/resources/estate-planning-faqs") return { type: "faq" };
   if (basePath === "/resources/estate-planning-checklist")
@@ -33,18 +37,17 @@ function resolvePage(path: string): PageKind | undefined {
     return { type: "legal", page: legal };
   }
 
-  const previewMatch = path.match(/^\/start\/(en|es|pt)$/);
-  if (previewMatch)
-    return { type: "preview", locale: previewMatch[1] as Locale };
-
-  const nextMatch = path.match(/^\/start\/(en|es|pt)\/what-happens-next$/);
-  if (nextMatch) return { type: "next", locale: nextMatch[1] as Locale };
-
-  if (editorialPages[path])
-    return { type: "editorial", content: editorialPages[path] };
+  if (editorialPages[localizedPath])
+    return { type: "editorial", content: editorialPages[localizedPath] };
 }
 
-const page = resolvePage(route.path);
+const slug = Array.isArray(route.params.slug)
+  ? route.params.slug.join("/")
+  : String(route.params.slug ?? "");
+const page = resolvePage(
+  normalizeContentRoutePath(`/${slug}`),
+  normalizeContentRoutePath(route.path)
+);
 if (!page) {
   throw createError({
     statusCode: 404,
@@ -61,10 +64,5 @@ if (!page) {
     <ChecklistPageContent v-else-if="page.type === 'checklist'" />
     <VideoLibraryPage v-else-if="page.type === 'video'" />
     <LegalPageContent v-else-if="page.type === 'legal'" :page="page.page" />
-    <QuestionnairePreview
-      v-else-if="page.type === 'preview'"
-      :locale="page.locale"
-    />
-    <NextStepsPreview v-else :locale="page.locale" />
   </div>
 </template>

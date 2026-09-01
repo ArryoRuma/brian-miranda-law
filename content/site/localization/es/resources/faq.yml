@@ -1,0 +1,132 @@
+seo.title:
+  source: Estate Planning FAQs
+  value: Preguntas frecuentes sobre planificación patrimonial
+seo.description:
+  source: Plain-language answers to common estate-planning questions about wills, trusts, incapacity documents, and working with Miranda Law.
+  value: Respuestas en lenguaje sencillo a preguntas comunes sobre planificación patrimonial con respecto a testamentos, fideicomisos, documentos de incapacidad y el trabajo con Miranda Law.
+hero.eyebrow:
+  source: Estate planning FAQs
+  value: Preguntas frecuentes sobre planificación patrimonial
+hero.title:
+  source: Clear answers create
+  value: Respuestas claras crean
+hero.accent:
+  source: better questions.
+  value: mejores preguntas.
+hero.lead:
+  source: Use these general answers to organize what you want to discuss. Your own plan should be based on your family, property, responsibilities, and goals.
+  value: Utilice estas respuestas generales para organizar lo que desea discutir. Su propio plan debe basarse en su familia, propiedades, responsabilidades y objetivos.
+hero.secondaryLabel:
+  source: Open the planning checklist
+  value: Abrir la lista de verificación de planificación
+groupIntro:
+  source: General information to help you prepare for a conversation.
+  value: Información general para ayudarle a prepararse para una conversación.
+groups.0.title:
+  source: Getting started
+  value: Primeros pasos
+groups.0.items.0.question:
+  source: What documents are usually included in an estate plan?
+  value: ¿Qué documentos se incluyen generalmente en un plan de planificación patrimonial?
+groups.0.items.0.answer:
+  source: Many plans include a will, financial power of attorney, and health care directives. A trust may be appropriate depending on the family, property, and goals involved.
+  value: Muchos planes incluyen un testamento, un poder notarial financiero y directivas de atención médica. Un fideicomiso puede ser apropiado dependiendo de la familia, los bienes y los objetivos involucrados.
+groups.0.items.1.question:
+  source: Do I need an estate plan if I do not have significant wealth?
+  value: ¿Necesito un plan de planificación patrimonial si no tengo una riqueza significativa?
+groups.0.items.1.answer:
+  source: Planning also addresses decision-makers, incapacity, minor children, personal property, and family guidance. Those issues can matter regardless of wealth.
+  value: La planificación también aborda las personas encargadas de tomar decisiones, la incapacidad, los hijos menores, los bienes personales y la orientación familiar. Esos asuntos pueden ser importantes independientemente de la riqueza.
+groups.0.items.2.question:
+  source: What should I bring to the first consultation?
+  value: ¿Qué debo llevar a la primera consulta?
+groups.0.items.2.answer:
+  source: Bring any existing estate-planning documents you can locate and a general list of family members, property, accounts, insurance, business interests, and questions. You do not need perfect numbers or final decisions.
+  value: Traiga cualquier documento de planificación patrimonial existente que pueda localizar y una lista general de familiares, propiedades, cuentas, seguros, intereses comerciales y preguntas. No necesita cifras exactas ni decisiones finales.
+groups.0.items.3.question:
+  source: Is the initial consultation free?
+  value: ¿La consulta inicial es gratuita?
+groups.0.items.3.answer:
+  source: Yes. Miranda Law provides a free initial consultation and discusses the recommended scope and fee before legal work begins.
+  value: Sí. Miranda Law ofrece una consulta inicial gratuita y analiza el alcance recomendado y los honorarios antes de que comience el trabajo legal.
+groups.1.title:
+  source: Wills and trusts
+  value: Testamentos y fideicomisos
+groups.1.items.0.question:
+  source: What happens if I die without a will in New Jersey?
+  value: ¿Qué sucede si fallezco sin un testamento en New Jersey?
+groups.1.items.0.answer:
+  source: New Jersey's intestacy rules govern the distribution of probate property, and a court process may be needed to appoint an administrator. The result may not reflect every personal wish or relationship.
+  value: Las reglas de sucesión intestada de New Jersey rigen la distribución de los bienes sujetos a validación judicial (probate), y puede ser necesario un proceso judicial para designar a un administrador. El resultado puede no reflejar todos los deseos o relaciones personales.
+groups.1.items.1.question:
+  source: Does a will avoid probate?
+  value: ¿Un testamento evita el proceso de validación judicial (probate)?
+groups.1.items.1.answer:
+  source: A will generally provides instructions for probate rather than avoiding the process by itself. Other ownership and trust arrangements may affect how particular assets are handled.
+  value: Un testamento generalmente proporciona instrucciones para la validación judicial en lugar de evitar el proceso por sí mismo. Otros acuerdos de propiedad y fideicomisos pueden afectar la manera en que se gestionan activos particulares.
+groups.1.items.2.question:
+  source: Does everyone need a trust?
+  value: ¿Todo el mundo necesita un fideicomiso?
+groups.1.items.2.answer:
+  source: No. A trust can be useful for particular management, continuity, or distribution goals, but some plans can be handled effectively through other documents and arrangements.
+  value: No. Un fideicomiso puede ser útil para objetivos específicos de gestión, continuidad o distribución, pero algunos planes pueden manejarse eficazmente a través de otros documentos y acuerdos.
+groups.1.items.3.question:
+  source: What does it mean to fund a trust?
+  value: ¿Qué significa financiar un fideicomiso?
+groups.1.items.3.answer:
+  source: Funding generally means transferring or coordinating selected assets so the trust can govern them. A signed trust that is not connected to the intended assets may not accomplish the expected result.
+  value: La financiación generalmente significa transferir o coordinar activos seleccionados para que el fideicomiso pueda gobernarlos. Un fideicomiso firmado que no esté vinculado a los activos previstos puede no lograr el resultado esperado.
+groups.2.title:
+  source: Planning for incapacity
+  value: Planificación para la incapacidad
+groups.2.items.0.question:
+  source: What does a financial power of attorney do?
+  value: ¿Qué hace un poder notarial financiero?
+groups.2.items.0.answer:
+  source: It authorizes a person you choose to handle the financial, legal, property, or other matters described in the document.
+  value: Autoriza a una persona elegida por usted para encargarse de los asuntos financieros, legales, de propiedad u otros descritos en el documento.
+groups.2.items.1.question:
+  source: Is a health care directive the same as a financial power of attorney?
+  value: ¿Es una directiva de atención médica lo mismo que un poder notarial financiero?
+groups.2.items.1.answer:
+  source: No. A health care directive concerns medical decision-making. A financial power of attorney concerns the financial and legal authority written into that document.
+  value: No. Una directiva de atención médica se refiere a la toma de decisiones médicas. Un poder notarial financiero se refiere a la autoridad financiera y legal establecida en dicho documento.
+groups.2.items.2.question:
+  source: Can my health care representative decide for me while I still can?
+  value: ¿Puede mi representante de atención médica decidir por mí mientras yo todavía pueda hacerlo?
+groups.2.items.2.answer:
+  source: No. Under New Jersey guidance, the representative acts when you have been determined unable to make your own health care decisions. If you regain that ability, your own decisions control again.
+  value: No. Bajo las directrices de New Jersey, el representante actúa cuando se ha determinado que usted no puede tomar sus propias decisiones de atención médica. Si recupera esa capacidad, sus propias decisiones vuelven a prevalecer.
+groups.2.items.3.question:
+  source: Who should receive copies of my health care directive?
+  value: ¿Quién debería recibir copias de mi directiva de atención médica?
+groups.2.items.3.answer:
+  source: Consider giving copies to your primary and alternate representatives, appropriate family members, physicians, and health care facilities involved in your care.
+  value: Considere entregar copias a sus representantes principal y alternativo, a los familiares correspondientes, a sus médicos y a los centros de atención médica involucrados en su cuidado.
+groups.3.title:
+  source: Working with Miranda Law
+  value: Trabajando con Miranda Law
+groups.3.items.0.question:
+  source: Can Miranda Law assist me in Spanish or Portuguese?
+  value: ¿Puede Miranda Law asistirme en español o portugués?
+groups.3.items.0.answer:
+  source: Yes. The firm communicates with clients in English, Spanish, and Portuguese.
+  value: Sí. La firma se comunica con los clientes en inglés, español y portugués.
+groups.3.items.1.question:
+  source: How can I contact the office?
+  value: ¿Cómo puedo contactar a la oficina?
+groups.3.items.1.answer:
+  source: The legal team handles intake and scheduling by phone, text, WhatsApp, and email.
+  value: El equipo legal gestiona la recepción de casos y la programación mediante teléfono, mensaje de texto, WhatsApp y correo electrónico.
+groups.3.items.2.question:
+  source: How much does an estate plan cost?
+  value: ¿Cuánto cuesta un plan de planificación patrimonial?
+groups.3.items.2.answer:
+  source: The fee depends on the documents and complexity involved. The firm discusses the proposed work and fee after understanding your needs.
+  value: Los honorarios dependen de los documentos y la complejidad involucrada. La firma analiza el trabajo propuesto y los honorarios tras comprender sus necesidades.
+groups.3.items.3.question:
+  source: How often should I update my plan?
+  value: ¿Con qué frecuencia debo actualizar mi plan?
+groups.3.items.3.answer:
+  source: Consider a review after major family, health, property, or financial changes and when the people named in the documents are no longer the right choices.
+  value: Considere una revisión después de cambios importantes en su familia, salud, propiedad o finanzas, y cuando las personas designadas en los documentos ya no sean las opciones adecuadas.

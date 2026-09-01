@@ -1,0 +1,42 @@
+title:
+  source: Website Disclaimer
+  value: Descargo de responsabilidad del sitio web
+description:
+  source: Read the Miranda Law website disclaimer concerning general information, attorney-client relationships, communications, and results.
+  value: Lea el descargo de responsabilidad del sitio web de Miranda Law con respecto a la información general, las relaciones abogado-cliente, las comunicaciones y los resultados.
+updated:
+  source: August 14, 2026
+  value: 14 de agosto de 2026
+intro:
+  source: This website provides general information about Miranda Law and selected legal topics. It is not a substitute for advice from an attorney who has reviewed your circumstances.
+  value: Este sitio web proporciona información general sobre Miranda Law y temas legales seleccionados. No sustituye el asesoramiento de un abogado que haya revisado sus circunstancias.
+sections.0.title:
+  source: No legal advice
+  value: Sin asesoramiento legal
+sections.0.paragraphs.0:
+  source: Website content is educational and may not reflect every legal development, exception, deadline, or fact that could affect a matter. Do not act or refrain from acting solely because of information on this website.
+  value: El contenido del sitio web es educativo y puede no reflejar cada desarrollo legal, excepción, plazo o hecho que pudiera afectar un asunto. No actúe ni se abstenga de actuar únicamente debido a la información contenida en este sitio web.
+sections.1.title:
+  source: No attorney-client relationship
+  value: Sin relación abogado-cliente
+sections.1.paragraphs.0:
+  source: Viewing the website, using a questionnaire, sending a message, or speaking with the office does not by itself create an attorney-client relationship. Representation begins only after Miranda Law confirms acceptance and the required agreement is completed.
+  value: Ver el sitio web, utilizar un cuestionario, enviar un mensaje o hablar con la oficina no crea por sí mismo una relación abogado-cliente. La representación comienza únicamente después de que Miranda Law confirme su aceptación y se complete el acuerdo requerido.
+sections.2.title:
+  source: Communications and deadlines
+  value: Comunicaciones y plazos
+sections.2.paragraphs.0:
+  source: Do not send confidential information until the firm confirms that it is appropriate to do so. Do not rely on an unconfirmed website, email, text, or voicemail communication to protect a filing date, court date, response period, or other deadline.
+  value: No envíe información confidencial hasta que la firma confirme que es apropiado hacerlo. No dependa de una comunicación no confirmada por sitio web, correo electrónico, mensaje de texto o buzón de voz para proteger una fecha de presentación, fecha de audiencia, periodo de respuesta u otro plazo.
+sections.3.title:
+  source: Jurisdiction and availability
+  value: Jurisdicción y disponibilidad
+sections.3.paragraphs.0:
+  source: The availability of legal services depends on jurisdiction, the facts, timing, conflicts, and the firm's acceptance of the matter. Website content is not intended to advertise services where doing so would violate applicable professional rules.
+  value: La disponibilidad de los servicios legales depende de la jurisdicción, los hechos, el tiempo, los conflictos y la aceptación del asunto por parte de la firma. El contenido del sitio web no tiene la intención de anunciar servicios donde hacerlo violaría las normas profesionales aplicables.
+sections.4.title:
+  source: No guarantee of results
+  value: Sin garantía de resultados
+sections.4.paragraphs.0:
+  source: Descriptions of services, examples, or past matters do not guarantee a particular outcome. Legal results depend on the facts, law, evidence, decision-makers, and other circumstances of each matter.
+  value: Las descripciones de los servicios, ejemplos o asuntos pasados no garantizan un resultado particular. Los resultados legales dependen de los hechos, la ley, las pruebas, los encargados de tomar decisiones y otras circunstancias de cada asunto.

@@ -1,8 +1,7 @@
 import { z } from "zod";
 import {
-  collectTranslatableStrings,
   getLocalizedPublicRoutes,
-  localizePath,
+  localizePublicPath,
   locales,
   type Locale,
 } from "./localization";
@@ -498,10 +497,6 @@ const rawSiteContentSchema = z.object({
   }),
   localization: z.object({
     review: localeRecord(translationReviewSchema),
-    translations: z.object({
-      es: z.record(z.string(), text),
-      pt: z.record(z.string(), text),
-    }),
   }),
 });
 
@@ -545,7 +540,7 @@ export const siteContentSchema = rawSiteContentSchema.superRefine(
     const staticRoutes = getStaticPageRoutes(content);
     const publicRoutes = getPublicRoutes(content);
     const localizedBlogRoutes = locales.map(locale =>
-      localizePath(content.blog.path, locale)
+      localizePublicPath(content.blog.path, locale)
     );
     const allRoutes = [
       ...publicRoutes,
@@ -651,33 +646,6 @@ export const siteContentSchema = rawSiteContentSchema.superRefine(
         ["home", "languages", "items"],
         "Homepage language navigation must link to the localized homepages"
       );
-    }
-
-    const translatableStrings = collectTranslatableStrings(content);
-    for (const locale of ["es", "pt"] as const) {
-      const translations = content.localization.translations[locale];
-      const requiredSources = new Set(translatableStrings.keys());
-      const suppliedSources = new Set(Object.keys(translations));
-
-      for (const source of requiredSources) {
-        if (!suppliedSources.has(source)) {
-          addIssue(
-            context,
-            ["localization", "translations", locale, source],
-            `Missing ${locale} translation for: ${source}`
-          );
-        }
-      }
-
-      for (const source of suppliedSources) {
-        if (!requiredSources.has(source)) {
-          addIssue(
-            context,
-            ["localization", "translations", locale, source],
-            `Translation source is no longer used: ${source}`
-          );
-        }
-      }
     }
 
     const expectedVariants: Record<Locale, string> = {

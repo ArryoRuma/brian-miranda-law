@@ -1,0 +1,36 @@
+label:
+  source: Blog
+  value: Blog
+seo.title:
+  source: Estate Planning Blog
+  value: Blog de Planejamento Patrimonial
+seo.description:
+  source: Read clear estate-planning articles from Miranda Law about wills, trusts, decision-makers, and preparing for a consultation.
+  value: Leia artigos claros sobre planejamento patrimonial da Miranda Law sobre testamentos, fideicomissos (trusts), tomadores de decisão e como se preparar para uma consulta.
+hero.eyebrow:
+  source: Miranda Law blog
+  value: Blog da Miranda Law
+hero.title:
+  source: Estate planning guidance
+  value: Orientação em planejamento patrimonial
+hero.accent:
+  source: in plain language.
+  value: em linguagem simples.
+hero.lead:
+  source: Practical articles to help New Jersey families understand common planning questions and prepare for a conversation with an attorney.
+  value: Artigos práticos para ajudar famílias de New Jersey a compreender dúvidas comuns de planejamento e a se prepararem para uma conversa com um advogado.
+articleLabel:
+  source: Article
+  value: Artigo
+publishedLabel:
+  source: Published
+  value: Publicado em
+updatedLabel:
+  source: Updated
+  value: Atualizado em
+backLabel:
+  source: Back to all articles
+  value: Voltar para todos os artigos
+topicsLabel:
+  source: Topics
+  value: Tópicos

@@ -10,6 +10,7 @@ import type { HomeService } from "~/types/content";
 
 const props = defineProps<{ service: HomeService }>();
 const siteCopy = useSiteCopy();
+const { localizePath } = useSiteLocale();
 const icons = {
   file: FileText,
   landmark: Landmark,
@@ -35,7 +36,7 @@ const icon = computed(() => icons[props.service.icon]);
           service.title
         )
       "
-      :to="service.href"
+      :to="localizePath(service.href)"
     >
       <span class="card-link-label">{{ service.linkLabel }}</span>
       <ArrowUpRight :size="18" aria-hidden="true" />

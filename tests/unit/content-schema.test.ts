@@ -1,13 +1,25 @@
-import { cpSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import {
+  cpSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
+import { createHash } from "node:crypto";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { parse, stringify } from "yaml";
 import {
   loadRepositoryContent,
   loadSiteContent,
+  loadTranslationOverlay,
 } from "../../lib/content/load-content";
+import { createLocalizedContent } from "../../lib/content/localization";
 import {
   getPreviewRoutes,
+  getPublicRoutes,
   getStaticPageRoutes,
   siteContentSchema,
 } from "../../lib/content/schema";
@@ -27,6 +39,25 @@ function withContentFixture(run: (rootDirectory: string) => void) {
   }
 }
 
+type OverlayRecord = Record<string, { source: string; value: string }>;
+
+function updateOverlayFixture(
+  rootDirectory: string,
+  locale: "es" | "pt",
+  relativePath: string,
+  update: (record: OverlayRecord) => void
+) {
+  const filePath = join(
+    rootDirectory,
+    "content/site/localization",
+    locale,
+    relativePath
+  );
+  const record = parse(readFileSync(filePath, "utf8")) as OverlayRecord;
+  update(record);
+  writeFileSync(filePath, stringify(record));
+}
+
 describe("site content schema", () => {
   it("validates the repository YAML and derives every route", () => {
     expect(repository.siteCopy.site.name).toBe("Miranda Law");
@@ -44,6 +75,19 @@ describe("site content schema", () => {
     ]);
     expect(repository.siteCopy.localization.review.es.status).toBe("approved");
     expect(repository.siteCopy.localization.review.pt.status).toBe("draft");
+    expect(repository.siteCopyByLocale.es.pages.about.title).toBe(
+      "Acerca de Brian Miranda"
+    );
+    expect(repository.siteCopyByLocale.pt.home.hero.title).not.toBe(
+      repository.siteCopy.home.hero.title
+    );
+    const publicRoutes = getPublicRoutes(repository.siteCopy);
+    expect(publicRoutes).toHaveLength(51);
+    expect(publicRoutes.some(route => route.startsWith("/en"))).toBe(false);
+    expect(
+      publicRoutes.some(route => /\/(?:es|pt)\/(?:es|pt)(?:\/|$)/.test(route))
+    ).toBe(false);
+    expect(publicRoutes.some(route => route.startsWith("/start/"))).toBe(false);
     expect(getPreviewRoutes()).toEqual([
       "/start/en",
       "/start/en/what-happens-next",
@@ -52,6 +96,29 @@ describe("site content schema", () => {
       "/start/pt",
       "/start/pt/what-happens-next",
     ]);
+  });
+
+  it("matches the pre-migration localized content snapshots", () => {
+    const canonicalize = (value: unknown): unknown => {
+      if (Array.isArray(value)) return value.map(canonicalize);
+      if (!value || typeof value !== "object") return value;
+      return Object.fromEntries(
+        Object.entries(value)
+          .sort(([left], [right]) => left.localeCompare(right))
+          .map(([key, child]) => [key, canonicalize(child)])
+      );
+    };
+    const digest = (locale: "es" | "pt") =>
+      createHash("sha256")
+        .update(
+          JSON.stringify(canonicalize(repository.siteCopyByLocale[locale]))
+        )
+        .digest("hex");
+
+    expect({ es: digest("es"), pt: digest("pt") }).toEqual({
+      es: "a8ca8d2b8b3d6bcd4ca2e886fbac458ca9f16283f70421e900f04c42f3aa3bec",
+      pt: "32794f6ca3aefca9dadd04337635416c9bda4e2566bc13858896527a10d50301",
+    });
   });
 
   it("rejects a missing required content fragment", () => {
@@ -92,6 +159,104 @@ describe("site content schema", () => {
       );
       expect(() => loadSiteContent(rootDirectory)).toThrow(
         /Duplicate content record "about".*content\/site\/pages\/about-copy\.yml.*content\/site\/pages\/about\.yml/
+      );
+    });
+  });
+
+  it("rejects a missing translation overlay field", () => {
+    withContentFixture(rootDirectory => {
+      updateOverlayFixture(rootDirectory, "es", "pages/about.yml", record => {
+        delete record.title;
+      });
+      const source = loadSiteContent(rootDirectory);
+      expect(() =>
+        createLocalizedContent(
+          source,
+          "es",
+          loadTranslationOverlay(rootDirectory, "es")
+        )
+      ).toThrow("Missing es translation for pages.about.title");
+    });
+  });
+
+  it("rejects a stale translation source", () => {
+    withContentFixture(rootDirectory => {
+      updateOverlayFixture(rootDirectory, "es", "pages/about.yml", record => {
+        record.title.source = "An outdated English title";
+      });
+      const source = loadSiteContent(rootDirectory);
+      expect(() =>
+        createLocalizedContent(
+          source,
+          "es",
+          loadTranslationOverlay(rootDirectory, "es")
+        )
+      ).toThrow(
+        /Stale es translation source for pages\.about\.title.*pages\/about\.yml/
+      );
+    });
+  });
+
+  it("rejects blank translation values", () => {
+    withContentFixture(rootDirectory => {
+      updateOverlayFixture(rootDirectory, "es", "pages/about.yml", record => {
+        record.title.value = "   ";
+      });
+      expect(() => loadTranslationOverlay(rootDirectory, "es")).toThrow(
+        /Invalid es translation overlay.*pages\/about\.yml/
+      );
+    });
+  });
+
+  it("rejects extra translation paths", () => {
+    withContentFixture(rootDirectory => {
+      updateOverlayFixture(rootDirectory, "es", "pages/about.yml", record => {
+        record["unknown.field"] = {
+          source: "Unknown source",
+          value: "Valor desconocido",
+        };
+      });
+      const source = loadSiteContent(rootDirectory);
+      expect(() =>
+        createLocalizedContent(
+          source,
+          "es",
+          loadTranslationOverlay(rootDirectory, "es")
+        )
+      ).toThrow(
+        /Unknown es translation path pages\.about\.unknown\.field.*pages\/about\.yml/
+      );
+    });
+  });
+
+  it("reports duplicate translation paths with their overlay file", () => {
+    withContentFixture(rootDirectory => {
+      writeFileSync(
+        join(rootDirectory, "content/site/localization/es/pages/about.yml"),
+        [
+          "title:",
+          "  source: About Brian Miranda",
+          "  value: Acerca de Brian Miranda",
+          "title:",
+          "  source: About Brian Miranda",
+          "  value: Acerca de Brian Miranda",
+          "",
+        ].join("\n")
+      );
+      expect(() => loadTranslationOverlay(rootDirectory, "es")).toThrow(
+        /^Invalid YAML in content\/site\/localization\/es\/pages\/about\.yml:/
+      );
+    });
+  });
+
+  it("rejects overlay files with no matching English fragment", () => {
+    withContentFixture(rootDirectory => {
+      writeFileSync(
+        join(rootDirectory, "content/site/localization/es/pages/unknown.yml"),
+        "title:\n  source: Unknown\n  value: Desconocido\n"
+      );
+      expect(() => loadTranslationOverlay(rootDirectory, "es")).toThrow(
+        "Unknown es translation overlay: content/site/localization/es/pages/unknown.yml"
       );
     });
   });

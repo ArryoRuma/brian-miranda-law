@@ -20,6 +20,7 @@ const props = withDefaults(
   }
 );
 const siteCopy = useSiteCopy();
+const { localizePath } = useSiteLocale();
 const resolvedImageAlt = computed(
   () => props.imageAlt ?? siteCopy.value.site.shared.interiorHeroDefaultImageAlt
 );
@@ -41,7 +42,7 @@ const resolvedImageAlt = computed(
         <NuxtLink
           v-if="secondaryHref && secondaryLabel"
           class="text-link"
-          :to="secondaryHref"
+          :to="localizePath(secondaryHref)"
         >
           {{ secondaryLabel }} <ArrowUpRight :size="15" aria-hidden="true" />
         </NuxtLink>

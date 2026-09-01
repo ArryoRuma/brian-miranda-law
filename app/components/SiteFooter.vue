@@ -3,7 +3,7 @@ import { getPhoneHref } from "~/data/routes";
 import { blogPosts } from "#site-content";
 
 const siteCopy = useSiteCopy();
-const { homePath, locale, localizePath } = useSiteLocale();
+const { homePath, languageLinks, locale, localizePath } = useSiteLocale();
 const site = computed(() => siteCopy.value.site);
 const copy = computed(() => site.value.footer);
 const contact = computed(() => site.value.contact);
@@ -38,7 +38,7 @@ const resourceLinks = computed(() => [
       <NuxtLink
         v-for="item in site.navigation.estatePlanning"
         :key="item.href"
-        :to="item.href"
+        :to="localizePath(item.href)"
       >
         {{ item.label }}
       </NuxtLink>
@@ -46,7 +46,11 @@ const resourceLinks = computed(() => [
 
     <div class="footer-link-column">
       <h2>{{ copy.resourcesHeading }}</h2>
-      <NuxtLink v-for="item in resourceLinks" :key="item.href" :to="item.href">
+      <NuxtLink
+        v-for="item in resourceLinks"
+        :key="item.href"
+        :to="localizePath(item.href)"
+      >
         {{ item.label }}
       </NuxtLink>
       <NuxtLink :to="localizePath('/about')">{{ copy.aboutLabel }}</NuxtLink>
@@ -65,12 +69,10 @@ const resourceLinks = computed(() => [
       </a>
       <div class="footer-language-links">
         <NuxtLink
-          v-for="item in site.navigation.languages"
+          v-for="item in languageLinks"
           :key="item.href"
           :to="item.href"
-          :aria-current="
-            locale === item.label.toLowerCase() ? 'page' : undefined
-          "
+          :aria-current="locale === item.code ? 'page' : undefined"
         >
           {{ item.language }}
         </NuxtLink>

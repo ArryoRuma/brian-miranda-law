@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { ChevronRight } from "@lucide/vue";
-import { stripLocalePrefix } from "~~/lib/content/localization";
 
 const props = defineProps<{ currentLabel?: string }>();
 const route = useRoute();
 const { homePath, localizePath } = useSiteLocale();
+const switchLocalePath = useSwitchLocalePath();
 const siteCopy = useSiteCopy();
 const copy = computed(() => siteCopy.value.site.breadcrumbs);
 
 const crumbs = computed(() => {
-  const path = stripLocalePrefix(route.path);
+  const path = switchLocalePath("en") || route.path;
   if (path === "/") return [];
 
   const result = [{ label: copy.value.home, href: homePath.value }];

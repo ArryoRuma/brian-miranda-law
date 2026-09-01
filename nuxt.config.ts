@@ -1,6 +1,7 @@
 import { fileURLToPath } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
 import { loadRepositoryContent } from "./lib/content/load-content";
+import { localeDefinitions } from "./lib/content/localization";
 import { getPreviewRoutes, getPublicRoutes } from "./lib/content/schema";
 
 const rootDirectory = fileURLToPath(new URL(".", import.meta.url));
@@ -27,6 +28,7 @@ export default defineNuxtConfig({
     "./modules/site-content",
     "@nuxt/image",
     "@nuxt/eslint",
+    "@nuxtjs/i18n",
     "@nuxtjs/robots",
     "@nuxtjs/sitemap",
     "nuxt-schema-org",
@@ -37,9 +39,16 @@ export default defineNuxtConfig({
     description: websiteCopy.site.description,
     defaultLocale: websiteCopy.site.defaultLocale,
   },
+  i18n: {
+    baseUrl: websiteCopy.site.url,
+    defaultLocale: "en",
+    strategy: "prefix_except_default",
+    detectBrowserLanguage: false,
+    customRoutes: "meta",
+    locales: localeDefinitions,
+  },
   app: {
     head: {
-      htmlAttrs: { lang: "en" },
       meta: [
         { name: "theme-color", content: websiteCopy.site.themeColor },
         {

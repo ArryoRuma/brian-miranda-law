@@ -5,7 +5,12 @@ import MarkdownIt from "markdown-it";
 import { parse } from "yaml";
 import { z } from "zod";
 import { siteContentSchema, type SiteContent } from "./schema";
-import { createLocalizedContent, locales, type Locale } from "./localization";
+import {
+  createLocalizedContent,
+  locales,
+  type Locale,
+  type TranslationOverlay,
+} from "./localization";
 
 const text = z.string().trim().min(1);
 const slug = text.regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
@@ -80,6 +85,17 @@ const markdown = new MarkdownIt({
   linkify: true,
   typographer: true,
 });
+
+const translationEntrySchema = z
+  .object({
+    source: z.string().min(1),
+    value: z.string().trim().min(1),
+  })
+  .strict();
+const translationOverlayFileSchema = z.record(
+  z.string().min(1),
+  translationEntrySchema
+);
 
 type ContentRecord = Record<string, unknown>;
 
@@ -177,6 +193,106 @@ function readRecordDirectory(
     recordSources.set(key, relative(rootDirectory, filePath));
   }
   return records;
+}
+
+function listYamlFiles(directoryPath: string, prefix = ""): string[] {
+  return readdirSync(directoryPath, { withFileTypes: true }).flatMap(entry => {
+    const relativePath = join(prefix, entry.name);
+    const absolutePath = join(directoryPath, entry.name);
+    if (entry.isDirectory()) return listYamlFiles(absolutePath, relativePath);
+    return entry.isFile() && entry.name.endsWith(".yml") ? [relativePath] : [];
+  });
+}
+
+function getOverlayBasePaths(rootDirectory: string, contentDirectory: string) {
+  const basePaths = new Map<string, string[]>([
+    ["shared.yml", ["site"]],
+    ["home.yml", ["home"]],
+    ["blog.yml", ["blog"]],
+    ["contact-page.yml", ["contactPage"]],
+    ["questionnaire.yml", ["questionnaire"]],
+    ["next-steps.yml", ["nextSteps"]],
+    ["error-404.yml", ["error404"]],
+  ]);
+
+  for (const directoryName of ["pages", "resources", "legal"] as const) {
+    const directoryPath = join(contentDirectory, directoryName);
+    for (const fileName of readdirSync(directoryPath)
+      .filter(name => name.endsWith(".yml"))
+      .sort()) {
+      const filePath = join(directoryPath, fileName);
+      const record = readYamlRecord(rootDirectory, filePath);
+      const keys = Object.keys(record);
+      if (keys.length !== 1 || !keys[0]) {
+        throw new Error(
+          `${relative(rootDirectory, filePath)} must contain exactly one content record`
+        );
+      }
+      basePaths.set(join(directoryName, fileName), [directoryName, keys[0]]);
+    }
+  }
+  return basePaths;
+}
+
+export function loadTranslationOverlay(
+  rootDirectory: string,
+  locale: Exclude<Locale, "en">
+): TranslationOverlay {
+  const contentDirectory = join(rootDirectory, "content", "site");
+  const overlayDirectory = join(contentDirectory, "localization", locale);
+  if (!existsSync(overlayDirectory)) {
+    throw new Error(
+      `Required translation directory is missing: ${relative(rootDirectory, overlayDirectory)}`
+    );
+  }
+
+  const basePaths = getOverlayBasePaths(rootDirectory, contentDirectory);
+  const overlay: TranslationOverlay = {};
+  const sources = new Map<string, string>();
+  const relativeFiles = listYamlFiles(overlayDirectory).sort((left, right) =>
+    left.localeCompare(right)
+  );
+  if (!relativeFiles.length) {
+    throw new Error(
+      `Translation directory has no YAML overlays: ${relative(rootDirectory, overlayDirectory)}`
+    );
+  }
+
+  for (const relativeFile of relativeFiles) {
+    const basePath = basePaths.get(relativeFile);
+    const filePath = join(overlayDirectory, relativeFile);
+    const displayPath = relative(rootDirectory, filePath);
+    if (!basePath) {
+      throw new Error(`Unknown ${locale} translation overlay: ${displayPath}`);
+    }
+    const parsed = translationOverlayFileSchema.safeParse(
+      readYamlRecord(rootDirectory, filePath)
+    );
+    if (!parsed.success) {
+      throw new Error(
+        `Invalid ${locale} translation overlay ${displayPath}: ${parsed.error.message}`
+      );
+    }
+
+    for (const [relativeFieldPath, entry] of Object.entries(parsed.data)) {
+      const fieldSegments = relativeFieldPath.split(".");
+      if (fieldSegments.some(segment => !segment)) {
+        throw new Error(
+          `Invalid ${locale} translation path "${relativeFieldPath}" in ${displayPath}`
+        );
+      }
+      const fieldPath = [...basePath, ...fieldSegments].join(".");
+      if (sources.has(fieldPath)) {
+        throw new Error(
+          `Duplicate ${locale} translation path "${fieldPath}" in ${sources.get(fieldPath)} and ${displayPath}`
+        );
+      }
+      overlay[fieldPath] = { ...entry, file: displayPath };
+      sources.set(fieldPath, displayPath);
+    }
+  }
+
+  return overlay;
 }
 
 function parseBlogPostContent(source: string) {
@@ -296,16 +412,6 @@ export function loadSiteContent(rootDirectory: string): SiteContent {
         rootDirectory,
         join(contentDirectory, "localization", "review.yml")
       ),
-      translations: {
-        es: readYamlRecord(
-          rootDirectory,
-          join(contentDirectory, "localization", "es.yml")
-        ),
-        pt: readYamlRecord(
-          rootDirectory,
-          join(contentDirectory, "localization", "pt.yml")
-        ),
-      },
     },
   };
 
@@ -325,7 +431,7 @@ export function loadRepositoryContent(rootDirectory: string): {
       createLocalizedContent(
         siteCopy,
         locale,
-        locale === "en" ? {} : siteCopy.localization.translations[locale]
+        locale === "en" ? {} : loadTranslationOverlay(rootDirectory, locale)
       ),
     ])
   ) as Record<Locale, SiteContent>;

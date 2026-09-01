@@ -1,0 +1,150 @@
+seo.title:
+  source: Estate Planning Checklist
+  value: Lista de verificación de planificación patrimonial
+seo.description:
+  source: Prepare for an estate-planning consultation with a practical checklist covering family, documents, property, decision-makers, and questions.
+  value: Prepárese para una consulta de planificación patrimonial con una lista de verificación práctica que cubre familia, documentos, propiedades, responsables de la toma de decisiones y preguntas.
+hero.eyebrow:
+  source: Estate planning checklist
+  value: Lista de verificación de planificación patrimonial
+hero.title:
+  source: Gather what you can.
+  value: Reúna todo lo que pueda.
+hero.accent:
+  source: Bring the questions you still have.
+  value: Traiga las preguntas que aún tenga.
+hero.lead:
+  source: You do not need every account number or every decision before a consultation. This checklist helps you collect the information that can make the conversation more productive.
+  value: No necesita tener cada número de cuenta o cada decisión resuelta antes de una consulta. Esta lista de verificación le ayuda a recopilar la información que puede hacer que la conversación sea más productiva.
+hero.secondaryLabel:
+  source: Read the FAQs
+  value: Leer las preguntas frecuentes
+intro.eyebrow:
+  source: Preparation guide
+  value: Guía de preparación
+intro.title:
+  source: Use this as a working list—not a test.
+  value: Utilice esto como una lista de trabajo, no como un examen.
+intro.body:
+  source: Check what is easy to gather. Make a note beside anything you cannot find or do not understand. Those gaps are useful topics for the consultation.
+  value: Verifique qué es fácil de reunir. Tome nota junto a cualquier elemento que no pueda encontrar o que no comprenda. Esos vacíos son temas útiles para la consulta.
+groups.0.title:
+  source: People and family
+  value: Personas y familia
+groups.0.items.0:
+  source: Legal names and contact information for close family members
+  value: Nombres legales e información de contacto de los familiares cercanos
+groups.0.items.1:
+  source: Children, stepchildren, and anyone who depends on you
+  value: Hijos, hijastros y cualquier persona que dependa de usted
+groups.0.items.2:
+  source: People you may trust as executor, trustee, agent, or health care representative
+  value: Personas en las que pueda confiar como albacea, fiduciario, agente o representante de atención médica
+groups.0.items.3:
+  source: Backup choices if a first choice cannot serve
+  value: Opciones de respaldo en caso de que la primera opción no pueda ejercer el cargo
+groups.1.title:
+  source: Existing documents
+  value: Documentos existentes
+groups.1.items.0:
+  source: Current wills, trusts, powers of attorney, and health care directives
+  value: Testamentos, fideicomisos, poderes notariales y directivas de atención médica vigentes
+groups.1.items.1:
+  source: Prenuptial, postnuptial, divorce, or separation agreements that may affect planning
+  value: Acuerdos prenupciales, postnupciales, de divorcio o de separación que puedan afectar la planificación
+groups.1.items.2:
+  source: Business agreements or succession documents
+  value: Acuerdos comerciales o documentos de sucesión
+groups.1.items.3:
+  source: Any document you no longer understand or believe is out of date
+  value: Cualquier documento que ya no comprenda o que considere que está desactualizado
+groups.2.title:
+  source: Property and accounts
+  value: Propiedades y cuentas
+groups.2.items.0:
+  source: Homes, other real estate, and how each property is titled
+  value: Casas, otros bienes raíces y la titularidad de cada propiedad
+groups.2.items.1:
+  source: Bank, investment, and retirement accounts
+  value: Cuentas bancarias, de inversión y de jubilación
+groups.2.items.2:
+  source: Life insurance and current beneficiary designations
+  value: Seguros de vida y designaciones actuales de beneficiarios
+groups.2.items.3:
+  source: Business ownership, vehicles, and significant personal property
+  value: Propiedad de negocios, vehículos y bienes personales significativos
+groups.2.items.4:
+  source: Debts, mortgages, and other major obligations
+  value: Deudas, hipotecas y otras obligaciones importantes
+groups.3.title:
+  source: Your wishes
+  value: Sus deseos
+groups.3.items.0:
+  source: Who should receive property and whether any gifts need special handling
+  value: Quién debe recibir los bienes y si algún legado requiere un manejo especial
+groups.3.items.1:
+  source: Who should administer the estate
+  value: Quién debe administrar el patrimonio
+groups.3.items.2:
+  source: Who should care for minor children if a guardian is needed
+  value: Quién debería cuidar de los hijos menores si se requiere un tutor
+groups.3.items.3:
+  source: Whether property should be managed over time for a beneficiary
+  value: Si una propiedad debe ser administrada a lo largo del tiempo para un beneficiario
+groups.3.items.4:
+  source: Charitable gifts or personal items with special meaning
+  value: Donaciones caritativas o artículos personales con un significado especial
+groups.4.title:
+  source: Financial decision-making
+  value: Toma de decisiones financieras
+groups.4.items.0:
+  source: Who should handle financial and legal matters if you cannot
+  value: Quién debería encargarse de los asuntos financieros y legales en caso de que usted no pueda hacerlo
+groups.4.items.1:
+  source: What authority that person may need
+  value: Qué autoridad podría necesitar esa persona
+groups.4.items.2:
+  source: Who should serve as the backup agent
+  value: Quién debería actuar como agente suplente
+groups.4.items.3:
+  source: Any business, property, benefits, or family responsibilities the agent should understand
+  value: Cualquier negocio, propiedad, beneficio o responsabilidad familiar que el agente deba conocer
+groups.5.title:
+  source: Health care decisions
+  value: Decisiones de atención médica
+groups.5.items.0:
+  source: Who should serve as health care representative and alternate
+  value: Quién debe actuar como representante de atención médica y suplente
+groups.5.items.1:
+  source: Treatment preferences or values you want that person to understand
+  value: Preferencias de tratamiento o valores que desea que esa persona comprenda
+groups.5.items.2:
+  source: Physicians and family members who should receive a copy
+  value: Médicos y familiares que deberían recibir una copia
+groups.5.items.3:
+  source: Existing forms that may need review or replacement
+  value: Formularios existentes que pueden requerir revisión o reemplazo
+groups.6.title:
+  source: Questions for the consultation
+  value: Preguntas para la consulta
+groups.6.items.0:
+  source: What prompted you to consider planning now?
+  value: ¿Qué le motivó a considerar la planificación en este momento?
+groups.6.items.1:
+  source: What are you most concerned could become confusing or difficult?
+  value: ¿Qué es lo que más le preocupa que pueda volverse confuso o difícil?
+groups.6.items.2:
+  source: Are there family relationships or special needs the documents should account for?
+  value: ¿Existen relaciones familiares o necesidades especiales que los documentos deban contemplar?
+groups.6.items.3:
+  source: Which decisions are you ready to make, and which ones still feel uncertain?
+  value: ¿Qué decisiones está listo para tomar y cuáles aún siente que son inciertas?
+groups.6.items.4:
+  source: How soon do you need assistance?
+  value: ¿Con qué prontitud necesita asistencia?
+finalCta.title:
+  source: You do not need to finish the checklist before calling.
+  value: No es necesario completar la lista de verificación antes de llamar.
+finalCta.body:
+  source: A free initial consultation can help you decide what information matters and what can wait until later.
+  value: Una consulta inicial gratuita puede ayudarle a decidir qué información es importante y qué puede esperar hasta más adelante.

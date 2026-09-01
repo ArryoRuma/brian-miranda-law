@@ -26,7 +26,7 @@ The application has no production server, database, form handler, or required en
   - [Publish a blog article](#publish-a-blog-article)
 - [Blog publication gate](#blog-publication-gate)
 - [SEO, sitemap, robots, and structured data](#seo-sitemap-robots-and-structured-data)
-- [Multilingual questionnaire previews](#multilingual-questionnaire-previews)
+- [Localization](#localization)
 - [Styling](#styling)
 - [Static deployment](#static-deployment)
 - [Verification](#verification)
@@ -128,22 +128,24 @@ Generated `.nuxt`, `.output`, and cache files are ignored. Never edit them direc
 │   ├── components/                     # Reusable auto-imported Vue renderers
 │   ├── composables/
 │   │   ├── use-blog-posts.ts           # Approved generated blog records
-│   │   ├── use-page-seo.ts             # Canonical, robots, Open Graph, language
+│   │   ├── use-page-seo.ts             # i18n canonical, alternates, robots, social metadata
+│   │   ├── use-site-locale.ts          # Nuxt i18n paths and same-page switching
 │   │   └── use-site-copy.ts            # Typed generated YAML accessor
 │   ├── data/routes.ts                  # Phone, SMS, and WhatsApp URL helpers
 │   ├── error.vue                       # Content-managed 404/error page
 │   ├── layouts/default.vue             # Header, main landmark, footer
 │   ├── pages/
 │   │   ├── index.vue                   # Dedicated homepage composition
-│   │   ├── [...slug].vue               # Marketing/resource/legal/preview resolver
+│   │   ├── [...slug].vue               # Localized marketing/resource/legal resolver
 │   │   └── blog/                       # Conditional blog index and article page
+│   │   └── start/[locale]/              # Non-i18n questionnaire preview routes
 │   └── types/                          # Generated-module declaration and re-exports
 ├── content/
 │   ├── site/                           # Site identity, UI copy, and page records
 │   │   ├── pages/                      # One generic editorial record per file
 │   │   ├── resources/                  # FAQ, checklist, and video records
 │   │   ├── legal/                      # One policy record per file
-│   │   └── localization/               # Review metadata and locale dictionaries
+│   │   └── localization/               # Review metadata and page-scoped locale overlays
 │   └── blog/post-template.md.example   # Non-published article template
 ├── lib/content/
 │   ├── load-content.ts                 # File loading, Markdown, gate, asset checks
@@ -167,7 +169,7 @@ Generated `.nuxt`, `.output`, and cache files are ignored. Never edit them direc
 
 ### Current public routes
 
-The current YAML and specialized resource records derive these 17 indexed routes:
+The current YAML and specialized resource records derive these 17 English route shapes:
 
 ```text
 /
@@ -188,6 +190,8 @@ The current YAML and specialized resource records derive these 17 indexed routes
 /disclaimer
 /accessibility
 ```
+
+Nuxt i18n emits each route in English, Spanish, and Portuguese: English keeps the unprefixed URL, while Spanish and Portuguese use `/es` and `/pt`. The result is 51 indexed public routes with no `/en` routes. Browser-language redirect detection is disabled.
 
 `getStaticPageRoutes()` in `lib/content/schema.ts` derives this list from:
 
@@ -216,11 +220,12 @@ They are informational previews. They do not collect or transmit user data.
 1. The detailed `/contact` page.
 2. FAQ, checklist, and video resource pages.
 3. Legal pages.
-4. Questionnaire previews and next-step previews.
-5. Generic editorial records indexed by `pages.*.path`.
-6. A 404 for anything unresolved.
+4. Generic editorial records indexed by `pages.*.path`.
+5. A 404 for anything unresolved.
 
 Specialized paths must stay before the generic lookup. For example, `pages.contact` supplies the contact hero and metadata, while `ContactPageContent` supplies the detailed contact layout.
+
+Questionnaire and next-step previews use dedicated `app/pages/start/[locale]/` routes with `i18n: false`. They must not be routed through the localized catch-all or gain an `/es` or `/pt` prefix.
 
 ### Blog routes
 
@@ -232,9 +237,11 @@ The source includes file-based `/blog` and `/blog/:slug` pages, but the build ex
 
 When an approved post exists, the build automatically adds `/blog`, each approved article URL, navigation links, sitemap entries, and structured data.
 
+Blog pages are explicitly English-only. Do not enable localized blog routes until translated article bodies have a separate review and publication model.
+
 ## The YAML content source
 
-`content/site/` is the editing source for every non-article word displayed by the site. Each rendered page has a focused YAML file, while site-wide content and locale dictionaries remain shared. The loader assembles every fragment into one object before schema validation. Components should not introduce duplicate marketing copy when a reusable YAML field is appropriate.
+`content/site/` is the editing source for every non-article word displayed by the site. Each rendered English page has a focused YAML file. Spanish and Portuguese use matching page-scoped overlays under `content/site/localization/`. The loader assembles and validates English once, validates every overlay field against that source, and then creates the localized trees. Components should not introduce duplicate marketing copy when a reusable YAML field is appropriate.
 
 ### Top-level keys
 
@@ -328,7 +335,8 @@ The schema is intentionally fail-closed: an invalid edit stops development prepa
 
 1. Find the visible wording under `content/site/`. Generic, resource, and legal page files are grouped in their matching subdirectories; shared navigation, contact, breadcrumb, and footer copy is in `shared.yml`.
 2. Edit the existing value without changing its indentation or key unless the schema also changes.
-3. Run:
+3. Update the matching `source` in both locale overlay files and review the translated `value`. The build intentionally fails on a stale English source.
+4. Run:
 
    ```bash
    pnpm check
@@ -336,7 +344,7 @@ The schema is intentionally fail-closed: an invalid edit stops development prepa
    pnpm test:static
    ```
 
-4. Inspect the affected route at mobile and desktop widths.
+5. Inspect the English, Spanish, and Portuguese versions at mobile and desktop widths.
 
 If the build reports a Zod error, its `path` identifies the YAML key that failed validation.
 
@@ -346,7 +354,7 @@ Firm-wide facts live under `site`:
 
 - `site.contact` controls the firm name, attorney, email, primary phone, address, and map link.
 - `site.structuredData` controls postal and service-area facts used by Schema.org markup.
-- `site.navigation` controls menus and preview-language links.
+- `site.navigation` controls menus; Nuxt i18n creates locale-aware destinations and language-switch links.
 - `site.contactActions` controls call, text, WhatsApp, and email labels and priority.
 
 `phoneHref` must be an E.164 value such as `+19084241011`. Components normalize that one source into `tel:`, `sms:`, and `https://wa.me/` URLs.
@@ -407,9 +415,11 @@ Use this path when the page fits the shared hero, content-section, FAQ, and clos
 1. Add one new YAML file under `content/site/pages/` containing a single uniquely named record using the generic page shape.
 2. Use a normalized unique `path`.
 3. Add the route label under `site.breadcrumbs.labels`.
-4. Add navigation entries only where users should discover the page.
-5. Add the route to `public/agents.json` because it is a new advertised public page.
-6. Run `pnpm verify`.
+4. Add matching Spanish and Portuguese overlay files under `content/site/localization/{es,pt}/pages/`. Every translatable field needs a stable field-path entry with the exact English `source` and a reviewed translated `value`.
+5. Add the route to every locale's page map in `content/site/localization/review.yml` with its honest approval state.
+6. Add navigation entries only where users should discover the page.
+7. Add all three localized routes to `public/agents.json` because they are new advertised public pages.
+8. Run `pnpm verify`.
 
 No Vue page file and no prerender-list edit are needed. The catch-all resolver and `getStaticPageRoutes()` discover the record automatically.
 
@@ -489,33 +499,51 @@ Only qualifying posts enter the generated module. Markdown is converted to HTML 
 
 ## SEO, sitemap, robots, and structured data
 
-`usePageSeo()` provides:
+Nuxt i18n and `usePageSeo()` provide:
 
 - Page title and description.
-- Canonical URL based on `site.url`.
+- Canonical URL based on `site.url` and the current locale route.
+- `hreflang` alternates plus `x-default`.
 - Index/follow or noindex/nofollow directives.
 - Open Graph and Twitter metadata.
-- Correct `lang` and social locale values for previews.
+- Correct HTML language and Open Graph locale/alternate values.
 - Article publication and modification dates when applicable.
 
 Global Organization identity is configured in `nuxt.config.ts`. The homepage adds LegalService, Person, and FAQPage data. Published articles add BlogPosting data, and the blog index adds Blog data.
 
-The sitemap module runs at generation time. It excludes `/start/**`, `/404`, and an empty blog. Static tests assert that all 17 current public routes appear exactly once and that `public/agents.json` advertises the same set.
+The sitemap module runs at generation time and emits a locale sitemap index for `en-US`, `es-US`, and `pt-BR`. It excludes `/start/**`, `/404`, and an empty blog. Static tests assert that all 51 current public routes appear exactly once and that `public/agents.json` advertises the same set.
 
 `robots.txt` disallows `/start/`. Preview pages also set page-level noindex metadata, so the restriction does not depend on a single mechanism.
 
-## Multilingual questionnaire previews
+## Localization
 
-The site does not use a translation runtime. English, Spanish, and Portuguese preview content is explicitly stored under:
+`@nuxtjs/i18n` owns locale routing, localized internal links, same-page language switching, canonical/alternate links, HTML language, Open Graph locale metadata, and sitemap locale integration. The strategy is `prefix_except_default`: English has no prefix; Spanish uses `/es`; Portuguese uses `/pt`. Browser detection is disabled.
+
+Structured copy remains Zod-validated YAML rather than Vue `$t()` messages. English is the source under `content/site/`. Spanish and Portuguese live in matching overlay directories:
+
+```text
+content/site/localization/es/
+content/site/localization/pt/
+```
+
+Each overlay file mirrors its English fragment and uses stable field paths:
+
+```yaml
+hero.title:
+  source: Protect What You’ve Built.
+  value: Proteja lo que ha construido.
+```
+
+The loader rejects malformed overlay files, unknown files and paths, missing fields, blank values, duplicates, and any `source` that no longer exactly matches English. When English changes, update the corresponding overlay `source`, have the `value` reviewed, and record the truthful page status in `content/site/localization/review.yml`. Portuguese remains draft, so `pnpm verify:release` is expected to stop at that review gate.
+
+Questionnaire-specific choices and next-step bodies are explicitly stored under:
 
 ```text
 questionnaire.locales.{en,es,pt}
 nextSteps.locales.{en,es,pt}
 ```
 
-The locale is taken from the URL and passed to `usePageSeo()`, which sets the document language and locale-aware metadata. Keep all three locale shapes aligned. Stable next-step IDs must remain `documents`, `schedule`, and `communicate` in that order.
-
-Site-wide Spanish and Portuguese translations live in `content/site/localization/es.yml` and `content/site/localization/pt.yml`. They remain dictionaries keyed by the exact English source string so reused wording has one translation. Page-level approval state lives in `content/site/localization/review.yml`; run `pnpm verify:release` before a localized production release.
+These `/start/{locale}` routes are excluded from Nuxt i18n because the locale segment is part of their preview contract. Keep all three locale shapes aligned. Stable next-step IDs must remain `documents`, `schedule`, and `communicate` in that order.
 
 These are non-submitting previews. Adding a secure intake system is a separate legal, privacy, hosting, validation, spam-prevention, and data-retention project.
 
@@ -580,6 +608,7 @@ After generation, `pnpm test:static` checks:
 - An empty blog is not emitted.
 - `/contact` contains the detailed contact experience.
 - Sitemap and `agents.json` route sets agree.
+- Canonical, `hreflang`, `x-default`, HTML language, Open Graph locale, and same-page language switching are correct.
 - Preview routes are absent from the sitemap.
 - No SQLite or WASM runtime is shipped.
 
@@ -616,10 +645,16 @@ Check that:
 
 - Its YAML `path` is unique and normalized.
 - It is under the correct top-level collection.
+- Its matching Spanish and Portuguese overlay files exist and contain every expected field.
+- Its review record exists for every locale.
 - A generic or specialized resolver can render it.
 - Internal links target the exact path.
 - The route was added to `public/agents.json` if it is public.
 - `pnpm generate` created the expected `index.html`.
+
+### A translation overlay fails
+
+Use the file and field path in the loader error. A missing path means the English fragment gained translatable content; a stale source means English changed since the translation was reviewed; an unknown path usually means English removed or renamed a field. Update both `source` and `value` deliberately, then adjust `localization/review.yml` to reflect the real review state. Do not weaken the completeness or stale-source checks.
 
 ### A blog post is missing
 

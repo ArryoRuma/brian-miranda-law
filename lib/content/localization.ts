@@ -5,13 +5,19 @@ export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "en";
 
 export const localeMetadata = {
-  en: { label: "EN", language: "English", hreflang: "en-US", og: "en_US" },
-  es: { label: "ES", language: "Español", hreflang: "es-US", og: "es_US" },
-  pt: { label: "PT", language: "Português", hreflang: "pt-BR", og: "pt_BR" },
+  en: { label: "EN", name: "English", language: "en-US", og: "en_US" },
+  es: { label: "ES", name: "Español", language: "es-US", og: "es_US" },
+  pt: { label: "PT", name: "Português", language: "pt-BR", og: "pt_BR" },
 } as const satisfies Record<
   Locale,
-  { label: string; language: string; hreflang: string; og: string }
+  { label: string; name: string; language: string; og: string }
 >;
+
+export const localeDefinitions = locales.map(code => ({
+  code,
+  name: localeMetadata[code].name,
+  language: localeMetadata[code].language,
+}));
 
 export type TranslationReviewStatus = "approved" | "draft";
 
@@ -22,46 +28,13 @@ export type TranslationReview = {
   legalReviewRequired: boolean;
 };
 
-export type LocalizationConfig = {
-  review: Record<Locale, TranslationReview>;
-  translations: Record<"es" | "pt", Record<string, string>>;
+export type TranslationEntry = {
+  source: string;
+  value: string;
+  file?: string;
 };
 
-const questionnaireRoutePattern = /^\/start\/(en|es|pt)(?:\/|$)/;
-const publicLocalePattern = /^\/(es|pt)(?:\/|$)/;
-
-export function getRouteLocale(pathname: string): Locale {
-  const questionnaireLocale = pathname.match(questionnaireRoutePattern)?.[1];
-  if (questionnaireLocale && locales.includes(questionnaireLocale as Locale)) {
-    return questionnaireLocale as Locale;
-  }
-
-  const publicLocale = pathname.match(publicLocalePattern)?.[1];
-  return publicLocale === "es" || publicLocale === "pt" ? publicLocale : "en";
-}
-
-export function stripLocalePrefix(pathname: string): string {
-  if (pathname === "/es" || pathname === "/pt") return "/";
-  return pathname.replace(/^\/(?:es|pt)(?=\/)/, "") || "/";
-}
-
-export function getLocaleHomePath(locale: Locale): string {
-  return locale === defaultLocale ? "/" : `/${locale}`;
-}
-
-export function localizePath(pathname: string, locale: Locale): string {
-  if (
-    !pathname.startsWith("/") ||
-    pathname.startsWith("//") ||
-    pathname.startsWith("/start/")
-  ) {
-    return pathname;
-  }
-
-  const basePath = stripLocalePrefix(pathname);
-  if (locale === defaultLocale) return basePath;
-  return basePath === "/" ? `/${locale}` : `/${locale}${basePath}`;
-}
+export type TranslationOverlay = Record<string, TranslationEntry>;
 
 const nonTranslatableKeys = new Set([
   "url",
@@ -123,21 +96,18 @@ export function isTranslatableString(path: string[], value: unknown) {
   );
 }
 
-export function collectTranslatableStrings(value: unknown) {
-  const entries = new Map<string, string[]>();
+export function collectTranslatableFields(value: unknown) {
+  const entries = new Map<string, string>();
 
   function visit(item: unknown, path: string[] = []) {
     if (isTranslatableString(path, item)) {
-      const source = item as string;
-      entries.set(source, [...(entries.get(source) ?? []), path.join(".")]);
+      entries.set(path.join("."), item as string);
       return;
     }
-
     if (Array.isArray(item)) {
       item.forEach((child, index) => visit(child, [...path, String(index)]));
       return;
     }
-
     if (!item || typeof item !== "object") return;
     Object.entries(item).forEach(([key, child]) =>
       visit(child, [...path, key])
@@ -148,40 +118,61 @@ export function collectTranslatableStrings(value: unknown) {
   return entries;
 }
 
-function shouldLocalizeRoute(path: string[], key: string, value: string) {
-  if (!["href", "path", "secondaryHref"].includes(key)) return false;
-  if (!value.startsWith("/") || value.startsWith("/start/")) return false;
-  const joinedPath = path.join(".");
-  return !(
-    joinedPath.startsWith("site.navigation.languages.") ||
-    joinedPath.startsWith("home.languages.items.")
-  );
-}
-
 export function createLocalizedContent<T extends object>(
   source: T,
   locale: Locale,
-  translations: Record<string, string>
+  overlay: TranslationOverlay
 ): T {
+  if (locale === defaultLocale) return source;
+
+  const requiredFields = collectTranslatableFields(source);
+  for (const [path, sourceValue] of requiredFields) {
+    const entry = overlay[path];
+    if (!entry) throw new Error(`Missing ${locale} translation for ${path}`);
+    if (entry.source !== sourceValue) {
+      throw new Error(
+        `Stale ${locale} translation source for ${path} in ${entry.file ?? "translation overlay"}`
+      );
+    }
+    if (!entry.value.trim()) {
+      throw new Error(
+        `Blank ${locale} translation for ${path} in ${entry.file ?? "translation overlay"}`
+      );
+    }
+  }
+  for (const [path, entry] of Object.entries(overlay)) {
+    if (!requiredFields.has(path)) {
+      throw new Error(
+        `Unknown ${locale} translation path ${path} in ${entry.file ?? "translation overlay"}`
+      );
+    }
+  }
+
   function visit(item: unknown, path: string[] = []): unknown {
     if (isTranslatableString(path, item)) {
-      return locale === defaultLocale ? item : translations[item as string];
+      const fieldPath = path.join(".");
+      const entry = overlay[fieldPath];
+      if (!entry) {
+        throw new Error(`Missing ${locale} translation for ${fieldPath}`);
+      }
+      return entry.value;
     }
-
     if (Array.isArray(item)) {
       return item.map((child, index) => visit(child, [...path, String(index)]));
     }
-
     if (!item || typeof item !== "object") return item;
-
     return Object.fromEntries(
       Object.entries(item).map(([key, child]) => {
         const childPath = [...path, key];
         if (
           typeof child === "string" &&
-          shouldLocalizeRoute(path, key, child)
+          ["href", "path", "secondaryHref"].includes(key) &&
+          child.startsWith("/") &&
+          !child.startsWith("/start/") &&
+          !path.join(".").startsWith("site.navigation.languages.") &&
+          !path.join(".").startsWith("home.languages.items.")
         ) {
-          return [key, localizePath(child, locale)];
+          return [key, localizePublicPath(child, locale)];
         }
         return [key, visit(child, childPath)];
       })
@@ -197,33 +188,35 @@ export function createLocalizedContent<T extends object>(
       };
     };
   };
-
-  const languageHomes = locales.map(language => ({
-    ...localeMetadata[language],
-    href: getLocaleHomePath(language),
+  const languageHomes = locales.map(code => ({
+    label: localeMetadata[code].label,
+    language: localeMetadata[code].name,
+    href: localizePublicPath("/", code),
   }));
   if (localized.site?.navigation) {
-    localized.site.navigation.languages = languageHomes.map(item => ({
-      label: item.label,
-      language: item.language,
-      href: item.href,
-    }));
+    localized.site.navigation.languages = languageHomes;
   }
   if (localized.home?.languages) {
-    localized.home.languages.items = languageHomes.map(item => ({
-      label: item.label,
-      language: item.language,
-      href: item.href,
-    }));
+    localized.home.languages.items = languageHomes;
     localized.home.languages.questionnaireHref = `/start/${locale}`;
   }
 
   return localized;
 }
 
+export function localizePublicPath(pathname: string, locale: Locale) {
+  if (!pathname.startsWith("/") || pathname.startsWith("//")) return pathname;
+  if (locale === defaultLocale) return pathname;
+  return pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
+}
+
+export function normalizeContentRoutePath(pathname: string) {
+  return pathname.replace(/\/+$/, "") || "/";
+}
+
 export function getLocalizedPublicRoutes(
   englishRoutes: string[],
   locale: Locale
 ) {
-  return englishRoutes.map(route => localizePath(route, locale));
+  return englishRoutes.map(route => localizePublicPath(route, locale));
 }
