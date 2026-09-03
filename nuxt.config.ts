@@ -17,7 +17,7 @@ const publicRoutes = [
 
 export default defineNuxtConfig({
   compatibilityDate: "2026-08-01",
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   runtimeConfig: {
     public: {
       siteUrl: websiteCopy.site.url,
@@ -34,6 +34,7 @@ export default defineNuxtConfig({
     "nuxt-schema-org",
     "@nuxt/devtools",
     "nuxt-seo-utils",
+    "@nuxt/hints",
   ],
   site: {
     url: websiteCopy.site.url,
@@ -50,6 +51,7 @@ export default defineNuxtConfig({
     locales: localeDefinitions,
   },
   app: {
+    baseURL: "/brian-miranda-law/",
     head: {
       meta: [
         { name: "theme-color", content: websiteCopy.site.themeColor },
