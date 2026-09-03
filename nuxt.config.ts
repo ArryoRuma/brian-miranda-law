@@ -87,6 +87,7 @@ export default defineNuxtConfig({
     },
   },
   robots: {
+    robotsTxt: false,
     disallow: ["/start/"],
   },
   sitemap: {
@@ -120,8 +121,8 @@ export default defineNuxtConfig({
       routes: [
         ...publicRoutes,
         ...previewRoutes,
-        "/robots.txt",
-        "/sitemap.xml",
+        //"/robots.txt",
+        //"/sitemap.xml",
       ],
     },
   },
