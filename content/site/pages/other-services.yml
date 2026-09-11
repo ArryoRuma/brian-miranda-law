@@ -1,12 +1,12 @@
 otherServices:
   path: /other-services
   title: Other Legal Services
-  metaDescription: Miranda Law assists North Jersey clients with select real estate, corporate, litigation, municipal, immigration, and landlord-tenant matters.
+  metaDescription: Contact Miranda Law to ask whether the office can consider your legal matter.
   hero:
-    eyebrow: Other legal services
-    title: Practical counsel for
-    accent: the matters around the plan.
-    lead: In addition to estate planning, Miranda Law assists clients with select legal matters affecting property, business, immigration, and everyday disputes.
+    eyebrow: Additional legal matters
+    title: Start with a conversation.
+    accent: Ask whether the office can consider your matter.
+    lead: If you have a legal matter outside estate planning, contact Miranda Law to ask whether the office can consider it.
     secondaryHref: /contact
     secondaryLabel: Ask about your matter
   sections:
@@ -18,8 +18,8 @@ otherServices:
           body: Guidance for select residential and related property matters, from questions and documents through the next practical step.
         - title: Corporate Matters
           body: Counsel for select business questions and transactions where clear documentation and risk awareness matter.
-        - title: Civil Litigation & Defense
-          body: Representation in select civil disputes, with an early focus on the facts, available options, and proportionate next steps.
+        - title: Start with a Conversation
+          body: Contact the office to ask whether your legal matter is one Miranda Law can consider.
         - title: Municipal Matters
           body: Assistance with select matters handled through New Jersey municipal courts and local processes.
         - title: Immigration
@@ -28,9 +28,9 @@ otherServices:
           body: Guidance for select landlord-tenant questions and disputes involving rights, documents, and next steps.
       note: The availability of representation depends on the facts, timing, jurisdiction, and any conflicts. Contact the office so the legal team can determine whether the matter is one Miranda Law can consider.
     - type: narrative
-      eyebrow: A coordinated perspective
-      title: Legal matters rarely stay in one neat category.
+      eyebrow: A practical first step
+      title: Tell the office what brings you here.
       tone: blue
       body:
-        - A real estate transaction can affect an estate plan. A business interest may need to be considered alongside family goals. An immigration or litigation matter can change what requires attention first.
+        - Share the basics of your legal question with the office. The legal team can determine whether the matter is one Miranda Law can consider and discuss the next step.
         - Miranda Law begins by understanding the immediate issue and its connection to the rest of the client's legal picture.

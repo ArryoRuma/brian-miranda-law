@@ -22,16 +22,16 @@ en:
     "/disclaimer": approved
     "/accessibility": approved
 es:
-  status: approved
+  status: draft
   variant: es-US
   fluentReviewRequired: true
   legalReviewRequired: true
   pages:
-    "/": approved
+    "/": draft
     "/estate-planning": approved
-    "/about": approved
+    "/about": draft
     "/resources": approved
-    "/other-services": approved
+    "/other-services": draft
     "/contact": approved
     "/estate-planning/wills": approved
     "/estate-planning/trusts": approved

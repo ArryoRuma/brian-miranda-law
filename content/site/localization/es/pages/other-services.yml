@@ -2,20 +2,20 @@ title:
   source: Other Legal Services
   value: Otros servicios legales
 metaDescription:
-  source: Miranda Law assists North Jersey clients with select real estate, corporate, litigation, municipal, immigration, and landlord-tenant matters.
-  value: Miranda Law asiste a clientes del norte de New Jersey con asuntos selectos de bienes raíces, corporativos, litigios, municipales, inmigración y de arrendador-inquiliente.
+  source: Contact Miranda Law to ask whether the office can consider your legal matter.
+  value: Comuníquese con Miranda Law para consultar si el despacho puede considerar su asunto legal.
 hero.eyebrow:
-  source: Other legal services
-  value: Otros servicios legales
+  source: Additional legal matters
+  value: Asuntos legales adicionales
 hero.title:
-  source: Practical counsel for
-  value: Asesoramiento práctico para
+  source: Start with a conversation.
+  value: Comience con una conversación.
 hero.accent:
-  source: the matters around the plan.
-  value: los asuntos relacionados con el plan.
+  source: Ask whether the office can consider your matter.
+  value: Consulte si el despacho puede considerar su asunto.
 hero.lead:
-  source: In addition to estate planning, Miranda Law assists clients with select legal matters affecting property, business, immigration, and everyday disputes.
-  value: Además de la planificación patrimonial, Miranda Law asiste a los clientes con asuntos legales selectos que afectan la propiedad, los negocios, la inmigración y las disputas cotidianas.
+  source: If you have a legal matter outside estate planning, contact Miranda Law to ask whether the office can consider it.
+  value: Si tiene un asunto legal fuera de la planificación patrimonial, comuníquese con Miranda Law para consultar si el despacho puede considerarlo.
 hero.secondaryLabel:
   source: Ask about your matter
   value: Consúltenos sobre su asunto
@@ -38,11 +38,11 @@ sections.0.cards.1.body:
   source: Counsel for select business questions and transactions where clear documentation and risk awareness matter.
   value: Asesoramiento para preguntas y transacciones comerciales selectas donde la documentación clara y la conciencia del riesgo son fundamentales.
 sections.0.cards.2.title:
-  source: Civil Litigation & Defense
-  value: Litigios Civiles y Defensa
+  source: Start with a Conversation
+  value: Comience con una conversación
 sections.0.cards.2.body:
-  source: Representation in select civil disputes, with an early focus on the facts, available options, and proportionate next steps.
-  value: Representación en disputas civiles selectas, con un enfoque inicial en los hechos, las opciones disponibles y los pasos proporcionales a seguir.
+  source: Contact the office to ask whether your legal matter is one Miranda Law can consider.
+  value: Comuníquese con el despacho para consultar si su asunto legal es uno que Miranda Law puede considerar.
 sections.0.cards.3.title:
   source: Municipal Matters
   value: Asuntos Municipales
@@ -65,14 +65,14 @@ sections.0.note:
   source: The availability of representation depends on the facts, timing, jurisdiction, and any conflicts. Contact the office so the legal team can determine whether the matter is one Miranda Law can consider.
   value: La disponibilidad de representación depende de los hechos, el tiempo, la jurisdicción y cualquier conflicto de interés. Comuníquese con la oficina para que el equipo legal pueda determinar si el asunto es uno que Miranda Law puede considerar.
 sections.1.eyebrow:
-  source: A coordinated perspective
-  value: Una perspectiva coordinada
+  source: A practical first step
+  value: Un primer paso práctico
 sections.1.title:
-  source: Legal matters rarely stay in one neat category.
-  value: Los asuntos legales rara vez permanecen en una sola categoría definida.
+  source: Tell the office what brings you here.
+  value: Cuéntele al despacho qué le trae por aquí.
 sections.1.body.0:
-  source: A real estate transaction can affect an estate plan. A business interest may need to be considered alongside family goals. An immigration or litigation matter can change what requires attention first.
-  value: Una transacción inmobiliaria puede afectar un plan de planificación patrimonial. Un interés comercial puede requerir ser considerado junto con los objetivos familiares. Un asunto de inmigración o litigio puede cambiar lo que requiere atención prioritaria.
+  source: Share the basics of your legal question with the office. The legal team can determine whether the matter is one Miranda Law can consider and discuss the next step.
+  value: Comparta con el despacho la información básica sobre su pregunta legal. El equipo legal puede determinar si Miranda Law puede considerar el asunto y conversar sobre el próximo paso.
 sections.1.body.1:
   source: Miranda Law begins by understanding the immediate issue and its connection to the rest of the client's legal picture.
   value: Miranda Law comienza comprendiendo el problema inmediato y su conexión con el resto del panorama legal del cliente.

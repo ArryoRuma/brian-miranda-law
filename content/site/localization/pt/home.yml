@@ -218,8 +218,8 @@ about.title:
   source: Meet Brian Miranda
   value: Conheça Brian Miranda
 about.body:
-  source: "Brian Miranda helps individuals and families throughout New Jersey handle important legal decisions with clear, straightforward guidance. His approach to estate planning is simple: understand what matters to you, explain your options clearly, and help you put the proper documents in place."
-  value: "Brian Miranda ajuda indivíduos e famílias em todo o New Jersey a lidar com decisões jurídicas importantes com orientação clara e direta. Sua abordagem ao planejamento patrimonial é simples: entender o que é importante para você, explicar suas opções de forma clara e ajudá-lo a estabelecer os documentos adequados."
+  source: "Brian Miranda grew up in Hillside, New Jersey, where his blue-collar parents taught him the value of hard work. He also worked in construction with his father and uncle. Brian grew up bilingual and learned English as a second language. That experience gives him a personal understanding of how much clear communication matters when legal issues feel unfamiliar. He earned a Bachelor of Science in Business Administration from Seton Hall University and a Juris Doctor from New York Law School. He is admitted to practice in New Jersey, New York, and the U.S. District Court for the District of New Jersey."
+  value: "Brian Miranda cresceu em Hillside, New Jersey, onde seus pais, da classe trabalhadora, lhe ensinaram o valor do trabalho árduo. Ele também trabalhou na construção civil com o pai e o tio. Brian cresceu falando dois idiomas e aprendeu inglês como segunda língua. Essa experiência lhe permite compreender, por vivência própria, o quanto a comunicação clara é importante quando se está diante de questões jurídicas pouco familiares. Obteve um Bachelor of Science in Business Administration pela Seton Hall University e um Juris Doctor pela New York Law School. É habilitado a exercer a advocacia em New Jersey e New York, bem como perante o U.S. District Court for the District of New Jersey."
 about.linkLabel:
   source: Meet Brian
   value: Conheça Brian
@@ -242,26 +242,26 @@ languages.questionnaireLabel:
   source: Preview the estate planning questionnaire
   value: Visualize o questionário de planejamento patrimonial
 otherServices.eyebrow:
-  source: Other legal services
-  value: Outros serviços jurídicos
+  source: Additional legal matters
+  value: Questões jurídicas adicionais
 otherServices.title:
-  source: More Than Estate Planning
-  value: Mais do que Planejamento Patrimonial
+  source: Questions beyond estate planning?
+  value: Dúvidas além do planejamento patrimonial?
 otherServices.body:
-  source: "Need help with something else? Miranda Law also assists clients with select matters involving:"
-  value: "Precisa de ajuda com algo mais? A Miranda Law também auxilia clientes em questões selecionadas envolvendo:"
+  source: If you have a legal question outside estate planning, contact Miranda Law to ask whether the office can consider your matter.
+  value: Se você tiver uma questão jurídica fora do planejamento patrimonial, entre em contato com a Miranda Law para saber se o escritório pode analisá-la.
 otherServices.items.0:
-  source: Real Estate
-  value: Setor Imobiliário
+  source: Tell us what brings you here
+  value: Conte-nos o que o trouxe até aqui
 otherServices.items.1:
-  source: Immigration
-  value: Imigração
+  source: Ask whether the office can help
+  value: Pergunte se o escritório pode ajudar
 otherServices.items.2:
-  source: Litigation
-  value: Contencioso
+  source: Discuss the next step
+  value: Converse sobre a próxima etapa
 otherServices.linkLabel:
-  source: View All Legal Services
-  value: Ver Todos os Serviços Jurídicos
+  source: Ask about your matter
+  value: Consulte-nos sobre sua questão
 reviews.eyebrow:
   source: Testimonials & Reviews
   value: Depoimentos e Avaliações

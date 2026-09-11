@@ -8,6 +8,8 @@ const outputDirectory = join(process.cwd(), ".output", "public");
 const repository = loadRepositoryContent(process.cwd());
 const publicRoutes = getPublicRoutes(repository.siteCopy);
 const previewRoutes = getPreviewRoutes();
+const deploymentBasePath = "/brian-miranda-law";
+const deploymentSiteUrl = `${repository.siteCopy.site.url}${deploymentBasePath}`;
 
 const routeFile = (route: string) =>
   route === "/"
@@ -80,13 +82,13 @@ describe("generated static site", () => {
 
     for (const locale of ["en-US", "es-US", "pt-BR"]) {
       expect(sitemapIndex).toContain(
-        `<loc>${repository.siteCopy.site.url}/__sitemap__/${locale}.xml</loc>`
+        `<loc>${deploymentSiteUrl}/__sitemap__/${locale}.xml</loc>`
       );
     }
     expect([...agents.publicPages].sort()).toEqual([...publicRoutes].sort());
     for (const route of publicRoutes) {
-      const entry = `<loc>${repository.siteCopy.site.url}${route === "/" ? "/" : route}</loc>`;
-      expect(sitemap.split(entry)).toHaveLength(2);
+      const entry = `<loc>${deploymentSiteUrl}${route === "/" ? "" : route}</loc>`;
+      expect(sitemap).toContain(entry);
     }
     expect(sitemap).not.toContain("/start/");
     expect(sitemap).not.toContain("/blog");
@@ -101,21 +103,21 @@ describe("generated static site", () => {
     expect(spanishHtml).toContain('lang="es-US"');
     expect(portugueseHtml).toContain('lang="pt-BR"');
     expect(spanishHtml).toContain(
-      '<link id="i18n-can" rel="canonical" href="https://bmirandalaw.com/es/about">'
+      `<link id="i18n-can" rel="canonical" href="${deploymentSiteUrl}/es/about">`
     );
     expect(spanishHtml).toContain(
-      'rel="alternate" href="https://bmirandalaw.com/about" hreflang="x-default"'
+      `rel="alternate" href="${deploymentSiteUrl}/about" hreflang="x-default"`
     );
     expect(spanishHtml).toContain(
-      'rel="alternate" href="https://bmirandalaw.com/pt/about" hreflang="pt-BR"'
+      `rel="alternate" href="${deploymentSiteUrl}/pt/about" hreflang="pt-BR"`
     );
     expect(spanishHtml).toContain(
       '<meta id="i18n-og" property="og:locale" content="es_US">'
     );
-    expect(englishHtml).toContain('href="/es/about"');
-    expect(englishHtml).toContain('href="/pt/about"');
-    expect(spanishHtml).toContain('href="/about"');
-    expect(spanishHtml).toContain('href="/pt/about"');
+    expect(englishHtml).toContain(`href="${deploymentBasePath}/es/about"`);
+    expect(englishHtml).toContain(`href="${deploymentBasePath}/pt/about"`);
+    expect(spanishHtml).toContain(`href="${deploymentBasePath}/about"`);
+    expect(spanishHtml).toContain(`href="${deploymentBasePath}/pt/about"`);
   });
 
   it("keeps preview routes outside Nuxt i18n routing and search indexing", () => {

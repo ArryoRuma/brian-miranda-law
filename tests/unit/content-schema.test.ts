@@ -73,7 +73,14 @@ describe("site content schema", () => {
       "trusts",
       "wills",
     ]);
-    expect(repository.siteCopy.localization.review.es.status).toBe("approved");
+    expect(repository.siteCopy.localization.review.es.status).toBe("draft");
+    expect(repository.siteCopy.localization.review.es.pages["/"]).toBe("draft");
+    expect(repository.siteCopy.localization.review.es.pages["/about"]).toBe(
+      "draft"
+    );
+    expect(
+      repository.siteCopy.localization.review.es.pages["/other-services"]
+    ).toBe("draft");
     expect(repository.siteCopy.localization.review.pt.status).toBe("draft");
     expect(repository.siteCopyByLocale.es.pages.about.title).toBe(
       "Acerca de Brian Miranda"
@@ -116,8 +123,8 @@ describe("site content schema", () => {
         .digest("hex");
 
     expect({ es: digest("es"), pt: digest("pt") }).toEqual({
-      es: "a8ca8d2b8b3d6bcd4ca2e886fbac458ca9f16283f70421e900f04c42f3aa3bec",
-      pt: "32794f6ca3aefca9dadd04337635416c9bda4e2566bc13858896527a10d50301",
+      es: "5cb8e4fc85e966b163e4907463402427e2715fc74b9d7cfd10df91119845f977",
+      pt: "6316160e0a4096ce885ac6bc6fd9079cccfa571d0edf99ed104845cd05f108ad",
     });
   });
 

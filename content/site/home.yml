@@ -111,7 +111,7 @@ home:
     mark: BM
     eyebrow: Meet Brian Miranda
     title: Meet Brian Miranda
-    body: "Brian Miranda helps individuals and families throughout New Jersey handle important legal decisions with clear, straightforward guidance. His approach to estate planning is simple: understand what matters to you, explain your options clearly, and help you put the proper documents in place."
+    body: "Brian Miranda grew up in Hillside, New Jersey, where his blue-collar parents taught him the value of hard work. He also worked in construction with his father and uncle. Brian grew up bilingual and learned English as a second language. That experience gives him a personal understanding of how much clear communication matters when legal issues feel unfamiliar. He earned a Bachelor of Science in Business Administration from Seton Hall University and a Juris Doctor from New York Law School. He is admitted to practice in New Jersey, New York, and the U.S. District Court for the District of New Jersey."
     linkLabel: Meet Brian
     href: /about
   languages:
@@ -133,14 +133,14 @@ home:
     questionnaireLabel: Preview the estate planning questionnaire
     questionnaireHref: /start/en
   otherServices:
-    eyebrow: Other legal services
-    title: More Than Estate Planning
-    body: "Need help with something else? Miranda Law also assists clients with select matters involving:"
+    eyebrow: Additional legal matters
+    title: Questions beyond estate planning?
+    body: If you have a legal question outside estate planning, contact Miranda Law to ask whether the office can consider your matter.
     items:
-      - Real Estate
-      - Immigration
-      - Litigation
-    linkLabel: View All Legal Services
+      - Tell us what brings you here
+      - Ask whether the office can help
+      - Discuss the next step
+    linkLabel: Ask about your matter
     href: /other-services
   reviews:
     eyebrow: Testimonials & Reviews

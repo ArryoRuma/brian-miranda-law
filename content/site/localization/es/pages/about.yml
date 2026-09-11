@@ -14,8 +14,8 @@ hero.accent:
   source: clear, personal, and useful.
   value: clara, personal y útil.
 hero.lead:
-  source: Brian M. Miranda, Esq. leads a North Jersey practice built around direct communication, practical next steps, and long-term client relationships.
-  value: Brian M. Miranda, Esq. lidera una práctica en North Jersey basada en la comunicación directa, pasos prácticos a seguir y relaciones a largo plazo con los clientes.
+  source: Brian Miranda is from Hillside, New Jersey. His approach to legal guidance is shaped by the work ethic he learned from his blue-collar parents and by the practical experience he gained working construction alongside his father and uncle.
+  value: Brian Miranda es oriundo de Hillside, New Jersey. Su enfoque de la orientación legal está definido por la ética de trabajo que aprendió de sus padres de clase trabajadora y por la experiencia práctica que adquirió trabajando en la construcción junto a su padre y su tío.
 hero.imageAlt:
   source: A linen-bound planning book with organized legal documents
   value: Un libro de planificación encuadernado en lino con documentos legales organizados
@@ -23,17 +23,17 @@ hero.secondaryLabel:
   source: Explore estate planning
   value: Explore la planificación patrimonial
 sections.0.eyebrow:
-  source: The practice
-  value: La práctica
+  source: A Hillside foundation
+  value: Una base en Hillside
 sections.0.title:
-  source: A steady point of contact for important legal decisions.
-  value: Un punto de contacto estable para decisiones legales importantes.
+  source: Hard work, clear guidance, and a personal perspective.
+  value: Trabajo duro, orientación clara y una perspectiva personal.
 sections.0.body.0:
-  source: Miranda Law works with individuals and families who want straightforward explanations and a plan they can understand. The estate-planning process is designed to turn broad concerns—about family, property, health, and the future—into a practical set of decisions.
-  value: Miranda Law trabaja con individuos y familias que desean explicaciones directas y un plan que puedan entender. El proceso de planificación patrimonial está diseñado para convertir inquietudes generales —sobre la familia, la propiedad, la salud y el futuro— en un conjunto práctico de decisiones.
+  source: Brian Miranda grew up in Hillside, New Jersey, in a blue-collar family where hard work was a daily example. He worked in construction with his father and uncle. Brian grew up bilingual and learned English as a second language. That experience gives him a personal understanding of how much clear communication matters when legal issues feel unfamiliar.
+  value: Brian Miranda creció en Hillside, New Jersey, en una familia de clase trabajadora donde el trabajo duro era un ejemplo cotidiano. Trabajó en la construcción con su padre y su tío. Brian creció siendo bilingüe y aprendió inglés como segundo idioma. Esa experiencia le permite comprender, desde una perspectiva personal, cuánto importa la comunicación clara cuando los asuntos legales resultan poco familiares.
 sections.0.body.1:
-  source: The firm also assists with select real estate, corporate, civil litigation and defense, municipal, immigration, and landlord-tenant matters.
-  value: La firma también brinda asistencia en asuntos selectos de bienes raíces, corporativos, litigio civil y defensa, municipales, inmigración y de arrendador-inquilino.
+  source: He earned a Bachelor of Science in Business Administration from Seton Hall University and a Juris Doctor from New York Law School. He is admitted to practice in New Jersey, New York, and the U.S. District Court for the District of New Jersey.
+  value: Obtuvo un Bachelor of Science in Business Administration de Seton Hall University y un Juris Doctor de New York Law School. Está autorizado para ejercer la abogacía en New Jersey y New York, así como ante el Tribunal de Distrito de los Estados Unidos para el Distrito de New Jersey.
 sections.1.eyebrow:
   source: What clients can expect
   value: Lo que los clientes pueden esperar
