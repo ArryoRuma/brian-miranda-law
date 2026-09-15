@@ -5,107 +5,86 @@ metaDescription:
   source: Meet Brian M. Miranda, Esq. and learn about Miranda Law's clear, responsive, multilingual approach to serving North Jersey families.
   value: Conozca a Brian M. Miranda, Esq. y aprenda sobre el enfoque claro, receptivo y multilingüe de Miranda Law para servir a las familias de North Jersey.
 hero.eyebrow:
+  source: About Brian
+  value: Acerca de Brian
+hero.title:
   source: Meet Brian Miranda
   value: Conozca a Brian Miranda
-hero.title:
-  source: Legal guidance should feel
-  value: La orientación legal debe sentirse
-hero.accent:
-  source: clear, personal, and useful.
-  value: clara, personal y útil.
 hero.lead:
-  source: Brian Miranda is from Hillside, New Jersey. His approach to legal guidance is shaped by the work ethic he learned from his blue-collar parents and by the practical experience he gained working construction alongside his father and uncle.
-  value: Brian Miranda es oriundo de Hillside, New Jersey. Su enfoque de la orientación legal está definido por la ética de trabajo que aprendió de sus padres de clase trabajadora y por la experiencia práctica que adquirió trabajando en la construcción junto a su padre y su tío.
+  source: Brian M. Miranda, Esq. helps North Jersey individuals and families with estate planning. His approach is personal and practical, with clear explanations and service available in English, Spanish, and Portuguese.
+  value: Brian M. Miranda, Esq. ayuda a personas y familias del norte de New Jersey con la planificación patrimonial. Su enfoque es personal y práctico, con explicaciones claras y atención disponible en inglés, español y portugués.
 hero.imageAlt:
-  source: A linen-bound planning book with organized legal documents
-  value: Un libro de planificación encuadernado en lino con documentos legales organizados
+  source: Brian M. Miranda, Esq.
+  value: Brian M. Miranda, Esq.
 hero.secondaryLabel:
-  source: Explore estate planning
-  value: Explore la planificación patrimonial
-sections.0.eyebrow:
-  source: A Hillside foundation
-  value: Una base en Hillside
+  source: Schedule a Free Initial Consultation
+  value: Programe una consulta inicial gratuita
 sections.0.title:
-  source: Hard work, clear guidance, and a personal perspective.
-  value: Trabajo duro, orientación clara y una perspectiva personal.
+  source: A Hillside foundation.
+  value: Sus raíces en Hillside.
 sections.0.body.0:
-  source: Brian Miranda grew up in Hillside, New Jersey, in a blue-collar family where hard work was a daily example. He worked in construction with his father and uncle. Brian grew up bilingual and learned English as a second language. That experience gives him a personal understanding of how much clear communication matters when legal issues feel unfamiliar.
-  value: Brian Miranda creció en Hillside, New Jersey, en una familia de clase trabajadora donde el trabajo duro era un ejemplo cotidiano. Trabajó en la construcción con su padre y su tío. Brian creció siendo bilingüe y aprendió inglés como segundo idioma. Esa experiencia le permite comprender, desde una perspectiva personal, cuánto importa la comunicación clara cuando los asuntos legales resultan poco familiares.
+  source: Brian Miranda grew up in Hillside, New Jersey, in a blue-collar family where hard work was a daily example. Working in construction with his father and uncle helped shape his practical approach.
+  value: Brian Miranda creció en Hillside, New Jersey, en una familia de clase trabajadora donde el trabajo duro era un ejemplo cotidiano. Trabajar en la construcción con su padre y su tío contribuyó a formar su enfoque práctico.
 sections.0.body.1:
-  source: He earned a Bachelor of Science in Business Administration from Seton Hall University and a Juris Doctor from New York Law School. He is admitted to practice in New Jersey, New York, and the U.S. District Court for the District of New Jersey.
-  value: Obtuvo un Bachelor of Science in Business Administration de Seton Hall University y un Juris Doctor de New York Law School. Está autorizado para ejercer la abogacía en New Jersey y New York, así como ante el Tribunal de Distrito de los Estados Unidos para el Distrito de New Jersey.
-sections.1.eyebrow:
-  source: What clients can expect
-  value: Lo que los clientes pueden esperar
+  source: Brian grew up bilingual and learned English as a second language. That experience gives him a personal understanding of how much clear communication matters when legal issues feel unfamiliar.
+  value: Brian creció siendo bilingüe y aprendió inglés como segundo idioma. Esa experiencia le permite comprender, desde una perspectiva personal, cuánto importa la comunicación clara cuando los asuntos legales resultan poco familiares.
 sections.1.title:
-  source: Clear answers without unnecessary distance.
-  value: Respuestas claras sin distancias innecesarias.
-sections.1.cards.0.title:
-  source: Plain-language explanations
-  value: Explicaciones en lenguaje sencillo
-sections.1.cards.0.body:
-  source: Understand the purpose of each option, the decisions it requires, and how it relates to the rest of the plan.
-  value: Comprenda el propósito de cada opción, las decisiones que requiere y cómo se relaciona con el resto del plan.
-sections.1.cards.1.title:
+  source: Education
+  value: Educación
+sections.1.bullets.0:
+  source: Bachelor of Science in Business Administration — Seton Hall University
+  value: Bachelor of Science in Business Administration — Seton Hall University
+sections.1.bullets.1:
+  source: Juris Doctor — New York Law School
+  value: Juris Doctor — New York Law School
+sections.2.title:
+  source: Bar admissions
+  value: Admisiones al ejercicio de la abogacía
+sections.2.bullets.0:
+  source: New Jersey
+  value: New Jersey
+sections.2.bullets.1:
+  source: New York
+  value: New York
+sections.2.bullets.2:
+  source: U.S. District Court for the District of New Jersey
+  value: U.S. District Court for the District of New Jersey
+sections.3.title:
+  source: Working with Brian
+  value: Trabajar con Brian
+sections.3.cards.0.title:
+  source: Clear explanations
+  value: Explicaciones claras
+sections.3.cards.0.body:
+  source: Brian explains the available options and their tradeoffs in plain language. You have room to ask questions as the agreed documents are prepared and reviewed, and to understand what was signed and what comes next.
+  value: Brian explica las opciones disponibles y sus ventajas y desventajas en un lenguaje sencillo. Usted tiene espacio para hacer preguntas durante la preparación y revisión de los documentos acordados, y para comprender qué firmó y cuáles son los siguientes pasos.
+sections.3.cards.1.title:
   source: Personal recommendations
   value: Recomendaciones personales
-sections.1.cards.1.body:
-  source: The conversation begins with your actual family, assets, responsibilities, and priorities.
-  value: La conversación comienza con su familia, activos, responsabilidades y prioridades reales.
-sections.1.cards.2.title:
+sections.3.cards.1.body:
+  source: The conversation begins with your family, property, responsibilities, and goals. Those details guide the recommendations, including what future changes may call for another review of your plan.
+  value: La conversación comienza con su familia, sus bienes, sus responsabilidades y sus objetivos. Esos detalles orientan las recomendaciones, incluidos los cambios futuros que podrían requerir otra revisión de su plan.
+sections.3.cards.2.title:
   source: Responsive communication
   value: Comunicación receptiva
-sections.1.cards.2.body:
+sections.3.cards.2.body:
   source: The legal team handles intake and scheduling through phone, text, and WhatsApp.
   value: El equipo legal gestiona la recepción de casos y la programación a través de teléfono, mensajes de texto y WhatsApp.
-sections.1.cards.3.title:
-  source: Multilingual service
-  value: Servicio multilingüe
-sections.1.cards.3.body:
-  source: English, Spanish, and Portuguese communication is available throughout the client experience.
-  value: La comunicación en inglés, español y portugués está disponible durante toda la experiencia del cliente.
-sections.2.eyebrow:
+sections.4.eyebrow:
   source: Serving North Jersey
   value: Sirviendo al norte de New Jersey
-sections.2.title:
-  source: Local counsel for multilingual families.
-  value: Asesoría legal local para familias multilingües.
-sections.2.body.0:
+sections.4.title:
+  source: Serving North Jersey’s multilingual families
+  value: Al servicio de las familias multilingües del norte de New Jersey
+sections.4.body.0:
   source: Miranda Law primarily serves North Jersey, including Monmouth County and communities north of it. The Warren office gives clients a local place to begin, while the firm's phone, text, and WhatsApp options help make communication easier.
   value: Miranda Law sirve principalmente al norte de New Jersey, incluyendo el condado de Monmouth y las comunidades al norte de este. La oficina de Warren brinda a los clientes un lugar local para comenzar, mientras que las opciones de teléfono, texto y WhatsApp de la firma ayudan a facilitar la comunicación.
-sections.2.body.1:
+sections.4.body.1:
   source: Approximately half of the firm's clients are Spanish- or Portuguese-speaking. Multilingual service is not an add-on; it is part of how the practice works every day.
   value: Aproximadamente la mitad de los clientes de la firma hablan español o portugués. El servicio multilingüe no es un complemento; es parte de la forma en que la práctica opera cada día.
-sections.3.eyebrow:
-  source: Approach to estate planning
-  value: Enfoque de planificación patrimonial
-sections.3.title:
-  source: Listen first. Explain the options. Build the plan carefully.
-  value: Escuchar primero. Explicar las opciones. Construir el plan cuidadosamente.
-sections.3.steps.0.title:
-  source: Understand
-  value: Comprender
-sections.3.steps.0.body:
-  source: Discuss the people, property, responsibilities, and changes that bring you to the conversation.
-  value: Analizamos las personas, propiedades, responsabilidades y cambios que lo motivan a iniciar esta conversación.
-sections.3.steps.1.title:
-  source: Explain
-  value: Explicar
-sections.3.steps.1.body:
-  source: Review possible documents and tradeoffs in language that makes the choices easier to follow.
-  value: Revisamos los posibles documentos y sus implicaciones en un lenguaje que haga que las elecciones sean más fáciles de seguir.
-sections.3.steps.2.title:
-  source: Prepare
-  value: Prepararse
-sections.3.steps.2.body:
-  source: Draft and review the agreed plan with enough room to ask questions before signing.
-  value: Redacte y revise el plan acordado con suficiente tiempo para hacer preguntas antes de la firma.
-sections.3.steps.3.title:
-  source: Carry forward
-  value: Continuar con seguridad
-sections.3.steps.3.body:
-  source: Leave knowing what was signed, where it belongs, and what kinds of future changes may call for another review.
-  value: Vaya con la tranquilidad de saber qué se firmó, dónde se encuentran los documentos y qué tipos de cambios futuros podrían requerir una nueva revisión.
+sections.4.body.2:
+  source: English, Spanish, and Portuguese communication is available throughout the client experience.
+  value: La comunicación en inglés, español y portugués está disponible durante toda la experiencia del cliente.
 finalCta.title:
   source: Bring the questions you have now.
   value: Traiga las preguntas que tenga ahora.

@@ -44,6 +44,27 @@ describe("generated static site", () => {
     expect(existsSync(routeFile("/blog"))).toBe(false);
   });
 
+  it("renders the attorney profile in every language without changing service layouts", () => {
+    for (const prefix of ["", "/es", "/pt"]) {
+      const html = readFileSync(routeFile(`${prefix}/about`), "utf8");
+      expect(html).toContain('class="about-page"');
+      expect(html).toContain("brian-old-headshot.jpg");
+      expect(html).toContain('id="education"');
+      expect(html).toContain('id="admissions"');
+      expect(html).toContain("Seton Hall University");
+      expect(html).toContain("New York Law School");
+      expect(html).toContain("wa.me/19084241011");
+      expect(html).not.toContain('data-section-type="steps"');
+      expect(html.match(/<h1(?:\s|>)/g)).toHaveLength(1);
+      const service = readFileSync(
+        routeFile(`${prefix}/estate-planning`),
+        "utf8"
+      );
+      expect(service).toContain('class="interior-hero"');
+      expect(service).not.toContain('class="about-page"');
+    }
+  });
+
   it("renders the detailed contact experience", () => {
     const contactHtml = readFileSync(routeFile("/contact"), "utf8");
     expect(contactHtml).toContain("Choose the easiest way to reach the office");

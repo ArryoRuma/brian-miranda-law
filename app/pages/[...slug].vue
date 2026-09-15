@@ -4,7 +4,7 @@ import { normalizeContentRoutePath } from "~~/lib/content/localization";
 
 type LegalPageKey = "privacy" | "cookies" | "disclaimer" | "accessibility";
 type PageKind =
-  | { type: "editorial"; content: SitePageContent }
+  | { type: "editorial" | "about"; content: SitePageContent }
   | { type: "contact" }
   | { type: "faq" }
   | { type: "checklist" }
@@ -38,7 +38,10 @@ function resolvePage(
   }
 
   if (editorialPages[localizedPath])
-    return { type: "editorial", content: editorialPages[localizedPath] };
+    return {
+      type: basePath === "/about" ? "about" : "editorial",
+      content: editorialPages[localizedPath],
+    };
 }
 
 const slug = Array.isArray(route.params.slug)
@@ -58,7 +61,11 @@ if (!page) {
 
 <template>
   <div>
-    <EditorialPage v-if="page.type === 'editorial'" :content="page.content" />
+    <AboutPageContent v-if="page.type === 'about'" :content="page.content" />
+    <EditorialPage
+      v-else-if="page.type === 'editorial'"
+      :content="page.content"
+    />
     <ContactPageContent v-else-if="page.type === 'contact'" />
     <FaqResourcePage v-else-if="page.type === 'faq'" />
     <ChecklistPageContent v-else-if="page.type === 'checklist'" />

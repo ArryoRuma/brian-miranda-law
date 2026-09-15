@@ -3,53 +3,51 @@ about:
   title: About Brian Miranda
   metaDescription: Meet Brian M. Miranda, Esq. and learn about Miranda Law's clear, responsive, multilingual approach to serving North Jersey families.
   hero:
-    eyebrow: Meet Brian Miranda
-    title: Legal guidance should feel
-    accent: clear, personal, and useful.
-    lead: Brian Miranda is from Hillside, New Jersey. His approach to legal guidance is shaped by the work ethic he learned from his blue-collar parents and by the practical experience he gained working construction alongside his father and uncle.
-    image: /images/brian-law-detail_25336cb9.jpg.webp
-    imageAlt: A linen-bound planning book with organized legal documents
-    secondaryHref: /estate-planning
-    secondaryLabel: Explore estate planning
+    eyebrow: About Brian
+    title: Meet Brian Miranda
+    lead: Brian M. Miranda, Esq. helps North Jersey individuals and families with estate planning. His approach is personal and practical, with clear explanations and service available in English, Spanish, and Portuguese.
+    image: /images/brian-old-headshot.jpg
+    imageAlt: Brian M. Miranda, Esq.
+    secondaryHref: /contact
+    secondaryLabel: Schedule a Free Initial Consultation
   sections:
     - type: narrative
-      eyebrow: A Hillside foundation
-      title: Hard work, clear guidance, and a personal perspective.
+      id: background
+      title: A Hillside foundation.
       body:
-        - Brian Miranda grew up in Hillside, New Jersey, in a blue-collar family where hard work was a daily example. He worked in construction with his father and uncle. Brian grew up bilingual and learned English as a second language. That experience gives him a personal understanding of how much clear communication matters when legal issues feel unfamiliar.
-        - He earned a Bachelor of Science in Business Administration from Seton Hall University and a Juris Doctor from New York Law School. He is admitted to practice in New Jersey, New York, and the U.S. District Court for the District of New Jersey.
+        - Brian Miranda grew up in Hillside, New Jersey, in a blue-collar family where hard work was a daily example. Working in construction with his father and uncle helped shape his practical approach.
+        - Brian grew up bilingual and learned English as a second language. That experience gives him a personal understanding of how much clear communication matters when legal issues feel unfamiliar.
+    - type: checklist
+      id: education
+      title: Education
+      bullets:
+        - Bachelor of Science in Business Administration — Seton Hall University
+        - Juris Doctor — New York Law School
+    - type: checklist
+      id: admissions
+      title: Bar admissions
+      bullets:
+        - New Jersey
+        - New York
+        - U.S. District Court for the District of New Jersey
     - type: cards
-      eyebrow: What clients can expect
-      title: Clear answers without unnecessary distance.
-      tone: sand
+      id: approach
+      title: Working with Brian
       cards:
-        - title: Plain-language explanations
-          body: Understand the purpose of each option, the decisions it requires, and how it relates to the rest of the plan.
+        - title: Clear explanations
+          body: Brian explains the available options and their tradeoffs in plain language. You have room to ask questions as the agreed documents are prepared and reviewed, and to understand what was signed and what comes next.
         - title: Personal recommendations
-          body: The conversation begins with your actual family, assets, responsibilities, and priorities.
+          body: The conversation begins with your family, property, responsibilities, and goals. Those details guide the recommendations, including what future changes may call for another review of your plan.
         - title: Responsive communication
           body: The legal team handles intake and scheduling through phone, text, and WhatsApp.
-        - title: Multilingual service
-          body: English, Spanish, and Portuguese communication is available throughout the client experience.
     - type: narrative
       eyebrow: Serving North Jersey
-      title: Local counsel for multilingual families.
+      title: Serving North Jersey’s multilingual families
       body:
         - Miranda Law primarily serves North Jersey, including Monmouth County and communities north of it. The Warren office gives clients a local place to begin, while the firm's phone, text, and WhatsApp options help make communication easier.
         - Approximately half of the firm's clients are Spanish- or Portuguese-speaking. Multilingual service is not an add-on; it is part of how the practice works every day.
-    - type: steps
-      eyebrow: Approach to estate planning
-      title: Listen first. Explain the options. Build the plan carefully.
-      tone: blue
-      steps:
-        - title: Understand
-          body: Discuss the people, property, responsibilities, and changes that bring you to the conversation.
-        - title: Explain
-          body: Review possible documents and tradeoffs in language that makes the choices easier to follow.
-        - title: Prepare
-          body: Draft and review the agreed plan with enough room to ask questions before signing.
-        - title: Carry forward
-          body: Leave knowing what was signed, where it belongs, and what kinds of future changes may call for another review.
+        - English, Spanish, and Portuguese communication is available throughout the client experience.
+      id: community
   finalCta:
     title: Bring the questions you have now.
     body: You do not need to solve every decision before calling. A free initial consultation is a place to understand what may come next.
