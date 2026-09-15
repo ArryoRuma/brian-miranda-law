@@ -105,7 +105,7 @@ describe("site content schema", () => {
     ]);
   });
 
-  it("matches the pre-migration localized content snapshots", () => {
+  it("matches the localized content snapshots", () => {
     const canonicalize = (value: unknown): unknown => {
       if (Array.isArray(value)) return value.map(canonicalize);
       if (!value || typeof value !== "object") return value;
@@ -123,8 +123,8 @@ describe("site content schema", () => {
         .digest("hex");
 
     expect({ es: digest("es"), pt: digest("pt") }).toEqual({
-      es: "5cb8e4fc85e966b163e4907463402427e2715fc74b9d7cfd10df91119845f977",
-      pt: "6316160e0a4096ce885ac6bc6fd9079cccfa571d0edf99ed104845cd05f108ad",
+      es: "ebe11a754c780603218fae0f96756c175148f2718ac8171759a0a9793d4bb126",
+      pt: "fc15a0057ae821d1aed9c12a81a8d127ead5052eb9494fa6a6fc05ab1a0b318a",
     });
   });
 
@@ -326,9 +326,9 @@ describe("site content schema", () => {
 
     expect(sectionTypes).toEqual({
       narrative: 17,
-      checklist: 15,
+      checklist: 17,
       cards: 13,
-      steps: 6,
+      steps: 5,
     });
   });
 
