@@ -51,7 +51,7 @@ export default defineNuxtConfig({
     locales: localeDefinitions,
   },
   app: {
-    baseURL: "/brian-miranda-law/",
+    baseURL: "/",
     head: {
       meta: [
         { name: "theme-color", content: websiteCopy.site.themeColor },
