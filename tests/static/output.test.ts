@@ -8,7 +8,8 @@ const outputDirectory = join(process.cwd(), ".output", "public");
 const repository = loadRepositoryContent(process.cwd());
 const publicRoutes = getPublicRoutes(repository.siteCopy);
 const previewRoutes = getPreviewRoutes();
-const deploymentBasePath = "/brian-miranda-law";
+const deploymentBasePath =
+  process.env.VERCEL === "1" ? "" : "/brian-miranda-law";
 const deploymentSiteUrl = `${repository.siteCopy.site.url}${deploymentBasePath}`;
 
 const routeFile = (route: string) =>
@@ -23,6 +24,17 @@ const collectFiles = (directory: string): string[] =>
   });
 
 describe("generated static site", () => {
+  it("configures Vercel to serve generated static output", () => {
+    const vercelConfig = JSON.parse(
+      readFileSync(join(process.cwd(), "vercel.json"), "utf8")
+    ) as { buildCommand: string; outputDirectory: string };
+
+    expect(vercelConfig).toMatchObject({
+      buildCommand: "pnpm generate",
+      outputDirectory: ".output/public",
+    });
+  });
+
   it("renders every public and preview route", () => {
     for (const route of [...publicRoutes, ...previewRoutes]) {
       expect(existsSync(routeFile(route)), route).toBe(true);
@@ -108,7 +120,7 @@ describe("generated static site", () => {
     }
     expect([...agents.publicPages].sort()).toEqual([...publicRoutes].sort());
     for (const route of publicRoutes) {
-      const entry = `<loc>${deploymentSiteUrl}${route === "/" ? "" : route}</loc>`;
+      const entry = `<loc>${deploymentSiteUrl}${route}</loc>`;
       expect(sitemap).toContain(entry);
     }
     expect(sitemap).not.toContain("/start/");
