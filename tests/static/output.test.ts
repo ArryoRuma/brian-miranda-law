@@ -120,7 +120,8 @@ describe("generated static site", () => {
     }
     expect([...agents.publicPages].sort()).toEqual([...publicRoutes].sort());
     for (const route of publicRoutes) {
-      const entry = `<loc>${deploymentSiteUrl}${route}</loc>`;
+      const sitemapRoute = route === "/" && deploymentBasePath ? "" : route;
+      const entry = `<loc>${deploymentSiteUrl}${sitemapRoute}</loc>`;
       expect(sitemap).toContain(entry);
     }
     expect(sitemap).not.toContain("/start/");
