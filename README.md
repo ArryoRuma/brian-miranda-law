@@ -49,28 +49,28 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-The development server normally runs at <http://localhost:3000>. It listens on all local interfaces so another device on the same network can be used for responsive testing.
+The development server normally runs at [http://localhost:3000](http://localhost:3000). It listens on all local interfaces so another device on the same network can be used for responsive testing.
 
 No `.env` file is required. The canonical URL, public identity, contact details, navigation, and interface copy come from the YAML files under `content/site/`.
 
 ## Commands
 
-| Command               | Purpose                                                          |
-| --------------------- | ---------------------------------------------------------------- |
-| `pnpm dev`            | Start Nuxt development mode on `0.0.0.0`                         |
-| `pnpm prepare`        | Regenerate Nuxt types and the internal content module            |
-| `pnpm lint`           | Run ESLint without rewriting files                               |
-| `pnpm typecheck`      | Run strict Nuxt/Vue/TypeScript checking                          |
-| `pnpm test`           | Run fast schema, blog-gate, and URL-helper tests                 |
-| `pnpm format`         | Rewrite supported files with Prettier                            |
-| `pnpm format:check`   | Check formatting without writing                                 |
-| `pnpm check`          | Run lint, typecheck, unit tests, and formatting checks           |
-| `pnpm generate`       | Generate the deployable static site in `.output/public`          |
-| `pnpm build`          | Alias for the static generation command                          |
-| `pnpm test:static`    | Verify a previously generated `.output/public` directory         |
-| `pnpm verify`         | Run every check, regenerate the site, and inspect static output  |
-| `pnpm verify:release` | Run `verify` and require every translation review to be approved |
-| `pnpm preview`        | Preview the latest generated output locally                      |
+| Command                 | Purpose                                                           |
+| ----------------------- | ----------------------------------------------------------------- |
+| `pnpm dev`            | Start Nuxt development mode on`0.0.0.0`                         |
+| `pnpm prepare`        | Regenerate Nuxt types and the internal content module             |
+| `pnpm lint`           | Run ESLint without rewriting files                                |
+| `pnpm typecheck`      | Run strict Nuxt/Vue/TypeScript checking                           |
+| `pnpm test`           | Run fast schema, blog-gate, and URL-helper tests                  |
+| `pnpm format`         | Rewrite supported files with Prettier                             |
+| `pnpm format:check`   | Check formatting without writing                                  |
+| `pnpm check`          | Run lint, typecheck, unit tests, and formatting checks            |
+| `pnpm generate`       | Generate the deployable static site in`.output/public`          |
+| `pnpm build`          | Alias for the static generation command                           |
+| `pnpm test:static`    | Verify a previously generated`.output/public` directory         |
+| `pnpm verify`         | Run every check, regenerate the site, and inspect static output   |
+| `pnpm verify:release` | Run`verify` and require every translation review to be approved |
+| `pnpm preview`        | Preview the latest generated output locally                       |
 
 Use `pnpm verify` before handing off or deploying a change.
 
@@ -245,18 +245,18 @@ Blog pages are explicitly English-only. Do not enable localized blog routes unti
 
 ### Top-level keys
 
-| Key             | Responsibility                                                                               | Primary consumers                      |
-| --------------- | -------------------------------------------------------------------------------------------- | -------------------------------------- |
-| `site`          | Identity, canonical URL, contact facts, navigation, labels, breadcrumbs, footer, shared copy | App shell and most shared components   |
-| `home`          | Homepage SEO and sections                                                                    | `app/pages/index.vue`                  |
-| `pages`         | Generic marketing/editorial pages                                                            | Catch-all resolver and `EditorialPage` |
-| `resources`     | FAQ library, checklist, and video library                                                    | Specialized resource components        |
-| `blog`          | Blog path, index SEO, hero, dates, labels, and article UI copy                               | Blog index/detail pages                |
-| `contactPage`   | Detailed contact options, warning, and office content                                        | `ContactPageContent`                   |
-| `legal`         | Privacy, cookies, disclaimer, accessibility                                                  | `LegalPageContent`                     |
-| `questionnaire` | Three questionnaire-preview translations                                                     | `QuestionnairePreview`                 |
-| `nextSteps`     | Three translated follow-up previews                                                          | `NextStepsPreview`                     |
-| `error404`      | Error title, metadata, and action                                                            | `app/error.vue`                        |
+| Key               | Responsibility                                                                               | Primary consumers                       |
+| ----------------- | -------------------------------------------------------------------------------------------- | --------------------------------------- |
+| `site`          | Identity, canonical URL, contact facts, navigation, labels, breadcrumbs, footer, shared copy | App shell and most shared components    |
+| `home`          | Homepage SEO and sections                                                                    | `app/pages/index.vue`                 |
+| `pages`         | Generic marketing/editorial pages                                                            | Catch-all resolver and`EditorialPage` |
+| `resources`     | FAQ library, checklist, and video library                                                    | Specialized resource components         |
+| `blog`          | Blog path, index SEO, hero, dates, labels, and article UI copy                               | Blog index/detail pages                 |
+| `contactPage`   | Detailed contact options, warning, and office content                                        | `ContactPageContent`                  |
+| `legal`         | Privacy, cookies, disclaimer, accessibility                                                  | `LegalPageContent`                    |
+| `questionnaire` | Three questionnaire-preview translations                                                     | `QuestionnairePreview`                |
+| `nextSteps`     | Three translated follow-up previews                                                          | `NextStepsPreview`                    |
+| `error404`      | Error title, metadata, and action                                                            | `app/error.vue`                       |
 
 ### Generic editorial page shape
 
@@ -343,7 +343,6 @@ The schema is intentionally fail-closed: an invalid edit stops development prepa
    pnpm generate
    pnpm test:static
    ```
-
 5. Inspect the English, Spanish, and Portuguese versions at mobile and desktop widths.
 
 If the build reports a Zod error, its `path` identifies the YAML key that failed validation.
@@ -451,7 +450,6 @@ The detailed contact page is the main reference for a specialized route that reu
    status: draft
    reviewed: false
    ```
-
 5. When approval is documented, set:
 
    ```yaml
@@ -460,7 +458,6 @@ The detailed contact page is the main reference for a specialized route that reu
    publishedAt: 2026-08-21
    # updatedAt: 2026-09-15
    ```
-
 6. Run `pnpm verify`.
 7. Confirm the blog navigation, index card, article URL, canonical, social image, dates, byline, tags, and structured data.
 
@@ -658,7 +655,7 @@ Check that:
 
 Use the file and field path in the loader error. A missing path means the English fragment gained translatable content; a stale source means English changed since the translation was reviewed; an unknown path usually means English removed or renamed a field. Update both `source` and `value` deliberately, then adjust `localization/review.yml` to reflect the real review state. Do not weaken the completeness or stale-source checks.
 
-### A blog post is missing
+### A blog post is missing 
 
 Check that:
 
