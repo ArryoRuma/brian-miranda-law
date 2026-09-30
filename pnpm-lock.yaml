@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@lucide/vue':
-        specifier: ^1.37.0
-        version: 1.37.0(vue@3.5.42(typescript@6.0.3))
+        specifier: ^1.48.0
+        version: 1.48.0(vue@3.5.42(typescript@6.0.3))
       '@nuxt/hints':
         specifier: 1.1.4
         version: 1.1.4(@vitest/expect@4.1.11)(better-sqlite3@12.11.1)(db0@0.3.4(better-sqlite3@12.11.1))(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(magicast@0.5.4)(rolldown@1.2.6)(rollup@4.63.0)(srvx@0.11.22)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.2.2(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.20.6)(yaml@2.9.0))(vitest@4.1.11(@types/node@26.4.0)(vite@8.2.2(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.20.6)(yaml@2.9.0)))(vue@3.5.42(typescript@6.0.3))
@@ -1167,8 +1167,8 @@ packages:
   '@kwsites/promise-deferred@1.1.1':
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
 
-  '@lucide/vue@1.37.0':
-    resolution: {integrity: sha512-outqiaDIgg8SUANr8q27cHB0V6vAOEB0CwEDe+fyVjSuCDAscVlplHH+cRld9nNNYQ5KJ6MBRmNMICpq42pXYw==}
+  '@lucide/vue@1.48.0':
+    resolution: {integrity: sha512-3/Nwx/RsqQ4ZrrSML1GNsSWCSDyLnBgoF/eEr1q9G6iZymn3+WKtzIj7Dbc/Nxrt9WOPuGrJ58S+CBiamK+36w==}
     peerDependencies:
       vue: '>=3.0.1'
 
@@ -7489,7 +7489,7 @@ snapshots:
 
   '@kwsites/promise-deferred@1.1.1': {}
 
-  '@lucide/vue@1.37.0(vue@3.5.42(typescript@6.0.3))':
+  '@lucide/vue@1.48.0(vue@3.5.42(typescript@6.0.3))':
     dependencies:
       vue: 3.5.42(typescript@6.0.3)
 
