@@ -51,7 +51,7 @@ export default defineNuxtConfig({
     locales: localeDefinitions,
   },
   app: {
-    baseURL: "/",
+    baseURL: process.env.VERCEL === "1" ? "/" : "/brian-miranda-law/",
     head: {
       meta: [
         { name: "theme-color", content: websiteCopy.site.themeColor },

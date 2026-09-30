@@ -578,6 +578,8 @@ Deploy the contents of:
 
 The host needs only static-file and HTTPS support. No Node process, API route, SQLite file, secret, or runtime environment variable is required.
 
+Vercel is configured by `vercel.json` to run `pnpm generate` and serve `.output/public`. The Nuxt app uses a root URL base on Vercel and retains its repository-path base for GitHub Pages.
+
 Configure the hosting platform to:
 
 - Serve generated files directly.

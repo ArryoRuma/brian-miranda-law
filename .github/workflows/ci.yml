@@ -33,3 +33,14 @@ jobs:
 
       - name: Typecheck
         run: pnpm run typecheck
+
+      - name: Verify static output
+        run: pnpm generate && pnpm test:static
+
+      - name: Verify Vercel static output
+        run: |
+          rm -rf .output
+          pnpm generate
+          pnpm test:static
+        env:
+          VERCEL: "1"
