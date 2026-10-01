@@ -45,7 +45,7 @@
     "@types/markdown-it": "^14.2.0",
     "@types/node": "^26.4.0",
     "eslint": "^10.9.1",
-    "nuxtseo-layer-devtools": "^5.3.14",
+    "nuxtseo-layer-devtools": "^5.3.16",
     "prettier": "^3.9.6",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
