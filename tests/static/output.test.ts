@@ -171,4 +171,14 @@ describe("generated static site", () => {
     expect(files.some(file => file.includes("sqlite"))).toBe(false);
     expect(files.some(file => file.endsWith(".wasm"))).toBe(false);
   });
+
+  it("uses static image assets instead of the Vercel image function", () => {
+    const htmlFiles = collectFiles(outputDirectory).filter(file =>
+      file.endsWith(".html")
+    );
+
+    for (const file of htmlFiles) {
+      expect(readFileSync(file, "utf8")).not.toContain("/_vercel/image");
+    }
+  });
 });
