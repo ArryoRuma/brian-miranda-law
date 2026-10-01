@@ -11,7 +11,7 @@ Design from the current homepage system and repository content rather than from 
 
 1. Read references/visual-system.md before making visual decisions.
 2. Read references/page-composition.md when adding, reorganizing, or restyling a page or section.
-3. Inspect content/site.yml, the relevant Vue components, app/assets/css/main.css, and the rendered homepage. Treat the current checkout as authoritative.
+3. Inspect the relevant document under content/site/, its Vue components, app/assets/css/main.css, and the rendered homepage. Treat the current checkout as authoritative.
 4. Preserve approved copy. Change words only when the user explicitly approves a wording change.
 5. Compose with the existing semantic tokens, typography, section rhythms, section modules, contact actions, and approved public assets.
 6. Keep graphite and paper dominant, use sand for support, use teal as a deliberate contrast section, and reserve gold for action and emphasis.

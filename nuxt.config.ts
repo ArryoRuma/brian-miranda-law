@@ -1,49 +1,42 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
-import { loadRepositoryContent } from "./lib/content/load-content";
 import { localeDefinitions } from "./lib/content/localization";
-import { getPreviewRoutes, getPublicRoutes } from "./lib/content/schema";
+import { getPreviewRoutes } from "./lib/content/schema";
 
 const rootDirectory = fileURLToPath(new URL(".", import.meta.url));
-const { siteCopy: websiteCopy, blogPosts } =
-  loadRepositoryContent(rootDirectory);
 const previewRoutes = getPreviewRoutes();
-const publicRoutes = [
-  ...getPublicRoutes(websiteCopy),
-  ...(blogPosts.length
-    ? [websiteCopy.blog.path, ...blogPosts.map(post => `/blog/${post.slug}`)]
-    : []),
-];
+const siteUrl = "https://bmirandalaw.com";
 
 export default defineNuxtConfig({
   compatibilityDate: "2026-08-01",
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
-      siteUrl: websiteCopy.site.url,
+      siteUrl,
     },
   },
   css: ["~/assets/css/main.css"],
   modules: [
-    "./modules/site-content",
     "@nuxt/image",
     "@nuxt/eslint",
     "@nuxtjs/i18n",
     "@nuxtjs/robots",
     "@nuxtjs/sitemap",
+    "@nuxt/content",
     "nuxt-schema-org",
     "@nuxt/devtools",
     "nuxt-seo-utils",
     "@nuxt/hints",
   ],
   site: {
-    url: websiteCopy.site.url,
-    name: websiteCopy.site.name,
-    description: websiteCopy.site.description,
-    defaultLocale: websiteCopy.site.defaultLocale,
+    url: siteUrl,
+    name: "Miranda Law",
+    defaultLocale: "en",
   },
   i18n: {
-    baseUrl: websiteCopy.site.url,
+    baseUrl: siteUrl,
     defaultLocale: "en",
     strategy: "prefix_except_default",
     detectBrowserLanguage: false,
@@ -51,10 +44,10 @@ export default defineNuxtConfig({
     locales: localeDefinitions,
   },
   app: {
-    baseURL: process.env.VERCEL === "1" ? "/" : "/brian-miranda-law/",
+    baseURL: "/",
     head: {
       meta: [
-        { name: "theme-color", content: websiteCopy.site.themeColor },
+        { name: "theme-color", content: "#2c2c2c" },
         {
           name: "format-detection",
           content: "telephone=no, address=no, email=no",
@@ -92,39 +85,28 @@ export default defineNuxtConfig({
     disallow: ["/start/"],
   },
   sitemap: {
-    exclude: [
-      "/start/**",
-      "/404",
-      ...(blogPosts.length ? [] : ["/blog", "/blog/**"]),
-    ],
+    sources: ["/api/__sitemap__/urls"],
+    excludeAppSources: true,
     zeroRuntime: true,
   },
   schemaOrg: {
     identity: {
       type: "Organization",
-      name: websiteCopy.site.contact.name,
-      url: websiteCopy.site.url,
-      logo: `${websiteCopy.site.url}${websiteCopy.site.logo}`,
+      name: "The Law Offices of Brian M. Miranda, Esq., LLC",
+      url: siteUrl,
+      logo: `${siteUrl}/miranda-law-gold.png`,
     },
   },
   routeRules: {
-    ...Object.fromEntries(
-      publicRoutes.map(route => [route, { prerender: true }])
-    ),
     "/start/**": { prerender: true, robots: false, sitemap: false },
+    "/api/**": { robots: false, sitemap: false },
   },
   nitro: {
     compressPublicAssets: true,
     prerender: {
       crawlLinks: true,
       failOnError: true,
-      ignore: blogPosts.length ? [] : ["/blog", "/blog/**"],
-      routes: [
-        ...publicRoutes,
-        ...previewRoutes,
-        //"/robots.txt",
-        //"/sitemap.xml",
-      ],
+      routes: ["/", ...previewRoutes, "/agents.json", "/api/__sitemap__/urls"],
     },
   },
   vite: {
@@ -133,5 +115,33 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     typeCheck: false,
+  },
+  hooks: {
+    "content:file:afterParse": context => {
+      const inspectAssets = (value: unknown, trail: string[] = []) => {
+        if (Array.isArray(value)) {
+          value.forEach((item, index) =>
+            inspectAssets(item, [...trail, String(index)])
+          );
+          return;
+        }
+        if (!value || typeof value !== "object") return;
+        for (const [key, item] of Object.entries(value)) {
+          const itemPath = [...trail, key];
+          if (
+            typeof item === "string" &&
+            ["image", "heroImage", "logo"].includes(key) &&
+            item.startsWith("/") &&
+            !existsSync(join(rootDirectory, "public", item.slice(1)))
+          ) {
+            throw new Error(
+              `Referenced public asset does not exist at ${itemPath.join(".")}: ${item}`
+            );
+          }
+          inspectAssets(item, itemPath);
+        }
+      };
+      inspectAssets(context.content);
+    },
   },
 });

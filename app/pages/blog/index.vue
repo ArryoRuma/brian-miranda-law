@@ -6,10 +6,7 @@ definePageMeta({ i18n: { locales: ["en"] } });
 const siteCopy = useSiteCopy();
 const content = computed(() => siteCopy.value.blog);
 const posts = useBlogPosts();
-
-if (!posts.value.length) {
-  throw createError({ statusCode: 404, statusMessage: "Blog not published" });
-}
+const isPublished = computed(() => posts.value.length > 0);
 
 const formatDate = (value: string) =>
   new Intl.DateTimeFormat("en-US", {
@@ -21,26 +18,29 @@ usePageSeo({
   title: content.value.seo.title,
   description: content.value.seo.description,
   path: content.value.path,
+  noIndex: !isPublished.value,
 });
 
-useSchemaOrg([
-  {
-    "@type": "Blog",
-    name: content.value.seo.title,
-    description: content.value.seo.description,
-    url: `${siteCopy.value.site.url}${content.value.path}`,
-    blogPost: posts.value.map(post => ({
-      "@type": "BlogPosting",
-      headline: post.title,
-      url: `${siteCopy.value.site.url}/blog/${post.slug}`,
-      datePublished: post.publishedAt,
-    })),
-  },
-]);
+if (isPublished.value) {
+  useSchemaOrg([
+    {
+      "@type": "Blog",
+      name: content.value.seo.title,
+      description: content.value.seo.description,
+      url: `${siteCopy.value.site.url}${content.value.path}`,
+      blogPost: posts.value.map(post => ({
+        "@type": "BlogPosting",
+        headline: post.title,
+        url: `${siteCopy.value.site.url}/blog/${post.slug}`,
+        datePublished: post.publishedAt,
+      })),
+    },
+  ]);
+}
 </script>
 
 <template>
-  <div>
+  <div v-if="isPublished">
     <Breadcrumbs />
     <InteriorHero v-bind="content.hero" />
     <section class="blog-index-section">

@@ -1,78 +1,79 @@
-title:
-  source: Other Legal Services
-  value: Otros servicios legales
-metaDescription:
-  source: Contact Miranda Law to ask whether the office can consider your legal matter.
-  value: Comuníquese con Miranda Law para consultar si el despacho puede considerar su asunto legal.
-hero.eyebrow:
-  source: Additional legal matters
-  value: Asuntos legales adicionales
-hero.title:
-  source: Start with a conversation.
-  value: Comience con una conversación.
-hero.accent:
-  source: Ask whether the office can consider your matter.
-  value: Consulte si el despacho puede considerar su asunto.
-hero.lead:
-  source: If you have a legal matter outside estate planning, contact Miranda Law to ask whether the office can consider it.
-  value: Si tiene un asunto legal fuera de la planificación patrimonial, comuníquese con Miranda Law para consultar si el despacho puede considerarlo.
-hero.secondaryLabel:
-  source: Ask about your matter
-  value: Consúltenos sobre su asunto
-sections.0.eyebrow:
-  source: Areas of assistance
-  value: Áreas de asistencia
-sections.0.title:
-  source: Tell us what brings you here.
-  value: Cuéntenos qué le trae por aquí.
-sections.0.cards.0.title:
-  source: Real Estate
-  value: Bienes raíces
-sections.0.cards.0.body:
-  source: Guidance for select residential and related property matters, from questions and documents through the next practical step.
-  value: Orientación para asuntos residenciales selectos y propiedades relacionadas, desde preguntas y documentos hasta el siguiente paso práctico.
-sections.0.cards.1.title:
-  source: Corporate Matters
-  value: Asuntos Corporativos
-sections.0.cards.1.body:
-  source: Counsel for select business questions and transactions where clear documentation and risk awareness matter.
-  value: Asesoramiento para preguntas y transacciones comerciales selectas donde la documentación clara y la conciencia del riesgo son fundamentales.
-sections.0.cards.2.title:
-  source: Start with a Conversation
-  value: Comience con una conversación
-sections.0.cards.2.body:
-  source: Contact the office to ask whether your legal matter is one Miranda Law can consider.
-  value: Comuníquese con el despacho para consultar si su asunto legal es uno que Miranda Law puede considerar.
-sections.0.cards.3.title:
-  source: Municipal Matters
-  value: Asuntos Municipales
-sections.0.cards.3.body:
-  source: Assistance with select matters handled through New Jersey municipal courts and local processes.
-  value: Asistencia en asuntos selectos tramitados a través de los tribunales municipales de New Jersey y procesos locales.
-sections.0.cards.4.title:
-  source: Immigration
-  value: Inmigración
-sections.0.cards.4.body:
-  source: Support with select immigration matters for individuals and families, available in English, Spanish, and Portuguese.
-  value: Apoyo en asuntos migratorios selectos para individuos y familias, disponible en inglés, español y portugués.
-sections.0.cards.5.title:
-  source: Landlord & Tenant
-  value: Arrendadores y Propietarios
-sections.0.cards.5.body:
-  source: Guidance for select landlord-tenant questions and disputes involving rights, documents, and next steps.
-  value: Orientación para consultas y disputas selectas entre arrendadores y propietarios que involucren derechos, documentos y pasos a seguir.
-sections.0.note:
-  source: The availability of representation depends on the facts, timing, jurisdiction, and any conflicts. Contact the office so the legal team can determine whether the matter is one Miranda Law can consider.
-  value: La disponibilidad de representación depende de los hechos, el tiempo, la jurisdicción y cualquier conflicto de interés. Comuníquese con la oficina para que el equipo legal pueda determinar si el asunto es uno que Miranda Law puede considerar.
-sections.1.eyebrow:
-  source: A practical first step
-  value: Un primer paso práctico
-sections.1.title:
-  source: Tell the office what brings you here.
-  value: Cuéntele al despacho qué le trae por aquí.
-sections.1.body.0:
-  source: Share the basics of your legal question with the office. The legal team can determine whether the matter is one Miranda Law can consider and discuss the next step.
-  value: Comparta con el despacho la información básica sobre su pregunta legal. El equipo legal puede determinar si Miranda Law puede considerar el asunto y conversar sobre el próximo paso.
-sections.1.body.1:
-  source: Miranda Law begins by understanding the immediate issue and its connection to the rest of the client's legal picture.
-  value: Miranda Law comienza comprendiendo el problema inmediato y su conexión con el resto del panorama legal del cliente.
+entries:
+  - path: title
+    source: Other Legal Services
+    value: Otros servicios legales
+  - path: metaDescription
+    source: Contact Miranda Law to ask whether the office can consider your legal matter.
+    value: Comuníquese con Miranda Law para consultar si el despacho puede considerar su asunto legal.
+  - path: hero.eyebrow
+    source: Additional legal matters
+    value: Asuntos legales adicionales
+  - path: hero.title
+    source: Start with a conversation.
+    value: Comience con una conversación.
+  - path: hero.accent
+    source: Ask whether the office can consider your matter.
+    value: Consulte si el despacho puede considerar su asunto.
+  - path: hero.lead
+    source: If you have a legal matter outside estate planning, contact Miranda Law to ask whether the office can consider it.
+    value: Si tiene un asunto legal fuera de la planificación patrimonial, comuníquese con Miranda Law para consultar si el despacho puede considerarlo.
+  - path: hero.secondaryLabel
+    source: Ask about your matter
+    value: Consúltenos sobre su asunto
+  - path: sections.0.eyebrow
+    source: Areas of assistance
+    value: Áreas de asistencia
+  - path: sections.0.title
+    source: Tell us what brings you here.
+    value: Cuéntenos qué le trae por aquí.
+  - path: sections.0.cards.0.title
+    source: Real Estate
+    value: Bienes raíces
+  - path: sections.0.cards.0.body
+    source: Guidance for select residential and related property matters, from questions and documents through the next practical step.
+    value: Orientación para asuntos residenciales selectos y propiedades relacionadas, desde preguntas y documentos hasta el siguiente paso práctico.
+  - path: sections.0.cards.1.title
+    source: Corporate Matters
+    value: Asuntos Corporativos
+  - path: sections.0.cards.1.body
+    source: Counsel for select business questions and transactions where clear documentation and risk awareness matter.
+    value: Asesoramiento para preguntas y transacciones comerciales selectas donde la documentación clara y la conciencia del riesgo son fundamentales.
+  - path: sections.0.cards.2.title
+    source: Start with a Conversation
+    value: Comience con una conversación
+  - path: sections.0.cards.2.body
+    source: Contact the office to ask whether your legal matter is one Miranda Law can consider.
+    value: Comuníquese con el despacho para consultar si su asunto legal es uno que Miranda Law puede considerar.
+  - path: sections.0.cards.3.title
+    source: Municipal Matters
+    value: Asuntos Municipales
+  - path: sections.0.cards.3.body
+    source: Assistance with select matters handled through New Jersey municipal courts and local processes.
+    value: Asistencia en asuntos selectos tramitados a través de los tribunales municipales de New Jersey y procesos locales.
+  - path: sections.0.cards.4.title
+    source: Immigration
+    value: Inmigración
+  - path: sections.0.cards.4.body
+    source: Support with select immigration matters for individuals and families, available in English, Spanish, and Portuguese.
+    value: Apoyo en asuntos migratorios selectos para individuos y familias, disponible en inglés, español y portugués.
+  - path: sections.0.cards.5.title
+    source: Landlord & Tenant
+    value: Arrendadores y Propietarios
+  - path: sections.0.cards.5.body
+    source: Guidance for select landlord-tenant questions and disputes involving rights, documents, and next steps.
+    value: Orientación para consultas y disputas selectas entre arrendadores y propietarios que involucren derechos, documentos y pasos a seguir.
+  - path: sections.0.note
+    source: The availability of representation depends on the facts, timing, jurisdiction, and any conflicts. Contact the office so the legal team can determine whether the matter is one Miranda Law can consider.
+    value: La disponibilidad de representación depende de los hechos, el tiempo, la jurisdicción y cualquier conflicto de interés. Comuníquese con la oficina para que el equipo legal pueda determinar si el asunto es uno que Miranda Law puede considerar.
+  - path: sections.1.eyebrow
+    source: A practical first step
+    value: Un primer paso práctico
+  - path: sections.1.title
+    source: Tell the office what brings you here.
+    value: Cuéntele al despacho qué le trae por aquí.
+  - path: sections.1.body.0
+    source: Share the basics of your legal question with the office. The legal team can determine whether the matter is one Miranda Law can consider and discuss the next step.
+    value: Comparta con el despacho la información básica sobre su pregunta legal. El equipo legal puede determinar si Miranda Law puede considerar el asunto y conversar sobre el próximo paso.
+  - path: sections.1.body.1
+    source: Miranda Law begins by understanding the immediate issue and its connection to the rest of the client's legal picture.
+    value: Miranda Law comienza comprendiendo el problema inmediato y su conexión con el resto del panorama legal del cliente.

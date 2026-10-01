@@ -5,107 +5,118 @@ import { getWhatsAppHref } from "~/data/routes";
 const props = defineProps<{ content: SitePageContent }>();
 const siteCopy = useSiteCopy();
 const { localizePath } = useSiteLocale();
+const layout = computed(() => {
+  if (!props.content.layout) throw createError("About layout is missing");
+  return props.content.layout;
+});
 const biography = computed(() =>
-  props.content.sections.filter(section => section.id === "background")
+  props.content.sections.filter(
+    section => section.id === layout.value.biographySectionId
+  )
 );
 const credentials = computed(() =>
-  props.content.sections.filter(
-    section => section.id === "education" || section.id === "admissions"
+  props.content.sections.filter(section =>
+    layout.value.credentialSectionIds.includes(section.id ?? "")
   )
 );
 const remaining = computed(() =>
   props.content.sections.filter(
     section =>
-      !["background", "education", "admissions"].includes(section.id ?? "")
+      section.id !== layout.value.biographySectionId &&
+      !layout.value.credentialSectionIds.includes(section.id ?? "")
   )
 );
 const whatsapp = computed(() =>
   siteCopy.value.site.contactActions.find(action => action.id === "whatsapp")!
 );
-
-usePageSeo({
-  title: props.content.title,
-  description: props.content.metaDescription,
-  path: props.content.path,
-});
 </script>
 
 <template>
   <div class="about-page">
-    <Breadcrumbs />
-    <section class="about-intro">
-      <div class="about-intro-copy">
-        <SectionEyebrow tone="dark">{{ content.hero.eyebrow }}</SectionEyebrow>
-        <h1>{{ content.hero.title }}</h1>
-        <p>{{ content.hero.lead }}</p>
-        <NuxtLink
-          v-if="content.hero.secondaryHref && content.hero.secondaryLabel"
-          class="about-consultation"
-          :to="localizePath(content.hero.secondaryHref)"
-        >
-          {{ content.hero.secondaryLabel }}
-        </NuxtLink>
-      </div>
-      <div class="about-portrait">
-        <NuxtImg
-          :src="content.hero.image"
-          :alt="content.hero.imageAlt"
-          width="1352"
-          height="1082"
-          sizes="xs:100vw md:40vw lg:480px"
-          loading="eager"
-          fetchpriority="high"
-        />
-      </div>
-    </section>
+    <PageShell
+      :title="content.title"
+      :description="content.metaDescription"
+      :path="content.path"
+      :show-final-cta="false"
+    >
+      <template #hero>
+        <section class="about-intro">
+          <div class="about-intro-copy">
+            <SectionEyebrow tone="dark">{{
+              content.hero.eyebrow
+            }}</SectionEyebrow>
+            <h1>{{ content.hero.title }}</h1>
+            <p>{{ content.hero.lead }}</p>
+            <NuxtLink
+              v-if="content.hero.secondaryHref && content.hero.secondaryLabel"
+              class="about-consultation"
+              :to="localizePath(content.hero.secondaryHref)"
+            >
+              {{ content.hero.secondaryLabel }}
+            </NuxtLink>
+          </div>
+          <div class="about-portrait">
+            <NuxtImg
+              :src="content.hero.image"
+              :alt="content.hero.imageAlt"
+              width="1352"
+              height="1082"
+              sizes="xs:100vw md:40vw lg:480px"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </div>
+        </section>
+      </template>
 
-    <div class="about-background">
-      <div class="about-biography">
-        <PageSectionRenderer
-          v-for="section in biography"
-          :key="section.id"
-          :section="section"
-        />
-      </div>
-      <aside class="about-credentials">
-        <PageSectionRenderer
-          v-for="section in credentials"
-          :key="section.id"
-          :section="section"
-        />
-      </aside>
-    </div>
-
-    <div class="about-details">
-      <PageSectionRenderer
-        v-for="section in remaining"
-        :key="section.id"
-        :section="section"
-      />
-    </div>
-
-    <section v-if="content.finalCta" class="about-closing">
-      <div>
-        <h2>{{ content.finalCta.title }}</h2>
-        <p>{{ content.finalCta.body }}</p>
-      </div>
-      <div class="about-closing-actions">
-        <NuxtLink
-          v-if="content.hero.secondaryHref && content.hero.secondaryLabel"
-          class="about-consultation"
-          :to="localizePath(content.hero.secondaryHref)"
-          >{{ content.hero.secondaryLabel }}</NuxtLink
-        >
-        <div class="about-contact-links">
-          <ContactActions compact />
-          <a
-            :href="getWhatsAppHref(siteCopy.site.contact.phoneHref)"
-            :aria-label="whatsapp.label"
-            >{{ whatsapp.shortLabel }}</a
-          >
+      <div class="about-background">
+        <div class="about-biography">
+          <PageSectionRenderer
+            v-for="section in biography"
+            :key="section.id"
+            :section="section"
+          />
         </div>
+        <aside class="about-credentials">
+          <PageSectionRenderer
+            v-for="section in credentials"
+            :key="section.id"
+            :section="section"
+          />
+        </aside>
       </div>
-    </section>
+
+      <div class="about-details">
+        <PageSectionRenderer
+          v-for="section in remaining"
+          :key="section.id"
+          :section="section"
+        />
+      </div>
+
+      <section v-if="content.finalCta" class="about-closing">
+        <div>
+          <h2>{{ content.finalCta.title }}</h2>
+          <p>{{ content.finalCta.body }}</p>
+        </div>
+        <div class="about-closing-actions">
+          <NuxtLink
+            v-if="content.hero.secondaryHref && content.hero.secondaryLabel"
+            class="about-consultation"
+            :to="localizePath(content.hero.secondaryHref)"
+            >{{ content.hero.secondaryLabel }}</NuxtLink
+          >
+          <div class="about-contact-links">
+            <ContactActions compact />
+            <a
+              :href="getWhatsAppHref(siteCopy.site.contact.phoneHref)"
+              :aria-label="whatsapp.label"
+              >{{ whatsapp.shortLabel }}</a
+            >
+          </div>
+        </div>
+      </section>
+    </PageShell>
   </div>
 </template>
 

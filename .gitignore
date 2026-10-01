@@ -89,6 +89,7 @@ jspm_packages/
 # Nuxt.js build / generate output
 .nuxt
 .output
+.vercel
 .data
 
 # Gatsby files

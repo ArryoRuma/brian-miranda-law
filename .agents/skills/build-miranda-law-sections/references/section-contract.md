@@ -2,7 +2,7 @@
 
 ## Content flow
 
-content/site.yml flows through lib/content/load-content.ts and the strict schemas in lib/content/schema.ts. modules/site-content.ts generates the typed build-time module consumed by Vue. Static generation must fail before rendering when section data is invalid.
+Each file under content/site/pages/ is a Nuxt Content collection document. content.config.ts applies its per-document schema, then lib/content/collections.ts assembles the records and lib/content/schema.ts applies the cross-document domain rules. app/plugins/site-content.ts provides the resulting typed model to Vue. Static generation must fail before rendering when section data is invalid.
 
 ## Shared fields
 
@@ -80,7 +80,7 @@ PageSectionRenderer must narrow on section.type and exhaust every inferred union
 
 ## Route and copy invariants
 
-- Validate every internal href against the known generated routes.
+- Validate every internal href against the canonical collection-backed route catalog.
 - Keep “Free Initial Consultation” as the English offer phrase.
 - Keep approved Spanish and Portuguese wording unchanged unless separately approved.
 - Keep specialized contact, resource, legal, and questionnaire renderers outside this generic section union.

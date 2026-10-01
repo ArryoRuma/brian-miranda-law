@@ -2,18 +2,16 @@
 import { Check } from "@lucide/vue";
 const siteCopy = useSiteCopy();
 const content = computed(() => siteCopy.value.resources.checklist);
-
-usePageSeo({
-  title: content.value.seo.title,
-  description: content.value.seo.description,
-  path: content.value.seo.path!,
-});
 </script>
 
 <template>
-  <div>
-    <Breadcrumbs />
-    <InteriorHero v-bind="content.hero" />
+  <PageShell
+    :title="content.seo.title"
+    :description="content.seo.description"
+    :path="content.seo.path"
+    :hero="content.hero"
+    :final-cta="content.finalCta"
+  >
     <section class="checklist-section">
       <div class="checklist-intro">
         <SectionEyebrow tone="dark">{{ content.intro.eyebrow }}</SectionEyebrow>
@@ -36,9 +34,5 @@ usePageSeo({
         </section>
       </div>
     </section>
-    <CallToAction
-      :title="content.finalCta.title"
-      :body="content.finalCta.body"
-    />
-  </div>
+  </PageShell>
 </template>

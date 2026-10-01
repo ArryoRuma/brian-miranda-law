@@ -1,6 +1,6 @@
 ---
 name: build-miranda-law-sections
-description: Add, migrate, or revise schema-backed page sections in the Brian Miranda Law Nuxt repository while preserving its YAML-to-Zod-to-generated-content flow, exhaustive Vue rendering, approved copy, internal routes, static output, and accessibility. Use when implementing Miranda Law narrative, checklist, card, or process sections, changing the section content contract, or creating a new reusable interior-page module.
+description: Add, migrate, or revise schema-backed page sections in the Brian Miranda Law Nuxt repository while preserving its YAML-to-Nuxt-Content-to-domain-validation flow, exhaustive Vue rendering, approved copy, internal routes, static output, and accessibility. Use when implementing Miranda Law narrative, checklist, card, or process sections, changing the section content contract, or creating a new reusable interior-page module.
 ---
 
 # Build Miranda Law Sections
@@ -12,7 +12,7 @@ Build sections through the repository’s validated content architecture. Do not
 1. Read references/section-contract.md before editing section data, types, or renderers.
 2. Inspect the current content, schema, renderer, component, styles, and tests. Treat the checkout as authoritative because the section catalog can evolve.
 3. Choose the existing section type that matches the content’s meaning. Do not choose a pattern only for visual variety.
-4. Edit approved page content in content/site.yml and keep the section type explicit.
+4. Edit the matching document under content/site/pages/ and keep the section type explicit.
 5. Keep type-specific validation strict. Reject missing payloads, mixed payloads, unknown types, and irrelevant fields.
 6. Render through PageSectionRenderer and a focused component. Preserve an exhaustive TypeScript branch so a new type cannot silently fall through.
 7. Style with semantic variables and the rules in the design-miranda-law-pages skill. Preserve responsive stacking and visible focus.

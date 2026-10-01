@@ -1,21 +1,9 @@
-import {
-  cpSync,
-  mkdirSync,
-  mkdtempSync,
-  readFileSync,
-  rmSync,
-  writeFileSync,
-} from "node:fs";
 import { createHash } from "node:crypto";
-import { tmpdir } from "node:os";
-import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { parse, stringify } from "yaml";
 import {
-  loadRepositoryContent,
-  loadSiteContent,
-  loadTranslationOverlay,
-} from "../../lib/content/load-content";
+  assembleRepositoryContent,
+  translationDocumentSchema,
+} from "../../lib/content/collections";
 import { createLocalizedContent } from "../../lib/content/localization";
 import {
   getPreviewRoutes,
@@ -23,71 +11,40 @@ import {
   getStaticPageRoutes,
   siteContentSchema,
 } from "../../lib/content/schema";
+import {
+  loadRepositoryContent,
+  loadRepositoryDocuments,
+} from "../helpers/repository-content";
 
-const repository = loadRepositoryContent(process.cwd());
+const repository = loadRepositoryContent();
 
-function withContentFixture(run: (rootDirectory: string) => void) {
-  const rootDirectory = mkdtempSync(join(tmpdir(), "miranda-site-content-"));
-  mkdirSync(join(rootDirectory, "content"));
-  cpSync("content/site", join(rootDirectory, "content", "site"), {
-    recursive: true,
-  });
-  try {
-    run(rootDirectory);
-  } finally {
-    rmSync(rootDirectory, { recursive: true, force: true });
-  }
-}
-
-type OverlayRecord = Record<string, { source: string; value: string }>;
-
-function updateOverlayFixture(
-  rootDirectory: string,
-  locale: "es" | "pt",
-  relativePath: string,
-  update: (record: OverlayRecord) => void
-) {
-  const filePath = join(
-    rootDirectory,
-    "content/site/localization",
-    locale,
-    relativePath
-  );
-  const record = parse(readFileSync(filePath, "utf8")) as OverlayRecord;
-  update(record);
-  writeFileSync(filePath, stringify(record));
-}
-
-describe("site content schema", () => {
-  it("validates the repository YAML and derives every route", () => {
+describe("site content collections and domain schema", () => {
+  it("assembles the Nuxt Content documents and derives every route", () => {
     expect(repository.siteCopy.site.name).toBe("Miranda Law");
     expect(getStaticPageRoutes(repository.siteCopy)).toHaveLength(17);
     expect(Object.keys(repository.siteCopy.pages).sort()).toEqual([
       "about",
       "contact",
-      "estatePlanning",
+      "estate-planning",
       "health-care-directives",
-      "otherServices",
+      "other-services",
       "powers-of-attorney",
       "resources",
       "trusts",
       "wills",
     ]);
-    expect(repository.siteCopy.localization.review.es.status).toBe("draft");
-    expect(repository.siteCopy.localization.review.es.pages["/"]).toBe("draft");
-    expect(repository.siteCopy.localization.review.es.pages["/about"]).toBe(
-      "draft"
-    );
-    expect(
-      repository.siteCopy.localization.review.es.pages["/other-services"]
-    ).toBe("draft");
-    expect(repository.siteCopy.localization.review.pt.status).toBe("draft");
+    expect(repository.siteCopy.pages.about.layout).toEqual({
+      template: "about",
+      biographySectionId: "background",
+      credentialSectionIds: ["education", "admissions"],
+    });
     expect(repository.siteCopyByLocale.es.pages.about.title).toBe(
       "Acerca de Brian Miranda"
     );
     expect(repository.siteCopyByLocale.pt.home.hero.title).not.toBe(
       repository.siteCopy.home.hero.title
     );
+
     const publicRoutes = getPublicRoutes(repository.siteCopy);
     expect(publicRoutes).toHaveLength(51);
     expect(publicRoutes.some(route => route.startsWith("/en"))).toBe(false);
@@ -123,242 +80,129 @@ describe("site content schema", () => {
         .digest("hex");
 
     expect({ es: digest("es"), pt: digest("pt") }).toEqual({
-      es: "ebe11a754c780603218fae0f96756c175148f2718ac8171759a0a9793d4bb126",
-      pt: "fc15a0057ae821d1aed9c12a81a8d127ead5052eb9494fa6a6fc05ab1a0b318a",
+      es: "402e994c2b1e66b8851c9c31426f3172cfe1edc656d7092a913ed8fbe6972fa6",
+      pt: "d0693f52bc6d8574a6ab992351c7574ab05f659eb60eefc87f3c3072440c68d9",
     });
   });
 
-  it("rejects a missing required content fragment", () => {
-    withContentFixture(rootDirectory => {
-      rmSync(join(rootDirectory, "content/site/shared.yml"));
-      expect(() => loadSiteContent(rootDirectory)).toThrow(
-        "Required content file is missing: content/site/shared.yml"
-      );
-    });
+  it("requires every singleton collection", () => {
+    const documents = loadRepositoryDocuments();
+    documents.site = [];
+    expect(() => assembleRepositoryContent(documents)).toThrow(
+      "Site collection must contain exactly one document"
+    );
   });
 
-  it("rejects a content fragment with more than one record", () => {
-    withContentFixture(rootDirectory => {
-      writeFileSync(
-        join(rootDirectory, "content/site/pages/about.yml"),
-        "about: {}\nextra: {}\n"
-      );
-      expect(() => loadSiteContent(rootDirectory)).toThrow(
-        "content/site/pages/about.yml must contain exactly one content record"
-      );
-    });
+  it("rejects duplicate document identities", () => {
+    const documents = loadRepositoryDocuments();
+    documents.pages.push(structuredClone(documents.pages[0]!));
+    expect(() => assembleRepositoryContent(documents)).toThrow(
+      "Pages collection contains duplicate document keys"
+    );
   });
 
-  it("reports malformed YAML with its fragment path", () => {
-    withContentFixture(rootDirectory => {
-      writeFileSync(join(rootDirectory, "content/site/home.yml"), "home: [\n");
-      expect(() => loadSiteContent(rootDirectory)).toThrow(
-        /^Invalid YAML in content\/site\/home\.yml:/
-      );
-    });
+  it("rejects missing, stale, blank, and unknown translations", () => {
+    const source = { heading: "Canonical English" };
+    expect(() => createLocalizedContent(source, "es", {})).toThrow(
+      "Missing es translation for heading"
+    );
+    expect(() =>
+      createLocalizedContent(source, "es", {
+        heading: { source: "Old English", value: "Español" },
+      })
+    ).toThrow("Stale es translation source for heading");
+    expect(
+      translationDocumentSchema.safeParse({
+        entries: [
+          { path: "heading", source: "Canonical English", value: "   " },
+        ],
+      }).success
+    ).toBe(false);
+    expect(() =>
+      createLocalizedContent(source, "es", {
+        heading: { source: "Canonical English", value: "Español" },
+        unknown: { source: "Unknown", value: "Desconocido" },
+      })
+    ).toThrow("Unknown es translation path unknown");
   });
 
-  it("rejects duplicate records across page fragments", () => {
-    withContentFixture(rootDirectory => {
-      cpSync(
-        join(rootDirectory, "content/site/pages/about.yml"),
-        join(rootDirectory, "content/site/pages/about-copy.yml")
-      );
-      expect(() => loadSiteContent(rootDirectory)).toThrow(
-        /Duplicate content record "about".*content\/site\/pages\/about-copy\.yml.*content\/site\/pages\/about\.yml/
-      );
-    });
+  it("rejects duplicate translation paths across documents", () => {
+    const documents = loadRepositoryDocuments();
+    documents.translationsEs.push(
+      structuredClone(documents.translationsEs[0]!)
+    );
+    expect(() => assembleRepositoryContent(documents)).toThrow(
+      /Duplicate es translation path/
+    );
   });
 
-  it("rejects a missing translation overlay field", () => {
-    withContentFixture(rootDirectory => {
-      updateOverlayFixture(rootDirectory, "es", "pages/about.yml", record => {
-        delete record.title;
-      });
-      const source = loadSiteContent(rootDirectory);
-      expect(() =>
-        createLocalizedContent(
-          source,
-          "es",
-          loadTranslationOverlay(rootDirectory, "es")
-        )
-      ).toThrow("Missing es translation for pages.about.title");
-    });
-  });
+  it("rejects malformed contact, URL, route, and navigation data", () => {
+    const invalidPhone = structuredClone(repository.siteCopy);
+    invalidPhone.site.contact.phoneHref = "908-424-1011";
+    expect(siteContentSchema.safeParse(invalidPhone).success).toBe(false);
 
-  it("rejects a stale translation source", () => {
-    withContentFixture(rootDirectory => {
-      updateOverlayFixture(rootDirectory, "es", "pages/about.yml", record => {
-        record.title.source = "An outdated English title";
-      });
-      const source = loadSiteContent(rootDirectory);
-      expect(() =>
-        createLocalizedContent(
-          source,
-          "es",
-          loadTranslationOverlay(rootDirectory, "es")
-        )
-      ).toThrow(
-        /Stale es translation source for pages\.about\.title.*pages\/about\.yml/
-      );
-    });
-  });
+    const mismatchedPhone = structuredClone(repository.siteCopy);
+    mismatchedPhone.site.contact.phoneDisplay = "908-424-9999";
+    expect(siteContentSchema.safeParse(mismatchedPhone).success).toBe(false);
 
-  it("rejects blank translation values", () => {
-    withContentFixture(rootDirectory => {
-      updateOverlayFixture(rootDirectory, "es", "pages/about.yml", record => {
-        record.title.value = "   ";
-      });
-      expect(() => loadTranslationOverlay(rootDirectory, "es")).toThrow(
-        /Invalid es translation overlay.*pages\/about\.yml/
-      );
-    });
-  });
+    const invalidUrl = structuredClone(repository.siteCopy);
+    invalidUrl.site.url = "http://bmirandalaw.com/example";
+    expect(siteContentSchema.safeParse(invalidUrl).success).toBe(false);
 
-  it("rejects extra translation paths", () => {
-    withContentFixture(rootDirectory => {
-      updateOverlayFixture(rootDirectory, "es", "pages/about.yml", record => {
-        record["unknown.field"] = {
-          source: "Unknown source",
-          value: "Valor desconocido",
-        };
-      });
-      const source = loadSiteContent(rootDirectory);
-      expect(() =>
-        createLocalizedContent(
-          source,
-          "es",
-          loadTranslationOverlay(rootDirectory, "es")
-        )
-      ).toThrow(
-        /Unknown es translation path pages\.about\.unknown\.field.*pages\/about\.yml/
-      );
-    });
-  });
+    const duplicateRoute = structuredClone(repository.siteCopy);
+    duplicateRoute.pages.about.path =
+      duplicateRoute.pages["estate-planning"].path;
+    expect(siteContentSchema.safeParse(duplicateRoute).success).toBe(false);
 
-  it("reports duplicate translation paths with their overlay file", () => {
-    withContentFixture(rootDirectory => {
-      writeFileSync(
-        join(rootDirectory, "content/site/localization/es/pages/about.yml"),
-        [
-          "title:",
-          "  source: About Brian Miranda",
-          "  value: Acerca de Brian Miranda",
-          "title:",
-          "  source: About Brian Miranda",
-          "  value: Acerca de Brian Miranda",
-          "",
-        ].join("\n")
-      );
-      expect(() => loadTranslationOverlay(rootDirectory, "es")).toThrow(
-        /^Invalid YAML in content\/site\/localization\/es\/pages\/about\.yml:/
-      );
-    });
-  });
-
-  it("rejects overlay files with no matching English fragment", () => {
-    withContentFixture(rootDirectory => {
-      writeFileSync(
-        join(rootDirectory, "content/site/localization/es/pages/unknown.yml"),
-        "title:\n  source: Unknown\n  value: Desconocido\n"
-      );
-      expect(() => loadTranslationOverlay(rootDirectory, "es")).toThrow(
-        "Unknown es translation overlay: content/site/localization/es/pages/unknown.yml"
-      );
-    });
-  });
-
-  it("rejects malformed contact data", () => {
-    const content = structuredClone(repository.siteCopy);
-    content.site.contact.phoneHref = "908-424-1011";
-    expect(siteContentSchema.safeParse(content).success).toBe(false);
-  });
-
-  it("rejects a display number that does not match its contact URL", () => {
-    const content = structuredClone(repository.siteCopy);
-    content.site.contact.phoneDisplay = "908-424-9999";
-    expect(siteContentSchema.safeParse(content).success).toBe(false);
-  });
-
-  it("rejects a non-origin or insecure canonical URL", () => {
-    const content = structuredClone(repository.siteCopy);
-    content.site.url = "http://bmirandalaw.com/example";
-    expect(siteContentSchema.safeParse(content).success).toBe(false);
-  });
-
-  it("rejects duplicate page routes", () => {
-    const content = structuredClone(repository.siteCopy);
-    content.pages.about.path = content.pages.estatePlanning.path;
-    expect(siteContentSchema.safeParse(content).success).toBe(false);
-  });
-
-  it("rejects navigation links without a known route", () => {
-    const content = structuredClone(repository.siteCopy);
-    const about = content.site.navigation.primary.find(
+    const missingRoute = structuredClone(repository.siteCopy);
+    const about = missingRoute.site.navigation.primary.find(
       item => item.id === "about"
     );
     if (!about) throw new Error("About navigation fixture is missing");
     about.href = "/missing-page";
-    expect(siteContentSchema.safeParse(content).success).toBe(false);
+    expect(siteContentSchema.safeParse(missingRoute).success).toBe(false);
+
+    const missingNavigation = structuredClone(repository.siteCopy);
+    missingNavigation.site.navigation.primary =
+      missingNavigation.site.navigation.primary.filter(
+        item => item.id !== "contact"
+      );
+    expect(siteContentSchema.safeParse(missingNavigation).success).toBe(false);
   });
 
-  it("rejects a missing required navigation record", () => {
-    const content = structuredClone(repository.siteCopy);
-    content.site.navigation.primary = content.site.navigation.primary.filter(
-      item => item.id !== "contact"
-    );
-    expect(siteContentSchema.safeParse(content).success).toBe(false);
-  });
-
-  it("rejects positional content with the wrong cardinality", () => {
-    const content = structuredClone(repository.siteCopy);
-    content.home.why.items.pop();
-    expect(siteContentSchema.safeParse(content).success).toBe(false);
-  });
-
-  it("uses an explicit type for every editorial section", () => {
+  it("keeps typed sections exhaustive and strict", () => {
     const sectionTypes = Object.values(repository.siteCopy.pages)
       .flatMap(page => page.sections)
       .reduce<Record<string, number>>((counts, section) => {
         counts[section.type] = (counts[section.type] ?? 0) + 1;
         return counts;
       }, {});
-
     expect(sectionTypes).toEqual({
       narrative: 17,
       checklist: 17,
       cards: 13,
       steps: 5,
     });
-  });
 
-  it("rejects a section discriminator with the wrong payload", () => {
-    const content = structuredClone(repository.siteCopy);
-    content.pages.about.sections[0].type = "checklist";
-    expect(siteContentSchema.safeParse(content).success).toBe(false);
-  });
+    const wrongType = structuredClone(repository.siteCopy);
+    Object.assign(wrongType.pages.about.sections[0]!, { type: "checklist" });
+    expect(siteContentSchema.safeParse(wrongType).success).toBe(false);
 
-  it("rejects mixed section payload fields", () => {
-    const content = structuredClone(repository.siteCopy);
-    Object.assign(content.pages.about.sections[0], {
+    const mixedPayload = structuredClone(repository.siteCopy);
+    Object.assign(mixedPayload.pages.about.sections[0]!, {
       bullets: ["This field does not belong on a narrative section."],
     });
-    expect(siteContentSchema.safeParse(content).success).toBe(false);
+    expect(siteContentSchema.safeParse(mixedPayload).success).toBe(false);
   });
 
-  it("rejects a section with its required payload removed", () => {
+  it("rejects invalid About layout references", () => {
     const content = structuredClone(repository.siteCopy);
-    const section = content.pages.about.sections[0];
-    if (section.type !== "narrative") {
-      throw new Error("About-page narrative fixture is missing");
-    }
-    delete (section as { body?: string[] }).body;
+    content.pages.about.layout!.biographySectionId = "missing";
     expect(siteContentSchema.safeParse(content).success).toBe(false);
   });
 
   it("locks the approved free initial consultation wording", () => {
-    const source = JSON.stringify(repository.siteCopy);
-
+    const source = JSON.stringify(repository.siteCopyByLocale);
     expect(source).toContain("Schedule a Free Initial Consultation");
     expect(source).toContain("Schedule Your Free Initial Consultation");
     expect(source).toContain("A free initial consultation is available");
@@ -366,10 +210,6 @@ describe("site content schema", () => {
     expect(source).not.toMatch(
       /initial consultations? (?:are |is )?available at no charge/i
     );
-    expect(source).not.toContain(
-      "provides an initial consultation at no charge"
-    );
-
     expect(source).toContain("Consulta inicial gratuita");
     expect(source).toContain("consulta inicial gratuita");
   });

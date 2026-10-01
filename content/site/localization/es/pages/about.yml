@@ -1,93 +1,94 @@
-title:
-  source: About Brian Miranda
-  value: Acerca de Brian Miranda
-metaDescription:
-  source: Meet Brian M. Miranda, Esq. and learn about Miranda Law's clear, responsive, multilingual approach to serving North Jersey families.
-  value: Conozca a Brian M. Miranda, Esq. y aprenda sobre el enfoque claro, receptivo y multilingüe de Miranda Law para servir a las familias de North Jersey.
-hero.eyebrow:
-  source: About Brian
-  value: Acerca de Brian
-hero.title:
-  source: Meet Brian Miranda
-  value: Conozca a Brian Miranda
-hero.lead:
-  source: Brian M. Miranda, Esq. helps North Jersey individuals and families with estate planning. His approach is personal and practical, with clear explanations and service available in English, Spanish, and Portuguese.
-  value: Brian M. Miranda, Esq. ayuda a personas y familias del norte de New Jersey con la planificación patrimonial. Su enfoque es personal y práctico, con explicaciones claras y atención disponible en inglés, español y portugués.
-hero.imageAlt:
-  source: Brian M. Miranda, Esq.
-  value: Brian M. Miranda, Esq.
-hero.secondaryLabel:
-  source: Schedule a Free Initial Consultation
-  value: Programe una consulta inicial gratuita
-sections.0.title:
-  source: A Hillside foundation.
-  value: Sus raíces en Hillside.
-sections.0.body.0:
-  source: Brian Miranda grew up in Hillside, New Jersey, in a blue-collar family where hard work was a daily example. Working in construction with his father and uncle helped shape his practical approach.
-  value: Brian Miranda creció en Hillside, New Jersey, en una familia de clase trabajadora donde el trabajo duro era un ejemplo cotidiano. Trabajar en la construcción con su padre y su tío contribuyó a formar su enfoque práctico.
-sections.0.body.1:
-  source: Brian grew up bilingual and learned English as a second language. That experience gives him a personal understanding of how much clear communication matters when legal issues feel unfamiliar.
-  value: Brian creció siendo bilingüe y aprendió inglés como segundo idioma. Esa experiencia le permite comprender, desde una perspectiva personal, cuánto importa la comunicación clara cuando los asuntos legales resultan poco familiares.
-sections.1.title:
-  source: Education
-  value: Educación
-sections.1.bullets.0:
-  source: Bachelor of Science in Business Administration — Seton Hall University
-  value: Bachelor of Science in Business Administration — Seton Hall University
-sections.1.bullets.1:
-  source: Juris Doctor — New York Law School
-  value: Juris Doctor — New York Law School
-sections.2.title:
-  source: Bar admissions
-  value: Admisiones al ejercicio de la abogacía
-sections.2.bullets.0:
-  source: New Jersey
-  value: New Jersey
-sections.2.bullets.1:
-  source: New York
-  value: New York
-sections.2.bullets.2:
-  source: U.S. District Court for the District of New Jersey
-  value: U.S. District Court for the District of New Jersey
-sections.3.title:
-  source: Working with Brian
-  value: Trabajar con Brian
-sections.3.cards.0.title:
-  source: Clear explanations
-  value: Explicaciones claras
-sections.3.cards.0.body:
-  source: Brian explains the available options and their tradeoffs in plain language. You have room to ask questions as the agreed documents are prepared and reviewed, and to understand what was signed and what comes next.
-  value: Brian explica las opciones disponibles y sus ventajas y desventajas en un lenguaje sencillo. Usted tiene espacio para hacer preguntas durante la preparación y revisión de los documentos acordados, y para comprender qué firmó y cuáles son los siguientes pasos.
-sections.3.cards.1.title:
-  source: Personal recommendations
-  value: Recomendaciones personales
-sections.3.cards.1.body:
-  source: The conversation begins with your family, property, responsibilities, and goals. Those details guide the recommendations, including what future changes may call for another review of your plan.
-  value: La conversación comienza con su familia, sus bienes, sus responsabilidades y sus objetivos. Esos detalles orientan las recomendaciones, incluidos los cambios futuros que podrían requerir otra revisión de su plan.
-sections.3.cards.2.title:
-  source: Responsive communication
-  value: Comunicación receptiva
-sections.3.cards.2.body:
-  source: The legal team handles intake and scheduling through phone, text, and WhatsApp.
-  value: El equipo legal gestiona la recepción de casos y la programación a través de teléfono, mensajes de texto y WhatsApp.
-sections.4.eyebrow:
-  source: Serving North Jersey
-  value: Sirviendo al norte de New Jersey
-sections.4.title:
-  source: Serving North Jersey’s multilingual families
-  value: Al servicio de las familias multilingües del norte de New Jersey
-sections.4.body.0:
-  source: Miranda Law primarily serves North Jersey, including Monmouth County and communities north of it. The Warren office gives clients a local place to begin, while the firm's phone, text, and WhatsApp options help make communication easier.
-  value: Miranda Law sirve principalmente al norte de New Jersey, incluyendo el condado de Monmouth y las comunidades al norte de este. La oficina de Warren brinda a los clientes un lugar local para comenzar, mientras que las opciones de teléfono, texto y WhatsApp de la firma ayudan a facilitar la comunicación.
-sections.4.body.1:
-  source: Approximately half of the firm's clients are Spanish- or Portuguese-speaking. Multilingual service is not an add-on; it is part of how the practice works every day.
-  value: Aproximadamente la mitad de los clientes de la firma hablan español o portugués. El servicio multilingüe no es un complemento; es parte de la forma en que la práctica opera cada día.
-sections.4.body.2:
-  source: English, Spanish, and Portuguese communication is available throughout the client experience.
-  value: La comunicación en inglés, español y portugués está disponible durante toda la experiencia del cliente.
-finalCta.title:
-  source: Bring the questions you have now.
-  value: Traiga las preguntas que tenga ahora.
-finalCta.body:
-  source: You do not need to solve every decision before calling. A free initial consultation is a place to understand what may come next.
-  value: No es necesario resolver cada decisión antes de llamar. Una consulta inicial gratuita es un espacio para comprender qué podría ser lo siguiente.
+entries:
+  - path: title
+    source: About Brian Miranda
+    value: Acerca de Brian Miranda
+  - path: metaDescription
+    source: Meet Brian M. Miranda, Esq. and learn about Miranda Law's clear, responsive, multilingual approach to serving North Jersey families.
+    value: Conozca a Brian M. Miranda, Esq. y aprenda sobre el enfoque claro, receptivo y multilingüe de Miranda Law para servir a las familias de North Jersey.
+  - path: hero.eyebrow
+    source: About Brian
+    value: Acerca de Brian
+  - path: hero.title
+    source: Meet Brian Miranda
+    value: Conozca a Brian Miranda
+  - path: hero.lead
+    source: Brian M. Miranda, Esq. helps North Jersey individuals and families with estate planning. His approach is personal and practical, with clear explanations and service available in English, Spanish, and Portuguese.
+    value: Brian M. Miranda, Esq. ayuda a personas y familias del norte de New Jersey con la planificación patrimonial. Su enfoque es personal y práctico, con explicaciones claras y atención disponible en inglés, español y portugués.
+  - path: hero.imageAlt
+    source: Brian M. Miranda, Esq.
+    value: Brian M. Miranda, Esq.
+  - path: hero.secondaryLabel
+    source: Schedule a Free Initial Consultation
+    value: Programe una consulta inicial gratuita
+  - path: sections.0.title
+    source: A Hillside foundation.
+    value: Sus raíces en Hillside.
+  - path: sections.0.body.0
+    source: Brian Miranda grew up in Hillside, New Jersey, in a blue-collar family where hard work was a daily example. Working in construction with his father and uncle helped shape his practical approach.
+    value: Brian Miranda creció en Hillside, New Jersey, en una familia de clase trabajadora donde el trabajo duro era un ejemplo cotidiano. Trabajar en la construcción con su padre y su tío contribuyó a formar su enfoque práctico.
+  - path: sections.0.body.1
+    source: Brian grew up bilingual and learned English as a second language. That experience gives him a personal understanding of how much clear communication matters when legal issues feel unfamiliar.
+    value: Brian creció siendo bilingüe y aprendió inglés como segundo idioma. Esa experiencia le permite comprender, desde una perspectiva personal, cuánto importa la comunicación clara cuando los asuntos legales resultan poco familiares.
+  - path: sections.1.title
+    source: Education
+    value: Educación
+  - path: sections.1.bullets.0
+    source: Bachelor of Science in Business Administration — Seton Hall University
+    value: Bachelor of Science in Business Administration — Seton Hall University
+  - path: sections.1.bullets.1
+    source: Juris Doctor — New York Law School
+    value: Juris Doctor — New York Law School
+  - path: sections.2.title
+    source: Bar admissions
+    value: Admisiones al ejercicio de la abogacía
+  - path: sections.2.bullets.0
+    source: New Jersey
+    value: New Jersey
+  - path: sections.2.bullets.1
+    source: New York
+    value: New York
+  - path: sections.2.bullets.2
+    source: U.S. District Court for the District of New Jersey
+    value: U.S. District Court for the District of New Jersey
+  - path: sections.3.title
+    source: Working with Brian
+    value: Trabajar con Brian
+  - path: sections.3.cards.0.title
+    source: Clear explanations
+    value: Explicaciones claras
+  - path: sections.3.cards.0.body
+    source: Brian explains the available options and their tradeoffs in plain language. You have room to ask questions as the agreed documents are prepared and reviewed, and to understand what was signed and what comes next.
+    value: Brian explica las opciones disponibles y sus ventajas y desventajas en un lenguaje sencillo. Usted tiene espacio para hacer preguntas durante la preparación y revisión de los documentos acordados, y para comprender qué firmó y cuáles son los siguientes pasos.
+  - path: sections.3.cards.1.title
+    source: Personal recommendations
+    value: Recomendaciones personales
+  - path: sections.3.cards.1.body
+    source: The conversation begins with your family, property, responsibilities, and goals. Those details guide the recommendations, including what future changes may call for another review of your plan.
+    value: La conversación comienza con su familia, sus bienes, sus responsabilidades y sus objetivos. Esos detalles orientan las recomendaciones, incluidos los cambios futuros que podrían requerir otra revisión de su plan.
+  - path: sections.3.cards.2.title
+    source: Responsive communication
+    value: Comunicación receptiva
+  - path: sections.3.cards.2.body
+    source: The legal team handles intake and scheduling through phone, text, and WhatsApp.
+    value: El equipo legal gestiona la recepción de casos y la programación a través de teléfono, mensajes de texto y WhatsApp.
+  - path: sections.4.eyebrow
+    source: Serving North Jersey
+    value: Sirviendo al norte de New Jersey
+  - path: sections.4.title
+    source: Serving North Jersey’s multilingual families
+    value: Al servicio de las familias multilingües del norte de New Jersey
+  - path: sections.4.body.0
+    source: Miranda Law primarily serves North Jersey, including Monmouth County and communities north of it. The Warren office gives clients a local place to begin, while the firm's phone, text, and WhatsApp options help make communication easier.
+    value: Miranda Law sirve principalmente al norte de New Jersey, incluyendo el condado de Monmouth y las comunidades al norte de este. La oficina de Warren brinda a los clientes un lugar local para comenzar, mientras que las opciones de teléfono, texto y WhatsApp de la firma ayudan a facilitar la comunicación.
+  - path: sections.4.body.1
+    source: Approximately half of the firm's clients are Spanish- or Portuguese-speaking. Multilingual service is not an add-on; it is part of how the practice works every day.
+    value: Aproximadamente la mitad de los clientes de la firma hablan español o portugués. El servicio multilingüe no es un complemento; es parte de la forma en que la práctica opera cada día.
+  - path: sections.4.body.2
+    source: English, Spanish, and Portuguese communication is available throughout the client experience.
+    value: La comunicación en inglés, español y portugués está disponible durante toda la experiencia del cliente.
+  - path: finalCta.title
+    source: Bring the questions you have now.
+    value: Traiga las preguntas que tenga ahora.
+  - path: finalCta.body
+    source: You do not need to solve every decision before calling. A free initial consultation is a place to understand what may come next.
+    value: No es necesario resolver cada decisión antes de llamar. Una consulta inicial gratuita es un espacio para comprender qué podría ser lo siguiente.

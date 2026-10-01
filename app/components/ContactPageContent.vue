@@ -31,18 +31,16 @@ const contactActions = computed(() =>
     href: actionHref(action.id),
   }))
 );
-
-usePageSeo({
-  title: page.value.title,
-  description: page.value.metaDescription,
-  path: page.value.path,
-});
 </script>
 
 <template>
-  <div>
-    <Breadcrumbs />
-    <InteriorHero v-bind="page.hero" />
+  <PageShell
+    :title="page.title"
+    :description="page.metaDescription"
+    :path="page.path"
+    :hero="page.hero"
+    :show-final-cta="false"
+  >
     <section class="contact-page-section">
       <div class="contact-page-intro">
         <SectionEyebrow tone="dark">{{ content.intro.eyebrow }}</SectionEyebrow>
@@ -88,5 +86,5 @@ usePageSeo({
         >
       </a>
     </section>
-  </div>
+  </PageShell>
 </template>

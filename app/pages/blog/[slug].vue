@@ -72,7 +72,7 @@ useSchemaOrg([
       />
     </header>
     <div class="blog-article-layout">
-      <div class="blog-article-body" v-html="article.bodyHtml" />
+      <ContentRenderer class="blog-article-body" :value="article" />
       <aside>
         <h2>{{ content.topicsLabel }}</h2>
         <ul>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { getPhoneHref } from "~/data/routes";
-import { blogPosts } from "#site-content";
 
 const siteCopy = useSiteCopy();
+const blogPosts = useBlogPosts();
 const { homePath, languageLinks, locale, localizePath } = useSiteLocale();
 const site = computed(() => siteCopy.value.site);
 const copy = computed(() => site.value.footer);
@@ -10,7 +10,7 @@ const contact = computed(() => site.value.contact);
 const currentYear = new Date().getFullYear();
 const resourceLinks = computed(() => [
   ...site.value.navigation.resources,
-  ...(blogPosts.length
+  ...(blogPosts.value.length
     ? [{ label: siteCopy.value.blog.label, href: siteCopy.value.blog.path }]
     : []),
 ]);

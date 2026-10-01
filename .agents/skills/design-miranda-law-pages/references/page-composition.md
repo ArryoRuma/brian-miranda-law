@@ -2,14 +2,15 @@
 
 ## Source of truth
 
-Read approved site copy from content/site.yml. Content flows through lib/content/load-content.ts and lib/content/schema.ts into the generated site-content module. Pages must not query a runtime CMS or duplicate marketing copy in Vue.
+Read approved site copy from the focused documents under content/site/. content.config.ts validates the Nuxt Content collections, and lib/content/collections.ts plus lib/content/schema.ts assemble and validate the typed repository model used by Vue. Pages must not query a remote CMS or duplicate marketing copy in Vue.
 
 ## Existing page families
 
 - Homepage: dedicated composition in app/pages/index.vue. Use it as the visual reference, not as a component template to copy wholesale.
-- Editorial pages: InteriorHero, typed page sections, optional FAQ, and CallToAction.
+- Editorial pages: PageShell, typed page sections, optional FAQ, and final call to action.
 - Specialized resources: FAQ library, estate-planning checklist, and video library.
 - Contact: specialized contact options and office section.
+- About: explicit `layout.template: about` content contract and portrait-led body.
 - Legal and questionnaire previews: preserve their specialized renderers and indexing rules.
 
 ## Typed section selection

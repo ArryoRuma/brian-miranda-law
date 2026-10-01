@@ -1,31 +1,18 @@
 <script setup lang="ts">
 const siteCopy = useSiteCopy();
 const content = computed(() => siteCopy.value.resources.faq);
-
-usePageSeo({
-  title: content.value.seo.title,
-  description: content.value.seo.description,
-  path: content.value.seo.path!,
-});
-
-useSchemaOrg([
-  {
-    "@type": "FAQPage",
-    mainEntity: content.value.groups.flatMap(group =>
-      group.items.map(item => ({
-        "@type": "Question",
-        name: item.question,
-        acceptedAnswer: { "@type": "Answer", text: item.answer },
-      }))
-    ),
-  },
-]);
+const faqs = computed(() => content.value.groups.flatMap(group => group.items));
 </script>
 
 <template>
-  <div>
-    <Breadcrumbs />
-    <InteriorHero v-bind="content.hero" />
+  <PageShell
+    :title="content.seo.title"
+    :description="content.seo.description"
+    :path="content.seo.path"
+    :hero="content.hero"
+    :faqs="faqs"
+    :show-faq-section="false"
+  >
     <section
       v-for="group in content.groups"
       :key="group.title"
@@ -41,6 +28,5 @@ useSchemaOrg([
         :id-prefix="`faq-${group.title.toLowerCase().replaceAll(' ', '-')}`"
       />
     </section>
-    <CallToAction />
-  </div>
+  </PageShell>
 </template>

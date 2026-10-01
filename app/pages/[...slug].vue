@@ -39,7 +39,7 @@ function resolvePage(
 
   if (editorialPages[localizedPath])
     return {
-      type: basePath === "/about" ? "about" : "editorial",
+      type: editorialPages[localizedPath].layout ? "about" : "editorial",
       content: editorialPages[localizedPath],
     };
 }

@@ -2,18 +2,15 @@
 import { Play } from "@lucide/vue";
 const siteCopy = useSiteCopy();
 const content = computed(() => siteCopy.value.resources.video);
-
-usePageSeo({
-  title: content.value.seo.title,
-  description: content.value.seo.description,
-  path: content.value.seo.path!,
-});
 </script>
 
 <template>
-  <div>
-    <Breadcrumbs />
-    <InteriorHero v-bind="content.hero" />
+  <PageShell
+    :title="content.seo.title"
+    :description="content.seo.description"
+    :path="content.seo.path"
+    :hero="content.hero"
+  >
     <section class="video-library-section">
       <div class="video-library-heading coming-soon-panel">
         <SectionEyebrow tone="dark">{{ content.intro.eyebrow }}</SectionEyebrow>
@@ -31,6 +28,5 @@ usePageSeo({
         </article>
       </div>
     </section>
-    <CallToAction />
-  </div>
+  </PageShell>
 </template>

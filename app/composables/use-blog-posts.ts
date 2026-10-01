@@ -1,9 +1,9 @@
-import { blogPosts } from "#site-content";
-
 export function useBlogPosts() {
-  return computed(() => blogPosts);
+  const { $repositoryContent } = useNuxtApp();
+  return computed(() => $repositoryContent.blogPosts);
 }
 
 export function useBlogPost(slug: string) {
-  return computed(() => blogPosts.find(post => post.slug === slug));
+  const posts = useBlogPosts();
+  return computed(() => posts.value.find(post => post.slug === slug));
 }

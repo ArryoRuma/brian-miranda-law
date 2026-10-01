@@ -1,3 +1,4 @@
-whatsAppLabel:
-  source: WhatsApp
-  value: WhatsApp
+entries:
+  - path: whatsAppLabel
+    source: WhatsApp
+    value: WhatsApp

@@ -55,6 +55,7 @@ const nonTranslatableKeys = new Set([
   "path",
   "image",
   "type",
+  "template",
   "tone",
   "icon",
   "priority",
@@ -73,6 +74,7 @@ const nonTranslatablePrefixes = [
   "questionnaire.locales.",
   "nextSteps.locales.",
   "localization.",
+  "pages.about.layout.",
 ];
 
 const sharedStructuredDataKeys = new Set([

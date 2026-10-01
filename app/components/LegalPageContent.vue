@@ -9,17 +9,15 @@ const content = computed(() => {
   return value;
 });
 const labels = computed(() => siteCopy.value.site.shared.legal);
-
-usePageSeo({
-  title: content.value.title,
-  description: content.value.description,
-  path: localizePath(`/${props.page}`),
-});
 </script>
 
 <template>
-  <div>
-    <Breadcrumbs />
+  <PageShell
+    :title="content.title"
+    :description="content.description"
+    :path="localizePath(`/${props.page}`)"
+    :show-final-cta="false"
+  >
     <article class="legal-page">
       <header>
         <SectionEyebrow>{{ labels.eyebrow }}</SectionEyebrow>
@@ -39,5 +37,5 @@ usePageSeo({
         </section>
       </div>
     </article>
-  </div>
+  </PageShell>
 </template>

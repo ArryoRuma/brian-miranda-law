@@ -104,20 +104,56 @@ const sectionSchema = z.discriminatedUnion("type", [
     .strict(),
 ]);
 
-const pageSchema = z.object({
-  path,
-  title: text,
-  metaDescription: text,
-  hero: heroSchema,
-  sections: z.array(sectionSchema),
-  faqs: z.array(faqSchema).optional(),
-  finalCta: z
-    .object({
-      title: text,
-      body: text,
-    })
-    .optional(),
-});
+export const pageSchema = z
+  .object({
+    path,
+    title: text,
+    metaDescription: text,
+    hero: heroSchema,
+    sections: z.array(sectionSchema),
+    layout: z
+      .object({
+        template: z.literal("about"),
+        biographySectionId: text,
+        credentialSectionIds: z.array(text).min(1),
+      })
+      .strict()
+      .optional(),
+    faqs: z.array(faqSchema).optional(),
+    finalCta: z
+      .object({
+        title: text,
+        body: text,
+      })
+      .optional(),
+  })
+  .superRefine((page, context) => {
+    if (!page.layout) return;
+
+    const sectionIds = new Set(
+      page.sections.flatMap(section => (section.id ? [section.id] : []))
+    );
+    const layoutIds = [
+      page.layout.biographySectionId,
+      ...page.layout.credentialSectionIds,
+    ];
+    if (new Set(layoutIds).size !== layoutIds.length) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["layout"],
+        message: "About layout section IDs must be unique",
+      });
+    }
+    for (const id of layoutIds) {
+      if (!sectionIds.has(id)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["layout"],
+          message: `About layout references an unknown section: ${id}`,
+        });
+      }
+    }
+  });
 
 const seoSchema = z.object({
   title: text,
@@ -141,7 +177,7 @@ const identifiedStepSchema = stepSchema.extend({
   id: z.enum(["documents", "schedule", "communicate"]),
 });
 
-const legalPageSchema = z.object({
+export const legalPageSchema = z.object({
   title: text,
   description: text,
   updated: text,
@@ -213,7 +249,7 @@ const contactSchema = z
     }
   });
 
-const rawSiteContentSchema = z.object({
+export const rawSiteContentSchema = z.object({
   site: z.object({
     name: text,
     url: siteUrl,

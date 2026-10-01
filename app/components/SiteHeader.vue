@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ChevronDown, Menu, X } from "@lucide/vue";
-import { blogPosts } from "#site-content";
 
 const route = useRoute();
 const { homePath, languageLinks, locale, localizePath } = useSiteLocale();
 const siteCopy = useSiteCopy();
+const blogPosts = useBlogPosts();
 const navigation = computed(() => [
   ...siteCopy.value.site.navigation.primary,
-  ...(blogPosts.length
+  ...(blogPosts.value.length
     ? [
         {
           id: "blog",

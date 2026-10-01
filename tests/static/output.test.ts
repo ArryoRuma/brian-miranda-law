@@ -1,15 +1,14 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { loadRepositoryContent } from "../../lib/content/load-content";
 import { getPreviewRoutes, getPublicRoutes } from "../../lib/content/schema";
+import { loadRepositoryContent } from "../helpers/repository-content";
 
 const outputDirectory = join(process.cwd(), ".output", "public");
-const repository = loadRepositoryContent(process.cwd());
+const repository = loadRepositoryContent();
 const publicRoutes = getPublicRoutes(repository.siteCopy);
 const previewRoutes = getPreviewRoutes();
-const deploymentBasePath =
-  process.env.VERCEL === "1" ? "" : "/brian-miranda-law";
+const deploymentBasePath = "";
 const deploymentSiteUrl = `${repository.siteCopy.site.url}${deploymentBasePath}`;
 
 const routeFile = (route: string) =>
@@ -53,7 +52,17 @@ describe("generated static site", () => {
 
   it("keeps the empty blog private", () => {
     expect(repository.blogPosts).toHaveLength(0);
-    expect(existsSync(routeFile("/blog"))).toBe(false);
+    const blogHtml = readFileSync(routeFile("/blog"), "utf8");
+    expect(blogHtml).toContain(
+      '<meta name="robots" content="noindex, nofollow">'
+    );
+    expect(blogHtml).not.toContain('class="blog-index-section"');
+
+    for (const route of publicRoutes) {
+      expect(readFileSync(routeFile(route), "utf8")).not.toMatch(
+        /href="[^"]*\/blog(?:"|\/)/
+      );
+    }
   });
 
   it("renders the attorney profile in every language without changing service layouts", () => {
@@ -166,10 +175,17 @@ describe("generated static site", () => {
     }
   });
 
-  it("ships no SQLite database runtime", () => {
-    const files = collectFiles(outputDirectory).map(file => file.toLowerCase());
-    expect(files.some(file => file.includes("sqlite"))).toBe(false);
-    expect(files.some(file => file.endsWith(".wasm"))).toBe(false);
+  it("ships Nuxt Content as static query data without an application server", () => {
+    const files = collectFiles(outputDirectory).map(file =>
+      file.slice(outputDirectory.length).toLowerCase()
+    );
+    expect(
+      files.some(
+        file =>
+          file.includes("/__nuxt_content/") && file.endsWith("/sql_dump.txt")
+      )
+    ).toBe(true);
+    expect(files.some(file => file.endsWith(".sqlite"))).toBe(false);
   });
 
   it("uses static image assets instead of the Vercel image function", () => {
