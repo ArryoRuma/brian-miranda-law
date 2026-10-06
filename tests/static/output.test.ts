@@ -6,7 +6,15 @@ import { loadRepositoryContent } from "../helpers/repository-content";
 
 const outputDirectory = join(process.cwd(), ".output", "public");
 const repository = loadRepositoryContent();
-const publicRoutes = getPublicRoutes(repository.siteCopy);
+const publicRoutes = [
+  ...getPublicRoutes(repository.siteCopy),
+  ...(repository.blogPosts.length
+    ? [
+        repository.siteCopy.blog.path,
+        ...repository.blogPosts.map(post => `/blog/${post.slug}`),
+      ]
+    : []),
+];
 const previewRoutes = getPreviewRoutes();
 const deploymentBasePath = "";
 const deploymentSiteUrl = `${repository.siteCopy.site.url}${deploymentBasePath}`;
@@ -50,18 +58,17 @@ describe("generated static site", () => {
     expect(existsSync(routeFile("/pt/start/pt"))).toBe(false);
   });
 
-  it("keeps the empty blog private", () => {
-    expect(repository.blogPosts).toHaveLength(0);
+  it("publishes the migrated blog and its article routes", () => {
+    expect(repository.blogPosts).toHaveLength(9);
     const blogHtml = readFileSync(routeFile("/blog"), "utf8");
-    expect(blogHtml).toContain(
-      '<meta name="robots" content="noindex, nofollow">'
-    );
-    expect(blogHtml).not.toContain('class="blog-index-section"');
+    expect(blogHtml).toContain('<meta name="robots" content="index, follow">');
+    expect(blogHtml).toContain('class="blog-index-section"');
 
-    for (const route of publicRoutes) {
-      expect(readFileSync(routeFile(route), "utf8")).not.toMatch(
-        /href="[^"]*\/blog(?:"|\/)/
-      );
+    for (const post of repository.blogPosts) {
+      const route = `/blog/${post.slug}`;
+      const html = readFileSync(routeFile(route), "utf8");
+      expect(html).toContain(`<h1>${post.title.replaceAll("'", "&#39;")}</h1>`);
+      expect(blogHtml).toContain(`href="${route}"`);
     }
   });
 
@@ -134,7 +141,7 @@ describe("generated static site", () => {
       expect(sitemap).toContain(entry);
     }
     expect(sitemap).not.toContain("/start/");
-    expect(sitemap).not.toContain("/blog");
+    expect(sitemap).toContain(`${deploymentSiteUrl}/blog`);
   });
 
   it("renders locale-aware metadata and same-page language switches", () => {

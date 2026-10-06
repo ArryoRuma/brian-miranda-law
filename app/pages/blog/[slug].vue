@@ -32,7 +32,9 @@ useSchemaOrg([
     "@type": "BlogPosting",
     headline: article.value.title,
     description: article.value.description,
-    image: `${siteCopy.value.site.url}${article.value.heroImage}`,
+    ...(article.value.heroImage
+      ? { image: `${siteCopy.value.site.url}${article.value.heroImage}` }
+      : {}),
     datePublished: article.value.publishedAt,
     dateModified: article.value.updatedAt ?? article.value.publishedAt,
     author: {
@@ -62,8 +64,9 @@ useSchemaOrg([
         </span>
       </div>
       <NuxtImg
+        v-if="article.heroImage"
         :src="article.heroImage"
-        :alt="article.heroImageAlt"
+        :alt="article.heroImageAlt ?? ''"
         width="1600"
         height="900"
         sizes="xs:100vw lg:72vw"
@@ -73,7 +76,7 @@ useSchemaOrg([
     </header>
     <div class="blog-article-layout">
       <ContentRenderer class="blog-article-body" :value="article" />
-      <aside>
+      <aside v-if="article.tags.length">
         <h2>{{ content.topicsLabel }}</h2>
         <ul>
           <li v-for="tag in article.tags" :key="tag">{{ tag }}</li>

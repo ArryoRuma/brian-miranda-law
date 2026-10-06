@@ -46,8 +46,9 @@ if (isPublished.value) {
     <section class="blog-index-section">
       <article v-for="post in posts" :key="post.slug" class="blog-card">
         <NuxtImg
+          v-if="post.heroImage"
           :src="post.heroImage"
-          :alt="post.heroImageAlt"
+          :alt="post.heroImageAlt ?? ''"
           width="1200"
           height="800"
           sizes="xs:100vw md:40vw"

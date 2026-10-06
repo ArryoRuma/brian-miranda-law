@@ -18,24 +18,34 @@ const calendarDate = z.preprocess(
   }, "Expected a real calendar date in YYYY-MM-DD format")
 );
 
-export const blogCollectionSchema = z.object({
-  title: text,
-  description: text,
-  slug,
-  author: text,
-  heroImage: imagePath,
-  heroImageAlt: text,
-  tags: z
-    .array(text)
-    .min(1)
-    .refine(values => new Set(values).size === values.length, {
-      message: "Tags must be unique",
-    }),
-  status: z.enum(["draft", "published"]),
-  reviewed: z.boolean(),
-  publishedAt: calendarDate.optional(),
-  updatedAt: calendarDate.optional(),
-});
+export const blogCollectionSchema = z
+  .object({
+    title: text,
+    description: text,
+    slug,
+    author: text,
+    heroImage: imagePath.optional(),
+    heroImageAlt: text.optional(),
+    tags: z
+      .array(text)
+      .refine(values => new Set(values).size === values.length, {
+        message: "Tags must be unique",
+      })
+      .default([]),
+    status: z.enum(["draft", "published"]),
+    reviewed: z.boolean(),
+    publishedAt: calendarDate.optional(),
+    updatedAt: calendarDate.optional(),
+  })
+  .superRefine((post, context) => {
+    if (Boolean(post.heroImage) !== Boolean(post.heroImageAlt)) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: post.heroImage ? ["heroImageAlt"] : ["heroImage"],
+        message: "heroImage and heroImageAlt must be provided together",
+      });
+    }
+  });
 
 export const blogFrontMatterSchema = blogCollectionSchema.superRefine(
   (post, context) => {
