@@ -103,6 +103,57 @@ export default defineNuxtConfig({
   routeRules: {
     "/start/**": { prerender: true, robots: false, sitemap: false },
     "/api/**": { robots: false, sitemap: false },
+    "/post/out-of-work-and-don-t-know-what-to-do": {
+      redirect: {
+        to: "/blog/out-of-work-and-don-t-know-what-to-do",
+        statusCode: 301,
+      },
+    },
+    "/post/are-your-bills-getting-out-of-hand": {
+      redirect: {
+        to: "/blog/are-your-bills-getting-out-of-hand",
+        statusCode: 301,
+      },
+    },
+    "/post/time-for-a-restart": {
+      redirect: { to: "/blog/time-for-a-restart", statusCode: 301 },
+    },
+    "/post/what-is-the-paycheck-protection-program": {
+      redirect: {
+        to: "/blog/what-is-the-paycheck-protection-program",
+        statusCode: 301,
+      },
+    },
+    "/post/not-being-able-to-pay-your-mortgage-keeping-you-up-at-night": {
+      redirect: {
+        to: "/blog/not-being-able-to-pay-your-mortgage-keeping-you-up-at-night",
+        statusCode: 301,
+      },
+    },
+    "/post/have-you-ever-thought-of-a-tomorrow-without-you": {
+      redirect: {
+        to: "/blog/have-you-ever-thought-of-a-tomorrow-without-you",
+        statusCode: 301,
+      },
+    },
+    "/post/have-you-been-a-victim-and-have-no-immigration-status": {
+      redirect: {
+        to: "/blog/have-you-been-a-victim-and-have-no-immigration-status",
+        statusCode: 301,
+      },
+    },
+    "/post/unemployed-and-thinking-of-starting-your-own-business": {
+      redirect: {
+        to: "/blog/unemployed-and-thinking-of-starting-your-own-business",
+        statusCode: 301,
+      },
+    },
+    "/post/facing-eviction-know-your-rights": {
+      redirect: {
+        to: "/blog/facing-eviction-know-your-rights",
+        statusCode: 301,
+      },
+    },
   },
   nitro: {
     compressPublicAssets: true,

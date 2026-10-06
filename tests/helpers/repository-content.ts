@@ -24,6 +24,24 @@ const directoryDocuments = <T>(relativeDirectory: string) =>
     .sort()
     .map(fileName => dataDocument<T>(join(relativeDirectory, fileName)));
 
+const articleDocuments = () =>
+  readdirSync(join(root, "content/blog"))
+    .filter(fileName => fileName.endsWith(".md"))
+    .sort()
+    .map(fileName => {
+      const relativePath = join("blog", fileName);
+      const source = readFileSync(join(root, "content", relativePath), "utf8");
+      const match = source.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+      if (!match)
+        throw new Error(`Invalid article front matter: ${relativePath}`);
+      return {
+        ...(parse(match[1]!) as Record<string, unknown>),
+        id: relativePath,
+        stem: relativePath.replace(/\.md$/, ""),
+        body: match[2]!,
+      };
+    });
+
 const translationDocuments = (
   locale: "es" | "pt",
   relativeDirectory = ""
@@ -66,7 +84,7 @@ export function loadRepositoryDocuments(): RepositoryCollectionDocuments {
     translationReview: [dataDocument("site/localization/review.yml")],
     translationsEs: translationDocuments("es"),
     translationsPt: translationDocuments("pt"),
-    articles: [],
+    articles: articleDocuments(),
   } as RepositoryCollectionDocuments;
 }
 
