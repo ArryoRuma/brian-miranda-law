@@ -19,7 +19,11 @@ const resourceLinks = computed(() => [
 <template>
   <footer class="site-footer site-footer-expanded">
     <div class="footer-brand-column">
-      <NuxtLink class="footer-logo-link" :to="homePath">
+      <NuxtLink
+        class="footer-logo-link"
+        :to="homePath"
+        :aria-label="site.header.homeAriaLabel"
+      >
         <NuxtImg
           class="footer-logo"
           src="/miranda-law-gold.png"

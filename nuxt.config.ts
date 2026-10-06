@@ -92,6 +92,9 @@ export default defineNuxtConfig({
     excludeAppSources: true,
     zeroRuntime: true,
   },
+  linkChecker: {
+    excludeLinks: [/^sms:/],
+  },
   schemaOrg: {
     identity: {
       type: "LocalBusiness",
@@ -182,6 +185,7 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       failOnError: true,
+      ignore: [/^\/_vercel\/image/],
       routes: ["/", ...previewRoutes, "/agents.json", "/api/__sitemap__/urls"],
     },
   },
