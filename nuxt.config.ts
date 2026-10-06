@@ -84,7 +84,7 @@ export default defineNuxtConfig({
     },
   },
   robots: {
-    robotsTxt: false,
+    robotsTxt: true,
     disallow: ["/start/"],
   },
   sitemap: {
@@ -101,7 +101,7 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    "/start/**": { prerender: true, robots: false, sitemap: false },
+    "/start/**": { prerender: true, robots: true, sitemap: false },
     "/api/**": { robots: false, sitemap: false },
   },
   nitro: {
