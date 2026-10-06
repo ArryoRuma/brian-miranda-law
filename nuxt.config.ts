@@ -94,10 +94,32 @@ export default defineNuxtConfig({
   },
   schemaOrg: {
     identity: {
-      type: "Organization",
+      type: "LocalBusiness",
+      "@type": "LegalService",
+      "@id": `${siteUrl}/#legal-service`,
       name: "The Law Offices of Brian M. Miranda, Esq., LLC",
+      alternateName: "Miranda Law",
       url: siteUrl,
       logo: `${siteUrl}/miranda-law-gold.png`,
+      image: `${siteUrl}/images/brian-law-hero_7235d741.jpg.webp`,
+      telephone: "+19084241011",
+      email: "bmiranda@bmirandalaw.com",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "172 Washington Valley Road, Suite 3",
+        addressLocality: "Warren",
+        addressRegion: "NJ",
+        postalCode: "07059",
+        addressCountry: "US",
+      },
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "16:00",
+      },
+      areaServed: "North Jersey",
+      knowsLanguage: ["en", "es", "pt"],
     },
   },
   routeRules: {

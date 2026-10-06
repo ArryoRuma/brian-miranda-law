@@ -34,26 +34,6 @@ usePageSeo({
 
 useSchemaOrg([
   {
-    "@type": "LegalService",
-    "@id": site.value.url + "/#legal-service",
-    name: contact.value.name,
-    alternateName: contact.value.shortName,
-    url: site.value.url,
-    image: site.value.url + content.value.hero.image,
-    telephone: contact.value.phoneHref,
-    email: contact.value.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: structuredData.value.streetAddress,
-      addressLocality: structuredData.value.addressLocality,
-      addressRegion: structuredData.value.addressRegion,
-      postalCode: structuredData.value.postalCode,
-      addressCountry: structuredData.value.addressCountry,
-    },
-    areaServed: structuredData.value.areaServed,
-    knowsLanguage: structuredData.value.knowsLanguage,
-  },
-  {
     "@type": "Person",
     "@id": site.value.url + "/#brian-miranda",
     name: contact.value.attorney,
