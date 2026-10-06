@@ -25,20 +25,20 @@ No `.env` file is required. Development normally runs at `http://localhost:3000`
 
 ## Commands
 
-| Command                 | Purpose                                                             |
-| ----------------------- | ------------------------------------------------------------------- |
-| `pnpm dev`            | Start Nuxt development mode                                         |
-| `pnpm prepare`        | Regenerate Nuxt and collection types                                |
-| `pnpm lint`           | Run ESLint                                                          |
-| `pnpm typecheck`      | Run strict Nuxt/Vue/TypeScript checks                               |
-| `pnpm test`           | Run collection, domain-schema, translation, blog, and URL tests     |
-| `pnpm format:check`   | Check Prettier formatting                                           |
-| `pnpm check`          | Run lint, typecheck, unit tests, and formatting checks              |
+| Command               | Purpose                                                           |
+| --------------------- | ----------------------------------------------------------------- |
+| `pnpm dev`            | Start Nuxt development mode                                       |
+| `pnpm prepare`        | Regenerate Nuxt and collection types                              |
+| `pnpm lint`           | Run ESLint                                                        |
+| `pnpm typecheck`      | Run strict Nuxt/Vue/TypeScript checks                             |
+| `pnpm test`           | Run collection, domain-schema, translation, blog, and URL tests   |
+| `pnpm format:check`   | Check Prettier formatting                                         |
+| `pnpm check`          | Run lint, typecheck, unit tests, and formatting checks            |
 | `pnpm generate`       | Generate`.output/public`                                          |
-| `pnpm test:static`    | Inspect an existing generated site                                  |
-| `pnpm verify`         | Run all checks, generate, and inspect the output                    |
+| `pnpm test:static`    | Inspect an existing generated site                                |
+| `pnpm verify`         | Run all checks, generate, and inspect the output                  |
 | `pnpm verify:release` | Run`verify`, then require every translation review to be approved |
-| `pnpm preview`        | Serve the generated output locally                                  |
+| `pnpm preview`        | Serve the generated output locally                                |
 
 `pnpm verify` is the required handoff command. `pnpm verify:release` is the release gate; it is expected to fail while a locale or page remains marked `draft` in `content/site/localization/review.yml`.
 

@@ -68,7 +68,6 @@ export default defineNuxtConfig({
     },
   },
   image: {
-    provider: "ipxStatic",
     format: ["avif", "webp"],
     quality: 82,
     screens: {
@@ -123,8 +122,8 @@ export default defineNuxtConfig({
         "@nuxtjs/mdc > unified",
         "@nuxtjs/mdc > debug",
         "@nuxtjs/mdc > extend",
-      ]
-    }
+      ],
+    },
   },
   typescript: {
     strict: true,
