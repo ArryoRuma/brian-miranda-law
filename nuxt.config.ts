@@ -111,6 +111,20 @@ export default defineNuxtConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      exclude: [
+        "@nuxtjs/mdc > remark-gfm",
+        "@nuxtjs/mdc > remark-emoji",
+        "@nuxtjs/mdc > remark-mdc",
+        "@nuxtjs/mdc > remark-rehype",
+        "@nuxtjs/mdc > rehype-raw",
+        "@nuxtjs/mdc > parse5",
+        "@nuxtjs/mdc > unist-util-visit",
+        "@nuxtjs/mdc > unified",
+        "@nuxtjs/mdc > debug",
+        "@nuxtjs/mdc > extend",
+      ]
+    }
   },
   typescript: {
     strict: true,
