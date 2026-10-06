@@ -29,6 +29,10 @@ export default defineNuxtConfig({
     "@nuxt/devtools",
     "nuxt-seo-utils",
     "@nuxt/hints",
+    "nuxt-og-image",
+    "nuxt-link-checker",
+    "nuxt-skew-protection",
+    "nuxt-ai-ready",
   ],
   site: {
     url: siteUrl,
