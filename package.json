@@ -33,7 +33,7 @@
     "nuxt-link-checker": "5.3.0",
     "nuxt-og-image": "6.10.3",
     "nuxt-schema-org": "^6.4.3",
-    "nuxt-seo-utils": "8.5.0",
+    "nuxt-seo-utils": "8.6.1",
     "nuxt-skew-protection": "1.6.2",
     "unstorage": "^1.17.5",
     "vite": "^8.3.2",
