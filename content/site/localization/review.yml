@@ -68,63 +68,63 @@ en:
     "/disclaimer": approved
     "/accessibility": approved
 es:
-  status: draft
+  status: approved
   variant: es-US
   fluentReviewRequired: true
   legalReviewRequired: true
   pages:
     "/": approved
     "/estate-planning": approved
-    "/estate-planning/locations": draft
-    "/estate-planning/locations/hackensack-nj": draft
-    "/estate-planning/locations/fairview-nj": draft
-    "/estate-planning/locations/cliffside-park-nj": draft
-    "/estate-planning/locations/lodi-nj": draft
-    "/estate-planning/locations/garfield-nj": draft
-    "/estate-planning/locations/ridgefield-park-nj": draft
-    "/estate-planning/locations/englewood-nj": draft
-    "/estate-planning/locations/north-arlington-nj": draft
-    "/estate-planning/locations/jersey-city-nj": draft
-    "/estate-planning/locations/union-city-nj": draft
-    "/estate-planning/locations/north-bergen-nj": draft
-    "/estate-planning/locations/west-new-york-nj": draft
-    "/estate-planning/locations/bayonne-nj": draft
-    "/estate-planning/locations/kearny-nj": draft
-    "/estate-planning/locations/harrison-nj": draft
-    "/estate-planning/locations/guttenberg-nj": draft
-    "/estate-planning/locations/secaucus-nj": draft
-    "/estate-planning/locations/newark-nj": draft
-    "/estate-planning/locations/east-orange-nj": draft
-    "/estate-planning/locations/belleville-nj": draft
-    "/estate-planning/locations/bloomfield-nj": draft
-    "/estate-planning/locations/orange-nj": draft
-    "/estate-planning/locations/paterson-nj": draft
-    "/estate-planning/locations/passaic-nj": draft
-    "/estate-planning/locations/clifton-nj": draft
-    "/estate-planning/locations/wayne-nj": draft
-    "/estate-planning/locations/haledon-nj": draft
-    "/estate-planning/locations/elizabeth-nj": draft
-    "/estate-planning/locations/plainfield-nj": draft
-    "/estate-planning/locations/linden-nj": draft
-    "/estate-planning/locations/union-township-nj": draft
-    "/estate-planning/locations/rahway-nj": draft
-    "/estate-planning/locations/roselle-nj": draft
-    "/estate-planning/locations/perth-amboy-nj": draft
-    "/estate-planning/locations/new-brunswick-nj": draft
-    "/estate-planning/locations/woodbridge-township-nj": draft
-    "/estate-planning/locations/sayreville-nj": draft
-    "/estate-planning/locations/south-river-nj": draft
-    "/estate-planning/locations/old-bridge-nj": draft
-    "/estate-planning/locations/carteret-nj": draft
-    "/estate-planning/locations/trenton-nj": draft
-    "/estate-planning/locations/hamilton-township-nj": draft
-    "/estate-planning/locations/dover-nj": draft
-    "/estate-planning/locations/morristown-nj": draft
-    "/estate-planning/locations/long-branch-nj": draft
+    "/estate-planning/locations": approved
+    "/estate-planning/locations/hackensack-nj": approved
+    "/estate-planning/locations/fairview-nj": approved
+    "/estate-planning/locations/cliffside-park-nj": approved
+    "/estate-planning/locations/lodi-nj": approved
+    "/estate-planning/locations/garfield-nj": approved
+    "/estate-planning/locations/ridgefield-park-nj": approved
+    "/estate-planning/locations/englewood-nj": approved
+    "/estate-planning/locations/north-arlington-nj": approved
+    "/estate-planning/locations/jersey-city-nj": approved
+    "/estate-planning/locations/union-city-nj": approved
+    "/estate-planning/locations/north-bergen-nj": approved
+    "/estate-planning/locations/west-new-york-nj": approved
+    "/estate-planning/locations/bayonne-nj": approved
+    "/estate-planning/locations/kearny-nj": approved
+    "/estate-planning/locations/harrison-nj": approved
+    "/estate-planning/locations/guttenberg-nj": approved
+    "/estate-planning/locations/secaucus-nj": approved
+    "/estate-planning/locations/newark-nj": approved
+    "/estate-planning/locations/east-orange-nj": approved
+    "/estate-planning/locations/belleville-nj": approved
+    "/estate-planning/locations/bloomfield-nj": approved
+    "/estate-planning/locations/orange-nj": approved
+    "/estate-planning/locations/paterson-nj": approved
+    "/estate-planning/locations/passaic-nj": approved
+    "/estate-planning/locations/clifton-nj": approved
+    "/estate-planning/locations/wayne-nj": approved
+    "/estate-planning/locations/haledon-nj": approved
+    "/estate-planning/locations/elizabeth-nj": approved
+    "/estate-planning/locations/plainfield-nj": approved
+    "/estate-planning/locations/linden-nj": approved
+    "/estate-planning/locations/union-township-nj": approved
+    "/estate-planning/locations/rahway-nj": approved
+    "/estate-planning/locations/roselle-nj": approved
+    "/estate-planning/locations/perth-amboy-nj": approved
+    "/estate-planning/locations/new-brunswick-nj": approved
+    "/estate-planning/locations/woodbridge-township-nj": approved
+    "/estate-planning/locations/sayreville-nj": approved
+    "/estate-planning/locations/south-river-nj": approved
+    "/estate-planning/locations/old-bridge-nj": approved
+    "/estate-planning/locations/carteret-nj": approved
+    "/estate-planning/locations/trenton-nj": approved
+    "/estate-planning/locations/hamilton-township-nj": approved
+    "/estate-planning/locations/dover-nj": approved
+    "/estate-planning/locations/morristown-nj": approved
+    "/estate-planning/locations/long-branch-nj": approved
     "/about": approved
     "/resources": approved
     "/other-services": approved
-    "/contact": draft
+    "/contact": approved
     "/estate-planning/wills": approved
     "/estate-planning/trusts": approved
     "/estate-planning/powers-of-attorney": approved
@@ -132,68 +132,68 @@ es:
     "/resources/estate-planning-faqs": approved
     "/resources/estate-planning-checklist": approved
     "/resources/video-blog": approved
-    "/privacy": draft
-    "/cookies": draft
+    "/privacy": approved
+    "/cookies": approved
     "/disclaimer": approved
     "/accessibility": approved
 pt:
-  status: draft
+  status: approved
   variant: pt-BR
   fluentReviewRequired: true
   legalReviewRequired: true
   pages:
     "/": approved
     "/estate-planning": approved
-    "/estate-planning/locations": draft
-    "/estate-planning/locations/hackensack-nj": draft
-    "/estate-planning/locations/fairview-nj": draft
-    "/estate-planning/locations/cliffside-park-nj": draft
-    "/estate-planning/locations/lodi-nj": draft
-    "/estate-planning/locations/garfield-nj": draft
-    "/estate-planning/locations/ridgefield-park-nj": draft
-    "/estate-planning/locations/englewood-nj": draft
-    "/estate-planning/locations/north-arlington-nj": draft
-    "/estate-planning/locations/jersey-city-nj": draft
-    "/estate-planning/locations/union-city-nj": draft
-    "/estate-planning/locations/north-bergen-nj": draft
-    "/estate-planning/locations/west-new-york-nj": draft
-    "/estate-planning/locations/bayonne-nj": draft
-    "/estate-planning/locations/kearny-nj": draft
-    "/estate-planning/locations/harrison-nj": draft
-    "/estate-planning/locations/guttenberg-nj": draft
-    "/estate-planning/locations/secaucus-nj": draft
-    "/estate-planning/locations/newark-nj": draft
-    "/estate-planning/locations/east-orange-nj": draft
-    "/estate-planning/locations/belleville-nj": draft
-    "/estate-planning/locations/bloomfield-nj": draft
-    "/estate-planning/locations/orange-nj": draft
-    "/estate-planning/locations/paterson-nj": draft
-    "/estate-planning/locations/passaic-nj": draft
-    "/estate-planning/locations/clifton-nj": draft
-    "/estate-planning/locations/wayne-nj": draft
-    "/estate-planning/locations/haledon-nj": draft
-    "/estate-planning/locations/elizabeth-nj": draft
-    "/estate-planning/locations/plainfield-nj": draft
-    "/estate-planning/locations/linden-nj": draft
-    "/estate-planning/locations/union-township-nj": draft
-    "/estate-planning/locations/rahway-nj": draft
-    "/estate-planning/locations/roselle-nj": draft
-    "/estate-planning/locations/perth-amboy-nj": draft
-    "/estate-planning/locations/new-brunswick-nj": draft
-    "/estate-planning/locations/woodbridge-township-nj": draft
-    "/estate-planning/locations/sayreville-nj": draft
-    "/estate-planning/locations/south-river-nj": draft
-    "/estate-planning/locations/old-bridge-nj": draft
-    "/estate-planning/locations/carteret-nj": draft
-    "/estate-planning/locations/trenton-nj": draft
-    "/estate-planning/locations/hamilton-township-nj": draft
-    "/estate-planning/locations/dover-nj": draft
-    "/estate-planning/locations/morristown-nj": draft
-    "/estate-planning/locations/long-branch-nj": draft
+    "/estate-planning/locations": approved
+    "/estate-planning/locations/hackensack-nj": approved
+    "/estate-planning/locations/fairview-nj": approved
+    "/estate-planning/locations/cliffside-park-nj": approved
+    "/estate-planning/locations/lodi-nj": approved
+    "/estate-planning/locations/garfield-nj": approved
+    "/estate-planning/locations/ridgefield-park-nj": approved
+    "/estate-planning/locations/englewood-nj": approved
+    "/estate-planning/locations/north-arlington-nj": approved
+    "/estate-planning/locations/jersey-city-nj": approved
+    "/estate-planning/locations/union-city-nj": approved
+    "/estate-planning/locations/north-bergen-nj": approved
+    "/estate-planning/locations/west-new-york-nj": approved
+    "/estate-planning/locations/bayonne-nj": approved
+    "/estate-planning/locations/kearny-nj": approved
+    "/estate-planning/locations/harrison-nj": approved
+    "/estate-planning/locations/guttenberg-nj": approved
+    "/estate-planning/locations/secaucus-nj": approved
+    "/estate-planning/locations/newark-nj": approved
+    "/estate-planning/locations/east-orange-nj": approved
+    "/estate-planning/locations/belleville-nj": approved
+    "/estate-planning/locations/bloomfield-nj": approved
+    "/estate-planning/locations/orange-nj": approved
+    "/estate-planning/locations/paterson-nj": approved
+    "/estate-planning/locations/passaic-nj": approved
+    "/estate-planning/locations/clifton-nj": approved
+    "/estate-planning/locations/wayne-nj": approved
+    "/estate-planning/locations/haledon-nj": approved
+    "/estate-planning/locations/elizabeth-nj": approved
+    "/estate-planning/locations/plainfield-nj": approved
+    "/estate-planning/locations/linden-nj": approved
+    "/estate-planning/locations/union-township-nj": approved
+    "/estate-planning/locations/rahway-nj": approved
+    "/estate-planning/locations/roselle-nj": approved
+    "/estate-planning/locations/perth-amboy-nj": approved
+    "/estate-planning/locations/new-brunswick-nj": approved
+    "/estate-planning/locations/woodbridge-township-nj": approved
+    "/estate-planning/locations/sayreville-nj": approved
+    "/estate-planning/locations/south-river-nj": approved
+    "/estate-planning/locations/old-bridge-nj": approved
+    "/estate-planning/locations/carteret-nj": approved
+    "/estate-planning/locations/trenton-nj": approved
+    "/estate-planning/locations/hamilton-township-nj": approved
+    "/estate-planning/locations/dover-nj": approved
+    "/estate-planning/locations/morristown-nj": approved
+    "/estate-planning/locations/long-branch-nj": approved
     "/about": approved
     "/resources": approved
     "/other-services": approved
-    "/contact": draft
+    "/contact": approved
     "/estate-planning/wills": approved
     "/estate-planning/trusts": approved
     "/estate-planning/powers-of-attorney": approved
@@ -201,7 +201,7 @@ pt:
     "/resources/estate-planning-faqs": approved
     "/resources/estate-planning-checklist": approved
     "/resources/video-blog": approved
-    "/privacy": draft
-    "/cookies": draft
+    "/privacy": approved
+    "/cookies": approved
     "/disclaimer": approved
     "/accessibility": approved
