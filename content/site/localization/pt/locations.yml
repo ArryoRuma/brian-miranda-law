@@ -1,0 +1,46 @@
+entries:
+  - path: hub.title
+    source: Estate Planning for New Jersey Communities
+    value: Planejamento patrimonial para comunidades de New Jersey
+  - path: hub.description
+    source: Explore estate-planning guidance for families in communities served by Miranda Law across New Jersey.
+    value: Explore orientações sobre planejamento patrimonial para famílias das comunidades de New Jersey atendidas pela Miranda Law.
+  - path: hub.eyebrow
+    source: Communities we serve
+    value: Comunidades que atendemos
+  - path: hub.heading
+    source: Estate planning for New Jersey communities.
+    value: Planejamento patrimonial para comunidades de New Jersey.
+  - path: hub.intro
+    source: Miranda Law helps families understand wills, trusts, powers of attorney, and health care directives in English, Spanish, and Portuguese. Choose a community to explore estate-planning information and ways to contact the office.
+    value: A Miranda Law ajuda famílias a entender testamentos, trusts (fideicomissos), procurações e diretivas de cuidados de saúde em inglês, espanhol e português. Escolha uma comunidade para explorar informações sobre planejamento patrimonial e formas de entrar em contato com o escritório.
+  - path: hub.countyHeading
+    source: "{county} County"
+    value: "Condado de {county}"
+  - path: landing.title
+    source: "Estate Planning for {municipality}, New Jersey Families"
+    value: "Planejamento patrimonial para famílias de {municipality}, New Jersey"
+  - path: landing.description
+    source: "Estate-planning guidance for families in {municipality}, New Jersey, covering wills, trusts, powers of attorney, and health care directives."
+    value: "Orientações sobre planejamento patrimonial para famílias de {municipality}, New Jersey, incluindo testamentos, trusts (fideicomissos), procurações e diretivas de cuidados de saúde."
+  - path: landing.introEyebrow
+    source: "Estate planning in {municipality}"
+    value: "Planejamento patrimonial em {municipality}"
+  - path: landing.introTitle
+    source: "A clear estate plan for your family in {municipality}."
+    value: "Um plano patrimonial claro para sua família em {municipality}."
+  - path: landing.introBody
+    source: "Miranda Law helps families in {municipality} understand their estate-planning options and put their wishes in writing. The right documents depend on your family, property, and goals."
+    value: "A Miranda Law ajuda famílias de {municipality} a entender suas opções de planejamento patrimonial e registrar seus desejos por escrito. Os documentos adequados dependem da sua família, dos seus bens e dos seus objetivos."
+  - path: landing.countyEyebrow
+    source: Communities we serve
+    value: Comunidades que atendemos
+  - path: landing.countyTitle
+    source: "Estate planning across {county} County"
+    value: "Planejamento patrimonial no condado de {county}"
+  - path: landing.countyBody
+    source: "Explore estate-planning information for other {county} County communities."
+    value: "Explore informações sobre planejamento patrimonial para outras comunidades do condado de {county}."
+  - path: landing.allLocationsLabel
+    source: View all communities we serve
+    value: Veja todas as comunidades que atendemos

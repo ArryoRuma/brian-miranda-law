@@ -8,6 +8,7 @@ export default defineNuxtPlugin(async () => {
     const [
       site,
       home,
+      locations,
       pages,
       resourceFaq,
       resourceChecklist,
@@ -25,6 +26,7 @@ export default defineNuxtPlugin(async () => {
     ] = await Promise.all([
       queryCollection("site").all(),
       queryCollection("home").all(),
+      queryCollection("locations").all(),
       queryCollection("pages").all(),
       queryCollection("resourceFaq").all(),
       queryCollection("resourceChecklist").all(),
@@ -44,6 +46,7 @@ export default defineNuxtPlugin(async () => {
     return assembleRepositoryContent({
       site,
       home,
+      locations,
       pages,
       resourceFaq,
       resourceChecklist,

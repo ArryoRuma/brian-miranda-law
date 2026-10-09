@@ -1,6 +1,8 @@
 export type {
   FaqContent,
   HomeService,
+  LocationCounty,
+  LocationMunicipality,
   PageCard,
   PageSectionContent,
   SiteContent,

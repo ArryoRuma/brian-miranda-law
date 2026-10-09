@@ -40,6 +40,7 @@ export type TranslationDocument = z.infer<typeof translationDocumentSchema> & {
 export type RepositoryCollectionDocuments = {
   site: Array<ContentDocument<SiteContent["site"]>>;
   home: Array<ContentDocument<SiteContent["home"]>>;
+  locations: Array<ContentDocument<SiteContent["locations"]>>;
   pages: Array<ContentDocument<SiteContent["pages"][string]>>;
   resourceFaq: Array<ContentDocument<SiteContent["resources"]["faq"]>>;
   resourceChecklist: Array<
@@ -80,6 +81,16 @@ function withoutNulls<T>(value: T): T {
     Object.entries(value)
       .filter(([, child]) => child !== null)
       .map(([key, child]) => [key, withoutNulls(child)])
+  ) as T;
+}
+
+function withoutDocumentMetadata<T>(document: ContentDocument<T>): T {
+  return Object.fromEntries(
+    Object.entries(document).filter(
+      ([key]) =>
+        !["id", "stem", "extension", "meta"].includes(key) &&
+        !key.startsWith("__")
+    )
   ) as T;
 }
 
@@ -130,6 +141,7 @@ function translationOverlay(
             {
               shared: "site",
               home: "home",
+              locations: "locations",
               blog: "blog",
               "contact-page": "contactPage",
               questionnaire: "questionnaire",
@@ -166,6 +178,9 @@ export function assembleRepositoryContent(
   const siteCopy = siteContentSchema.parse({
     site: withoutNulls(only(documents.site, "Site")),
     home: withoutNulls(only(documents.home, "Homepage")),
+    locations: withoutNulls(
+      withoutDocumentMetadata(only(documents.locations, "Locations"))
+    ),
     pages: recordCollection(documents.pages, "Pages"),
     resources: {
       faq: withoutNulls(only(documents.resourceFaq, "FAQ resource")),

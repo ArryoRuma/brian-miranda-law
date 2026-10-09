@@ -9,6 +9,9 @@ import {
   getPreviewRoutes,
   getPublicRoutes,
   getStaticPageRoutes,
+  getLocationPath,
+  locationHubPath,
+  locationsSchema,
   siteContentSchema,
 } from "../../lib/content/schema";
 import {
@@ -21,7 +24,7 @@ const repository = loadRepositoryContent();
 describe("site content collections and domain schema", () => {
   it("assembles the Nuxt Content documents and derives every route", () => {
     expect(repository.siteCopy.site.name).toBe("Miranda Law");
-    expect(getStaticPageRoutes(repository.siteCopy)).toHaveLength(17);
+    expect(getStaticPageRoutes(repository.siteCopy)).toHaveLength(63);
     expect(Object.keys(repository.siteCopy.pages).sort()).toEqual([
       "about",
       "contact",
@@ -46,7 +49,7 @@ describe("site content collections and domain schema", () => {
     );
 
     const publicRoutes = getPublicRoutes(repository.siteCopy);
-    expect(publicRoutes).toHaveLength(51);
+    expect(publicRoutes).toHaveLength(189);
     expect(publicRoutes.some(route => route.startsWith("/en"))).toBe(false);
     expect(
       publicRoutes.some(route => /\/(?:es|pt)\/(?:es|pt)(?:\/|$)/.test(route))
@@ -80,9 +83,86 @@ describe("site content collections and domain schema", () => {
         .digest("hex");
 
     expect({ es: digest("es"), pt: digest("pt") }).toEqual({
-      es: "fc16f86b5c2252f5ab0f1370f9caece232f7dd5cc4273b5dbe3d6e9d30a7083d",
-      pt: "b8e66c43ba85b7b04196446236e49800295456bd61c88ec3a62ced4cfaa85b98",
+      es: "5cf85ee3081f2ea1fced40d009519871981e8d5217de6580481957503bd1a112",
+      pt: "3ef1bbbb7b41fc09f8fda5c166fec045fbbafe9dea4f3acdb332ce7c4d38df53",
     });
+  });
+
+  it("publishes the approved municipality roster in every language", () => {
+    const locations = repository.siteCopy.locations;
+    expect(locations.counties.map(county => county.name)).toEqual([
+      "Bergen",
+      "Hudson",
+      "Essex",
+      "Passaic",
+      "Union",
+      "Middlesex",
+      "Mercer",
+      "Morris",
+      "Monmouth",
+    ]);
+    expect(
+      locations.counties.map(county => county.municipalities.length)
+    ).toEqual([8, 9, 5, 5, 6, 7, 2, 2, 1]);
+    const municipalities = locations.counties.flatMap(
+      county => county.municipalities
+    );
+    expect(municipalities).toHaveLength(45);
+    expect(
+      locations.counties
+        .find(county => county.name === "Bergen")
+        ?.municipalities.find(
+          municipality => municipality.name === "North Arlington"
+        )?.type
+    ).toBe("borough");
+    expect(
+      locations.counties
+        .find(county => county.name === "Hudson")
+        ?.municipalities.some(
+          municipality => municipality.name === "North Bergen"
+        )
+    ).toBe(true);
+    expect(
+      municipalities.some(municipality => municipality.name === "Camden")
+    ).toBe(false);
+
+    const locationRoutes = [
+      locationHubPath,
+      ...municipalities.map(municipality => getLocationPath(municipality.slug)),
+    ];
+    const publicRoutes = getPublicRoutes(repository.siteCopy);
+    for (const prefix of ["", "/es", "/pt"]) {
+      for (const route of locationRoutes) {
+        expect(publicRoutes).toContain(`${prefix}${route}`);
+      }
+    }
+    for (const locale of ["en", "es", "pt"] as const) {
+      expect(
+        locationRoutes.every(
+          route =>
+            repository.siteCopy.localization.review[locale].pages[route] ===
+            (locale === "en" ? "approved" : "draft")
+        )
+      ).toBe(true);
+    }
+  });
+
+  it("rejects duplicate and malformed municipality data", () => {
+    const duplicateSlug = structuredClone(repository.siteCopy.locations);
+    duplicateSlug.counties[0]!.municipalities[1]!.slug =
+      duplicateSlug.counties[0]!.municipalities[0]!.slug;
+    expect(locationsSchema.safeParse(duplicateSlug).success).toBe(false);
+
+    const duplicateName = structuredClone(repository.siteCopy.locations);
+    duplicateName.counties[1]!.municipalities[0]!.name =
+      duplicateName.counties[0]!.municipalities[0]!.name;
+    expect(locationsSchema.safeParse(duplicateName).success).toBe(false);
+
+    const unknownField = structuredClone(
+      repository.siteCopy.locations
+    ) as typeof repository.siteCopy.locations & { fakeOffice?: string };
+    unknownField.fakeOffice = "Hackensack";
+    expect(locationsSchema.safeParse(unknownField).success).toBe(false);
   });
 
   it("requires every singleton collection", () => {
@@ -180,7 +260,7 @@ describe("site content collections and domain schema", () => {
     expect(sectionTypes).toEqual({
       narrative: 17,
       checklist: 17,
-      cards: 13,
+      cards: 14,
       steps: 5,
     });
 

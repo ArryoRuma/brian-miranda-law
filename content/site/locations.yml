@@ -1,0 +1,85 @@
+hub:
+  title: Estate Planning for New Jersey Communities
+  description: Explore estate-planning guidance for families in communities served by Miranda Law across New Jersey.
+  eyebrow: Communities we serve
+  heading: Estate planning for New Jersey communities.
+  intro: Miranda Law helps families understand wills, trusts, powers of attorney, and health care directives in English, Spanish, and Portuguese. Choose a community to explore estate-planning information and ways to contact the office.
+  countyHeading: "{county} County"
+landing:
+  title: "Estate Planning for {municipality}, New Jersey Families"
+  description: "Estate-planning guidance for families in {municipality}, New Jersey, covering wills, trusts, powers of attorney, and health care directives."
+  introEyebrow: "Estate planning in {municipality}"
+  introTitle: "A clear estate plan for your family in {municipality}."
+  introBody: "Miranda Law helps families in {municipality} understand their estate-planning options and put their wishes in writing. The right documents depend on your family, property, and goals."
+  countyEyebrow: Communities we serve
+  countyTitle: "Estate planning across {county} County"
+  countyBody: "Explore estate-planning information for other {county} County communities."
+  allLocationsLabel: View all communities we serve
+counties:
+  - name: Bergen
+    municipalities:
+      - { name: Hackensack, type: city, slug: hackensack-nj }
+      - { name: Fairview, type: borough, slug: fairview-nj }
+      - { name: Cliffside Park, type: borough, slug: cliffside-park-nj }
+      - { name: Lodi, type: borough, slug: lodi-nj }
+      - { name: Garfield, type: city, slug: garfield-nj }
+      - { name: Ridgefield Park, type: village, slug: ridgefield-park-nj }
+      - { name: Englewood, type: city, slug: englewood-nj }
+      - { name: North Arlington, type: borough, slug: north-arlington-nj }
+  - name: Hudson
+    municipalities:
+      - { name: Jersey City, type: city, slug: jersey-city-nj }
+      - { name: Union City, type: city, slug: union-city-nj }
+      - { name: North Bergen, type: township, slug: north-bergen-nj }
+      - { name: West New York, type: town, slug: west-new-york-nj }
+      - { name: Bayonne, type: city, slug: bayonne-nj }
+      - { name: Kearny, type: town, slug: kearny-nj }
+      - { name: Harrison, type: town, slug: harrison-nj }
+      - { name: Guttenberg, type: town, slug: guttenberg-nj }
+      - { name: Secaucus, type: town, slug: secaucus-nj }
+  - name: Essex
+    municipalities:
+      - { name: Newark, type: city, slug: newark-nj }
+      - { name: East Orange, type: city, slug: east-orange-nj }
+      - { name: Belleville, type: township, slug: belleville-nj }
+      - { name: Bloomfield, type: township, slug: bloomfield-nj }
+      - { name: Orange, type: city, slug: orange-nj }
+  - name: Passaic
+    municipalities:
+      - { name: Paterson, type: city, slug: paterson-nj }
+      - { name: Passaic, type: city, slug: passaic-nj }
+      - { name: Clifton, type: city, slug: clifton-nj }
+      - { name: Wayne, type: township, slug: wayne-nj }
+      - { name: Haledon, type: borough, slug: haledon-nj }
+  - name: Union
+    municipalities:
+      - { name: Elizabeth, type: city, slug: elizabeth-nj }
+      - { name: Plainfield, type: city, slug: plainfield-nj }
+      - { name: Linden, type: city, slug: linden-nj }
+      - { name: Union Township, type: township, slug: union-township-nj }
+      - { name: Rahway, type: city, slug: rahway-nj }
+      - { name: Roselle, type: borough, slug: roselle-nj }
+  - name: Middlesex
+    municipalities:
+      - { name: Perth Amboy, type: city, slug: perth-amboy-nj }
+      - { name: New Brunswick, type: city, slug: new-brunswick-nj }
+      - {
+          name: Woodbridge Township,
+          type: township,
+          slug: woodbridge-township-nj,
+        }
+      - { name: Sayreville, type: borough, slug: sayreville-nj }
+      - { name: South River, type: borough, slug: south-river-nj }
+      - { name: Old Bridge, type: township, slug: old-bridge-nj }
+      - { name: Carteret, type: borough, slug: carteret-nj }
+  - name: Mercer
+    municipalities:
+      - { name: Trenton, type: city, slug: trenton-nj }
+      - { name: Hamilton Township, type: township, slug: hamilton-township-nj }
+  - name: Morris
+    municipalities:
+      - { name: Dover, type: town, slug: dover-nj }
+      - { name: Morristown, type: town, slug: morristown-nj }
+  - name: Monmouth
+    municipalities:
+      - { name: Long Branch, type: city, slug: long-branch-nj }

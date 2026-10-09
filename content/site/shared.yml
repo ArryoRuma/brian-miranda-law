@@ -109,6 +109,7 @@ breadcrumbs:
   ariaLabel: Breadcrumb
   labels:
     /estate-planning: Estate Planning
+    /estate-planning/locations: Communities We Serve
     /estate-planning/wills: Wills
     /estate-planning/trusts: Trusts
     /estate-planning/powers-of-attorney: Powers of Attorney

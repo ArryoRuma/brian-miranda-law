@@ -101,6 +101,9 @@ entries:
   - path: breadcrumbs.labels./estate-planning
     source: Estate Planning
     value: Planejamento Patrimonial
+  - path: breadcrumbs.labels./estate-planning/locations
+    source: Communities We Serve
+    value: Comunidades que atendemos
   - path: breadcrumbs.labels./estate-planning/wills
     source: Wills
     value: Testamentos

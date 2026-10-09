@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { getPhoneHref } from "~/data/routes";
+import { locationHubPath } from "~~/lib/content/schema";
 
 const siteCopy = useSiteCopy();
 const blogPosts = useBlogPosts();
@@ -45,6 +46,9 @@ const resourceLinks = computed(() => [
         :to="localizePath(item.href)"
       >
         {{ item.label }}
+      </NuxtLink>
+      <NuxtLink :to="localizePath(locationHubPath)">
+        {{ siteCopy.locations.hub.eyebrow }}
       </NuxtLink>
     </div>
 

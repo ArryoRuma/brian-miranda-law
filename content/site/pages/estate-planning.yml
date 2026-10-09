@@ -89,6 +89,15 @@ sections:
       - Phone, text, and WhatsApp communication with the office.
       - A North Jersey practice serving Monmouth County and communities north of it.
       - A free initial consultation.
+  - type: cards
+    eyebrow: Communities we serve
+    title: Explore estate planning in your community.
+    tone: sand
+    cards:
+      - title: Find your community
+        body: Browse the New Jersey communities served by Miranda Law and find estate-planning information for your area.
+        href: /estate-planning/locations
+        linkLabel: View communities
 faqs:
   - question: What documents are commonly included in an estate plan?
     answer: Many plans include a will, a financial power of attorney, and one or more health care directives. A trust may be appropriate depending on the assets, family circumstances, and goals involved.

@@ -216,6 +216,71 @@ const nextStepsLocaleSchema = z.object({
 const localeRecord = <T extends z.ZodTypeAny>(schema: T) =>
   z.object({ en: schema, es: schema, pt: schema });
 
+export const locationHubPath = "/estate-planning/locations";
+
+const locationMunicipalitySchema = z
+  .object({
+    name: text,
+    type: z.enum(["borough", "city", "town", "township", "village"]),
+    slug: text.regex(/^[a-z0-9]+(?:-[a-z0-9]+)*-nj$/),
+  })
+  .strict();
+
+export const locationsSchema = z
+  .object({
+    hub: z
+      .object({
+        title: text,
+        description: text,
+        eyebrow: text,
+        heading: text,
+        intro: text,
+        countyHeading: text,
+      })
+      .strict(),
+    landing: z
+      .object({
+        title: text,
+        description: text,
+        introEyebrow: text,
+        introTitle: text,
+        introBody: text,
+        countyEyebrow: text,
+        countyTitle: text,
+        countyBody: text,
+        allLocationsLabel: text,
+      })
+      .strict(),
+    counties: z
+      .array(
+        z
+          .object({
+            name: text,
+            municipalities: z.array(locationMunicipalitySchema).min(1),
+          })
+          .strict()
+      )
+      .min(1),
+  })
+  .strict()
+  .superRefine((locations, context) => {
+    const counties = locations.counties.map(county => county.name);
+    if (new Set(counties).size !== counties.length) {
+      addIssue(context, ["counties"], "Location counties must be unique");
+    }
+    const municipalities = locations.counties.flatMap(
+      county => county.municipalities
+    );
+    for (const key of ["name", "slug"] as const) {
+      const values = municipalities.map(municipality => municipality[key]);
+      if (new Set(values).size !== values.length) {
+        addIssue(context, ["counties"], `Location ${key}s must be unique`);
+      }
+    }
+  });
+
+export const getLocationPath = (slug: string) => `${locationHubPath}/${slug}`;
+
 const translationReviewStatusSchema = z.enum(["approved", "draft"]);
 
 const translationReviewSchema = z.object({
@@ -467,6 +532,7 @@ export const rawSiteContentSchema = z.object({
       optionsLabel: text,
     }),
   }),
+  locations: locationsSchema,
   pages: z.record(z.string(), pageSchema),
   resources: z.object({
     faq: z.object({
@@ -566,6 +632,12 @@ export const getStaticPageRoutes = (
 ) =>
   [
     content.home.seo.path,
+    locationHubPath,
+    ...content.locations.counties.flatMap(county =>
+      county.municipalities.map(municipality =>
+        getLocationPath(municipality.slug)
+      )
+    ),
     ...Object.values(content.pages).map(page => page.path),
     content.resources.faq.seo.path,
     content.resources.checklist.seo.path,
@@ -807,7 +879,11 @@ export const siteContentSchema = rawSiteContentSchema.superRefine(
     inspectLinks(content);
 
     for (const route of [...staticRoutes, content.blog.path]) {
-      if (route !== "/" && !content.site.breadcrumbs.labels[route]) {
+      if (
+        route !== "/" &&
+        !route.startsWith(`${locationHubPath}/`) &&
+        !content.site.breadcrumbs.labels[route]
+      ) {
         addIssue(
           context,
           ["site", "breadcrumbs", "labels", route],
@@ -838,3 +914,5 @@ export type PageCard = Extract<
   { type: "cards" }
 >["cards"][number];
 export type FaqContent = NonNullable<SitePageContent["faqs"]>[number];
+export type LocationCounty = SiteContent["locations"]["counties"][number];
+export type LocationMunicipality = LocationCounty["municipalities"][number];

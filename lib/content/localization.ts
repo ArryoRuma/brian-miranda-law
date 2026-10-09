@@ -71,6 +71,7 @@ const nonTranslatablePrefixes = [
   "site.structuredData.knowsLanguage",
   "site.navigation.languages.",
   "home.languages.items.",
+  "locations.counties.",
   "questionnaire.locales.",
   "nextSteps.locales.",
   "localization.",

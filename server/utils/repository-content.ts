@@ -9,6 +9,7 @@ export async function queryRepositoryContent(event: H3Event) {
   const [
     site,
     home,
+    locations,
     pages,
     resourceFaq,
     resourceChecklist,
@@ -26,6 +27,7 @@ export async function queryRepositoryContent(event: H3Event) {
   ] = await Promise.all([
     queryServerCollection(event, "site").all(),
     queryServerCollection(event, "home").all(),
+    queryServerCollection(event, "locations").all(),
     queryServerCollection(event, "pages").all(),
     queryServerCollection(event, "resourceFaq").all(),
     queryServerCollection(event, "resourceChecklist").all(),
@@ -45,6 +47,7 @@ export async function queryRepositoryContent(event: H3Event) {
   return assembleRepositoryContent({
     site,
     home,
+    locations,
     pages,
     resourceFaq,
     resourceChecklist,

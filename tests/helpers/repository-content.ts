@@ -71,6 +71,7 @@ export function loadRepositoryDocuments(): RepositoryCollectionDocuments {
   return {
     site: [dataDocument("site/shared.yml")],
     home: [dataDocument("site/home.yml")],
+    locations: [dataDocument("site/locations.yml")],
     pages: directoryDocuments("site/pages"),
     resourceFaq: [dataDocument("site/resources/faq.yml")],
     resourceChecklist: [dataDocument("site/resources/checklist.yml")],

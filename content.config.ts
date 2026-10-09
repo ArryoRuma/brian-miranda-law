@@ -3,6 +3,7 @@ import { blogCollectionSchema } from "./lib/content/blog";
 import { translationDocumentSchema } from "./lib/content/collections";
 import {
   legalPageSchema,
+  locationsSchema,
   pageSchema,
   rawSiteContentSchema,
 } from "./lib/content/schema";
@@ -20,6 +21,11 @@ export default defineContentConfig({
       type: "data",
       source: "site/home.yml",
       schema: shape.home,
+    }),
+    locations: defineCollection({
+      type: "data",
+      source: "site/locations.yml",
+      schema: locationsSchema,
     }),
     pages: defineCollection({
       type: "data",

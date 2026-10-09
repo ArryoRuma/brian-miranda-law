@@ -188,6 +188,21 @@ entries:
   - path: sections.6.bullets.4
     source: A free initial consultation.
     value: Uma consulta inicial gratuita.
+  - path: sections.7.eyebrow
+    source: Communities we serve
+    value: Comunidades que atendemos
+  - path: sections.7.title
+    source: Explore estate planning in your community.
+    value: Explore o planejamento patrimonial na sua comunidade.
+  - path: sections.7.cards.0.title
+    source: Find your community
+    value: Encontre sua comunidade
+  - path: sections.7.cards.0.body
+    source: Browse the New Jersey communities served by Miranda Law and find estate-planning information for your area.
+    value: Explore as comunidades de New Jersey atendidas pela Miranda Law e encontre informações sobre planejamento patrimonial para sua região.
+  - path: sections.7.cards.0.linkLabel
+    source: View communities
+    value: Ver comunidades
   - path: faqs.0.question
     source: What documents are commonly included in an estate plan?
     value: Quais documentos são comumente incluídos em um plano patrimonial?

@@ -1,7 +1,12 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { getPreviewRoutes, getPublicRoutes } from "../../lib/content/schema";
+import {
+  getLocationPath,
+  getPreviewRoutes,
+  getPublicRoutes,
+  locationHubPath,
+} from "../../lib/content/schema";
 import { loadRepositoryContent } from "../helpers/repository-content";
 
 const outputDirectory = join(process.cwd(), ".output", "public");
@@ -170,6 +175,86 @@ describe("generated static site", () => {
     expect(englishHtml).toContain(`href="${deploymentBasePath}/pt/about"`);
     expect(spanishHtml).toContain(`href="${deploymentBasePath}/about"`);
     expect(spanishHtml).toContain(`href="${deploymentBasePath}/pt/about"`);
+  });
+
+  it("renders every location page with same-county links and localized metadata", () => {
+    const counties = repository.siteCopy.locations.counties;
+    for (const county of counties) {
+      for (const municipality of county.municipalities) {
+        const basePath = getLocationPath(municipality.slug);
+        for (const prefix of ["", "/es", "/pt"]) {
+          const locale = (prefix.slice(1) || "en") as "en" | "es" | "pt";
+          const route = `${prefix}${basePath}`;
+          const html = readFileSync(routeFile(route), "utf8");
+          const countySection = html.match(
+            /<section class="location-county-section">([\s\S]*?)<\/section>/
+          )?.[1];
+          expect(countySection, route).toBeDefined();
+          expect(html.match(/<h1(?:\s|>)/g), route).toHaveLength(1);
+          expect(html, route).toContain(
+            `rel="canonical" href="${deploymentSiteUrl}${route}"`
+          );
+          expect(html, route).toContain(
+            `href="${deploymentSiteUrl}${basePath}" hreflang="en-US"`
+          );
+          expect(html, route).toContain(
+            `href="${deploymentSiteUrl}/es${basePath}" hreflang="es-US"`
+          );
+          expect(html, route).toContain(
+            `href="${deploymentSiteUrl}/pt${basePath}" hreflang="pt-BR"`
+          );
+          expect(html, route).toContain(municipality.name);
+          expect(html, route).toContain(`href="${prefix}${locationHubPath}"`);
+          expect(html, route).toContain(
+            repository.siteCopyByLocale[locale].home.hero.ctaLabel
+          );
+          expect(html, route).toContain("172 Washington Valley Road");
+          expect(html.match(/PostalAddress/g), route).toHaveLength(1);
+
+          const linkedMunicipalities = [
+            ...countySection!.matchAll(
+              /href="(?:\/es|\/pt)?\/estate-planning\/locations\/([a-z0-9-]+)"/g
+            ),
+          ].map(match => match[1]);
+          expect(linkedMunicipalities, route).toEqual(
+            county.municipalities
+              .filter(peer => peer.slug !== municipality.slug)
+              .map(peer => peer.slug)
+          );
+        }
+      }
+    }
+  });
+
+  it("links all municipalities from the directory, estate page, and footer", () => {
+    for (const prefix of ["", "/es", "/pt"]) {
+      const hub = readFileSync(
+        routeFile(`${prefix}${locationHubPath}`),
+        "utf8"
+      );
+      const estatePlanning = readFileSync(
+        routeFile(`${prefix}/estate-planning`),
+        "utf8"
+      );
+      const home = readFileSync(routeFile(prefix || "/"), "utf8");
+      expect(hub.match(/<h1(?:\s|>)/g)).toHaveLength(1);
+      expect(hub.match(/class="locations-county-group"/g)).toHaveLength(9);
+      for (const county of repository.siteCopy.locations.counties) {
+        for (const municipality of county.municipalities) {
+          expect(hub).toContain(
+            `href="${prefix}${getLocationPath(municipality.slug)}"`
+          );
+        }
+      }
+      expect(estatePlanning).toContain(`href="${prefix}${locationHubPath}"`);
+      expect(home).toContain(`href="${prefix}${locationHubPath}"`);
+    }
+    const longBranch = readFileSync(
+      routeFile(getLocationPath("long-branch-nj")),
+      "utf8"
+    );
+    expect(longBranch).toContain('class="location-county-section"');
+    expect(longBranch).not.toContain('class="location-link-grid"');
   });
 
   it("keeps preview routes outside Nuxt i18n routing and search indexing", () => {
