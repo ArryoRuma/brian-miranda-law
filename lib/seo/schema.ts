@@ -99,7 +99,6 @@ export function buildOfferCatalog(content: SiteContent): SchemaNode {
         url: service.url,
         provider: { "@id": ids.legalService },
         areaServed,
-        availableLanguage: site.structuredData.knowsLanguage,
       },
     })),
   };
@@ -257,7 +256,6 @@ export function buildEditorialPageSchema(
         url: canonical,
         provider: { "@id": ids.legalService },
         areaServed,
-        availableLanguage: site.structuredData.knowsLanguage,
       },
       {
         "@type": "WebPage",
@@ -312,7 +310,6 @@ export function buildLocationPageSchema(
       url: canonical,
       provider: { "@id": ids.legalService },
       areaServed: { "@id": placeId },
-      availableLanguage: site.structuredData.knowsLanguage,
     },
     {
       "@type": "WebPage",
