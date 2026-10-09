@@ -15,7 +15,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteUrl,
-      gaMeasurementId: "",
     },
   },
   css: ["~/assets/css/main.css"],

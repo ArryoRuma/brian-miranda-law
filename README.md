@@ -44,7 +44,7 @@ No `.env` file is required. Development normally runs at `http://localhost:3000`
 
 The Vercel deployment keeps the public pages prerendered and adds the intake function only when deployed with the Vercel Nitro preset. Configure these deployment variables before production activation:
 
-- `NUXT_PUBLIC_GA_MEASUREMENT_ID` enables the privacy-configured GA4 script.
+- Google Analytics 4 is installed directly in the Nuxt app with measurement ID `G-1Q7V5SLP5M`.
 - `RESEND_API_KEY` authenticates the intake delivery request.
 - `RESEND_FROM_EMAIL` must be a Resend-verified sender address.
 - `RESEND_TO_EMAIL` is optional and defaults to `bmiranda@bmirandalaw.com`.
