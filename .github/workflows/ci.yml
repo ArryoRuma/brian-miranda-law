@@ -37,10 +37,11 @@ jobs:
       - name: Verify static output
         run: pnpm generate && pnpm test:static
 
-      - name: Verify Vercel static output
+      - name: Verify Nitro deployment build
+        run: pnpm build
+
+      - name: Verify Vercel public output
         run: |
-          rm -rf .output
-          pnpm generate
-          pnpm test:static
-        env:
-          VERCEL: "1"
+          NITRO_PRESET=vercel pnpm build
+          test -f .vercel/output/functions/__fallback.func/index.mjs
+          test -f .vercel/output/functions/__fallback.func/chunks/routes/api/intake.post.mjs

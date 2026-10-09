@@ -6,8 +6,8 @@ entries:
     source: Learn how Miranda Law's website may use essential storage and limited analytics technologies.
     value: Saiba como o site da Miranda Law pode utilizar tecnologias de armazenamento essenciais e de análise limitada.
   - path: updated
-    source: August 14, 2026
-    value: 14 de agosto de 2026
+    source: October 9, 2026
+    value: 9 de outubro de 2026
   - path: intro
     source: Cookies and similar browser technologies can help a website function, remember preferences, measure performance, and protect against misuse.
     value: Cookies e tecnologias semelhantes do navegador podem ajudar um site a funcionar, lembrar preferências, medir o desempenho e proteger contra uso indevido.
@@ -21,17 +21,26 @@ entries:
     source: Analytics
     value: Análise de dados
   - path: sections.1.paragraphs.0
-    source: The website may use privacy-conscious analytics to understand aggregate traffic and page usage. The final analytics configuration and retention settings should be confirmed before launch.
-    value: O website pode utilizar ferramentas de análise que respeitam a privacidade para compreender o tráfego agregado e o uso das páginas. A configuração final da análise e as definições de retenção devem ser confirmadas antes do lançamento.
-  - path: sections.2.title
+    source: The website may use analytics tools to understand aggregate traffic and page usage. The specific tools, settings, and retention periods may change as the website develops.
+    value: O site pode usar ferramentas de análise para compreender o tráfego agregado e o uso das páginas. As ferramentas, configurações e períodos de retenção específicos podem mudar conforme o site se desenvolve.
+  - path: sections.1.paragraphs.1
+    source: The website uses a visible cookie notice, but it does not currently gate analytics behind affirmative consent. Visitors can block or delete browser storage and use Google's available opt-out controls.
+    value: O site usa um aviso de cookies visível, mas atualmente não bloqueia a análise até obter consentimento afirmativo. Os visitantes podem bloquear ou excluir o armazenamento do navegador e usar os controles de exclusão disponíveis do Google.
+  - path: sections.3.title
     source: Managing browser storage
     value: Gerenciamento de armazenamento do navegador
-  - path: sections.2.paragraphs.0
+  - path: sections.3.paragraphs.0
     source: Most browsers allow you to delete or block cookies and other stored website data. Those controls are available in the privacy or site-settings area of your browser.
-    value: A maioria dos navegadores permite excluir ou bloquear cookies e outros dados armazenados do website. Esses controles estão disponíveis na área de privacidade ou de configurações do site do seu navegador.
-  - path: sections.3.title
+    value: A maioria dos navegadores permite excluir ou bloquear cookies e outros dados armazenados do website. Esses controles estão disponíveis na área de privacidade ou de configurações do site.
+  - path: sections.2.title
+    source: Intake and communications
+    value: Solicitações e comunicações
+  - path: sections.2.paragraphs.0
+    source: Information may be submitted through the website or handled through the phone, text, WhatsApp, email, and other communication systems made available by the firm. The specific services may change over time.
+    value: As informações podem ser enviadas pelo site ou tratadas pelos sistemas de telefone, SMS, WhatsApp, e-mail e outras comunicações disponibilizadas pelo escritório. Os serviços específicos podem mudar com o tempo.
+  - path: sections.4.title
     source: Updates
     value: Atualizações
-  - path: sections.3.paragraphs.0
+  - path: sections.4.paragraphs.0
     source: This notice may be updated when the website's hosting, analytics, intake, or scheduling services change. The updated date above identifies the current version.
     value: Este aviso pode ser atualizado quando os serviços de hospedagem, análise, triagem ou agendamento do website forem alterados. A data de atualização acima identifica a versão atual.

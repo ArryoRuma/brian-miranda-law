@@ -80,8 +80,8 @@ describe("site content collections and domain schema", () => {
         .digest("hex");
 
     expect({ es: digest("es"), pt: digest("pt") }).toEqual({
-      es: "50ed9153761d984665f4bf27de51b69f92f125bbd341232704e374b110127c43",
-      pt: "ace944c4258ca3194a8d410873c693b7209122ce62fe3f9ba7293eba86ed23f6",
+      es: "fc16f86b5c2252f5ab0f1370f9caece232f7dd5cc4273b5dbe3d6e9d30a7083d",
+      pt: "b8e66c43ba85b7b04196446236e49800295456bd61c88ec3a62ced4cfaa85b98",
     });
   });
 

@@ -11,6 +11,60 @@ entries:
   - path: intro.note
     source: Contacting the firm does not create an attorney-client relationship. Please do not send confidential or time-sensitive information until the firm confirms representation.
     value: Entrar em contato com o escritório não cria uma relação advogado-cliente. Por favor, não envie informações confidenciais ou urgentes até que o escritório confirme a representação.
+  - path: intake.eyebrow
+    source: Secure inquiry request
+    value: Solicitação segura de contato
+  - path: intake.title
+    source: Tell the office how to reach you.
+    value: Diga ao escritório como entrar em contato com você.
+  - path: intake.body
+    source: Share only a general description of what you would like to discuss. Brian and the office team review inquiries during the next business day. This form is not for emergencies or urgent deadlines.
+    value: Compartilhe apenas uma descrição geral do que deseja conversar. Brian e a equipe do escritório analisam as solicitações durante o próximo dia útil. Este formulário não é para emergências ou prazos urgentes.
+  - path: intake.nameLabel
+    source: Your name
+    value: Seu nome
+  - path: intake.namePlaceholder
+    source: Name
+    value: Nome
+  - path: intake.contactLabel
+    source: Email or phone
+    value: E-mail ou telefone
+  - path: intake.contactPlaceholder
+    source: Email address or phone number
+    value: Endereço de e-mail ou número de telefone
+  - path: intake.preferredChannelLabel
+    source: Preferred reply method
+    value: Método de resposta preferido
+  - path: intake.preferredChannelOptions.0
+    source: Email
+    value: E-mail
+  - path: intake.preferredChannelOptions.1
+    source: Phone
+    value: Telefone
+  - path: intake.preferredChannelOptions.2
+    source: Text message
+    value: Mensagem de texto
+  - path: intake.preferredChannelOptions.3
+    source: WhatsApp
+    value: WhatsApp
+  - path: intake.messageLabel
+    source: General description
+    value: Descrição geral
+  - path: intake.messagePlaceholder
+    source: In a few sentences, tell us what you would like to discuss.
+    value: Em algumas frases, diga-nos o que deseja conversar.
+  - path: intake.confidentiality
+    source: Do not include confidential, highly sensitive, or time-sensitive information. Sending this form does not create an attorney-client relationship.
+    value: Não inclua informações confidenciais, altamente sensíveis ou urgentes. Enviar este formulário não cria uma relação advogado-cliente.
+  - path: intake.submitLabel
+    source: Send inquiry
+    value: Enviar solicitação
+  - path: intake.successMessage
+    source: Thank you. Your inquiry was sent to the Miranda Law office.
+    value: Obrigado. Sua solicitação foi enviada ao escritório Miranda Law.
+  - path: intake.errorMessage
+    source: We could not send your inquiry. Please call, text, WhatsApp, or email the office instead.
+    value: Não foi possível enviar sua solicitação. Ligue, envie um SMS, use o WhatsApp ou escreva para o escritório por e-mail.
   - path: optionValues.call
     source: 908-424-1011
     value: 908-424-1011

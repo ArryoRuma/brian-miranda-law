@@ -22,7 +22,7 @@ en:
     "/disclaimer": approved
     "/accessibility": approved
 es:
-  status: approved
+  status: draft
   variant: es-US
   fluentReviewRequired: true
   legalReviewRequired: true
@@ -32,7 +32,7 @@ es:
     "/about": approved
     "/resources": approved
     "/other-services": approved
-    "/contact": approved
+    "/contact": draft
     "/estate-planning/wills": approved
     "/estate-planning/trusts": approved
     "/estate-planning/powers-of-attorney": approved
@@ -40,12 +40,12 @@ es:
     "/resources/estate-planning-faqs": approved
     "/resources/estate-planning-checklist": approved
     "/resources/video-blog": approved
-    "/privacy": approved
-    "/cookies": approved
+    "/privacy": draft
+    "/cookies": draft
     "/disclaimer": approved
     "/accessibility": approved
 pt:
-  status: approved
+  status: draft
   variant: pt-BR
   fluentReviewRequired: true
   legalReviewRequired: true
@@ -55,7 +55,7 @@ pt:
     "/about": approved
     "/resources": approved
     "/other-services": approved
-    "/contact": approved
+    "/contact": draft
     "/estate-planning/wills": approved
     "/estate-planning/trusts": approved
     "/estate-planning/powers-of-attorney": approved
@@ -63,7 +63,7 @@ pt:
     "/resources/estate-planning-faqs": approved
     "/resources/estate-planning-checklist": approved
     "/resources/video-blog": approved
-    "/privacy": approved
-    "/cookies": approved
+    "/privacy": draft
+    "/cookies": draft
     "/disclaimer": approved
     "/accessibility": approved

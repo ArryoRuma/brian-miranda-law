@@ -2,7 +2,7 @@
 
 Static marketing website for The Law Offices of Brian M. Miranda, Esq., LLC. It uses Nuxt 4, Vue 3, Nuxt Content collections, strict TypeScript, Zod, Tailwind CSS 4, and Nuxt Image.
 
-Git-tracked YAML and Markdown are the editing experience. There is no staff login, visual CMS, visitor database, form handler, or production application server. `pnpm generate` writes the deployable site to `.output/public`.
+Git-tracked YAML and Markdown are the editing experience. There is no staff login, visual CMS, visitor database, or secure client portal. `pnpm generate` writes the static public output to `.output/public`; `pnpm build` also includes the Nitro intake endpoint for Vercel.
 
 > [!IMPORTANT]
 > This is a legal-services website. Do not invent or materially change credentials, testimonials, outcomes, services, fees, locations, policies, or legal claims. Firm facts and translated wording require owner/legal review.
@@ -39,6 +39,17 @@ No `.env` file is required. Development normally runs at `http://localhost:3000`
 | `pnpm verify`         | Run all checks, generate, and inspect the output                  |
 | `pnpm verify:release` | Run`verify`, then require every translation review to be approved |
 | `pnpm preview`        | Serve the generated output locally                                |
+
+### Runtime activation
+
+The Vercel deployment keeps the public pages prerendered and adds the intake function only when deployed with the Vercel Nitro preset. Configure these deployment variables before production activation:
+
+- `NUXT_PUBLIC_GA_MEASUREMENT_ID` enables the privacy-configured GA4 script.
+- `RESEND_API_KEY` authenticates the intake delivery request.
+- `RESEND_FROM_EMAIL` must be a Resend-verified sender address.
+- `RESEND_TO_EMAIL` is optional and defaults to `bmiranda@bmirandalaw.com`.
+
+The intake endpoint returns an unavailable response until the Resend variables are configured; it does not store submissions locally.
 
 `pnpm verify` is the required handoff command. `pnpm verify:release` is the release gate; it is expected to fail while a locale or page remains marked `draft` in `content/site/localization/review.yml`.
 
@@ -206,11 +217,11 @@ Do not create a second route array or hand-edit `public/agents.json`; that file 
 
 ## Static deployment and Nuxt Content assets
 
-Vercel runs `pnpm generate` and serves `.output/public` according to `vercel.json`. The deployed site has no application database or server API.
+Vercel runs `NITRO_PRESET=vercel pnpm build` and serves the `.vercel/output` deployment bundle according to `vercel.json`. Public pages remain prerendered, while the `/api/intake` endpoint forwards inquiries through Resend. The deployed site has no application database or secure client portal.
 
 Nuxt Content ships generated static query assets under `__nuxt_content/` plus its browser-side SQLite WASM worker. These are immutable build artifacts used to query the generated content snapshot; they are not an application database, do not accept writes, and contain no visitor data. Static tests require the query dumps and reject emitted `.sqlite` files.
 
-The sitemap source and `agents.json` are server routes only while generating. Their responses are written to static files and no runtime server is deployed.
+The sitemap source and `agents.json` are server routes only while generating. Their responses are written to static files. The deployed Nitro runtime also exposes only the intake endpoint; it does not provide a general application database or staff system.
 
 ## Verification
 

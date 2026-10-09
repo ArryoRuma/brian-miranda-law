@@ -37,8 +37,8 @@ describe("generated static site", () => {
     ) as { buildCommand: string; outputDirectory: string };
 
     expect(vercelConfig).toMatchObject({
-      buildCommand: "pnpm generate",
-      outputDirectory: ".output/public",
+      buildCommand: "NITRO_PRESET=vercel pnpm build",
+      outputDirectory: ".vercel/output",
     });
   });
 
@@ -97,6 +97,8 @@ describe("generated static site", () => {
     const contactHtml = readFileSync(routeFile("/contact"), "utf8");
     expect(contactHtml).toContain("Choose the easiest way to reach the office");
     expect(contactHtml).toContain("Message on WhatsApp");
+    expect(contactHtml).toContain("Tell the office how to reach you");
+    expect(contactHtml).toContain("Do not include confidential");
   });
 
   it("renders the approved consultation offer wording", () => {

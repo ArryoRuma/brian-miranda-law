@@ -66,6 +66,8 @@ const contactActions = computed(() =>
       </div>
     </section>
 
+    <IntakeForm />
+
     <section class="office-section">
       <div>
         <SectionEyebrow>{{ content.office.eyebrow }}</SectionEyebrow>

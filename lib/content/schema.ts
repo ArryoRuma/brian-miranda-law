@@ -503,6 +503,23 @@ export const rawSiteContentSchema = z.object({
   }),
   contactPage: z.object({
     intro: introSchema.extend({ note: text }),
+    intake: z.object({
+      eyebrow: text,
+      title: text,
+      body: text,
+      nameLabel: text,
+      namePlaceholder: text,
+      contactLabel: text,
+      contactPlaceholder: text,
+      preferredChannelLabel: text,
+      preferredChannelOptions: z.array(text).min(1),
+      messageLabel: text,
+      messagePlaceholder: text,
+      confidentiality: text,
+      submitLabel: text,
+      successMessage: text,
+      errorMessage: text,
+    }),
     optionValues: z.object({
       call: text,
       text: text,

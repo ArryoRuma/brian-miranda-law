@@ -3,6 +3,26 @@ intro:
   title: Choose the easiest way to reach the office.
   body: The legal team handles initial intake and scheduling. A first conversation helps the firm understand the general nature of your matter and determine an appropriate next step.
   note: Contacting the firm does not create an attorney-client relationship. Please do not send confidential or time-sensitive information until the firm confirms representation.
+intake:
+  eyebrow: Secure inquiry request
+  title: Tell the office how to reach you.
+  body: Share only a general description of what you would like to discuss. Brian and the office team review inquiries during the next business day. This form is not for emergencies or urgent deadlines.
+  nameLabel: Your name
+  namePlaceholder: Name
+  contactLabel: Email or phone
+  contactPlaceholder: Email address or phone number
+  preferredChannelLabel: Preferred reply method
+  preferredChannelOptions:
+    - Email
+    - Phone
+    - Text message
+    - WhatsApp
+  messageLabel: General description
+  messagePlaceholder: In a few sentences, tell us what you would like to discuss.
+  confidentiality: Do not include confidential, highly sensitive, or time-sensitive information. Sending this form does not create an attorney-client relationship.
+  submitLabel: Send inquiry
+  successMessage: Thank you. Your inquiry was sent to the Miranda Law office.
+  errorMessage: We could not send your inquiry. Please call, text, WhatsApp, or email the office instead.
 optionValues:
   call: 908-424-1011
   text: Send a text message

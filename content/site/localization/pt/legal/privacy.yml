@@ -6,23 +6,26 @@ entries:
     source: Read how Miranda Law may handle information submitted through this website and how to contact the firm with privacy questions.
     value: Leia como a Miranda Law pode tratar as informações enviadas por meio deste site e como entrar em contato com o escritório para dúvidas sobre privacidade.
   - path: updated
-    source: August 14, 2026
-    value: 14 de agosto de 2026
+    source: October 9, 2026
+    value: 9 de outubro de 2026
   - path: intro
-    source: This policy describes the general categories of information that may be processed through the Miranda Law website. It should be reviewed again when the secure intake, scheduling, analytics, and hosting services are finalized.
-    value: Esta política descreve as categorias gerais de informações que podem ser processadas através do site da Miranda Law. Ela deve ser revisada novamente quando os serviços de triagem segura, agendamento, análise e hospedagem forem finalizados.
+    source: This policy describes the general categories of information that may be processed through the Miranda Law website and related communications. It does not replace the firm's engagement agreement or explain the handling of an active client matter.
+    value: Esta política descreve as categorias gerais de informações que podem ser processadas pelo site da Miranda Law e pelas comunicações relacionadas. Ela não substitui o contrato de contratação do escritório nem explica o tratamento de um caso ativo de cliente.
   - path: sections.0.title
     source: Information you choose to provide
     value: Informações que você opta por fornecer
   - path: sections.0.paragraphs.0
     source: You may choose to provide contact information and a general description of your legal needs when communicating with the firm. Do not submit confidential, highly sensitive, or time-sensitive information until Miranda Law confirms that the communication method is appropriate and that the firm represents you.
-    value: Ao comunicar-se com o escritório, você pode optar por fornecer informações de contato e uma descrição geral de suas necessidades jurídicas. Não envie informações confidenciaentes, altamente sensíveis ou urgentes até que a Miranda Law confirme que o método de comunicação é apropriado e que o escritório o representa.
+    value: Ao comunicar-se com o escritório, você pode optar por fornecer informações de contato e uma descrição geral de suas necessidades jurídicas. Não envie informações confidenciais, altamente sensíveis ou urgentes até que a Miranda Law confirme que o método de comunicação é apropriado e que o escritório o representa.
   - path: sections.1.title
     source: Website and analytics information
     value: Informações do site e de análise
   - path: sections.1.paragraphs.0
     source: The website and its service providers may process technical information such as browser type, device type, referring page, pages visited, approximate location, and interaction data for security, performance, and website improvement.
-    value: O site e seus provedores de serviços podem processar informações técnicas, como tipo de navegador, tipo de dispositivo, página de referência, páginas visitadas, localização aproximada e dados de interação para fins de segurança, desempenho e melhoria do site.
+    value: O site e seus provedores de serviços podem processar informações técnicas, como tipo de navegador, dispositivo, página de referência, páginas visitadas, localização aproximada e dados de interação, para segurança, desempenho e melhoria do site.
+  - path: sections.1.paragraphs.1
+    source: The website may use analytics tools to understand aggregate traffic and page usage. The specific tools and settings may change as the website develops.
+    value: O site pode usar ferramentas de análise para compreender o tráfego agregado e o uso das páginas. As ferramentas e configurações específicas podem mudar conforme o site se desenvolve.
   - path: sections.2.title
     source: How information may be used
     value: Como as informações podem ser utilizadas
@@ -45,11 +48,17 @@ entries:
     source: Service providers and legal requirements
     value: Provedores de serviços e requisitos legais
   - path: sections.3.paragraphs.0
-    source: Information may be processed by service providers that support hosting, communications, scheduling, analytics, security, or intake. Information may also be disclosed when required by law, court process, professional obligation, or a good-faith need to protect rights and safety.
-    value: As informações podem ser processadas por provedores de serviços que dão suporte à hospedagem, comunicações, agendamento, análise, segurança ou triagem. As informações também podem ser divulgadas quando exigido por lei, processo judicial, obrigação profissional ou por uma necessidade de boa-fé para proteger direitos e a segurança.
+    source: Information may be received through the website, email, phone, text, WhatsApp, or other communication methods made available by the firm. Information may be processed by service providers that support hosting, communications, scheduling, analytics, security, or intake.
+    value: As informações podem ser recebidas pelo site, e-mail, telefone, SMS, WhatsApp ou outros métodos de comunicação disponibilizados pelo escritório. As informações podem ser processadas por provedores que apoiam hospedagem, comunicações, agendamento, análise, segurança ou atendimento inicial.
+  - path: sections.3.paragraphs.1
+    source: Brian Miranda and the office team monitor phone, text, WhatsApp, and email. The channels are not continuously monitored; inquiries are reviewed during the next business day. Do not use the website or these channels for emergencies, urgent deadlines, or confidential highly sensitive information.
+    value: Brian Miranda e a equipe do escritório monitoram telefone, SMS, WhatsApp e e-mail. Os canais não são monitorados continuamente; as consultas são analisadas durante o próximo dia útil. Não use o site ou esses canais para emergências, prazos urgentes ou informações confidenciais altamente sensíveis.
+  - path: sections.3.paragraphs.2
+    source: Miranda Law retains or deletes inquiry records under its existing firm retention policy. Provider logs and records remain subject to the applicable provider terms. Information may also be disclosed when required by law, court process, professional obligation, or a good-faith need to protect rights and safety.
+    value: A Miranda Law retém ou exclui registros de consultas de acordo com sua política vigente de retenção. Registros e logs dos provedores permanecem sujeitos aos termos aplicáveis do provedor. As informações também podem ser divulgadas quando exigido por lei, processo judicial, obrigação profissional ou por uma necessidade de boa-fé para proteger direitos e segurança.
   - path: sections.4.title
     source: Questions and requests
     value: Dúvidas e solicitações
   - path: sections.4.paragraphs.0
     source: Questions about this policy may be sent to bmiranda@bmirandalaw.com. The availability of particular privacy rights depends on the law that applies to the request.
-    value: Dúvidas sobre esta política podem ser enviadas para bmiranda@bmirandalaw.com. A disponibilidade de direitos de privacidade específicos depende da lei aplicável à solicitação.
+    value: Dúvidas sobre esta política podem ser enviadas para bmiranda@bmirandalaw.com. A disponibilidade de direitos específicos depende da lei aplicável à solicitação.

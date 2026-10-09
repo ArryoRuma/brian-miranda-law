@@ -255,6 +255,81 @@ h2 em {
     transform 0.18s cubic-bezier(0.23, 1, 0.32, 1),
     background 0.2s ease;
 }
+
+.intake-section {
+  margin: 3rem auto;
+  max-width: 46rem;
+  padding: 2rem;
+  background: var(--color-paper, #f7f4ed);
+  border: 1px solid rgba(44, 44, 44, 0.14);
+}
+
+.intake-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.intake-form label {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.intake-form input,
+.intake-form select,
+.intake-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid rgba(44, 44, 44, 0.28);
+  background: #fff;
+  font: inherit;
+}
+
+.intake-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-status-error {
+  color: #8b241e;
+}
+
+.cookie-notice {
+  position: fixed;
+  z-index: 20;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  max-width: 32rem;
+  padding: 1rem;
+  background: #2c2c2c;
+  color: #fff;
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.cookie-notice p {
+  margin: 0.35rem 0;
+}
+
+.cookie-notice a,
+.cookie-notice button {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.cookie-notice button {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
 .button:active,
 .card-arrow:active {
   transform: scale(0.97);

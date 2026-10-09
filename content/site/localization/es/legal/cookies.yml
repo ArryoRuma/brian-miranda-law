@@ -6,8 +6,8 @@ entries:
     source: Learn how Miranda Law's website may use essential storage and limited analytics technologies.
     value: Conozca cómo el sitio web de Miranda Law puede utilizar tecnologías de almacenamiento esenciales y de análisis limitado.
   - path: updated
-    source: August 14, 2026
-    value: 14 de agosto de 2026
+    source: October 9, 2026
+    value: 9 de octubre de 2026
   - path: intro
     source: Cookies and similar browser technologies can help a website function, remember preferences, measure performance, and protect against misuse.
     value: Las cookies y tecnologías similares del navegador pueden ayudar a que un sitio web funcione, recuerde preferencias, mida el rendimiento y proteja contra el uso indebido.
@@ -21,17 +21,26 @@ entries:
     source: Analytics
     value: Análisis
   - path: sections.1.paragraphs.0
-    source: The website may use privacy-conscious analytics to understand aggregate traffic and page usage. The final analytics configuration and retention settings should be confirmed before launch.
-    value: El sitio web puede utilizar análisis respetuos con la privacidad para comprender el tráfico agregado y el uso de las páginas. La configuración final de los análisis y los ajustes de retención deben confirmarse antes del lanzamiento.
-  - path: sections.2.title
+    source: The website may use analytics tools to understand aggregate traffic and page usage. The specific tools, settings, and retention periods may change as the website develops.
+    value: El sitio web puede utilizar herramientas de análisis para comprender el tráfico agregado y el uso de las páginas. Las herramientas, configuraciones y períodos de conservación específicos pueden cambiar a medida que el sitio se desarrolle.
+  - path: sections.1.paragraphs.1
+    source: The website uses a visible cookie notice, but it does not currently gate analytics behind affirmative consent. Visitors can block or delete browser storage and use Google's available opt-out controls.
+    value: El sitio web utiliza un aviso de cookies visible, pero actualmente no bloquea los análisis hasta obtener un consentimiento afirmativo. Los visitantes pueden bloquear o eliminar el almacenamiento del navegador y utilizar los controles de exclusión disponibles de Google.
+  - path: sections.3.title
     source: Managing browser storage
     value: Gestión del almacenamiento del navegador
-  - path: sections.2.paragraphs.0
+  - path: sections.3.paragraphs.0
     source: Most browsers allow you to delete or block cookies and other stored website data. Those controls are available in the privacy or site-settings area of your browser.
     value: La mayoría de los navegadores permiten eliminar o bloquear cookies y otros datos almacenados del sitio web. Dichos controles están disponibles en el área de privacidad o de configuración del sitio de su navegador.
-  - path: sections.3.title
+  - path: sections.2.title
+    source: Intake and communications
+    value: Solicitudes y comunicaciones
+  - path: sections.2.paragraphs.0
+    source: Information may be submitted through the website or handled through the phone, text, WhatsApp, email, and other communication systems made available by the firm. The specific services may change over time.
+    value: La información puede enviarse a través del sitio web o gestionarse mediante los sistemas de teléfono, mensajes de texto, WhatsApp, correo electrónico y otras comunicaciones que ofrezca la firma. Los servicios específicos pueden cambiar con el tiempo.
+  - path: sections.4.title
     source: Updates
     value: Actualizaciones
-  - path: sections.3.paragraphs.0
+  - path: sections.4.paragraphs.0
     source: This notice may be updated when the website's hosting, analytics, intake, or scheduling services change. The updated date above identifies the current version.
     value: Este aviso puede actualizarse cuando cambien los servicios de alojamiento, análisis, recepción de casos o programación del sitio web. La fecha de actualización arriba indicada identifica la versión actual.
