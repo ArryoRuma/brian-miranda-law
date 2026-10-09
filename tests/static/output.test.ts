@@ -35,6 +35,17 @@ const collectFiles = (directory: string): string[] =>
     return entry.isDirectory() ? collectFiles(path) : [path];
   });
 
+const readSchemaGraph = (route: string) => {
+  const html = readFileSync(routeFile(route), "utf8");
+  const script = html.match(
+    /<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/
+  )?.[1];
+  if (!script) throw new Error(`Schema graph is missing for ${route}`);
+  return JSON.parse(script) as {
+    "@graph": Array<Record<string, unknown>>;
+  };
+};
+
 describe("generated static site", () => {
   it("configures Vercel to serve generated static output", () => {
     const vercelConfig = JSON.parse(
@@ -224,6 +235,94 @@ describe("generated static site", () => {
         }
       }
     }
+  });
+
+  it("emits a connected firm, attorney, service-area, and page graph", () => {
+    const homeGraph = readSchemaGraph("/")["@graph"];
+    const identity = homeGraph.find(
+      node => node["@id"] === `${repository.siteCopy.site.url}/#legal-service`
+    )!;
+    const attorney = homeGraph.find(
+      node => node["@id"] === `${repository.siteCopy.site.url}/#brian-miranda`
+    )!;
+    const serviceAreas = identity.areaServed as Array<{
+      containsPlace: unknown[];
+    }>;
+    const catalog = identity.hasOfferCatalog as {
+      itemListElement: unknown[];
+    };
+
+    expect(identity["@type"]).toEqual([
+      "Organization",
+      "LocalBusiness",
+      "LegalService",
+    ]);
+    expect(serviceAreas).toHaveLength(9);
+    expect(
+      serviceAreas.reduce(
+        (count, county) => count + county.containsPlace.length,
+        0
+      )
+    ).toBe(45);
+    expect(catalog.itemListElement).toHaveLength(10);
+    expect(attorney.worksFor).toEqual({
+      "@id": `${repository.siteCopy.site.url}/#legal-service`,
+    });
+
+    const locationGraph = readSchemaGraph(getLocationPath("hackensack-nj"))[
+      "@graph"
+    ];
+    expect(
+      locationGraph.some(
+        node =>
+          node["@id"] ===
+            `${repository.siteCopy.site.url}${getLocationPath("hackensack-nj")}#service` &&
+          node["@type"] === "Service"
+      )
+    ).toBe(true);
+    expect(locationGraph.some(node => node["@type"] === "BreadcrumbList")).toBe(
+      true
+    );
+
+    const directoryGraph = readSchemaGraph(locationHubPath)["@graph"];
+    const directory = directoryGraph.find(node => node["@type"] === "ItemList");
+    expect(directory?.numberOfItems).toBe(45);
+  });
+
+  it("publishes curated AI discovery files without preview-route leakage", () => {
+    const llms = readFileSync(join(outputDirectory, "llms.txt"), "utf8");
+    const llmsFull = readFileSync(
+      join(outputDirectory, "llms-full.txt"),
+      "utf8"
+    );
+
+    expect(llms).toContain("## Communities Served — Monmouth County");
+    expect(llms).toContain(
+      `${repository.siteCopy.site.url}/estate-planning/locations/long-branch-nj.md`
+    );
+    expect(llms).toContain(
+      "Community pages identify service areas, not separate offices"
+    );
+    expect(llms).not.toContain("/start/");
+    expect(llmsFull).not.toContain(
+      "**Source:** https://bmirandalaw.com/start/"
+    );
+  });
+
+  it("connects blog articles to the canonical attorney and firm nodes", () => {
+    const articleRoute = `/blog/${repository.blogPosts[0]!.slug}`;
+    const graph = readSchemaGraph(articleRoute)["@graph"];
+    const article = graph.find(node => node["@type"] === "BlogPosting")!;
+
+    expect(article.author).toEqual({
+      "@id": `${repository.siteCopy.site.url}/#brian-miranda`,
+    });
+    expect(article.publisher).toEqual({
+      "@id": `${repository.siteCopy.site.url}/#legal-service`,
+    });
+    expect(JSON.stringify(graph)).not.toContain(
+      `${repository.siteCopy.site.url}/#identity`
+    );
   });
 
   it("links all municipalities from the directory, estate page, and footer", () => {

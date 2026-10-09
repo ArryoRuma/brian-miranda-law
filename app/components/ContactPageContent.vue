@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Mail, MapPin, MessageCircle, Phone, Smartphone } from "@lucide/vue";
 import { getPhoneHref, getTextHref, getWhatsAppHref } from "~/data/routes";
+import { buildEditorialPageSchema } from "~~/lib/seo/schema";
 
 const siteCopy = useSiteCopy();
 const site = computed(() => siteCopy.value.site);
@@ -31,6 +32,8 @@ const contactActions = computed(() =>
     href: actionHref(action.id),
   }))
 );
+
+useSchemaOrg(buildEditorialPageSchema(siteCopy.value, page.value));
 </script>
 
 <template>

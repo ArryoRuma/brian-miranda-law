@@ -14,6 +14,14 @@ import {
   locationsSchema,
   siteContentSchema,
 } from "../../lib/content/schema";
+import { buildLlmsTxt } from "../../lib/seo/llms";
+import {
+  buildAttorneyNode,
+  buildLegalServiceIdentity,
+  buildLocationDirectorySchema,
+  buildOfferCatalog,
+  getSchemaIds,
+} from "../../lib/seo/schema";
 import {
   loadRepositoryContent,
   loadRepositoryDocuments,
@@ -22,6 +30,53 @@ import {
 const repository = loadRepositoryContent();
 
 describe("site content collections and domain schema", () => {
+  it("builds a connected legal-service graph from canonical content", () => {
+    const identity = buildLegalServiceIdentity(repository.siteCopy);
+    const areas = identity.areaServed as Array<{
+      containsPlace: unknown[];
+      name: string;
+    }>;
+    const catalog = buildOfferCatalog(repository.siteCopy);
+    const offers = catalog.itemListElement as unknown[];
+    const attorney = buildAttorneyNode(repository.siteCopy);
+    const directory = buildLocationDirectorySchema(repository.siteCopy);
+    const itemList = directory.find(node => node["@type"] === "ItemList")!;
+
+    expect(identity["@type"]).toBe("LegalService");
+    expect(identity["@id"]).toBe(
+      getSchemaIds(repository.siteCopy.site.url).legalService
+    );
+    expect(areas).toHaveLength(9);
+    expect(
+      areas.reduce((count, county) => count + county.containsPlace.length, 0)
+    ).toBe(45);
+    expect(offers).toHaveLength(10);
+    expect(attorney.worksFor).toEqual({
+      "@id": getSchemaIds(repository.siteCopy.site.url).legalService,
+    });
+    expect(attorney.alumniOf).toHaveLength(2);
+    expect(attorney.hasCredential).toHaveLength(3);
+    expect(itemList.numberOfItems).toBe(45);
+  });
+
+  it("publishes a source-driven llms.txt without private preview routes", () => {
+    const llms = buildLlmsTxt(repository.siteCopy, repository.blogPosts);
+
+    expect(llms).toContain("# Miranda Law");
+    expect(llms).toContain(
+      "Community pages identify service areas, not separate offices"
+    );
+    expect(llms).toContain("## Estate Planning Services");
+    expect(llms).toContain("## Communities Served — Bergen County");
+    expect(llms).toContain(
+      "https://bmirandalaw.com/estate-planning/locations/hackensack-nj.md"
+    );
+    expect(llms).toContain("https://bmirandalaw.com/es.md");
+    expect(llms).toContain("https://bmirandalaw.com/pt.md");
+    expect(llms).toContain("https://bmirandalaw.com/llms-full.txt");
+    expect(llms).not.toContain("/start/");
+  });
+
   it("assembles the Nuxt Content documents and derives every route", () => {
     expect(repository.siteCopy.site.name).toBe("Miranda Law");
     expect(getStaticPageRoutes(repository.siteCopy)).toHaveLength(63);

@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import type { SitePageContent } from "~/types/content";
+import { buildEditorialPageSchema } from "~~/lib/seo/schema";
 
-defineProps<{ content: SitePageContent }>();
+const props = defineProps<{ content: SitePageContent }>();
+const siteCopy = useSiteCopy();
+
+const schema = buildEditorialPageSchema(siteCopy.value, props.content);
+if (schema.length) useSchemaOrg(schema);
 </script>
 
 <template>

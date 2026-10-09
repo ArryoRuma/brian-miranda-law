@@ -25,14 +25,20 @@ if (isPublished.value) {
   useSchemaOrg([
     {
       "@type": "Blog",
+      "@id": `${siteCopy.value.site.url}${content.value.path}#blog`,
       name: content.value.seo.title,
       description: content.value.seo.description,
       url: `${siteCopy.value.site.url}${content.value.path}`,
+      publisher: { "@id": `${siteCopy.value.site.url}/#legal-service` },
+      inLanguage: "en-US",
       blogPost: posts.value.map(post => ({
         "@type": "BlogPosting",
+        "@id": `${siteCopy.value.site.url}/blog/${post.slug}#article`,
         headline: post.title,
         url: `${siteCopy.value.site.url}/blog/${post.slug}`,
         datePublished: post.publishedAt,
+        author: { "@id": `${siteCopy.value.site.url}/#brian-miranda` },
+        publisher: { "@id": `${siteCopy.value.site.url}/#legal-service` },
       })),
     },
   ]);

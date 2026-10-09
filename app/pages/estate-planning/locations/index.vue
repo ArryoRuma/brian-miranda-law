@@ -2,6 +2,7 @@
 import { ArrowUpRight } from "@lucide/vue";
 import { formatLocationCopy } from "~~/lib/content/locations";
 import { getLocationPath, locationHubPath } from "~~/lib/content/schema";
+import { buildLocationDirectorySchema } from "~~/lib/seo/schema";
 
 const siteCopy = useSiteCopy();
 const { localizePath } = useSiteLocale();
@@ -12,6 +13,9 @@ const hero = computed(() => ({
   title: copy.value.heading,
   lead: copy.value.intro,
 }));
+const route = useRoute();
+
+useSchemaOrg(buildLocationDirectorySchema(siteCopy.value, route.path));
 </script>
 
 <template>

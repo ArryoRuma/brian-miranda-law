@@ -26,6 +26,18 @@ const crumbs = computed(() => {
   }
   return result;
 });
+
+useSchemaOrg([
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.value.map((crumb, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: crumb.label,
+      item: `${siteCopy.value.site.url}${crumb.href === "/" ? "/" : crumb.href}`,
+    })),
+  },
+]);
 </script>
 
 <template>

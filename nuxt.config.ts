@@ -1,13 +1,37 @@
-import { existsSync } from "node:fs";
+import { existsSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
+import { defineNuxtModule } from "nuxt/kit";
+import type { ModuleOptions as SchemaOrgOptions } from "nuxt-schema-org";
 import { localeDefinitions } from "./lib/content/localization";
+import { loadRepositoryContent } from "./lib/content/load-repository";
 import { getPreviewRoutes } from "./lib/content/schema";
+import { buildLlmsTxt } from "./lib/seo/llms";
+import { buildLegalServiceIdentity } from "./lib/seo/schema";
 
 const rootDirectory = fileURLToPath(new URL(".", import.meta.url));
 const previewRoutes = getPreviewRoutes();
 const siteUrl = "https://bmirandalaw.com";
+const repository = loadRepositoryContent(rootDirectory);
+const curatedLlmsTxt = buildLlmsTxt(repository.siteCopy, repository.blogPosts);
+
+const curatedLlmsTxtModule = defineNuxtModule({
+  meta: { name: "curated-llms-txt" },
+  setup(_options, nuxt) {
+    nuxt.hook("modules:done", () => {
+      nuxt.hook("nitro:init", nitro => {
+        nitro.hooks.hook("prerender:done", () => {
+          writeFileSync(
+            join(nitro.options.output.publicDir, "llms.txt"),
+            curatedLlmsTxt,
+            "utf8"
+          );
+        });
+      });
+    });
+  },
+});
 
 export default defineNuxtConfig({
   compatibilityDate: "2026-08-01",
@@ -33,6 +57,7 @@ export default defineNuxtConfig({
     "nuxt-link-checker",
     "nuxt-skew-protection",
     "nuxt-ai-ready",
+    curatedLlmsTxtModule,
   ],
   site: {
     url: siteUrl,
@@ -95,35 +120,13 @@ export default defineNuxtConfig({
   linkChecker: {
     excludeLinks: [/^sms:/],
   },
+  aiReady: {
+    llmsTxt: { markdownLinks: true },
+  },
   schemaOrg: {
-    identity: {
-      type: "LocalBusiness",
-      "@type": "LegalService",
-      "@id": `${siteUrl}/#legal-service`,
-      name: "The Law Offices of Brian M. Miranda, Esq., LLC",
-      alternateName: "Miranda Law",
-      url: siteUrl,
-      logo: `${siteUrl}/miranda-law-gold.png`,
-      image: `${siteUrl}/images/brian-law-hero_7235d741.jpg.webp`,
-      telephone: "+19084241011",
-      email: "bmiranda@bmirandalaw.com",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "172 Washington Valley Road, Suite 3",
-        addressLocality: "Warren",
-        addressRegion: "NJ",
-        postalCode: "07059",
-        addressCountry: "US",
-      },
-      openingHoursSpecification: {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "08:00",
-        closes: "16:00",
-      },
-      areaServed: "North Jersey",
-      knowsLanguage: ["en", "es", "pt"],
-    },
+    identity: buildLegalServiceIdentity(
+      repository.siteCopy
+    ) as unknown as Exclude<SchemaOrgOptions["identity"], string | undefined>,
   },
   routeRules: {
     "/start/**": { prerender: true, robots: true, sitemap: false },
@@ -211,6 +214,9 @@ export default defineNuxtConfig({
     typeCheck: false,
   },
   hooks: {
+    "ai-ready:page:markdown": context => {
+      if (context.route.startsWith("/start/")) context.markdown = "";
+    },
     "content:file:afterParse": context => {
       const inspectAssets = (value: unknown, trail: string[] = []) => {
         if (Array.isArray(value)) {

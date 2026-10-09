@@ -30,6 +30,7 @@ usePageSeo({
 useSchemaOrg([
   {
     "@type": "BlogPosting",
+    "@id": `${siteCopy.value.site.url}/blog/${article.value.slug}#article`,
     headline: article.value.title,
     description: article.value.description,
     ...(article.value.heroImage
@@ -38,11 +39,15 @@ useSchemaOrg([
     datePublished: article.value.publishedAt,
     dateModified: article.value.updatedAt ?? article.value.publishedAt,
     author: {
-      "@type": "Person",
-      name: article.value.author,
+      "@id": `${siteCopy.value.site.url}/#brian-miranda`,
     },
-    publisher: { "@id": `${siteCopy.value.site.url}/#identity` },
-    mainEntityOfPage: `${siteCopy.value.site.url}/blog/${article.value.slug}`,
+    publisher: { "@id": `${siteCopy.value.site.url}/#legal-service` },
+    isPartOf: { "@id": `${siteCopy.value.site.url}/blog#blog` },
+    about: article.value.tags,
+    inLanguage: "en-US",
+    mainEntityOfPage: {
+      "@id": `${siteCopy.value.site.url}/blog/${article.value.slug}#webpage`,
+    },
   },
 ]);
 </script>

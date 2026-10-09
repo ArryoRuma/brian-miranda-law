@@ -2,6 +2,7 @@
 import type { LocationCounty, LocationMunicipality } from "~/types/content";
 import { formatLocationCopy } from "~~/lib/content/locations";
 import { getLocationPath, locationHubPath } from "~~/lib/content/schema";
+import { buildLocationPageSchema, getSchemaIds } from "~~/lib/seo/schema";
 import {
   ArrowUpRight,
   Languages,
@@ -21,11 +22,11 @@ const props = defineProps<{
 }>();
 
 const siteCopy = useSiteCopy();
+const route = useRoute();
 const { languageLinks, locale, localizePath } = useSiteLocale();
 const content = computed(() => siteCopy.value.home);
 const site = computed(() => siteCopy.value.site);
 const contact = computed(() => site.value.contact);
-const structuredData = computed(() => site.value.structuredData);
 const phoneHref = computed(() => getPhoneHref(contact.value.phoneHref));
 const textHref = computed(() => getTextHref(contact.value.phoneHref));
 const whatsAppHref = computed(() => getWhatsAppHref(contact.value.phoneHref));
@@ -66,14 +67,26 @@ usePageSeo({
   path: locationPath.value,
 });
 
+const pageSchema = props.location
+  ? buildLocationPageSchema(
+      siteCopy.value,
+      props.location.county,
+      props.location.municipality,
+      pageTitle.value,
+      pageDescription.value,
+      route.path
+    )
+  : [
+      {
+        "@type": "WebPage",
+        "@id": `${site.value.url}${route.path === "/" ? "/" : route.path}#webpage`,
+        mainEntity: { "@id": getSchemaIds(site.value.url).legalService },
+        about: { "@id": getSchemaIds(site.value.url).offerCatalog },
+      },
+    ];
+
 useSchemaOrg([
-  {
-    "@type": "Person",
-    "@id": site.value.url + "/#brian-miranda",
-    name: contact.value.attorney,
-    jobTitle: structuredData.value.attorneyJobTitle,
-    worksFor: { "@id": site.value.url + "/#legal-service" },
-  },
+  ...pageSchema,
   {
     "@type": "FAQPage",
     mainEntity: content.value.faq.items.map(item => ({

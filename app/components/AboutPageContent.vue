@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { SitePageContent } from "~/types/content";
 import { getWhatsAppHref } from "~/data/routes";
+import { buildEditorialPageSchema } from "~~/lib/seo/schema";
 
 const props = defineProps<{ content: SitePageContent }>();
 const siteCopy = useSiteCopy();
@@ -29,6 +30,8 @@ const remaining = computed(() =>
 const whatsapp = computed(() =>
   siteCopy.value.site.contactActions.find(action => action.id === "whatsapp")!
 );
+
+useSchemaOrg(buildEditorialPageSchema(siteCopy.value, props.content));
 </script>
 
 <template>
