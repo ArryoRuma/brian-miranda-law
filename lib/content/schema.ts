@@ -47,6 +47,15 @@ const faqSchema = z.object({
   answer: text,
 });
 
+const reviewSchema = z
+  .object({
+    reviewer: text,
+    rating: z.number().int().min(1).max(5),
+    quote: text,
+    source: z.literal("Google"),
+  })
+  .strict();
+
 const cardSchema = z.object({
   title: text,
   body: text,
@@ -511,8 +520,7 @@ export const rawSiteContentSchema = z.object({
     reviews: z.object({
       eyebrow: text,
       title: text,
-      body: text,
-      status: text,
+      items: z.array(reviewSchema).min(1),
     }),
     faq: z.object({
       eyebrow: text,
@@ -908,6 +916,7 @@ export const siteContentSchema = rawSiteContentSchema.superRefine(
 export type SiteContent = z.infer<typeof siteContentSchema>;
 export type SitePageContent = SiteContent["pages"][string];
 export type HomeService = SiteContent["home"]["services"]["items"][number];
+export type HomeReview = SiteContent["home"]["reviews"]["items"][number];
 export type PageSectionContent = SitePageContent["sections"][number];
 export type PageCard = Extract<
   PageSectionContent,

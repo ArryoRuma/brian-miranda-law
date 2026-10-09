@@ -102,6 +102,23 @@ describe("site content collections and domain schema", () => {
     expect(repository.siteCopyByLocale.pt.home.hero.title).not.toBe(
       repository.siteCopy.home.hero.title
     );
+    expect(repository.siteCopy.home.reviews.items).toHaveLength(9);
+    expect(repository.siteCopy.home.reviews.items[0]).toMatchObject({
+      reviewer: "Natyely M Frias",
+      rating: 4,
+      source: "Google",
+    });
+    expect(
+      repository.siteCopy.home.reviews.items.filter(
+        review => review.rating === 5
+      )
+    ).toHaveLength(8);
+    expect(repository.siteCopyByLocale.es.home.reviews.items).toEqual(
+      repository.siteCopy.home.reviews.items
+    );
+    expect(repository.siteCopyByLocale.pt.home.reviews.items).toEqual(
+      repository.siteCopy.home.reviews.items
+    );
 
     const publicRoutes = getPublicRoutes(repository.siteCopy);
     expect(publicRoutes).toHaveLength(189);
@@ -138,8 +155,8 @@ describe("site content collections and domain schema", () => {
         .digest("hex");
 
     expect({ es: digest("es"), pt: digest("pt") }).toEqual({
-      es: "5cf85ee3081f2ea1fced40d009519871981e8d5217de6580481957503bd1a112",
-      pt: "3ef1bbbb7b41fc09f8fda5c166fec045fbbafe9dea4f3acdb332ce7c4d38df53",
+      es: "9c01fa9032f8bd124c1d2e3221a40807cd6fb0bfd6f54b1926583408be6bc91d",
+      pt: "8b1ab989505b62858c24adb87f536ed3b029b5c56fd3d19911af2d9c6d337252",
     });
   });
 
@@ -196,7 +213,7 @@ describe("site content collections and domain schema", () => {
         locationRoutes.every(
           route =>
             repository.siteCopy.localization.review[locale].pages[route] ===
-            (locale === "en" ? "approved" : "draft")
+            "approved"
         )
       ).toBe(true);
     }
@@ -303,6 +320,18 @@ describe("site content collections and domain schema", () => {
         item => item.id !== "contact"
       );
     expect(siteContentSchema.safeParse(missingNavigation).success).toBe(false);
+  });
+
+  it("rejects malformed review data", () => {
+    const invalidRating = structuredClone(repository.siteCopy);
+    invalidRating.home.reviews.items[0]!.rating = 6;
+    expect(siteContentSchema.safeParse(invalidRating).success).toBe(false);
+
+    const mixedPayload = structuredClone(repository.siteCopy);
+    Object.assign(mixedPayload.home.reviews.items[0]!, {
+      result: "This field is not part of the approved review contract.",
+    });
+    expect(siteContentSchema.safeParse(mixedPayload).success).toBe(false);
   });
 
   it("keeps typed sections exhaustive and strict", () => {

@@ -26,7 +26,7 @@ Reply in this format for each item:
 - Legal approved for publication? (yes/no):
 - Any required disclaimer or context:
 
-Until this information is complete, the site will continue to show the existing “coming soon” review placeholder.
+Keep each review unpublished until this information is complete for that item.
 
 Thank you,
 Lar

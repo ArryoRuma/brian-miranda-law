@@ -269,12 +269,6 @@ entries:
   - path: reviews.title
     source: Trusted by Clients Throughout New Jersey
     value: Confianza de clientes en todo New Jersey
-  - path: reviews.body
-    source: Approved Google reviews and client testimonials will be published here after they have been verified and cleared for use.
-    value: Las reseñas aprobadas de Google y los testimonios de clientes se publicarán aquí después de haber sido verificados y autorizados para su uso.
-  - path: reviews.status
-    source: Verified client reviews coming soon
-    value: Reseñas de clientes verificadas próximamente
   - path: faq.eyebrow
     source: Estate planning FAQs
     value: Preguntas frecuentes sobre planificación patrimonial

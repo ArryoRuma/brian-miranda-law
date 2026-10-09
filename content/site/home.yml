@@ -144,8 +144,52 @@ otherServices:
 reviews:
   eyebrow: Testimonials & Reviews
   title: Trusted by Clients Throughout New Jersey
-  body: Approved Google reviews and client testimonials will be published here after they have been verified and cleared for use.
-  status: Verified client reviews coming soon
+  items:
+    - reviewer: Natyely M Frias
+      rating: 4
+      quote: >-
+        My family and I have worked with Brian Miranda Esq and his team twice and have a great experience! My parents used Brian for the sale of their home and Brian’s office was quick, efficient and got the job done! I used Brian for the purchase of my first home and his office was extremely helpful and understanding as this was a nerve wracking process for me. Would def recommend!
+      source: Google
+    - reviewer: Brian Fernandes
+      rating: 5
+      quote: >-
+        I have worked with Brian Miranda on multiple real estate transactions, including residential purchases and sales, rental agreements, commercial building acquisitions, and leasing for those properties. Their expertise, professionalism, and attention to detail have been outstanding in every deal. They are knowledgeable about the market, responsive to all my questions, and always go above and beyond to ensure a smooth process. Whether you're buying, selling, or leasing, I highly recommend The Law Offices of Brian Miranda for any real estate needs!
+      source: Google
+    - reviewer: Larryon Truman II
+      rating: 5
+      quote: >-
+        Brian and his team operate with professionalism and discipline. They are organized, direct, and proactive. I felt fully represented and well-advised at every stage.
+      source: Google
+    - reviewer: christopher khalaf
+      rating: 5
+      quote: >-
+        As someone who works directly with Brian Miranda's office almost daily, I must say that Brian and his staff are excellent at what they do. I work with many attorneys, and Brian's office is so easy to work with. Him and his Staff are very professional and responsive. They never let anything slip through the cracks, and they are very fair with all their clients. I highly recommend them for anyone's real estate closings, you will not be disappointed with your outcome and they will make the process easy for you.
+      source: Google
+    - reviewer: Mely Therealtor
+      rating: 5
+      quote: >-
+        Ive worked with Brian and his staff and i must say they are very responsive and completely professional. They are very easy to reach. As a realtor i come across different attorneys and my favorite law firm to do business with is Brian Miranda and his staff, my clients are always left 100% satisfied !
+      source: Google
+    - reviewer: Amy B. Scher
+      rating: 5
+      quote: >-
+        GREAT attorney! Brian is the best. He replies quickly, is strategic and professional, and truly cares about his clients. I feel relieved I have Brian in my corner and highly recommend him to anyone in need of an attorney.
+      source: Google
+    - reviewer: Mayra Ocana
+      rating: 5
+      quote: >-
+        Brian and his team were very professional from day 1.Any question I have he replies back very fast and efficiently. That is a big plus - communication!! Any paperwork needed he is there to help and guide and go the extra mile. His team are very welcoming and helpful. Any legal services you need he will be at your side till the end. Thanks Brian :)
+      source: Google
+    - reviewer: Sabrina Chiapperino
+      rating: 5
+      quote: >-
+        Brian and his team were very pleasurable to work with! As a first time homebuyer, Brian explained everything to me in terms I could understand and he was very responsive with all my questions. He went above and beyond to assist me. I could have not asked for a better closing experience! I highly recommend Brian and his team. Thank you Brian!!!
+      source: Google
+    - reviewer: SYLVIA AQUINO
+      rating: 5
+      quote: >-
+        Professionalism at its finest. I've referred Brian Miranda to quite a few of my Real Estate Clients. He's knowledgeable and very good at making sure the transaction runs smoothly. A Fantastic lawyer with an Awesome staff. I highly recommend The Law Offices Of Brian Miranda Esq.
+      source: Google
 faq:
   eyebrow: Estate planning FAQs
   title: Questions About Estate Planning?

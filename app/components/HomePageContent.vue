@@ -360,15 +360,38 @@ useSchemaOrg([
       </section>
     </div>
 
-    <section class="home-reviews-section home-testimonials-section">
-      <div>
+    <section
+      class="home-reviews-section home-testimonials-section"
+      aria-labelledby="home-reviews-title"
+    >
+      <div class="home-reviews-heading">
         <Star :size="36" aria-hidden="true" />
         <SectionEyebrow>{{ content.reviews.eyebrow }}</SectionEyebrow>
-        <h2>{{ content.reviews.title }}</h2>
+        <h2 id="home-reviews-title">{{ content.reviews.title }}</h2>
       </div>
-      <div class="reviews-placeholder-card">
-        <p>{{ content.reviews.body }}</p>
-        <strong class="coming-soon-status">{{ content.reviews.status }}</strong>
+      <div class="home-reviews-grid">
+        <blockquote
+          v-for="review in content.reviews.items"
+          :key="review.reviewer"
+          class="home-review-card"
+        >
+          <div class="review-stars" :aria-label="`${review.rating} / 5`">
+            <Star
+              v-for="star in 5"
+              :key="star"
+              :size="18"
+              :stroke-width="1.8"
+              :fill="star <= review.rating ? 'currentColor' : 'none'"
+              :class="{ 'is-empty': star > review.rating }"
+              aria-hidden="true"
+            />
+          </div>
+          <p>“{{ review.quote }}”</p>
+          <footer>
+            <cite>{{ review.reviewer }}</cite>
+            <span>{{ review.source }}</span>
+          </footer>
+        </blockquote>
       </div>
     </section>
 
