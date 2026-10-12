@@ -57,7 +57,43 @@ if (!page) {
     statusMessage: siteCopy.value.error404.heading,
   });
 }
-defineOgImage('NuxtSeo.takumi')
+
+const ogImageTitle = computed(() => {
+  if (page.type === "editorial" || page.type === "about")
+    return page.content.title;
+  if (page.type === "contact") return siteCopy.value.contactPage.intro.title;
+  if (page.type === "faq") return siteCopy.value.resources.faq.seo.title;
+  if (page.type === "checklist")
+    return siteCopy.value.resources.checklist.seo.title;
+  if (page.type === "video") return siteCopy.value.resources.video.seo.title;
+  if (page.type === "legal")
+    return (
+      siteCopy.value.legal[page.page]?.title ?? siteCopy.value.site.defaultTitle
+    );
+  return siteCopy.value.site.defaultTitle;
+});
+
+const ogImageDescription = computed(() => {
+  if (page.type === "editorial" || page.type === "about")
+    return page.content.metaDescription;
+  if (page.type === "contact") return siteCopy.value.contactPage.intro.body;
+  if (page.type === "faq") return siteCopy.value.resources.faq.seo.description;
+  if (page.type === "checklist")
+    return siteCopy.value.resources.checklist.seo.description;
+  if (page.type === "video")
+    return siteCopy.value.resources.video.seo.description;
+  if (page.type === "legal")
+    return (
+      siteCopy.value.legal[page.page]?.description ??
+      siteCopy.value.site.defaultTitle
+    );
+  return siteCopy.value.site.defaultTitle;
+});
+
+defineOgImage("NuxtSeo.takumi", {
+  title: ogImageTitle.value,
+  description: ogImageDescription.value,
+});
 </script>
 
 <template>
