@@ -35,7 +35,7 @@ const curatedLlmsTxtModule = defineNuxtModule({
 
 export default defineNuxtConfig({
   compatibilityDate: "2026-08-01",
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   runtimeConfig: {
     public: {
       siteUrl,
@@ -63,6 +63,7 @@ export default defineNuxtConfig({
     url: siteUrl,
     name: "The Law Offices of Brian M. Miranda, Esq.",
     defaultLocale: "en",
+    trailingSlash: false,
   },
   i18n: {
     baseUrl: siteUrl,
@@ -100,7 +101,7 @@ export default defineNuxtConfig({
         },
         {
           rel: "icon",
-          sizes: "any",
+          sizes: "16x16 32x32 48x48",
           href: "/favicon.ico",
         },
         {
@@ -130,6 +131,16 @@ export default defineNuxtConfig({
   robots: {
     robotsTxt: true,
     disallow: ["/start/"],
+    groups: [
+      {
+        userAgent: "*",
+        contentSignal: {
+          search: "yes",
+          "ai-input": "yes",
+          "ai-train": "yes",
+        },
+      },
+    ],
   },
   sitemap: {
     sources: ["/api/__sitemap__/urls"],
