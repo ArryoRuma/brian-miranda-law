@@ -57,6 +57,7 @@ if (!page) {
     statusMessage: siteCopy.value.error404.heading,
   });
 }
+defineOgImage('NuxtSeo.takumi')
 </script>
 
 <template>

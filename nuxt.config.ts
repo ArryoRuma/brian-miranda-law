@@ -61,7 +61,7 @@ export default defineNuxtConfig({
   ],
   site: {
     url: siteUrl,
-    name: "Miranda Law",
+    name: "The Law Offices of Brian M. Miranda, Esq.",
     defaultLocale: "en",
   },
   i18n: {
