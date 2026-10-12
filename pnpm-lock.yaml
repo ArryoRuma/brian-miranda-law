@@ -48,8 +48,8 @@ importers:
         specifier: ^6.4.3
         version: 6.4.3(10763b69d2c0c25d2e19c0122f86d308)
       nuxt-seo-utils:
-        specifier: 8.5.0
-        version: 8.5.0(a09cc804fba6fa6800f4e9c037fe5d70)
+        specifier: 8.6.1
+        version: 8.6.1(a09cc804fba6fa6800f4e9c037fe5d70)
       nuxt-skew-protection:
         specifier: 1.6.2
         version: 1.6.2(074af681eff7762ab2e2071f25900091)
@@ -5907,8 +5907,8 @@ packages:
       zod:
         optional: true
 
-  nuxt-seo-utils@8.5.0:
-    resolution: {integrity: sha512-vq5rP7xBLEYGUBskzllqg0tmRTt8EyhzX1tuvWEGRt4JKAhw2HN75GUP1RpAM4n6QYqHyh6U8YkJZjEuot0wpQ==}
+  nuxt-seo-utils@8.6.1:
+    resolution: {integrity: sha512-dfN+kEdKH5N56zmqgH/nS9adWIKXhKSeWwsx2SbYKHZkTpb8APfSkPALYFbn0vsr8RF6ZD+LQeEf4vvFS6BEKg==}
     hasBin: true
     peerDependencies:
       '@unhead/vue': ^2.0.7 || ^3.0.0
@@ -14372,7 +14372,7 @@ snapshots:
       - vite
       - vue
 
-  nuxt-seo-utils@8.5.0(a09cc804fba6fa6800f4e9c037fe5d70):
+  nuxt-seo-utils@8.6.1(a09cc804fba6fa6800f4e9c037fe5d70):
     dependencies:
       '@nuxt/kit': 4.5.2(magic-string@1.4.3)(magicast@0.5.5)(oxc-parser@0.151.0)(rolldown@1.2.12)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.12)(rollup@4.64.0)(vite@8.3.2(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.20.6)(yaml@2.9.1)))
       citty: 0.2.2
