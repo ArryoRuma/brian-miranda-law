@@ -57,7 +57,7 @@ export default defineNuxtConfig({
     "nuxt-link-checker",
     "nuxt-skew-protection",
     "nuxt-ai-ready",
-    '@vercel/analytics',
+    "@vercel/analytics",
     curatedLlmsTxtModule,
   ],
   site: {
@@ -97,12 +97,13 @@ export default defineNuxtConfig({
         },
         {
           rel: "icon",
-          type: "image/svg+xml",
-          href: "/favicon.svg",
+          type: "image/png",
+          sizes: "192x192",
+          href: "/android-chrome-192x192.png",
         },
         {
           rel: "icon",
-          sizes: "16x16 32x32 48x48",
+          type: "image/x-icon",
           href: "/favicon.ico",
         },
         {
