@@ -57,6 +57,7 @@ export default defineNuxtConfig({
     "nuxt-link-checker",
     "nuxt-skew-protection",
     "nuxt-ai-ready",
+    '@vercel/analytics',
     curatedLlmsTxtModule,
   ],
   site: {
