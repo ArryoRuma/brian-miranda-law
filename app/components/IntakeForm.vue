@@ -6,6 +6,7 @@ const form = reactive({
   preferredChannel: "Email",
   message: "",
   website: "",
+  startedAt: Date.now(),
 });
 const status = ref<"idle" | "sending" | "success" | "error">("idle");
 
@@ -18,6 +19,7 @@ async function submit() {
     form.contact = "";
     form.message = "";
     form.website = "";
+    form.startedAt = Date.now();
   } catch {
     status.value = "error";
   }
