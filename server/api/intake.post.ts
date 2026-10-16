@@ -1,5 +1,6 @@
 import { createError, defineEventHandler, readBody } from "h3";
 import { z } from "zod";
+import { isValidIntakeTimingToken } from "../utils/intake-protection";
 
 const intakeSchema = z.object({
   name: z.string().trim().min(1).max(120),
@@ -7,6 +8,7 @@ const intakeSchema = z.object({
   preferredChannel: z.string().trim().min(1).max(40),
   message: z.string().trim().min(1).max(3000),
   website: z.string().max(0).optional(),
+  timingToken: z.string().min(1).max(128),
 });
 
 const attempts = new Map<string, number[]>();
@@ -29,12 +31,20 @@ export default defineEventHandler(async event => {
   recent.push(now);
   attempts.set(ip, recent);
 
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw createError({ statusCode: 503, statusMessage: "Intake unavailable" });
+  }
+
   const parsed = intakeSchema.safeParse(await readBody(event));
-  if (!parsed.success || parsed.data.website) {
+  if (
+    !parsed.success ||
+    parsed.data.website ||
+    !isValidIntakeTimingToken(parsed.data.timingToken, apiKey)
+  ) {
     throw createError({ statusCode: 400, statusMessage: "Invalid inquiry" });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.RESEND_FROM_EMAIL;
   const to = process.env.RESEND_TO_EMAIL ?? "bmiranda@bmirandalaw.com";
   if (!apiKey || !from) {
