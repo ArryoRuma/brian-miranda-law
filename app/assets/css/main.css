@@ -83,7 +83,7 @@ a:focus-visible {
   outline-offset: 4px;
 }
 .site-shell {
-  overflow: hidden;
+  overflow: clip;
 }
 .desktop-rail {
   position: fixed;

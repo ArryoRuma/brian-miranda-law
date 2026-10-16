@@ -74,6 +74,15 @@ describe("generated static site", () => {
     expect(existsSync(routeFile("/pt/start/pt"))).toBe(false);
   });
 
+  it("links the footer design credit to TruMedia Creative", () => {
+    for (const prefix of ["", "/es", "/pt"]) {
+      const html = readFileSync(routeFile(prefix || "/"), "utf8");
+      expect(html).toMatch(
+        /<a[^>]*href="https:\/\/trumediacreative\.com"[^>]*>Site designed and hosted by TruMedia Creative<\/a>/
+      );
+    }
+  });
+
   it("publishes the migrated blog and its article routes", () => {
     expect(repository.blogPosts).toHaveLength(9);
     const blogHtml = readFileSync(routeFile("/blog"), "utf8");

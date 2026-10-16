@@ -152,6 +152,7 @@ footer:
   disclaimerLabel: Website disclaimer
   accessibilityLabel: Accessibility
   attorneyAdvertising: Attorney advertising. Prior results do not guarantee a similar outcome.
+  designCredit: Site designed and hosted by TruMedia Creative
 shared:
   contactActionsAriaLabel: Contact Brian Miranda
   serviceLinkAriaLabel: Learn more about {service}

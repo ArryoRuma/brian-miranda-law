@@ -64,6 +64,7 @@ const nonTranslatableKeys = new Set([
   "indexCurrent",
   "indexSeparator",
   "indexTotal",
+  "designCredit",
 ]);
 
 const nonTranslatablePrefixes = [

@@ -155,8 +155,8 @@ describe("site content collections and domain schema", () => {
         .digest("hex");
 
     expect({ es: digest("es"), pt: digest("pt") }).toEqual({
-      es: "9c01fa9032f8bd124c1d2e3221a40807cd6fb0bfd6f54b1926583408be6bc91d",
-      pt: "8b1ab989505b62858c24adb87f536ed3b029b5c56fd3d19911af2d9c6d337252",
+      es: "04ab80aba8d80349d81677033bdbc376b2a8d2335f14115284fe8ffaf184dc4f",
+      pt: "29e6a51fc507d5eff65ce32eeff061f5bc8b7286c39a486cb3c83700c0d626d4",
     });
   });
 
