@@ -101,6 +101,9 @@ const resourceLinks = computed(() => [
       <NuxtLink :to="localizePath('/accessibility')">{{
         copy.accessibilityLabel
       }}</NuxtLink>
+      <a href="https://trumediacreative.com" target="_blank" rel="noreferrer">{{
+        copy.designCredit
+      }}</a>
       <span>{{ copy.attorneyAdvertising }}</span>
     </div>
   </footer>

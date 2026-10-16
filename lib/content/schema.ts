@@ -396,6 +396,7 @@ export const rawSiteContentSchema = z.object({
       disclaimerLabel: text,
       accessibilityLabel: text,
       attorneyAdvertising: text,
+      designCredit: text,
     }),
     shared: z.object({
       contactActionsAriaLabel: text,
