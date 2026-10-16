@@ -18,7 +18,10 @@ const { localizePath } = useSiteLocale();
     :tone="section.tone"
     :type="section.type"
   >
-    <div class="content-card-grid editorial-card-grid">
+    <div
+      class="content-card-grid editorial-card-grid"
+      :class="{ 'editorial-card-grid-four': section.cards.length === 4 }"
+    >
       <article
         v-for="(card, index) in section.cards"
         :key="card.title + '-' + index"
