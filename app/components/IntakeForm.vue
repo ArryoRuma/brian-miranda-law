@@ -7,17 +7,35 @@ const form = reactive({
   message: "",
   website: "",
 });
+const timingToken = ref("");
 const status = ref<"idle" | "sending" | "success" | "error">("idle");
+
+async function refreshTimingToken() {
+  const response = await $fetch<{ token: string }>("/api/intake-token");
+  timingToken.value = response.token;
+}
+
+onMounted(() => {
+  refreshTimingToken().catch(() => {
+    status.value = "error";
+  });
+});
 
 async function submit() {
   status.value = "sending";
   try {
-    await $fetch("/api/intake", { method: "POST", body: form });
+    await $fetch("/api/intake", {
+      method: "POST",
+      body: { ...form, timingToken: timingToken.value },
+    });
     status.value = "success";
     form.name = "";
     form.contact = "";
     form.message = "";
     form.website = "";
+    refreshTimingToken().catch(() => {
+      timingToken.value = "";
+    });
   } catch {
     status.value = "error";
   }
