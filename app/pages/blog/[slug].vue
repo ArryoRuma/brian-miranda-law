@@ -11,6 +11,35 @@ if (!post.value) {
 }
 
 const article = computed(() => post.value!);
+const posts = useBlogPosts();
+const relatedPosts = computed(() => {
+  const relatedSlugs: Record<string, string[]> = {
+    "have-you-ever-thought-of-a-tomorrow-without-you": [],
+    "time-for-a-restart": ["are-your-bills-getting-out-of-hand"],
+    "are-your-bills-getting-out-of-hand": [
+      "time-for-a-restart",
+      "not-being-able-to-pay-your-mortgage-keeping-you-up-at-night",
+    ],
+    "not-being-able-to-pay-your-mortgage-keeping-you-up-at-night": [
+      "are-your-bills-getting-out-of-hand",
+    ],
+    "out-of-work-and-don-t-know-what-to-do": [
+      "what-is-the-paycheck-protection-program",
+    ],
+    "what-is-the-paycheck-protection-program": [
+      "out-of-work-and-don-t-know-what-to-do",
+      "unemployed-and-thinking-of-starting-your-own-business",
+    ],
+    "unemployed-and-thinking-of-starting-your-own-business": [
+      "what-is-the-paycheck-protection-program",
+    ],
+  };
+  return (relatedSlugs[article.value.slug] ?? [])
+    .map(slug => posts.value.find(candidate => candidate.slug === slug))
+    .filter((candidate): candidate is NonNullable<typeof candidate> =>
+      Boolean(candidate)
+    );
+});
 const formatDate = (value: string) =>
   new Intl.DateTimeFormat("en-US", {
     dateStyle: "long",
@@ -81,15 +110,56 @@ useSchemaOrg([
     </header>
     <div class="blog-article-layout">
       <ContentRenderer class="blog-article-body" :value="article" />
-      <aside v-if="article.tags.length">
-        <h2>{{ content.topicsLabel }}</h2>
-        <ul>
-          <li v-for="tag in article.tags" :key="tag">{{ tag }}</li>
-        </ul>
-        <NuxtLink class="text-link dark-link" to="/blog">
+      <aside class="blog-article-aside">
+        <section
+          v-if="
+            article.slug === 'have-you-ever-thought-of-a-tomorrow-without-you'
+          "
+          class="blog-aside-section"
+        >
+          <h2>Continue exploring estate planning</h2>
+          <ul>
+            <li>
+              <NuxtLink to="/estate-planning/locations"
+                >Explore estate-planning resources</NuxtLink
+              >
+            </li>
+            <li><NuxtLink to="/blog">Browse all articles</NuxtLink></li>
+          </ul>
+        </section>
+        <section v-if="relatedPosts.length" class="blog-aside-section">
+          <h2>Related articles</h2>
+          <ul>
+            <li v-for="related in relatedPosts" :key="related.slug">
+              <NuxtLink :to="`/blog/${related.slug}`">{{
+                related.title
+              }}</NuxtLink>
+            </li>
+          </ul>
+        </section>
+        <section v-if="article.tags.length" class="blog-aside-section">
+          <h2>{{ content.topicsLabel }}</h2>
+          <ul>
+            <li v-for="tag in article.tags" :key="tag">{{ tag }}</li>
+          </ul>
+        </section>
+        <NuxtLink class="text-link dark-link blog-back-link" to="/blog">
           {{ content.backLabel }}
         </NuxtLink>
       </aside>
     </div>
+    <nav
+      v-if="relatedPosts.length"
+      class="blog-related-mobile"
+      aria-label="Related articles"
+    >
+      <h2>Related articles</h2>
+      <NuxtLink
+        v-for="related in relatedPosts"
+        :key="related.slug"
+        :to="`/blog/${related.slug}`"
+        >{{ related.title }}</NuxtLink
+      >
+    </nav>
   </article>
 </template>
