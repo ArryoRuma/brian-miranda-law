@@ -92,8 +92,15 @@ export default defineNuxtConfig({
           crossorigin: "anonymous",
         },
         {
+          rel: "preload",
+          as: "style",
+          href: "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap",
+        },
+        {
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap",
+          media: "print",
+          onload: "this.media='all'",
         },
         {
           rel: "icon",

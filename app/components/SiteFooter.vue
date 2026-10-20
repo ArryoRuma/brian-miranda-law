@@ -29,8 +29,9 @@ const resourceLinks = computed(() => [
           class="footer-logo"
           src="/miranda-law-gold.png"
           :alt="site.header.logoAlt"
-          width="2434"
-          height="2401"
+          width="180"
+          height="178"
+          sizes="180px"
           loading="lazy"
           densities="1x"
         />

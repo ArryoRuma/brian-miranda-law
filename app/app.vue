@@ -6,19 +6,30 @@ const site = computed(() => siteCopy.value.site);
 
 useSchemaOrg([buildAttorneyNode(siteCopy.value)]);
 
-useHead({
+const startAnalytics = () => {
+  const initialization = document.createElement("script");
+  initialization.textContent =
+    "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-1Q7V5SLP5M');";
+  document.head.append(initialization);
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = "https://www.googletagmanager.com/gtag/js?id=G-1Q7V5SLP5M";
+  document.head.append(script);
+};
+
+onMounted(() => {
+  if (typeof window.requestIdleCallback === "function") {
+    window.requestIdleCallback(startAnalytics, { timeout: 5000 });
+  } else {
+    window.setTimeout(startAnalytics, 1000);
+  }
+});
+
+useHead(() => ({
   titleTemplate: title =>
     title ? `${title} | ${site.value.titleSuffix}` : site.value.defaultTitle,
-  script: [
-    {
-      async: true,
-      src: "https://www.googletagmanager.com/gtag/js?id=G-1Q7V5SLP5M",
-    },
-    {
-      innerHTML: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-1Q7V5SLP5M');`,
-    },
-  ],
-});
+}));
 
 useSeoMeta({
   ogSiteName: site.value.name,
