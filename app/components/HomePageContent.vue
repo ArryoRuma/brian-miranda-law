@@ -375,7 +375,11 @@ useSchemaOrg([
           :key="review.reviewer"
           class="home-review-card"
         >
-          <div class="review-stars" :aria-label="`${review.rating} / 5`">
+          <div
+            class="review-stars"
+            role="img"
+            :aria-label="`${review.rating} / 5`"
+          >
             <Star
               v-for="star in 5"
               :key="star"

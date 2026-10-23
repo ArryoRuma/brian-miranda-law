@@ -106,9 +106,10 @@ onBeforeUnmount(() => {
         class="brand-logo"
         src="/miranda-law-gold.png"
         :alt="copy.logoAlt"
-        width="2434"
-        height="2401"
-        densities="1x"
+        width="72"
+        height="71"
+        sizes="72px"
+        densities="1x 2x"
       />
     </NuxtLink>
 
@@ -197,7 +198,11 @@ onBeforeUnmount(() => {
         {{ item.label }}
       </NuxtLink>
 
-      <div class="nav-languages" :aria-label="copy.questionnairesAriaLabel">
+      <div
+        class="nav-languages"
+        role="group"
+        :aria-label="copy.questionnairesAriaLabel"
+      >
         <NuxtLink
           v-for="item in languageLinks"
           :key="item.href"

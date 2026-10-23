@@ -64,6 +64,32 @@ describe("generated static site", () => {
     }
   });
 
+  it("keeps shared image, font, analytics, and ARIA output efficient", () => {
+    const html = readFileSync(routeFile("/"), "utf8");
+
+    expect(html).toMatch(/<img width="72" height="71"[^>]*class="brand-logo"/);
+    expect(html).toMatch(
+      /<img width="180" height="178"[^>]*class="footer-logo"/
+    );
+    expect(html).toMatch(
+      /<link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com[^"]*" media="print" onload="this\.media='all'">/
+    );
+    expect(html).toMatch(
+      /<noscript><link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com\/css2\?[^"]*"><\/noscript>/
+    );
+    expect(html).toMatch(
+      /<img(?=[^>]*class="brand-logo")(?=[^>]*srcset="[^"]* 72w, [^"]* 144w")[^>]*>/
+    );
+    expect(html).toMatch(
+      /<img(?=[^>]*class="footer-logo")(?=[^>]*srcset="[^"]* 180w, [^"]* 360w")[^>]*>/
+    );
+    expect(html).not.toMatch(
+      /<script[^>]+src="https:\/\/www\.googletagmanager\.com/
+    );
+    expect(html).toMatch(/class="nav-languages" role="group"/);
+    expect(html).toMatch(/class="review-stars" role="img" aria-label="[^"]+"/);
+  });
+
   it("does not emit retired or server-only routes", () => {
     expect(existsSync(routeFile("/index-backup"))).toBe(false);
     expect(existsSync(routeFile("/api/health"))).toBe(false);
