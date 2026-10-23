@@ -33,7 +33,7 @@ const resourceLinks = computed(() => [
           height="178"
           sizes="180px"
           loading="lazy"
-          densities="1x"
+          densities="1x 2x"
         />
       </NuxtLink>
       <p>{{ copy.description }}</p>

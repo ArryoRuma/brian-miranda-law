@@ -109,7 +109,7 @@ onBeforeUnmount(() => {
         width="72"
         height="71"
         sizes="72px"
-        densities="1x"
+        densities="1x 2x"
       />
     </NuxtLink>
 

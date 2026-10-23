@@ -74,6 +74,15 @@ describe("generated static site", () => {
     expect(html).toMatch(
       /<link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com[^"]*" media="print" onload="this\.media='all'">/
     );
+    expect(html).toMatch(
+      /<noscript><link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com\/css2\?[^"]*"><\/noscript>/
+    );
+    expect(html).toMatch(
+      /<img(?=[^>]*class="brand-logo")(?=[^>]*srcset="[^"]* 72w, [^"]* 144w")[^>]*>/
+    );
+    expect(html).toMatch(
+      /<img(?=[^>]*class="footer-logo")(?=[^>]*srcset="[^"]* 180w, [^"]* 360w")[^>]*>/
+    );
     expect(html).not.toMatch(
       /<script[^>]+src="https:\/\/www\.googletagmanager\.com/
     );
