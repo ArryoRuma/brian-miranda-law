@@ -324,6 +324,24 @@ describe("generated static site", () => {
     expect(directory?.numberOfItems).toBe(45);
   });
 
+  it("emits breadcrumb schema for every main page in each locale", () => {
+    for (const prefix of ["", "/es", "/pt"]) {
+      for (const page of Object.values(repository.siteCopy.pages)) {
+        const route = `${prefix}${page.path}`;
+        const graph = readSchemaGraph(route)["@graph"];
+        const breadcrumb = graph.find(
+          node => node["@type"] === "BreadcrumbList"
+        );
+        const items = breadcrumb?.itemListElement as
+          Array<{ item: string }> | undefined;
+
+        expect(items?.at(-1)?.item, route).toBe(
+          `${repository.siteCopy.site.url}${route}`
+        );
+      }
+    }
+  });
+
   it("publishes curated AI discovery files without preview-route leakage", () => {
     const llms = readFileSync(join(outputDirectory, "llms.txt"), "utf8");
     const llmsFull = readFileSync(
