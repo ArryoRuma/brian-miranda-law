@@ -24,7 +24,7 @@
     "@lucide/vue": "^1.52.0",
     "@nuxt/content": "^3.16.1",
     "@nuxt/hints": "1.1.4",
-    "@nuxt/image": "^2.1.0",
+    "@nuxt/image": "^2.2.0",
     "@nuxtjs/robots": "^6.2.4",
     "@nuxtjs/sitemap": "^8.6.1",
     "@takumi-rs/core": "^2.14.0",
