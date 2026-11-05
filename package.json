@@ -27,7 +27,7 @@
     "@nuxt/image": "^2.1.0",
     "@nuxtjs/robots": "^6.2.4",
     "@nuxtjs/sitemap": "^8.6.1",
-    "@takumi-rs/core": "^2.14.0",
+    "@takumi-rs/core": "^2.19.0",
     "@unhead/vue": "^3.4.2",
     "@vercel/analytics": "^2.0.1",
     "nuxt": "^4.5.2",
