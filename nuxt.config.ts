@@ -6,14 +6,14 @@ import { defineNuxtModule } from "nuxt/kit";
 import type { ModuleOptions as SchemaOrgOptions } from "nuxt-schema-org";
 import { localeDefinitions } from "./lib/content/localization";
 import { loadRepositoryContent } from "./lib/content/load-repository";
-import { getPreviewRoutes } from "./lib/content/schema";
+import { getSitePageRoutes } from "./lib/content/page-routes";
 import { buildLlmsTxt } from "./lib/seo/llms";
 import { buildLegalServiceIdentity } from "./lib/seo/schema";
 
 const rootDirectory = fileURLToPath(new URL(".", import.meta.url));
-const previewRoutes = getPreviewRoutes();
 const siteUrl = "https://bmirandalaw.com";
 const repository = loadRepositoryContent(rootDirectory);
+const pageRoutes = getSitePageRoutes(repository);
 const curatedLlmsTxt = buildLlmsTxt(repository.siteCopy, repository.blogPosts);
 
 const curatedLlmsTxtModule = defineNuxtModule({
@@ -37,9 +37,18 @@ export default defineNuxtConfig({
   compatibilityDate: "2026-08-01",
   devtools: { enabled: false },
   runtimeConfig: {
+    pageRoutes,
+    missingPageCopy: {
+      en: repository.siteCopyByLocale.en.error404,
+      es: repository.siteCopyByLocale.es.error404,
+      pt: repository.siteCopyByLocale.pt.error404,
+    },
     public: {
       siteUrl,
     },
+  },
+  content: {
+    experimental: { sqliteConnector: "native" },
   },
   css: ["~/assets/css/main.css"],
   modules: [
@@ -230,11 +239,17 @@ export default defineNuxtConfig({
   },
   nitro: {
     compressPublicAssets: true,
+    vercel: { functions: { runtime: "nodejs24.x" } },
     prerender: {
       crawlLinks: true,
       failOnError: true,
       ignore: [/^\/_vercel\/image/],
-      routes: ["/", ...previewRoutes, "/agents.json", "/api/__sitemap__/urls"],
+      routes: [
+        ...pageRoutes,
+        "/robots.txt",
+        "/agents.json",
+        "/api/__sitemap__/urls",
+      ],
     },
   },
   vite: {

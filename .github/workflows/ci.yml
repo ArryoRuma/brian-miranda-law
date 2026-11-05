@@ -45,3 +45,4 @@ jobs:
           NITRO_PRESET=vercel pnpm build
           test -f .vercel/output/functions/__fallback.func/index.mjs
           test -f .vercel/output/functions/__fallback.func/chunks/routes/api/intake.post.mjs
+          VERIFY_VERCEL_OUTPUT=1 pnpm test:static

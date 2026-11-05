@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { getSitePageRoutes } from "../../lib/content/page-routes";
 import {
   getLocationPath,
   getPreviewRoutes,
@@ -63,6 +64,27 @@ describe("generated static site", () => {
       expect(existsSync(routeFile(route)), route).toBe(true);
     }
   });
+
+  it.runIf(process.env.VERIFY_VERCEL_OUTPUT === "1")(
+    "serves public pages and robots from Vercel static output on Node 24",
+    () => {
+      const output = join(process.cwd(), ".vercel/output");
+      const fallback = join(output, "functions/__fallback.func");
+      const config = JSON.parse(
+        readFileSync(join(fallback, ".vc-config.json"), "utf8")
+      );
+      expect(config.runtime).toBe("nodejs24.x");
+      for (const route of getSitePageRoutes(repository)) {
+        const html =
+          route === "/" ? "index.html" : `${route.slice(1)}/index.html`;
+        expect(existsSync(join(output, "static", html)), route).toBe(true);
+      }
+      const robots = readFileSync(join(output, "static/robots.txt"), "utf8");
+      expect(robots).toMatch(/^Disallow: \/start\//m);
+      expect(robots).toMatch(/^Sitemap: https:\/\/bmirandalaw\.com\//m);
+      expect(robots).toMatch(/^Content-Signal: .*search=yes/m);
+    }
+  );
 
   it("keeps shared image, font, analytics, and ARIA output efficient", () => {
     const html = readFileSync(routeFile("/"), "utf8");
