@@ -132,9 +132,7 @@ useSchemaOrg(buildEditorialPageSchema(siteCopy.value, props.content));
 .about-background,
 .about-details,
 .about-closing {
-  max-width: 1200px;
-  margin-inline: auto;
-  padding-inline: clamp(24px, 5vw, 64px);
+  padding-inline: var(--page-inset);
 }
 .about-intro {
   display: grid;

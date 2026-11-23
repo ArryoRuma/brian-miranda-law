@@ -44,6 +44,12 @@
   --ring: var(--color-focus-ring);
   --primary: var(--color-brand-primary);
   --primary-foreground: var(--color-text-dark);
+  --page-max-width: 1280px;
+  --page-gutter: clamp(24px, 4vw, 76px);
+  --page-inset: max(
+    var(--page-gutter),
+    calc((100vw - var(--page-max-width)) / 2)
+  );
 }
 @theme inline {
   --color-background: var(--background);
@@ -533,10 +539,6 @@ h2 em {
   background: var(--sand);
 }
 .section-heading-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 50px;
   margin-bottom: 62px;
 }
 .section-heading-row h2 {
@@ -544,10 +546,10 @@ h2 em {
   color: var(--graphite);
 }
 .section-aside {
-  max-width: 315px;
+  max-width: 600px;
   color: rgba(44, 44, 44, 0.65);
   font-size: 13px;
-  margin: 0 0 5px;
+  margin: 24px 0 0;
 }
 .services-list {
   display: grid;
@@ -4574,4 +4576,86 @@ main[tabindex="-1"]:focus {
 .location-link-grid a:focus-visible {
   color: var(--color-brand-accent);
   border-bottom-color: var(--color-brand-primary);
+}
+
+/* Keep content on one centered grid while section surfaces span the viewport. */
+@media (min-width: 801px) {
+  .header-top-bar,
+  .site-header,
+  .breadcrumbs,
+  .site-footer,
+  .services-section,
+  .home-estate-intro,
+  .home-why-section,
+  .home-about-section,
+  .home-testimonials-section,
+  .faq-section,
+  .contact-section,
+  .content-section,
+  .final-cta,
+  .contact-page-section,
+  .office-section,
+  .checklist-section,
+  .video-library-section,
+  .questionnaire-hero,
+  .questionnaire-preview,
+  .questionnaire-preview-cta,
+  .next-steps-page,
+  .legal-page header,
+  .blog-index-section,
+  .blog-article-header,
+  .blog-article-layout,
+  .location-intro-section,
+  .location-county-section,
+  .locations-directory {
+    padding-inline: var(--page-inset);
+  }
+
+  .hero-copy,
+  .interior-hero-copy {
+    padding-left: var(--page-inset);
+    padding-right: var(--page-gutter);
+  }
+
+  .process-copy {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-inset);
+  }
+
+  .home-assistance-grid .home-language-section {
+    padding-left: var(--page-inset);
+  }
+
+  .home-assistance-grid .home-other-services-section {
+    padding-right: var(--page-inset);
+  }
+
+  .contact-inner,
+  .home-contact-section .contact-inner {
+    max-width: var(--page-max-width);
+  }
+
+  .blog-article-layout {
+    max-width: none;
+  }
+}
+
+@media (max-width: 800px) {
+  :root {
+    --page-inset: 24px;
+  }
+
+  .header-top-bar,
+  .site-header,
+  .breadcrumbs,
+  .site-footer {
+    padding-inline: var(--page-inset);
+  }
+}
+
+@media (min-width: 801px) and (max-width: 960px) {
+  .home-assistance-grid .home-language-section,
+  .home-assistance-grid .home-other-services-section {
+    padding-inline: var(--page-inset);
+  }
 }

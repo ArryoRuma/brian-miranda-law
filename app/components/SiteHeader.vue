@@ -151,11 +151,11 @@ onBeforeUnmount(() => {
     >
       <NuxtImg
         class="brand-logo"
-        src="/miranda-law-gold.png"
+        src="/miranda-law-horizontal.png"
         :alt="copy.logoAlt"
-        width="72"
-        height="71"
-        sizes="72px"
+        width="400"
+        height="100"
+        sizes="xs:220px md:260px lg:280px"
         densities="1x 2x"
       />
     </NuxtLink>
@@ -262,3 +262,27 @@ onBeforeUnmount(() => {
     <ContactActions compact />
   </aside>
 </template>
+
+<style scoped>
+.brand-lockup {
+  flex-shrink: 0;
+}
+.brand-logo {
+  width: 280px;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 4 / 1;
+  object-fit: contain;
+}
+@media (max-width: 1120px) {
+  .brand-logo {
+    width: 260px;
+  }
+}
+@media (max-width: 480px) {
+  .brand-logo {
+    width: 220px;
+    max-width: calc(100vw - 116px);
+  }
+}
+</style>
