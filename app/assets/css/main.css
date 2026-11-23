@@ -121,6 +121,57 @@ a:focus-visible {
   font-size: 8px;
   letter-spacing: 0.19em;
 }
+.header-top-bar {
+  min-height: 44px;
+  padding: 6px clamp(24px, 5vw, 76px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--color-border-default);
+  color: var(--graphite);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.header-top-contact,
+.header-top-contact > a,
+.top-bar-languages {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.header-top-bar a {
+  color: var(--teal);
+  text-decoration: none;
+  font-weight: 700;
+}
+.header-top-bar a:hover,
+.header-top-bar a:focus-visible {
+  text-decoration: underline;
+}
+.header-top-contact > a svg {
+  flex: none;
+}
+.top-bar-call-label,
+.top-bar-languages-label {
+  color: var(--graphite);
+  font-weight: 400;
+}
+.top-bar-divider {
+  height: 22px;
+  margin: 0 12px;
+  border-left: 1px solid var(--color-border-default);
+}
+.top-bar-languages a[aria-current="page"] {
+  color: var(--graphite);
+  text-decoration: underline;
+  text-decoration-color: var(--brass);
+  text-underline-offset: 4px;
+}
+.top-bar-language-short {
+  display: none;
+}
 .site-header {
   height: 96px;
   padding: 0 clamp(24px, 5vw, 76px);
@@ -762,24 +813,6 @@ h2 em {
 .nav-submenu a:hover,
 .nav-submenu a:focus-visible {
   background: var(--sand);
-}
-.nav-languages {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-.nav-languages a {
-  color: rgba(251, 248, 239, 0.62);
-  text-decoration: none;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-}
-.nav-languages a + a {
-  border-left: 1px solid rgba(251, 248, 239, 0.25);
-  padding-left: 7px;
-}
-.nav-languages a:hover {
-  color: var(--brass);
 }
 .site-footer-expanded {
   min-height: 0;
@@ -1828,9 +1861,6 @@ h2 em {
     color: var(--paper);
     background: rgba(251, 248, 239, 0.08);
   }
-  .nav-languages {
-    padding: 12px 0 8px;
-  }
   .hero-section {
     display: block;
     min-height: 0;
@@ -2211,6 +2241,28 @@ main[tabindex="-1"]:focus {
   text-underline-offset: 7px;
 }
 
+.main-nav > a.nav-contact-link,
+.main-nav > a.nav-contact-link[aria-current="page"] {
+  min-height: var(--tap-target);
+  padding: 10px 20px;
+  background: var(--brass);
+  color: var(--graphite);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.main-nav > a.nav-contact-link:hover,
+.main-nav > a.nav-contact-link:focus-visible {
+  background: var(--color-brand-primary-hover);
+  color: var(--graphite);
+}
+
+.main-nav .nav-submenu a[aria-current="page"] {
+  color: var(--graphite);
+  background: var(--sand);
+  text-decoration-color: var(--brass);
+}
+
 .nav-item-with-menu {
   position: relative;
 }
@@ -2270,29 +2322,6 @@ main[tabindex="-1"]:focus {
   align-items: center;
 }
 
-.nav-languages {
-  gap: 2px;
-}
-
-.nav-languages a {
-  min-width: var(--tap-target);
-  min-height: var(--tap-target);
-  padding: 8px;
-  color: var(--text-on-dark-muted);
-  font-size: 14px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.nav-languages a + a {
-  padding-left: 8px;
-}
-
-.language-full {
-  display: none;
-}
-
 .primary-contact-actions {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2347,10 +2376,6 @@ main[tabindex="-1"]:focus {
   padding: 8px 11px;
   font-size: 14px;
   white-space: nowrap;
-}
-
-.nav-contact-actions .contact-action svg {
-  display: none;
 }
 
 .mobile-contact-bar {
@@ -2540,7 +2565,7 @@ main[tabindex="-1"]:focus {
 .breadcrumbs {
   background: var(--paper);
   border-bottom: 1px solid rgba(44, 44, 44, 0.14);
-  padding: 12px clamp(24px, 8vw, 122px);
+  padding: 4px clamp(24px, 8vw, 122px);
 }
 
 .breadcrumbs ol {
@@ -2554,7 +2579,6 @@ main[tabindex="-1"]:focus {
 }
 
 .breadcrumbs li {
-  min-height: var(--tap-target);
   display: flex;
   align-items: center;
   gap: 4px;
@@ -2564,14 +2588,14 @@ main[tabindex="-1"]:focus {
 
 .breadcrumbs a {
   min-height: var(--tap-target);
-  padding: 8px 6px;
+  padding: 4px 6px;
   color: var(--teal);
   display: inline-flex;
   align-items: center;
 }
 
 .breadcrumbs span[aria-current="page"] {
-  padding: 8px 6px;
+  padding: 4px 6px;
   color: var(--graphite);
   font-weight: 600;
 }
@@ -2819,36 +2843,16 @@ main[tabindex="-1"]:focus {
     font-size: 16px;
   }
 
-  .nav-languages {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
-    padding: 12px 0;
+  .main-nav .nav-submenu a[aria-current="page"] {
+    color: var(--paper);
+    background: rgba(250, 247, 240, 0.14);
   }
 
-  .nav-languages a,
-  .nav-languages a + a {
-    min-height: 48px;
-    padding: 10px;
-    border: 1px solid rgba(250, 247, 240, 0.2);
-    font-size: 15px;
-  }
-
-  .language-short {
-    display: none;
-  }
-
-  .language-full {
-    display: inline;
-  }
-
-  .nav-contact-actions {
+  .main-nav > a.nav-contact-link {
+    flex: none;
     width: 100%;
     margin-top: 8px;
-  }
-
-  .nav-contact-actions .contact-action svg {
-    display: block;
+    justify-content: center;
   }
 
   .nav-backdrop {
@@ -2863,6 +2867,24 @@ main[tabindex="-1"]:focus {
 }
 
 @media (max-width: 800px) {
+  .header-top-bar {
+    padding: 7px 18px;
+    font-size: 13px;
+  }
+
+  .top-bar-call-label,
+  .top-bar-languages-label {
+    display: none;
+  }
+
+  .top-bar-divider {
+    margin: 0 4px;
+  }
+
+  .header-top-contact {
+    justify-content: center;
+  }
+
   .site-shell {
     padding-bottom: 72px;
   }
@@ -2890,7 +2912,7 @@ main[tabindex="-1"]:focus {
   }
 
   .breadcrumbs {
-    padding: 8px 18px;
+    padding: 2px 18px;
     overflow-x: auto;
   }
 
@@ -3172,6 +3194,16 @@ main[tabindex="-1"]:focus {
 
   .site-footer-expanded .footer-legal-row > span {
     grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-bar-language-full {
+    display: none;
+  }
+
+  .top-bar-language-short {
+    display: inline;
   }
 }
 
@@ -3869,14 +3901,12 @@ main[tabindex="-1"]:focus {
   box-shadow: 0 0 0 5px var(--color-focus-ring);
 }
 
-.nav-contact-actions .contact-action-call,
 .mobile-contact-bar .contact-action-call {
   background: var(--color-brand-primary);
   border-color: var(--color-brand-primary);
   color: var(--color-text-dark);
 }
 
-.nav-contact-actions .contact-action-call:hover,
 .mobile-contact-bar .contact-action-call:hover {
   background: var(--color-brand-primary-hover);
   border-color: var(--color-brand-primary-hover);

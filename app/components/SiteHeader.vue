@@ -1,23 +1,32 @@
 <script setup lang="ts">
-import { ChevronDown, Menu, X } from "@lucide/vue";
+import { ChevronDown, Menu, Phone, X } from "@lucide/vue";
+import { getPhoneHref } from "~/data/routes";
 
 const route = useRoute();
 const { homePath, languageLinks, locale, localizePath } = useSiteLocale();
 const siteCopy = useSiteCopy();
-const blogPosts = useBlogPosts();
-const navigation = computed(() => [
-  ...siteCopy.value.site.navigation.primary,
-  ...(blogPosts.value.length
-    ? [
-        {
-          id: "blog",
-          label: siteCopy.value.blog.label,
-          href: siteCopy.value.blog.path,
-        },
-      ]
-    : []),
-]);
+const navigation = computed(() =>
+  siteCopy.value.site.navigation.primary.filter(item => item.id !== "resources")
+);
 const copy = computed(() => siteCopy.value.site.header);
+const contact = computed(() => siteCopy.value.site.contact);
+const topBarCopy = computed(
+  () =>
+    ({
+      en: {
+        call: "Call Brian to discuss your plans",
+        languages: "We speak",
+      },
+      es: {
+        call: "Llame a Brian para hablar de sus planes",
+        languages: "Hablamos",
+      },
+      pt: {
+        call: "Ligue para Brian para falar sobre seus planos",
+        languages: "Falamos",
+      },
+    })[locale.value]
+);
 const menuOpen = ref(false);
 const estateMenuOpen = ref(false);
 const menuButton = ref<HTMLButtonElement>();
@@ -91,6 +100,44 @@ onBeforeUnmount(() => {
 
 <template>
   <a class="skip-link" href="#main-content">{{ copy.skipLink }}</a>
+  <div class="header-top-bar">
+    <div class="header-top-contact">
+      <a
+        :href="getPhoneHref(contact.phoneHref)"
+        :aria-label="`${topBarCopy.call}: ${contact.phoneDisplay}`"
+      >
+        <Phone :size="16" aria-hidden="true" />
+        <span class="top-bar-call-label">{{ topBarCopy.call }} · </span>
+        <strong>{{ contact.phoneDisplay }}</strong>
+      </a>
+      <span class="top-bar-divider" aria-hidden="true" />
+      <div
+        class="top-bar-languages"
+        role="group"
+        :aria-label="copy.questionnairesAriaLabel"
+      >
+        <span class="top-bar-languages-label">{{ topBarCopy.languages }}</span>
+        <template v-for="(item, index) in languageLinks" :key="item.code">
+          <span v-if="index > 0" aria-hidden="true">·</span>
+          <NuxtLink
+            :to="item.href"
+            :aria-label="
+              copy.questionnaireLinkAriaLabel.replace(
+                '{language}',
+                item.language
+              )
+            "
+            :aria-current="locale === item.code ? 'page' : undefined"
+          >
+            <span class="top-bar-language-full">{{ item.language }}</span>
+            <span class="top-bar-language-short" aria-hidden="true">{{
+              item.label
+            }}</span>
+          </NuxtLink>
+        </template>
+      </div>
+    </div>
+  </div>
   <div class="desktop-rail" aria-hidden="true">
     <span class="rail-mark">{{ copy.railMark }}</span>
     <span class="rail-line" />
@@ -189,7 +236,10 @@ onBeforeUnmount(() => {
       <NuxtLink
         v-for="item in secondaryNavigation"
         :key="item.href"
-        :class="{ 'is-active': route.path === localizePath(item.href) }"
+        :class="{
+          'is-active': route.path === localizePath(item.href),
+          'nav-contact-link': item.id === 'contact',
+        }"
         :to="localizePath(item.href)"
         :aria-current="
           route.path === localizePath(item.href) ? 'page' : undefined
@@ -197,29 +247,6 @@ onBeforeUnmount(() => {
       >
         {{ item.label }}
       </NuxtLink>
-
-      <div
-        class="nav-languages"
-        role="group"
-        :aria-label="copy.questionnairesAriaLabel"
-      >
-        <NuxtLink
-          v-for="item in languageLinks"
-          :key="item.href"
-          :to="item.href"
-          :aria-label="
-            copy.questionnaireLinkAriaLabel.replace('{language}', item.language)
-          "
-          :aria-current="locale === item.code ? 'page' : undefined"
-        >
-          <span class="language-short" aria-hidden="true">{{
-            item.label
-          }}</span>
-          <span class="language-full">{{ item.language }}</span>
-        </NuxtLink>
-      </div>
-
-      <ContactActions class="nav-contact-actions" compact />
     </nav>
 
     <button
