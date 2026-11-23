@@ -166,6 +166,26 @@ describe("generated static site", () => {
     }
   });
 
+  it("renders other-services body content in every language", () => {
+    const expectedCopy = {
+      en: ["Areas of assistance", "Tell us what brings you here."],
+      es: ["Áreas de asistencia", "Cuéntenos qué le trae por aquí."],
+      pt: ["Áreas de assistência", "Conte-nos o que o trouxe aqui."],
+    } as const;
+
+    for (const [prefix, copy] of Object.entries(expectedCopy)) {
+      const html = readFileSync(
+        routeFile(
+          prefix === "en" ? "/other-services" : `/${prefix}/other-services`
+        ),
+        "utf8"
+      );
+      expect(html).toContain('class="content-card-grid editorial-card-grid"');
+      expect(html).toContain('class="narrative-copy"');
+      for (const value of copy) expect(html).toContain(value);
+    }
+  });
+
   it("renders the detailed contact experience", () => {
     const contactHtml = readFileSync(routeFile("/contact"), "utf8");
     expect(contactHtml).toContain("Choose the easiest way to reach the office");
