@@ -212,6 +212,9 @@ entries:
   - path: about.mark
     source: BM
     value: BM
+  - path: about.imageAlt
+    source: Brian M. Miranda, Esq.
+    value: Brian M. Miranda, Esq.
   - path: about.eyebrow
     source: Meet Brian Miranda
     value: Conheça Brian Miranda

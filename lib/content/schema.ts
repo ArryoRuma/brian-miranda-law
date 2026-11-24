@@ -494,6 +494,8 @@ export const rawSiteContentSchema = z.object({
     }),
     about: z.object({
       mark: text,
+      image: assetPath,
+      imageAlt: text,
       eyebrow: text,
       title: text,
       body: text,

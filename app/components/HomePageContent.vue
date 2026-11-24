@@ -288,9 +288,15 @@ useSchemaOrg([
     </section>
 
     <section class="home-about-section">
-      <div class="home-about-mark" aria-hidden="true">
-        <UserRound :size="48" />
-        <span>{{ content.about.mark }}</span>
+      <div class="home-about-mark">
+        <NuxtImg
+          :src="content.about.image"
+          :alt="content.about.imageAlt"
+          width="1352"
+          height="1082"
+          sizes="xs:100vw md:40vw lg:480px"
+          loading="lazy"
+        />
       </div>
       <div>
         <SectionEyebrow tone="dark">{{ content.about.eyebrow }}</SectionEyebrow>

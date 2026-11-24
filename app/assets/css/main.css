@@ -1291,18 +1291,16 @@ h2 em {
   min-height: 310px;
   background: var(--sand);
   border: 1px solid rgba(26, 44, 55, 0.16);
-  display: grid;
-  place-items: center;
   position: relative;
-  color: var(--teal);
+  overflow: hidden;
 }
-.home-about-mark span {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  font-family: "DM Serif Display", serif;
-  font-size: 44px;
-  color: var(--brass);
+.home-about-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 310px;
+  object-fit: cover;
+  object-position: center top;
 }
 .home-about-section h2,
 .home-other-services-section h2 {
@@ -2034,6 +2032,9 @@ h2 em {
     padding: 76px 24px;
   }
   .home-about-mark {
+    min-height: 245px;
+  }
+  .home-about-mark img {
     min-height: 245px;
   }
   .home-other-services-section > div:last-child,
@@ -3031,7 +3032,8 @@ main[tabindex="-1"]:focus {
   }
 
   .home-about-mark {
-    display: none;
+    display: block;
+    margin-bottom: 36px;
   }
 
   .home-language-section .language-card-grid,
