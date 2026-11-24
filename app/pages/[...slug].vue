@@ -39,10 +39,21 @@ function resolvePage(basePath: string): PageKind | undefined {
 const page = computed(() =>
   resolvePage(normalizeContentBaseRoutePath(route.path))
 );
-if (!page.value) {
+if (import.meta.server && !page.value) {
   throw createError({
     statusCode: 404,
     statusMessage: siteCopy.value.error404.heading,
+  });
+}
+
+if (import.meta.client) {
+  onNuxtReady(() => {
+    if (!page.value) {
+      showError({
+        statusCode: 404,
+        statusMessage: siteCopy.value.error404.heading,
+      });
+    }
   });
 }
 
@@ -90,7 +101,7 @@ defineOgImage("NuxtSeo.takumi", {
 </script>
 
 <template>
-  <div>
+  <div v-if="page">
     <AboutPageContent v-if="page.type === 'about'" :content="page.content" />
     <EditorialPage
       v-else-if="page.type === 'editorial'"
