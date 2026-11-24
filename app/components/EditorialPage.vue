@@ -6,7 +6,7 @@ const props = defineProps<{ content: SitePageContent }>();
 const siteCopy = useSiteCopy();
 
 const schema = buildEditorialPageSchema(siteCopy.value, props.content);
-if (schema.length) useSchemaOrg(schema);
+useSchemaOrg(schema);
 </script>
 
 <template>
