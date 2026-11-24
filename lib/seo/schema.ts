@@ -9,11 +9,26 @@ import { getLocationPath, locationHubPath } from "../content/schema";
 type SchemaNode = Record<string, unknown>;
 
 export const getSchemaIds = (siteUrl: string) => ({
+  website: `${siteUrl}/#website`,
   attorney: `${siteUrl}/#brian-miranda`,
   legalService: `${siteUrl}/#legal-service`,
   offerCatalog: `${siteUrl}/#legal-services`,
   state: `${siteUrl}/#new-jersey`,
 });
+
+export function buildWebsiteNode(content: SiteContent): SchemaNode {
+  const { site } = content;
+  const ids = getSchemaIds(site.url);
+  return {
+    "@type": "WebSite",
+    "@id": ids.website,
+    url: `${site.url}/`,
+    name: site.name,
+    description: site.description,
+    publisher: { "@id": ids.legalService },
+    inLanguage: ["en-US", "es", "pt"],
+  };
+}
 
 const slugify = (value: string) =>
   value

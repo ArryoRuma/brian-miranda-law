@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import { buildAttorneyNode } from "~~/lib/seo/schema";
+import { buildAttorneyNode, buildWebsiteNode } from "~~/lib/seo/schema";
 
 const siteCopy = useSiteCopy();
 const site = computed(() => siteCopy.value.site);
 
-useSchemaOrg([buildAttorneyNode(siteCopy.value)]);
+useSchemaOrg([
+  buildWebsiteNode(siteCopy.value),
+  buildAttorneyNode(siteCopy.value),
+]);
 
 const startAnalytics = () => {
   const initialization = document.createElement("script");

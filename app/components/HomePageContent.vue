@@ -80,6 +80,11 @@ const pageSchema = props.location
       {
         "@type": "WebPage",
         "@id": `${site.value.url}${route.path === "/" ? "/" : route.path}#webpage`,
+        url: `${site.value.url}${route.path === "/" ? "/" : route.path}`,
+        name: pageTitle.value,
+        description: pageDescription.value,
+        isPartOf: { "@id": getSchemaIds(site.value.url).website },
+        inLanguage: locale.value === "en" ? "en-US" : locale.value,
         mainEntity: { "@id": getSchemaIds(site.value.url).legalService },
         about: { "@id": getSchemaIds(site.value.url).offerCatalog },
       },
