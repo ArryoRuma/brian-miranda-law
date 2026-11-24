@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { SitePageContent } from "~/types/content";
-import { normalizeContentRoutePath } from "~~/lib/content/localization";
+import { normalizeContentBaseRoutePath } from "~~/lib/content/localization";
 
 type LegalPageKey = "privacy" | "cookies" | "disclaimer" | "accessibility";
 type PageKind =
@@ -12,20 +12,9 @@ type PageKind =
   | { type: "legal"; page: LegalPageKey };
 
 const route = useRoute();
-const { localizePath } = useSiteLocale();
 const siteCopy = useSiteCopy();
 
-const editorialPages = Object.fromEntries(
-  Object.values(siteCopy.value.pages).map(page => [
-    localizePath(page.path),
-    page,
-  ])
-) as Record<string, SitePageContent>;
-
-function resolvePage(
-  basePath: string,
-  localizedPath: string
-): PageKind | undefined {
+function resolvePage(basePath: string): PageKind | undefined {
   if (basePath === "/contact") return { type: "contact" };
   if (basePath === "/resources/estate-planning-faqs") return { type: "faq" };
   if (basePath === "/resources/estate-planning-checklist")
@@ -37,21 +26,20 @@ function resolvePage(
     return { type: "legal", page: legal };
   }
 
-  if (editorialPages[localizedPath])
+  const editorialPage = Object.values(siteCopy.value.pages).find(
+    page => normalizeContentBaseRoutePath(page.path) === basePath
+  );
+  if (editorialPage)
     return {
-      type: editorialPages[localizedPath].layout ? "about" : "editorial",
-      content: editorialPages[localizedPath],
+      type: editorialPage.layout ? "about" : "editorial",
+      content: editorialPage,
     };
 }
 
-const slug = Array.isArray(route.params.slug)
-  ? route.params.slug.join("/")
-  : String(route.params.slug ?? "");
-const page = resolvePage(
-  normalizeContentRoutePath(`/${slug}`),
-  normalizeContentRoutePath(route.path)
+const page = computed(() =>
+  resolvePage(normalizeContentBaseRoutePath(route.path))
 );
-if (!page) {
+if (!page.value) {
   throw createError({
     statusCode: 404,
     statusMessage: siteCopy.value.error404.heading,
@@ -59,32 +47,37 @@ if (!page) {
 }
 
 const ogImageTitle = computed(() => {
-  if (page.type === "editorial" || page.type === "about")
-    return page.content.title;
-  if (page.type === "contact") return siteCopy.value.contactPage.intro.title;
-  if (page.type === "faq") return siteCopy.value.resources.faq.seo.title;
-  if (page.type === "checklist")
+  if (page.value?.type === "editorial" || page.value?.type === "about")
+    return page.value.content.title;
+  if (page.value?.type === "contact")
+    return siteCopy.value.contactPage.intro.title;
+  if (page.value?.type === "faq") return siteCopy.value.resources.faq.seo.title;
+  if (page.value?.type === "checklist")
     return siteCopy.value.resources.checklist.seo.title;
-  if (page.type === "video") return siteCopy.value.resources.video.seo.title;
-  if (page.type === "legal")
+  if (page.value?.type === "video")
+    return siteCopy.value.resources.video.seo.title;
+  if (page.value?.type === "legal")
     return (
-      siteCopy.value.legal[page.page]?.title ?? siteCopy.value.site.defaultTitle
+      siteCopy.value.legal[page.value.page]?.title ??
+      siteCopy.value.site.defaultTitle
     );
   return siteCopy.value.site.defaultTitle;
 });
 
 const ogImageDescription = computed(() => {
-  if (page.type === "editorial" || page.type === "about")
-    return page.content.metaDescription;
-  if (page.type === "contact") return siteCopy.value.contactPage.intro.body;
-  if (page.type === "faq") return siteCopy.value.resources.faq.seo.description;
-  if (page.type === "checklist")
+  if (page.value?.type === "editorial" || page.value?.type === "about")
+    return page.value.content.metaDescription;
+  if (page.value?.type === "contact")
+    return siteCopy.value.contactPage.intro.body;
+  if (page.value?.type === "faq")
+    return siteCopy.value.resources.faq.seo.description;
+  if (page.value?.type === "checklist")
     return siteCopy.value.resources.checklist.seo.description;
-  if (page.type === "video")
+  if (page.value?.type === "video")
     return siteCopy.value.resources.video.seo.description;
-  if (page.type === "legal")
+  if (page.value?.type === "legal")
     return (
-      siteCopy.value.legal[page.page]?.description ??
+      siteCopy.value.legal[page.value.page]?.description ??
       siteCopy.value.site.defaultTitle
     );
   return siteCopy.value.site.defaultTitle;

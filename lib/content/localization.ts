@@ -219,6 +219,11 @@ export function normalizeContentRoutePath(pathname: string) {
   return pathname.replace(/\/+$/, "") || "/";
 }
 
+export function normalizeContentBaseRoutePath(pathname: string) {
+  const normalized = normalizeContentRoutePath(pathname);
+  return normalized.replace(/^\/(?:es|pt)(?=\/|$)/, "") || "/";
+}
+
 export function getLocalizedPublicRoutes(
   englishRoutes: string[],
   locale: Locale

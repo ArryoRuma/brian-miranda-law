@@ -5,7 +5,10 @@ import {
   getWhatsAppHref,
   normalizePhoneDigits,
 } from "../../app/data/routes";
-import { normalizeContentRoutePath } from "../../lib/content/localization";
+import {
+  normalizeContentBaseRoutePath,
+  normalizeContentRoutePath,
+} from "../../lib/content/localization";
 
 describe("contact route helpers", () => {
   it("normalizes phone formatting to digits", () => {
@@ -26,5 +29,18 @@ describe("content route normalization", () => {
     expect(normalizeContentRoutePath("/about/")).toBe("/about");
     expect(normalizeContentRoutePath("/es/about///")).toBe("/es/about");
     expect(normalizeContentRoutePath("/")).toBe("/");
+  });
+
+  it("resolves localized routes to the same content path", () => {
+    expect(normalizeContentBaseRoutePath("/estate-planning/wills")).toBe(
+      "/estate-planning/wills"
+    );
+    expect(normalizeContentBaseRoutePath("/es/estate-planning/wills/")).toBe(
+      "/estate-planning/wills"
+    );
+    expect(normalizeContentBaseRoutePath("/pt/other-services")).toBe(
+      "/other-services"
+    );
+    expect(normalizeContentBaseRoutePath("/es")).toBe("/");
   });
 });
