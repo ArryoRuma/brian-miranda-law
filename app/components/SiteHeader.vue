@@ -258,9 +258,6 @@ onBeforeUnmount(() => {
       @click="closeMobileMenu(true)"
     />
   </header>
-  <aside class="mobile-contact-bar" :aria-label="copy.quickContactAriaLabel">
-    <ContactActions compact />
-  </aside>
 </template>
 
 <style scoped>
