@@ -1,13 +1,8 @@
-import { getPublicRoutes } from "../../lib/content/schema";
+import { getPublicPageRoutes } from "../../lib/content/page-routes";
 
 export default defineEventHandler(async event => {
-  const { siteCopy, blogPosts } = await queryRepositoryContent(event);
-  const publicPages = [
-    ...getPublicRoutes(siteCopy),
-    ...(blogPosts.length
-      ? [siteCopy.blog.path, ...blogPosts.map(post => `/blog/${post.slug}`)]
-      : []),
-  ];
+  const repository = await queryRepositoryContent(event);
+  const { siteCopy } = repository;
 
   return {
     version: "1.0",
@@ -19,7 +14,7 @@ export default defineEventHandler(async event => {
       telephone: siteCopy.site.contact.phoneHref,
       email: siteCopy.site.contact.email,
     },
-    publicPages,
+    publicPages: getPublicPageRoutes(repository),
     tools: [],
     notice:
       "Website information is general and does not create an attorney-client relationship. No public agent or legal-advice API is offered.",

@@ -1,11 +1,6 @@
-import { getPublicRoutes } from "../../../lib/content/schema";
+import { getPublicPageRoutes } from "../../../lib/content/page-routes";
 
 export default defineEventHandler(async event => {
-  const { siteCopy, blogPosts } = await queryRepositoryContent(event);
-  return [
-    ...getPublicRoutes(siteCopy),
-    ...(blogPosts.length
-      ? [siteCopy.blog.path, ...blogPosts.map(post => `/blog/${post.slug}`)]
-      : []),
-  ].map(loc => ({ loc }));
+  const repository = await queryRepositoryContent(event);
+  return getPublicPageRoutes(repository).map(loc => ({ loc }));
 });

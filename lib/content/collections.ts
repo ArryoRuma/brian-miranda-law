@@ -67,6 +67,40 @@ export type RepositoryContent = {
   blogPosts: PublishedBlogPost[];
 };
 
+type CollectionName = keyof RepositoryCollectionDocuments;
+
+const repositoryCollections: Record<CollectionName, true> = {
+  site: true,
+  home: true,
+  locations: true,
+  pages: true,
+  resourceFaq: true,
+  resourceChecklist: true,
+  resourceVideo: true,
+  blogSettings: true,
+  contactPage: true,
+  legal: true,
+  questionnaire: true,
+  nextSteps: true,
+  error404: true,
+  translationReview: true,
+  translationsEs: true,
+  translationsPt: true,
+  articles: true,
+};
+
+export async function loadContentCollections(
+  query: (name: CollectionName) => Promise<unknown[]>
+) {
+  const names = Object.keys(repositoryCollections) as CollectionName[];
+  const entries = await Promise.all(
+    names.map(async name => [name, await query(name)] as const)
+  );
+  return assembleRepositoryContent(
+    Object.fromEntries(entries) as RepositoryCollectionDocuments
+  );
+}
+
 function only<T>(documents: T[], label: string): T {
   if (documents.length !== 1) {
     throw new Error(`${label} collection must contain exactly one document`);

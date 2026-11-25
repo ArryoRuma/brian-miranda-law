@@ -2,7 +2,13 @@
 import type { SitePageContent } from "~/types/content";
 import { normalizeContentBaseRoutePath } from "~~/lib/content/localization";
 
-type LegalPageKey = "privacy" | "cookies" | "disclaimer" | "accessibility";
+const legalPageKeys = [
+  "privacy",
+  "cookies",
+  "disclaimer",
+  "accessibility",
+] as const;
+type LegalPageKey = (typeof legalPageKeys)[number];
 type PageKind =
   | { type: "editorial" | "about"; content: SitePageContent }
   | { type: "contact" }
@@ -11,28 +17,50 @@ type PageKind =
   | { type: "video" }
   | { type: "legal"; page: LegalPageKey };
 
+type ResolvedPage = PageKind & {
+  socialCopy: { title: string; description: string };
+};
+
 const route = useRoute();
 const siteCopy = useSiteCopy();
 
-function resolvePage(basePath: string): PageKind | undefined {
-  if (basePath === "/contact") return { type: "contact" };
-  if (basePath === "/resources/estate-planning-faqs") return { type: "faq" };
+function resolvePage(basePath: string): ResolvedPage | undefined {
+  const { site, contactPage, resources, legal, pages } = siteCopy.value;
+  if (basePath === "/contact") {
+    const { title, body } = contactPage.intro;
+    return { type: "contact", socialCopy: { title, description: body } };
+  }
+  if (basePath === "/resources/estate-planning-faqs")
+    return { type: "faq", socialCopy: resources.faq.seo };
   if (basePath === "/resources/estate-planning-checklist")
-    return { type: "checklist" };
-  if (basePath === "/resources/video-blog") return { type: "video" };
+    return { type: "checklist", socialCopy: resources.checklist.seo };
+  if (basePath === "/resources/video-blog")
+    return { type: "video", socialCopy: resources.video.seo };
 
-  const legal = basePath.slice(1) as LegalPageKey;
-  if (["privacy", "cookies", "disclaimer", "accessibility"].includes(legal)) {
-    return { type: "legal", page: legal };
+  const legalPage = legalPageKeys.find(key => basePath === `/${key}`);
+  if (legalPage) {
+    const content = legal[legalPage];
+    return {
+      type: "legal",
+      page: legalPage,
+      socialCopy: {
+        title: content?.title ?? site.defaultTitle,
+        description: content?.description ?? site.defaultTitle,
+      },
+    };
   }
 
-  const editorialPage = Object.values(siteCopy.value.pages).find(
+  const editorialPage = Object.values(pages).find(
     page => normalizeContentBaseRoutePath(page.path) === basePath
   );
   if (editorialPage)
     return {
       type: editorialPage.layout ? "about" : "editorial",
       content: editorialPage,
+      socialCopy: {
+        title: editorialPage.title,
+        description: editorialPage.metaDescription,
+      },
     };
 }
 
@@ -57,46 +85,11 @@ if (import.meta.client) {
   });
 }
 
-const ogImageTitle = computed(() => {
-  if (page.value?.type === "editorial" || page.value?.type === "about")
-    return page.value.content.title;
-  if (page.value?.type === "contact")
-    return siteCopy.value.contactPage.intro.title;
-  if (page.value?.type === "faq") return siteCopy.value.resources.faq.seo.title;
-  if (page.value?.type === "checklist")
-    return siteCopy.value.resources.checklist.seo.title;
-  if (page.value?.type === "video")
-    return siteCopy.value.resources.video.seo.title;
-  if (page.value?.type === "legal")
-    return (
-      siteCopy.value.legal[page.value.page]?.title ??
-      siteCopy.value.site.defaultTitle
-    );
-  return siteCopy.value.site.defaultTitle;
-});
-
-const ogImageDescription = computed(() => {
-  if (page.value?.type === "editorial" || page.value?.type === "about")
-    return page.value.content.metaDescription;
-  if (page.value?.type === "contact")
-    return siteCopy.value.contactPage.intro.body;
-  if (page.value?.type === "faq")
-    return siteCopy.value.resources.faq.seo.description;
-  if (page.value?.type === "checklist")
-    return siteCopy.value.resources.checklist.seo.description;
-  if (page.value?.type === "video")
-    return siteCopy.value.resources.video.seo.description;
-  if (page.value?.type === "legal")
-    return (
-      siteCopy.value.legal[page.value.page]?.description ??
-      siteCopy.value.site.defaultTitle
-    );
-  return siteCopy.value.site.defaultTitle;
-});
-
+const socialCopy = page.value?.socialCopy;
+const defaultTitle = siteCopy.value.site.defaultTitle;
 defineOgImage("NuxtSeo.takumi", {
-  title: ogImageTitle.value,
-  description: ogImageDescription.value,
+  title: socialCopy?.title ?? defaultTitle,
+  description: socialCopy?.description ?? defaultTitle,
 });
 </script>
 
