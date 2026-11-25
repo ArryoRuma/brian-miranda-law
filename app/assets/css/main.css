@@ -1886,9 +1886,7 @@ h2 em {
   .process-image {
     min-height: 400px;
   }
-  .process-copy {
-    padding: 80px 24px;
-  }
+  .process-copy,
   .faq-section {
     padding: 80px 24px;
   }
@@ -1983,9 +1981,7 @@ h2 em {
   .home-reviews-section {
     padding: 76px 24px;
   }
-  .home-about-mark {
-    min-height: 245px;
-  }
+  .home-about-mark,
   .home-about-mark img {
     min-height: 245px;
   }
